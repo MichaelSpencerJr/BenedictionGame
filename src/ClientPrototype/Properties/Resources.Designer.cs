@@ -93,46 +93,6 @@ namespace Benediction.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Blue_2_Stack {
-            get {
-                object obj = ResourceManager.GetObject("Blue_2_Stack", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Blue_3_Stack {
-            get {
-                object obj = ResourceManager.GetObject("Blue_3_Stack", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Blue_4_stack {
-            get {
-                object obj = ResourceManager.GetObject("Blue_4_stack", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Blue_King {
-            get {
-                object obj = ResourceManager.GetObject("Blue_King", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Blue_Man {
             get {
                 object obj = ResourceManager.GetObject("Blue_Man", resourceCulture);
@@ -163,36 +123,6 @@ namespace Benediction.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Red_3_Stack {
-            get {
-                object obj = ResourceManager.GetObject("Red_3_Stack", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Red_4_Stack {
-            get {
-                object obj = ResourceManager.GetObject("Red_4_Stack", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Red_King {
-            get {
-                object obj = ResourceManager.GetObject("Red_King", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Red_Man {
             get {
                 object obj = ResourceManager.GetObject("Red_Man", resourceCulture);
@@ -203,9 +133,9 @@ namespace Benediction.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Red_Two_Stack {
+        internal static System.Drawing.Bitmap Select {
             get {
-                object obj = ResourceManager.GetObject("Red_Two_Stack", resourceCulture);
+                object obj = ResourceManager.GetObject("Select", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

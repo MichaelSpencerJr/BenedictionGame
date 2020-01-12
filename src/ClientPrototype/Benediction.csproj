@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardCell.cs" />
+    <Compile Include="BoardPainter.cs" />
+    <Compile Include="BoardState.cs" />
+    <Compile Include="BoardStateFlags.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="BoardLocation.cs" />
     <Compile Include="Main.cs">
@@ -79,7 +82,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\Benediction_PNP.pdf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -88,18 +90,11 @@
     <Content Include="Resources\BenedictionBoard.png" />
     <Content Include="Resources\Blessing.png" />
     <Content Include="Resources\Blockade.png" />
-    <Content Include="Resources\Blue_2_Stack.png" />
-    <Content Include="Resources\Blue_3_Stack.png" />
-    <Content Include="Resources\Blue_4_stack.png" />
-    <Content Include="Resources\Blue_King.png" />
     <Content Include="Resources\Blue_Man.png" />
     <Content Include="Resources\Curse.png" />
     <Content Include="Resources\King.png" />
-    <Content Include="Resources\Red_3_Stack.png" />
-    <Content Include="Resources\Red_4_Stack.png" />
-    <Content Include="Resources\Red_King.png" />
     <Content Include="Resources\Red_Man.png" />
-    <Content Include="Resources\Red_Two_Stack.png" />
+    <Content Include="Resources\Select.png" />
     <Content Include="Resources\StartingPoint.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
