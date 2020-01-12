@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Benediction
+﻿namespace Benediction.Board
 {
     /// <summary>
     /// Encodes a board location as a nine bit X-Y coordinate on a hex board.
@@ -14,7 +8,7 @@ namespace Benediction
     /// Row 2 has spaces in columns C, E, and G, but not in D or F.
     /// The bottom-most position, E1, is row 16.
     /// </summary>
-    public enum BoardLocation : ushort
+    public enum Location : ushort
     {
         Undefined = 0,
         A1 = 0xC0,

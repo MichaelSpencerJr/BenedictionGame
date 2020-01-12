@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Benediction;
+using Benediction.Actions;
+using Benediction.Board;
 using NUnit.Framework;
 
 namespace Testing.Unit
@@ -9,28 +11,28 @@ namespace Testing.Unit
     public class MovementFixture
     {
         [TestCaseSource(nameof(NorthSouthCases))]
-        public void NorthSouthMovementTest(BoardLocation south, BoardLocation north, bool isLegal)
+        public void NorthSouthMovementTest(Location south, Location north, bool isLegal)
         {
             MovementTestInternal(south, north, Movement.North, isLegal, nameof(Movement.North));
             MovementTestInternal(north, south, Movement.South, isLegal, nameof(Movement.South));
         }
 
         [TestCaseSource(nameof(NorthEastSouthWestCases))]
-        public void NorthEastSouthWestMovementTest(BoardLocation southWest, BoardLocation northEast, bool isLegal, bool isReciprocal)
+        public void NorthEastSouthWestMovementTest(Location southWest, Location northEast, bool isLegal, bool isReciprocal)
         {
             MovementTestInternal(southWest, northEast, Movement.NorthEast, isLegal, nameof(Movement.NorthEast));
             MovementTestInternal(northEast, southWest, Movement.SouthWest, isLegal && isReciprocal, nameof(Movement.SouthWest));
         }
 
         [TestCaseSource(nameof(NorthWestSouthEastCases))]
-        public void NorthWestSouthEastMovementTest(BoardLocation southEast, BoardLocation northWest, bool isLegal, bool isReciprocal)
+        public void NorthWestSouthEastMovementTest(Location southEast, Location northWest, bool isLegal, bool isReciprocal)
         {
             MovementTestInternal(southEast, northWest, Movement.NorthWest, isLegal, nameof(Movement.NorthWest));
             MovementTestInternal(northWest, southEast, Movement.SouthEast, isLegal && isReciprocal, nameof(Movement.SouthEast));
         }
 
-        private void MovementTestInternal(BoardLocation from, BoardLocation to,
-            Func<BoardLocation, BoardLocation> moverFunc, bool isLegal, string moveName)
+        private void MovementTestInternal(Location from, Location to,
+            Func<Location, Location> moverFunc, bool isLegal, string moveName)
         {
             try
             {
@@ -51,11 +53,11 @@ namespace Testing.Unit
         {
             var cases = new List<object[]>();
 
-            cases.Add(new object[] { BoardLocation.A5, BoardLocation.A1, true});
-            cases.Add(new object[] { BoardLocation.B2, BoardLocation.B3, true});
-            cases.Add(new object[] { BoardLocation.F7, BoardLocation.F8, true});
-            cases.Add(new object[] { BoardLocation.E9, BoardLocation.E1, true});
-            cases.Add(new object[] { BoardLocation.I1, BoardLocation.I2, true});
+            cases.Add(new object[] { Location.A5, Location.A1, true});
+            cases.Add(new object[] { Location.B2, Location.B3, true});
+            cases.Add(new object[] { Location.F7, Location.F8, true});
+            cases.Add(new object[] { Location.E9, Location.E1, true});
+            cases.Add(new object[] { Location.I1, Location.I2, true});
 
             return cases;
         }
@@ -64,11 +66,11 @@ namespace Testing.Unit
         {
             var cases = new List<object[]>();
 
-            cases.Add(new object[] { BoardLocation.E9, BoardLocation.A5, true, false});
-            cases.Add(new object[] { BoardLocation.A3, BoardLocation.B4, true, true});
-            cases.Add(new object[] { BoardLocation.I2, BoardLocation.Undefined, false, false});
-            cases.Add(new object[] { BoardLocation.I5, BoardLocation.A1, true, true});
-            cases.Add(new object[] { BoardLocation.A5, BoardLocation.B6, true, true});
+            cases.Add(new object[] { Location.E9, Location.A5, true, false});
+            cases.Add(new object[] { Location.A3, Location.B4, true, true});
+            cases.Add(new object[] { Location.I2, Location.Undefined, false, false});
+            cases.Add(new object[] { Location.I5, Location.A1, true, true});
+            cases.Add(new object[] { Location.A5, Location.B6, true, true});
 
             return cases;
         }
@@ -77,11 +79,11 @@ namespace Testing.Unit
         {
             var cases = new List<object[]>();
 
-            cases.Add(new object[] { BoardLocation.E9, BoardLocation.I5, true, false});
-            cases.Add(new object[] { BoardLocation.A5, BoardLocation.I1, true, true});
-            cases.Add(new object[] { BoardLocation.A3, BoardLocation.Undefined, false, false});
-            cases.Add(new object[] { BoardLocation.I5, BoardLocation.H6, true, true});
-            cases.Add(new object[] { BoardLocation.F4, BoardLocation.E5, true, true});
+            cases.Add(new object[] { Location.E9, Location.I5, true, false});
+            cases.Add(new object[] { Location.A5, Location.I1, true, true});
+            cases.Add(new object[] { Location.A3, Location.Undefined, false, false});
+            cases.Add(new object[] { Location.I5, Location.H6, true, true});
+            cases.Add(new object[] { Location.F4, Location.E5, true, true});
 
             return cases;
         }

@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Benediction
+namespace Benediction.Board
 {
     [Flags]
-    public enum BoardStateFlags : byte
+    public enum StateFlags : byte
     {
         /// <summary>Unset - invalid</summary>
         Undefined = 0,

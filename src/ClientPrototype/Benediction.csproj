@@ -46,12 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoardCell.cs" />
-    <Compile Include="BoardPainter.cs" />
-    <Compile Include="BoardState.cs" />
-    <Compile Include="BoardStateFlags.cs" />
-    <Compile Include="Movement.cs" />
-    <Compile Include="BoardLocation.cs" />
+    <Compile Include="Actions\ActionSide.cs" />
+    <Compile Include="Actions\GameBlockAction.cs" />
+    <Compile Include="Actions\GameDropAction.cs" />
+    <Compile Include="Actions\GameMergeAction.cs" />
+    <Compile Include="Actions\GameMoveAction.cs" />
+    <Compile Include="Actions\GameSplitAction.cs" />
+    <Compile Include="Actions\GameTargetAction.cs" />
+    <Compile Include="Board\Cell.cs" />
+    <Compile Include="Board\Painter.cs" />
+    <Compile Include="Board\State.cs" />
+    <Compile Include="Board\StateFlags.cs" />
+    <Compile Include="Actions\GameAction.cs" />
+    <Compile Include="Actions\Movement.cs" />
+    <Compile Include="Board\Location.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

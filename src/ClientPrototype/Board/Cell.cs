@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Benediction
+namespace Benediction.Board
 {
     /// <summary>Current state of a cell on the game board</summary>
     [Flags]
-    public enum BoardCell : ushort
+    public enum Cell : ushort
     {
         /// <summary>0 indicates empty cell</summary>
         Empty = 0,

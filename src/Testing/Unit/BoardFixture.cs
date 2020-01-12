@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Benediction.Actions;
+using Benediction.Board;
 using NUnit.Framework;
 
 namespace Testing.Unit
@@ -10,7 +12,7 @@ namespace Testing.Unit
         public void ValidBoardLocation(int row, int column, bool isValid)
         {
             var targetLocation = row * 16 + column;
-            Assert.AreEqual(isValid, Benediction.Movement.IsValidLocation((Benediction.BoardLocation) targetLocation));
+            Assert.AreEqual(isValid, Movement.IsValidLocation((Location) targetLocation));
         }
 
         public static List<object[]> BoardLocationCases()

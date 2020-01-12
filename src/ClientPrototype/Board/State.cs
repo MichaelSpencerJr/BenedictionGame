@@ -1,34 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
 using System.IO.Compression;
+using System.Security.Cryptography;
 
-namespace Benediction
+namespace Benediction.Board
 {
     /// <summary>
     /// Represents a snapshot of a game board, with all of its pieces.
     /// </summary>
-    public class BoardState : Dictionary<BoardLocation, BoardCell>
+    public class State : Dictionary<Location, Cell>
     {
-        public static readonly BoardLocation[] AllBoardLocations =
+        public static readonly Location[] AllBoardLocations =
         {
-            BoardLocation.A1, BoardLocation.A2, BoardLocation.A3, BoardLocation.A4, BoardLocation.A5, BoardLocation.B1,
-            BoardLocation.B2, BoardLocation.B3, BoardLocation.B4, BoardLocation.B5, BoardLocation.B6, BoardLocation.C1,
-            BoardLocation.C2, BoardLocation.C3, BoardLocation.C4, BoardLocation.C5, BoardLocation.C6, BoardLocation.C7,
-            BoardLocation.D1, BoardLocation.D2, BoardLocation.D3, BoardLocation.D4, BoardLocation.D5, BoardLocation.D6,
-            BoardLocation.D7, BoardLocation.D8, BoardLocation.E1, BoardLocation.E2, BoardLocation.E3, BoardLocation.E4,
-            BoardLocation.E5, BoardLocation.E6, BoardLocation.E7, BoardLocation.E8, BoardLocation.E9, BoardLocation.F1,
-            BoardLocation.F2, BoardLocation.F3, BoardLocation.F4, BoardLocation.F5, BoardLocation.F6, BoardLocation.F7,
-            BoardLocation.F8, BoardLocation.G1, BoardLocation.G2, BoardLocation.G3, BoardLocation.G4, BoardLocation.G5,
-            BoardLocation.G6, BoardLocation.G7, BoardLocation.H1, BoardLocation.H2, BoardLocation.H3, BoardLocation.H4,
-            BoardLocation.H5, BoardLocation.H6, BoardLocation.I1, BoardLocation.I2, BoardLocation.I3, BoardLocation.I4,
-            BoardLocation.I5,
+            Location.A1, Location.A2, Location.A3, Location.A4, Location.A5, Location.B1,
+            Location.B2, Location.B3, Location.B4, Location.B5, Location.B6, Location.C1,
+            Location.C2, Location.C3, Location.C4, Location.C5, Location.C6, Location.C7,
+            Location.D1, Location.D2, Location.D3, Location.D4, Location.D5, Location.D6,
+            Location.D7, Location.D8, Location.E1, Location.E2, Location.E3, Location.E4,
+            Location.E5, Location.E6, Location.E7, Location.E8, Location.E9, Location.F1,
+            Location.F2, Location.F3, Location.F4, Location.F5, Location.F6, Location.F7,
+            Location.F8, Location.G1, Location.G2, Location.G3, Location.G4, Location.G5,
+            Location.G6, Location.G7, Location.H1, Location.H2, Location.H3, Location.H4,
+            Location.H5, Location.H6, Location.I1, Location.I2, Location.I3, Location.I4,
+            Location.I5,
         };
 
         /// <summary>
@@ -64,28 +59,28 @@ namespace Benediction
         /// <summary>
         /// Location of red home space, if set
         /// </summary>
-        public BoardLocation RedHome { get; set; }
+        public Location RedHome { get; set; }
 
         /// <summary>
         /// Location of blue home space, if set
         /// </summary>
-        public BoardLocation BlueHome { get; set; }
+        public Location BlueHome { get; set; }
 
         /// <summary>
         /// Game state flags indicating win/lose conditions and what move happens next
         /// </summary>
-        public BoardStateFlags Flags { get; set; }
+        public StateFlags Flags { get; set; }
 
         private static SHA256 _hasher = SHA256.Create();
 
         /// <summary>
         /// Creates an empty BoardState with no homes or pieces
         /// </summary>
-        public BoardState() : base(AllBoardLocations.Length)
+        public State() : base(AllBoardLocations.Length)
         {
             foreach (var key in AllBoardLocations)
             {
-                this[key] = BoardCell.Empty;
+                this[key] = Cell.Empty;
             }
         }
 
@@ -93,7 +88,7 @@ namespace Benediction
         /// Decodes a BoardState from provided input bytes
         /// </summary>
         /// <param name="boardBuffer">127-byte buffer containing board data</param>
-        public BoardState(byte[] boardBuffer) : base(AllBoardLocations.Length)
+        public State(byte[] boardBuffer) : base(AllBoardLocations.Length)
         {
             if (boardBuffer == null)
             {
@@ -103,17 +98,17 @@ namespace Benediction
             if (boardBuffer.Length != AllBoardLocations.Length * 2 + 5)
             {
                 throw new ArgumentOutOfRangeException(nameof(boardBuffer), boardBuffer.Length,
-                    $"Expected {AllBoardLocations.Length + 5} byte array for board info, got {boardBuffer.Length} bytes.");
+                    $"Expected {AllBoardLocations.Length * 2 + 5} byte array for board info, got {boardBuffer.Length} bytes.");
             }
 
             for (var i = 0; i < AllBoardLocations.Length * 2; i += 2)
             {
-                this[AllBoardLocations[i / 2]] = (BoardCell) BitConverter.ToUInt16(boardBuffer, i);
+                this[AllBoardLocations[i / 2]] = (Cell) BitConverter.ToUInt16(boardBuffer, i);
             }
 
-            RedHome = (BoardLocation) BitConverter.ToUInt16(boardBuffer, AllBoardLocations.Length);
-            BlueHome = (BoardLocation) BitConverter.ToUInt16(boardBuffer, AllBoardLocations.Length + 2);
-            Flags = (BoardStateFlags) boardBuffer[AllBoardLocations.Length + 4];
+            RedHome = (Location) BitConverter.ToUInt16(boardBuffer, AllBoardLocations.Length * 2);
+            BlueHome = (Location) BitConverter.ToUInt16(boardBuffer, AllBoardLocations.Length * 2 + 2);
+            Flags = (StateFlags) boardBuffer[AllBoardLocations.Length * 2 + 4];
         }
 
         /// <summary>
@@ -121,7 +116,7 @@ namespace Benediction
         /// </summary>
         /// <param name="base64Gz">Base 64 encoded board data</param>
         /// <returns>Decoded board</returns>
-        public static BoardState FromBase64Gz(string base64Gz)
+        public static State FromBase64Gz(string base64Gz)
         {
             byte[] decompressedBytes;
             using (var output = new MemoryStream())
@@ -145,7 +140,7 @@ namespace Benediction
             Array.ConstrainedCopy(decompressedBytes, 0, boardBytes, 0, boardBytes.Length);
             Array.ConstrainedCopy(decompressedBytes, AllBoardLocations.Length * 2 + 5, checksumBytes, 0, 16);
             var encodedChecksum = new Guid(checksumBytes);
-            var decodedBoard = new BoardState(boardBytes);
+            var decodedBoard = new State(boardBytes);
 
             if (encodedChecksum != decodedBoard.BoardId)
             {
@@ -171,8 +166,9 @@ namespace Benediction
             }
 
             Array.ConstrainedCopy(BitConverter.GetBytes((ushort) RedHome), 0, retval, AllBoardLocations.Length * 2, 2);
-            Array.ConstrainedCopy(BitConverter.GetBytes((ushort) BlueHome), 0, retval, AllBoardLocations.Length * 2 + 2, 2);
-            retval[AllBoardLocations.Length * 2 + 4] = (byte)Flags;
+            Array.ConstrainedCopy(BitConverter.GetBytes((ushort) BlueHome), 0, retval, AllBoardLocations.Length * 2 + 2,
+                2);
+            retval[AllBoardLocations.Length * 2 + 4] = (byte) Flags;
 
             return retval;
         }
