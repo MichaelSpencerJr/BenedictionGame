@@ -5,62 +5,68 @@ namespace Benediction.Actions
 {
     public static class Movement
     {
-        public static readonly Func<Location, Location>[] AllMoves =
+        public static readonly Func<Location, bool, bool, Location>[] AllMoves =
             {North, NorthEast, SouthEast, South, SouthWest, NorthWest};
 
-        public static Location North(Location from)
+        public static Location North(Location from, bool blueWallWrapAround, bool _)
         {
             if (!IsValidLocation(from))
                 throw new ArgumentOutOfRangeException(nameof(from), ((int) from).ToString("X2"),
                     "Movement requested from invalid cell.");
             switch (from)
             {
-                case Location.A5: return Location.A1;
-                case Location.B6: return Location.B1;
-                case Location.C7: return Location.C1;
-                case Location.D8: return Location.D1;
-                case Location.E9: return Location.E1;
-                case Location.F8: return Location.F1;
-                case Location.G7: return Location.G1;
-                case Location.H6: return Location.H1;
-                case Location.I5: return Location.I1;
+                case Location.A5: if (blueWallWrapAround) return Location.A1; break;
+                case Location.B6: if (blueWallWrapAround) return Location.B1; break;
+                case Location.C7: if (blueWallWrapAround) return Location.C1; break;
+                case Location.D8: if (blueWallWrapAround) return Location.D1; break;
+                case Location.E9: if (blueWallWrapAround) return Location.E1; break;
+                case Location.F8: if (blueWallWrapAround) return Location.F1; break;
+                case Location.G7: if (blueWallWrapAround) return Location.G1; break;
+                case Location.H6: if (blueWallWrapAround) return Location.H1; break;
+                case Location.I5: if (blueWallWrapAround) return Location.I1; break;
                 default: 
                     return from - 0x20;
             }
+
+            throw new ArgumentOutOfRangeException(nameof(from), ((int)from).ToString("X2"),
+                "Blue cannot move through Blue's own wall");
         }
 
-        public static Location South(Location from)
+        public static Location South(Location from, bool _, bool redWallWrapAround)
         {
             if (!IsValidLocation(from))
                 throw new ArgumentOutOfRangeException(nameof(from), ((int) from).ToString("X2"),
                     "Movement requested from invalid cell.");
             switch (from)
             {
-                case Location.A1: return Location.A5;
-                case Location.B1: return Location.B6;
-                case Location.C1: return Location.C7;
-                case Location.D1: return Location.D8;
-                case Location.E1: return Location.E9;
-                case Location.F1: return Location.F8;
-                case Location.G1: return Location.G7;
-                case Location.H1: return Location.H6;
-                case Location.I1: return Location.I5;
+                case Location.A1: if (redWallWrapAround) return Location.A5; break;
+                case Location.B1: if (redWallWrapAround) return Location.B6; break;
+                case Location.C1: if (redWallWrapAround) return Location.C7; break;
+                case Location.D1: if (redWallWrapAround) return Location.D8; break;
+                case Location.E1: if (redWallWrapAround) return Location.E9; break;
+                case Location.F1: if (redWallWrapAround) return Location.F8; break;
+                case Location.G1: if (redWallWrapAround) return Location.G7; break;
+                case Location.H1: if (redWallWrapAround) return Location.H6; break;
+                case Location.I1: if (redWallWrapAround) return Location.I5; break;
                 default: return from + 0x20;
             }
+  
+            throw new ArgumentOutOfRangeException(nameof(from), ((int)from).ToString("X2"),
+                "Red cannot move through Red's own wall");
         }
 
-        public static Location NorthEast(Location from) 
+        public static Location NorthEast(Location from, bool blueWallWrapAround, bool _) 
         {
             if (!IsValidLocation(from))
                 throw new ArgumentOutOfRangeException(nameof(from), ((int) from).ToString("X2"),
                     "Movement requested from invalid cell.");
             switch (from)
             {
-                case Location.E9: return Location.A5;
-                case Location.F8: return Location.A4;
-                case Location.G7: return Location.A3;
-                case Location.G6: return Location.A2;
-                case Location.I5: return Location.A1;
+                case Location.E9: if (blueWallWrapAround) return Location.A5; break;
+                case Location.F8: if (blueWallWrapAround) return Location.A4; break;
+                case Location.G7: if (blueWallWrapAround) return Location.A3; break;
+                case Location.G6: if (blueWallWrapAround) return Location.A2; break;
+                case Location.I5: if (blueWallWrapAround) return Location.A1; break;
                 case Location.I4:
                 case Location.I3:
                 case Location.I2:
@@ -69,20 +75,23 @@ namespace Benediction.Actions
                         "Invalid move departs board at east edge.");
                 default: return from - 0xF;
             }
+ 
+            throw new ArgumentOutOfRangeException(nameof(from), ((int)from).ToString("X2"),
+                "Blue cannot move through Blue's own wall");
         }
 
-        public static Location SouthEast(Location from)
+        public static Location SouthEast(Location from, bool blueWallWrapAround, bool redWallWrapAround)
         {
             if (!IsValidLocation(from))
                 throw new ArgumentOutOfRangeException(nameof(from), ((int) from).ToString("X2"),
                     "Movement requested from invalid cell.");
             switch (from)
             {
-                case Location.E1: return Location.A1;
-                case Location.F1: return Location.A2;
-                case Location.G1: return Location.A3;
-                case Location.H1: return Location.A4;
-                case Location.I1: return Location.A5;
+                case Location.E1: if (redWallWrapAround) return Location.A1; break;
+                case Location.F1: if (redWallWrapAround) return Location.A2; break;
+                case Location.G1: if (redWallWrapAround) return Location.A3; break;
+                case Location.H1: if (redWallWrapAround) return Location.A4; break;
+                case Location.I1: if (redWallWrapAround) return Location.A5; break;
                 case Location.I2:
                 case Location.I3:
                 case Location.I4:
@@ -91,20 +100,23 @@ namespace Benediction.Actions
                         "Invalid move departs board at east edge.");
                 default: return from + 0x11;
             }
+   
+            throw new ArgumentOutOfRangeException(nameof(from), ((int)from).ToString("X2"),
+                "Red cannot move through Red's own wall");
         }
 
-        public static Location NorthWest(Location from)
+        public static Location NorthWest(Location from, bool blueWallWrapAround, bool redWallWrapAround)
         {
             if (!IsValidLocation(from))
                 throw new ArgumentOutOfRangeException(nameof(from), ((int) from).ToString("X2"),
                     "Movement requested from invalid cell.");
             switch (from)
             {
-                case Location.A5: return Location.I1;
-                case Location.B6: return Location.I2;
-                case Location.C7: return Location.I3;
-                case Location.D8: return Location.I4;
-                case Location.E9: return Location.I5;
+                case Location.A5: if (blueWallWrapAround) return Location.I1; break;
+                case Location.B6: if (blueWallWrapAround) return Location.I2; break;
+                case Location.C7: if (blueWallWrapAround) return Location.I3; break;
+                case Location.D8: if (blueWallWrapAround) return Location.I4; break;
+                case Location.E9: if (blueWallWrapAround) return Location.I5; break;
                 case Location.A1:
                 case Location.A2:
                 case Location.A3:
@@ -113,20 +125,23 @@ namespace Benediction.Actions
                         "Invalid move departs board at west edge.");
                 default: return from - 0x11;
             }
+ 
+            throw new ArgumentOutOfRangeException(nameof(from), ((int)from).ToString("X2"),
+                "Blue cannot move through Blue's own wall");
         }
 
-        public static Location SouthWest(Location from)
+        public static Location SouthWest(Location from, bool blueWallWrapAround, bool redWallWrapAround)
         {
             if (!IsValidLocation(from))
                 throw new ArgumentOutOfRangeException(nameof(from), ((int) from).ToString("X2"),
                     "Movement requested from invalid cell.");
             switch (from)
             {
-                case Location.A1: return Location.I5;
-                case Location.B1: return Location.I4;
-                case Location.C1: return Location.I3;
-                case Location.D1: return Location.I2;
-                case Location.E1: return Location.I1;
+                case Location.A1: if (redWallWrapAround) return Location.I5; break;
+                case Location.B1: if (redWallWrapAround) return Location.I4; break;
+                case Location.C1: if (redWallWrapAround) return Location.I3; break;
+                case Location.D1: if (redWallWrapAround) return Location.I2; break;
+                case Location.E1: if (redWallWrapAround) return Location.I1; break;
                 case Location.A2:
                 case Location.A3:
                 case Location.A4:
@@ -135,6 +150,9 @@ namespace Benediction.Actions
                         "Invalid move departs board at west edge.");
                 default: return from + 0x0F;
             }
+  
+            throw new ArgumentOutOfRangeException(nameof(from), ((int)from).ToString("X2"),
+                "Red cannot move through Red's own wall");
         }
 
         public static bool IsValidLocation(Location location)

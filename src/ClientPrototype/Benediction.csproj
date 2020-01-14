@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\ActionSide.cs" />
+    <Compile Include="Actions\BridgeDetector.cs" />
+    <Compile Include="Actions\Controller.cs" />
     <Compile Include="Actions\GameBlockAction.cs" />
     <Compile Include="Actions\GameDropAction.cs" />
     <Compile Include="Actions\GameMergeAction.cs" />

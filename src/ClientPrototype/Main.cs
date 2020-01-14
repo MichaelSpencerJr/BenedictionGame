@@ -315,5 +315,64 @@ namespace Benediction
             DrawBoard();
             UpdateEditor();
         }
+
+        private void btnBoardImageToClipboard_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetImage(Painter.DrawBoard(_board, _selection));
+        }
+
+        private void UpdateFlag(bool value, StateFlags flagMask)
+        {
+            if (value)
+            {
+                _board.Flags |= flagMask;
+            }
+            else
+            {
+                _board.Flags &= ~flagMask;
+            }
+
+            DrawBoard();
+        }
+
+        private void chkRedT1_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateFlag(chkRedT1.Checked, StateFlags.RedAction1);
+        }
+
+        private void chkRedT2_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateFlag(chkRedT2.Checked, StateFlags.RedAction2);
+        }
+
+        private void chkBlueT1_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateFlag(chkBlueT1.Checked, StateFlags.BlueAction1);
+        }
+
+        private void chkBlueT2_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateFlag(chkBlueT2.Checked, StateFlags.BlueAction2);
+        }
+
+        private void chkRedKingTaken_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateFlag(chkRedKingTaken.Checked, StateFlags.RedKingTaken);
+        }
+
+        private void chkBlueKingTaken_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateFlag(chkBlueKingTaken.Checked, StateFlags.BlueKingTaken);
+        }
+
+        private void chkRedWin_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateFlag(chkRedWin.Checked, StateFlags.RedWin);
+        }
+
+        private void chkBlueWin_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateFlag(chkBlueWin.Checked, StateFlags.BlueWin);
+        }
     }
 }

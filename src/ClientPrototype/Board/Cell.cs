@@ -14,17 +14,20 @@ namespace Benediction.Board
         Size4 = 0x0004,
         Size8 = 0x0008,
 
-        /// <summary>First six bits indicate number of pieces in the stack, 1-63</summary>
+        /// <summary>First four bits indicate number of pieces in the stack, 1-15</summary>
         SizeMask = 0x000F,
 
         /// <summary>Blockade when SizeMask bits are zero (empty stack) and this bit is set</summary>
-        Blockade = 0x0020,
+        Blockade = 0x0010,
 
         /// <summary>Red-side piece when set, Blue-side piece when unset.</summary>
-        SideRed = 0x0040,
+        SideRed = 0x0020,
 
         /// <summary>Blessed piece when set</summary>
-        Blessed = 0x0080,
+        Blessed = 0x0040,
+
+        /// <summary>Curse possible unless blessed before end of turn</summary>
+        CursePending = 0x0080,
 
         /// <summary>Cursed piece when set</summary>
         Cursed = 0x0100,

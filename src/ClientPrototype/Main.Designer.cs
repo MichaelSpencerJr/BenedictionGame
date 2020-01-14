@@ -32,24 +32,33 @@
             this.pbBoard = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpEditor = new System.Windows.Forms.TabPage();
+            this.chkCursed = new System.Windows.Forms.CheckBox();
+            this.chkBlessed = new System.Windows.Forms.CheckBox();
+            this.chkKing = new System.Windows.Forms.CheckBox();
+            this.nudStackSize = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBluePieceHere = new System.Windows.Forms.Button();
+            this.btnRedPieceHere = new System.Windows.Forms.Button();
+            this.btnBlockadeHere = new System.Windows.Forms.Button();
+            this.btnBlueHomeHere = new System.Windows.Forms.Button();
+            this.btnRedHomeHere = new System.Windows.Forms.Button();
+            this.btnClearEmptyCell = new System.Windows.Forms.Button();
+            this.btnUnselectCell = new System.Windows.Forms.Button();
+            this.txtBoardData = new System.Windows.Forms.TextBox();
+            this.btnImportBoard = new System.Windows.Forms.Button();
+            this.btnExportBoard = new System.Windows.Forms.Button();
+            this.btnClearBoard = new System.Windows.Forms.Button();
             this.tpRed = new System.Windows.Forms.TabPage();
             this.tpBlue = new System.Windows.Forms.TabPage();
-            this.btnClearBoard = new System.Windows.Forms.Button();
-            this.btnExportBoard = new System.Windows.Forms.Button();
-            this.btnImportBoard = new System.Windows.Forms.Button();
-            this.txtBoardData = new System.Windows.Forms.TextBox();
-            this.btnUnselectCell = new System.Windows.Forms.Button();
-            this.btnClearEmptyCell = new System.Windows.Forms.Button();
-            this.btnRedHomeHere = new System.Windows.Forms.Button();
-            this.btnBlueHomeHere = new System.Windows.Forms.Button();
-            this.btnBlockadeHere = new System.Windows.Forms.Button();
-            this.btnRedPieceHere = new System.Windows.Forms.Button();
-            this.btnBluePieceHere = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.nudStackSize = new System.Windows.Forms.NumericUpDown();
-            this.chkKing = new System.Windows.Forms.CheckBox();
-            this.chkBlessed = new System.Windows.Forms.CheckBox();
-            this.chkCursed = new System.Windows.Forms.CheckBox();
+            this.btnBoardImageToClipboard = new System.Windows.Forms.Button();
+            this.chkRedT1 = new System.Windows.Forms.CheckBox();
+            this.chkRedT2 = new System.Windows.Forms.CheckBox();
+            this.chkBlueT1 = new System.Windows.Forms.CheckBox();
+            this.chkBlueT2 = new System.Windows.Forms.CheckBox();
+            this.chkRedKingTaken = new System.Windows.Forms.CheckBox();
+            this.chkBlueKingTaken = new System.Windows.Forms.CheckBox();
+            this.chkRedWin = new System.Windows.Forms.CheckBox();
+            this.chkBlueWin = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -102,6 +111,15 @@
             // 
             // tpEditor
             // 
+            this.tpEditor.Controls.Add(this.chkBlueWin);
+            this.tpEditor.Controls.Add(this.chkRedWin);
+            this.tpEditor.Controls.Add(this.chkBlueKingTaken);
+            this.tpEditor.Controls.Add(this.chkRedKingTaken);
+            this.tpEditor.Controls.Add(this.chkBlueT2);
+            this.tpEditor.Controls.Add(this.chkBlueT1);
+            this.tpEditor.Controls.Add(this.chkRedT2);
+            this.tpEditor.Controls.Add(this.chkRedT1);
+            this.tpEditor.Controls.Add(this.btnBoardImageToClipboard);
             this.tpEditor.Controls.Add(this.chkCursed);
             this.tpEditor.Controls.Add(this.chkBlessed);
             this.tpEditor.Controls.Add(this.chkKing);
@@ -126,25 +144,160 @@
             this.tpEditor.Text = "Board Editor";
             this.tpEditor.UseVisualStyleBackColor = true;
             // 
-            // tpRed
+            // chkCursed
             // 
-            this.tpRed.Location = new System.Drawing.Point(4, 22);
-            this.tpRed.Name = "tpRed";
-            this.tpRed.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRed.Size = new System.Drawing.Size(286, 424);
-            this.tpRed.TabIndex = 1;
-            this.tpRed.Text = "Red Move";
-            this.tpRed.UseVisualStyleBackColor = true;
+            this.chkCursed.AutoSize = true;
+            this.chkCursed.Location = new System.Drawing.Point(9, 382);
+            this.chkCursed.Name = "chkCursed";
+            this.chkCursed.Size = new System.Drawing.Size(59, 17);
+            this.chkCursed.TabIndex = 24;
+            this.chkCursed.Text = "Cursed";
+            this.chkCursed.UseVisualStyleBackColor = true;
+            this.chkCursed.CheckedChanged += new System.EventHandler(this.chkCursed_CheckedChanged);
             // 
-            // tpBlue
+            // chkBlessed
             // 
-            this.tpBlue.Location = new System.Drawing.Point(4, 22);
-            this.tpBlue.Name = "tpBlue";
-            this.tpBlue.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBlue.Size = new System.Drawing.Size(286, 424);
-            this.tpBlue.TabIndex = 2;
-            this.tpBlue.Text = "Blue Move";
-            this.tpBlue.UseVisualStyleBackColor = true;
+            this.chkBlessed.AutoSize = true;
+            this.chkBlessed.Location = new System.Drawing.Point(9, 359);
+            this.chkBlessed.Name = "chkBlessed";
+            this.chkBlessed.Size = new System.Drawing.Size(63, 17);
+            this.chkBlessed.TabIndex = 23;
+            this.chkBlessed.Text = "Blessed";
+            this.chkBlessed.UseVisualStyleBackColor = true;
+            this.chkBlessed.CheckedChanged += new System.EventHandler(this.chkBlessed_CheckedChanged);
+            // 
+            // chkKing
+            // 
+            this.chkKing.AutoSize = true;
+            this.chkKing.Location = new System.Drawing.Point(9, 336);
+            this.chkKing.Name = "chkKing";
+            this.chkKing.Size = new System.Drawing.Size(47, 17);
+            this.chkKing.TabIndex = 22;
+            this.chkKing.Text = "King";
+            this.chkKing.UseVisualStyleBackColor = true;
+            this.chkKing.CheckedChanged += new System.EventHandler(this.chkKing_CheckedChanged);
+            // 
+            // nudStackSize
+            // 
+            this.nudStackSize.Location = new System.Drawing.Point(73, 310);
+            this.nudStackSize.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudStackSize.Name = "nudStackSize";
+            this.nudStackSize.Size = new System.Drawing.Size(60, 20);
+            this.nudStackSize.TabIndex = 21;
+            this.nudStackSize.ValueChanged += new System.EventHandler(this.nudStackSize_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 312);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Stack Size:";
+            // 
+            // btnBluePieceHere
+            // 
+            this.btnBluePieceHere.Location = new System.Drawing.Point(87, 266);
+            this.btnBluePieceHere.Name = "btnBluePieceHere";
+            this.btnBluePieceHere.Size = new System.Drawing.Size(75, 39);
+            this.btnBluePieceHere.TabIndex = 19;
+            this.btnBluePieceHere.Text = "Blue Piece Here";
+            this.btnBluePieceHere.UseVisualStyleBackColor = true;
+            this.btnBluePieceHere.Click += new System.EventHandler(this.btnBluePieceHere_Click);
+            // 
+            // btnRedPieceHere
+            // 
+            this.btnRedPieceHere.Location = new System.Drawing.Point(6, 266);
+            this.btnRedPieceHere.Name = "btnRedPieceHere";
+            this.btnRedPieceHere.Size = new System.Drawing.Size(75, 39);
+            this.btnRedPieceHere.TabIndex = 18;
+            this.btnRedPieceHere.Text = "Red Piece Here";
+            this.btnRedPieceHere.UseVisualStyleBackColor = true;
+            this.btnRedPieceHere.Click += new System.EventHandler(this.btnRedPieceHere_Click);
+            // 
+            // btnBlockadeHere
+            // 
+            this.btnBlockadeHere.Location = new System.Drawing.Point(168, 221);
+            this.btnBlockadeHere.Name = "btnBlockadeHere";
+            this.btnBlockadeHere.Size = new System.Drawing.Size(75, 39);
+            this.btnBlockadeHere.TabIndex = 17;
+            this.btnBlockadeHere.Text = "Blockade Here";
+            this.btnBlockadeHere.UseVisualStyleBackColor = true;
+            this.btnBlockadeHere.Click += new System.EventHandler(this.btnBlockadeHere_Click);
+            // 
+            // btnBlueHomeHere
+            // 
+            this.btnBlueHomeHere.Location = new System.Drawing.Point(87, 221);
+            this.btnBlueHomeHere.Name = "btnBlueHomeHere";
+            this.btnBlueHomeHere.Size = new System.Drawing.Size(75, 39);
+            this.btnBlueHomeHere.TabIndex = 16;
+            this.btnBlueHomeHere.Text = "Blue Home Here";
+            this.btnBlueHomeHere.UseVisualStyleBackColor = true;
+            this.btnBlueHomeHere.Click += new System.EventHandler(this.btnBlueHomeHere_Click);
+            // 
+            // btnRedHomeHere
+            // 
+            this.btnRedHomeHere.Location = new System.Drawing.Point(6, 221);
+            this.btnRedHomeHere.Name = "btnRedHomeHere";
+            this.btnRedHomeHere.Size = new System.Drawing.Size(75, 39);
+            this.btnRedHomeHere.TabIndex = 15;
+            this.btnRedHomeHere.Text = "Red Home Here";
+            this.btnRedHomeHere.UseVisualStyleBackColor = true;
+            this.btnRedHomeHere.Click += new System.EventHandler(this.btnRedHomeHere_Click);
+            // 
+            // btnClearEmptyCell
+            // 
+            this.btnClearEmptyCell.Location = new System.Drawing.Point(87, 176);
+            this.btnClearEmptyCell.Name = "btnClearEmptyCell";
+            this.btnClearEmptyCell.Size = new System.Drawing.Size(75, 39);
+            this.btnClearEmptyCell.TabIndex = 14;
+            this.btnClearEmptyCell.Text = "Clear / Empty Cell";
+            this.btnClearEmptyCell.UseVisualStyleBackColor = true;
+            this.btnClearEmptyCell.Click += new System.EventHandler(this.btnClearEmptyCell_Click);
+            // 
+            // btnUnselectCell
+            // 
+            this.btnUnselectCell.Location = new System.Drawing.Point(6, 176);
+            this.btnUnselectCell.Name = "btnUnselectCell";
+            this.btnUnselectCell.Size = new System.Drawing.Size(75, 39);
+            this.btnUnselectCell.TabIndex = 13;
+            this.btnUnselectCell.Text = "Unselect Cell";
+            this.btnUnselectCell.UseVisualStyleBackColor = true;
+            this.btnUnselectCell.Click += new System.EventHandler(this.btnUnselectCell_Click);
+            // 
+            // txtBoardData
+            // 
+            this.txtBoardData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBoardData.Location = new System.Drawing.Point(6, 51);
+            this.txtBoardData.Multiline = true;
+            this.txtBoardData.Name = "txtBoardData";
+            this.txtBoardData.Size = new System.Drawing.Size(301, 50);
+            this.txtBoardData.TabIndex = 4;
+            // 
+            // btnImportBoard
+            // 
+            this.btnImportBoard.Location = new System.Drawing.Point(156, 6);
+            this.btnImportBoard.Name = "btnImportBoard";
+            this.btnImportBoard.Size = new System.Drawing.Size(61, 39);
+            this.btnImportBoard.TabIndex = 2;
+            this.btnImportBoard.Text = "Import from Text";
+            this.btnImportBoard.UseVisualStyleBackColor = true;
+            this.btnImportBoard.Click += new System.EventHandler(this.btnImportBoard_Click);
+            // 
+            // btnExportBoard
+            // 
+            this.btnExportBoard.Location = new System.Drawing.Point(87, 6);
+            this.btnExportBoard.Name = "btnExportBoard";
+            this.btnExportBoard.Size = new System.Drawing.Size(63, 39);
+            this.btnExportBoard.TabIndex = 1;
+            this.btnExportBoard.Text = "Export as Text";
+            this.btnExportBoard.UseVisualStyleBackColor = true;
+            this.btnExportBoard.Click += new System.EventHandler(this.btnExportBoard_Click);
             // 
             // btnClearBoard
             // 
@@ -156,160 +309,123 @@
             this.btnClearBoard.UseVisualStyleBackColor = true;
             this.btnClearBoard.Click += new System.EventHandler(this.btnClearBoard_Click);
             // 
-            // btnExportBoard
+            // tpRed
             // 
-            this.btnExportBoard.Location = new System.Drawing.Point(87, 6);
-            this.btnExportBoard.Name = "btnExportBoard";
-            this.btnExportBoard.Size = new System.Drawing.Size(75, 39);
-            this.btnExportBoard.TabIndex = 1;
-            this.btnExportBoard.Text = "Export as Text";
-            this.btnExportBoard.UseVisualStyleBackColor = true;
-            this.btnExportBoard.Click += new System.EventHandler(this.btnExportBoard_Click);
+            this.tpRed.Location = new System.Drawing.Point(4, 22);
+            this.tpRed.Name = "tpRed";
+            this.tpRed.Padding = new System.Windows.Forms.Padding(3);
+            this.tpRed.Size = new System.Drawing.Size(313, 424);
+            this.tpRed.TabIndex = 1;
+            this.tpRed.Text = "Red Move";
+            this.tpRed.UseVisualStyleBackColor = true;
             // 
-            // btnImportBoard
+            // tpBlue
             // 
-            this.btnImportBoard.Location = new System.Drawing.Point(168, 6);
-            this.btnImportBoard.Name = "btnImportBoard";
-            this.btnImportBoard.Size = new System.Drawing.Size(75, 39);
-            this.btnImportBoard.TabIndex = 2;
-            this.btnImportBoard.Text = "Import from Text";
-            this.btnImportBoard.UseVisualStyleBackColor = true;
-            this.btnImportBoard.Click += new System.EventHandler(this.btnImportBoard_Click);
+            this.tpBlue.Location = new System.Drawing.Point(4, 22);
+            this.tpBlue.Name = "tpBlue";
+            this.tpBlue.Padding = new System.Windows.Forms.Padding(3);
+            this.tpBlue.Size = new System.Drawing.Size(313, 424);
+            this.tpBlue.TabIndex = 2;
+            this.tpBlue.Text = "Blue Move";
+            this.tpBlue.UseVisualStyleBackColor = true;
             // 
-            // txtBoardData
+            // btnBoardImageToClipboard
             // 
-            this.txtBoardData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoardData.Location = new System.Drawing.Point(6, 51);
-            this.txtBoardData.Multiline = true;
-            this.txtBoardData.Name = "txtBoardData";
-            this.txtBoardData.Size = new System.Drawing.Size(301, 50);
-            this.txtBoardData.TabIndex = 3;
+            this.btnBoardImageToClipboard.Location = new System.Drawing.Point(223, 6);
+            this.btnBoardImageToClipboard.Name = "btnBoardImageToClipboard";
+            this.btnBoardImageToClipboard.Size = new System.Drawing.Size(75, 39);
+            this.btnBoardImageToClipboard.TabIndex = 3;
+            this.btnBoardImageToClipboard.Text = "Board Image to Clipboard";
+            this.btnBoardImageToClipboard.UseVisualStyleBackColor = true;
+            this.btnBoardImageToClipboard.Click += new System.EventHandler(this.btnBoardImageToClipboard_Click);
             // 
-            // btnUnselectCell
+            // chkRedT1
             // 
-            this.btnUnselectCell.Location = new System.Drawing.Point(6, 127);
-            this.btnUnselectCell.Name = "btnUnselectCell";
-            this.btnUnselectCell.Size = new System.Drawing.Size(75, 39);
-            this.btnUnselectCell.TabIndex = 4;
-            this.btnUnselectCell.Text = "Unselect Cell";
-            this.btnUnselectCell.UseVisualStyleBackColor = true;
-            this.btnUnselectCell.Click += new System.EventHandler(this.btnUnselectCell_Click);
+            this.chkRedT1.AutoSize = true;
+            this.chkRedT1.Location = new System.Drawing.Point(6, 107);
+            this.chkRedT1.Name = "chkRedT1";
+            this.chkRedT1.Size = new System.Drawing.Size(62, 17);
+            this.chkRedT1.TabIndex = 5;
+            this.chkRedT1.Text = "Red T1";
+            this.chkRedT1.UseVisualStyleBackColor = true;
+            this.chkRedT1.CheckedChanged += new System.EventHandler(this.chkRedT1_CheckedChanged);
             // 
-            // btnClearEmptyCell
+            // chkRedT2
             // 
-            this.btnClearEmptyCell.Location = new System.Drawing.Point(87, 127);
-            this.btnClearEmptyCell.Name = "btnClearEmptyCell";
-            this.btnClearEmptyCell.Size = new System.Drawing.Size(75, 39);
-            this.btnClearEmptyCell.TabIndex = 5;
-            this.btnClearEmptyCell.Text = "Clear / Empty Cell";
-            this.btnClearEmptyCell.UseVisualStyleBackColor = true;
-            this.btnClearEmptyCell.Click += new System.EventHandler(this.btnClearEmptyCell_Click);
+            this.chkRedT2.AutoSize = true;
+            this.chkRedT2.Location = new System.Drawing.Point(71, 107);
+            this.chkRedT2.Name = "chkRedT2";
+            this.chkRedT2.Size = new System.Drawing.Size(62, 17);
+            this.chkRedT2.TabIndex = 6;
+            this.chkRedT2.Text = "Red T2";
+            this.chkRedT2.UseVisualStyleBackColor = true;
+            this.chkRedT2.CheckedChanged += new System.EventHandler(this.chkRedT2_CheckedChanged);
             // 
-            // btnRedHomeHere
+            // chkBlueT1
             // 
-            this.btnRedHomeHere.Location = new System.Drawing.Point(6, 172);
-            this.btnRedHomeHere.Name = "btnRedHomeHere";
-            this.btnRedHomeHere.Size = new System.Drawing.Size(75, 39);
-            this.btnRedHomeHere.TabIndex = 6;
-            this.btnRedHomeHere.Text = "Red Home Here";
-            this.btnRedHomeHere.UseVisualStyleBackColor = true;
-            this.btnRedHomeHere.Click += new System.EventHandler(this.btnRedHomeHere_Click);
+            this.chkBlueT1.AutoSize = true;
+            this.chkBlueT1.Location = new System.Drawing.Point(139, 107);
+            this.chkBlueT1.Name = "chkBlueT1";
+            this.chkBlueT1.Size = new System.Drawing.Size(63, 17);
+            this.chkBlueT1.TabIndex = 7;
+            this.chkBlueT1.Text = "Blue T1";
+            this.chkBlueT1.UseVisualStyleBackColor = true;
+            this.chkBlueT1.CheckedChanged += new System.EventHandler(this.chkBlueT1_CheckedChanged);
             // 
-            // btnBlueHomeHere
+            // chkBlueT2
             // 
-            this.btnBlueHomeHere.Location = new System.Drawing.Point(87, 172);
-            this.btnBlueHomeHere.Name = "btnBlueHomeHere";
-            this.btnBlueHomeHere.Size = new System.Drawing.Size(75, 39);
-            this.btnBlueHomeHere.TabIndex = 7;
-            this.btnBlueHomeHere.Text = "Blue Home Here";
-            this.btnBlueHomeHere.UseVisualStyleBackColor = true;
-            this.btnBlueHomeHere.Click += new System.EventHandler(this.btnBlueHomeHere_Click);
+            this.chkBlueT2.AutoSize = true;
+            this.chkBlueT2.Location = new System.Drawing.Point(208, 107);
+            this.chkBlueT2.Name = "chkBlueT2";
+            this.chkBlueT2.Size = new System.Drawing.Size(63, 17);
+            this.chkBlueT2.TabIndex = 8;
+            this.chkBlueT2.Text = "Blue T2";
+            this.chkBlueT2.UseVisualStyleBackColor = true;
+            this.chkBlueT2.CheckedChanged += new System.EventHandler(this.chkBlueT2_CheckedChanged);
             // 
-            // btnBlockadeHere
+            // chkRedKingTaken
             // 
-            this.btnBlockadeHere.Location = new System.Drawing.Point(168, 172);
-            this.btnBlockadeHere.Name = "btnBlockadeHere";
-            this.btnBlockadeHere.Size = new System.Drawing.Size(75, 39);
-            this.btnBlockadeHere.TabIndex = 8;
-            this.btnBlockadeHere.Text = "Blockade Here";
-            this.btnBlockadeHere.UseVisualStyleBackColor = true;
-            this.btnBlockadeHere.Click += new System.EventHandler(this.btnBlockadeHere_Click);
+            this.chkRedKingTaken.AutoSize = true;
+            this.chkRedKingTaken.Location = new System.Drawing.Point(6, 130);
+            this.chkRedKingTaken.Name = "chkRedKingTaken";
+            this.chkRedKingTaken.Size = new System.Drawing.Size(104, 17);
+            this.chkRedKingTaken.TabIndex = 9;
+            this.chkRedKingTaken.Text = "Red King Taken";
+            this.chkRedKingTaken.UseVisualStyleBackColor = true;
+            this.chkRedKingTaken.CheckedChanged += new System.EventHandler(this.chkRedKingTaken_CheckedChanged);
             // 
-            // btnRedPieceHere
+            // chkBlueKingTaken
             // 
-            this.btnRedPieceHere.Location = new System.Drawing.Point(6, 217);
-            this.btnRedPieceHere.Name = "btnRedPieceHere";
-            this.btnRedPieceHere.Size = new System.Drawing.Size(75, 39);
-            this.btnRedPieceHere.TabIndex = 9;
-            this.btnRedPieceHere.Text = "Red Piece Here";
-            this.btnRedPieceHere.UseVisualStyleBackColor = true;
-            this.btnRedPieceHere.Click += new System.EventHandler(this.btnRedPieceHere_Click);
+            this.chkBlueKingTaken.AutoSize = true;
+            this.chkBlueKingTaken.Location = new System.Drawing.Point(139, 130);
+            this.chkBlueKingTaken.Name = "chkBlueKingTaken";
+            this.chkBlueKingTaken.Size = new System.Drawing.Size(105, 17);
+            this.chkBlueKingTaken.TabIndex = 10;
+            this.chkBlueKingTaken.Text = "Blue King Taken";
+            this.chkBlueKingTaken.UseVisualStyleBackColor = true;
+            this.chkBlueKingTaken.CheckedChanged += new System.EventHandler(this.chkBlueKingTaken_CheckedChanged);
             // 
-            // btnBluePieceHere
+            // chkRedWin
             // 
-            this.btnBluePieceHere.Location = new System.Drawing.Point(87, 217);
-            this.btnBluePieceHere.Name = "btnBluePieceHere";
-            this.btnBluePieceHere.Size = new System.Drawing.Size(75, 39);
-            this.btnBluePieceHere.TabIndex = 10;
-            this.btnBluePieceHere.Text = "Blue Piece Here";
-            this.btnBluePieceHere.UseVisualStyleBackColor = true;
-            this.btnBluePieceHere.Click += new System.EventHandler(this.btnBluePieceHere_Click);
+            this.chkRedWin.AutoSize = true;
+            this.chkRedWin.Location = new System.Drawing.Point(6, 153);
+            this.chkRedWin.Name = "chkRedWin";
+            this.chkRedWin.Size = new System.Drawing.Size(73, 17);
+            this.chkRedWin.TabIndex = 11;
+            this.chkRedWin.Text = "Red Wins";
+            this.chkRedWin.UseVisualStyleBackColor = true;
+            this.chkRedWin.CheckedChanged += new System.EventHandler(this.chkRedWin_CheckedChanged);
             // 
-            // label1
+            // chkBlueWin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 263);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Stack Size:";
-            // 
-            // nudStackSize
-            // 
-            this.nudStackSize.Location = new System.Drawing.Point(73, 261);
-            this.nudStackSize.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.nudStackSize.Name = "nudStackSize";
-            this.nudStackSize.Size = new System.Drawing.Size(60, 20);
-            this.nudStackSize.TabIndex = 12;
-            this.nudStackSize.ValueChanged += new System.EventHandler(this.nudStackSize_ValueChanged);
-            // 
-            // chkKing
-            // 
-            this.chkKing.AutoSize = true;
-            this.chkKing.Location = new System.Drawing.Point(9, 287);
-            this.chkKing.Name = "chkKing";
-            this.chkKing.Size = new System.Drawing.Size(47, 17);
-            this.chkKing.TabIndex = 13;
-            this.chkKing.Text = "King";
-            this.chkKing.UseVisualStyleBackColor = true;
-            this.chkKing.CheckedChanged += new System.EventHandler(this.chkKing_CheckedChanged);
-            // 
-            // chkBlessed
-            // 
-            this.chkBlessed.AutoSize = true;
-            this.chkBlessed.Location = new System.Drawing.Point(9, 310);
-            this.chkBlessed.Name = "chkBlessed";
-            this.chkBlessed.Size = new System.Drawing.Size(63, 17);
-            this.chkBlessed.TabIndex = 14;
-            this.chkBlessed.Text = "Blessed";
-            this.chkBlessed.UseVisualStyleBackColor = true;
-            this.chkBlessed.CheckedChanged += new System.EventHandler(this.chkBlessed_CheckedChanged);
-            // 
-            // chkCursed
-            // 
-            this.chkCursed.AutoSize = true;
-            this.chkCursed.Location = new System.Drawing.Point(9, 333);
-            this.chkCursed.Name = "chkCursed";
-            this.chkCursed.Size = new System.Drawing.Size(59, 17);
-            this.chkCursed.TabIndex = 15;
-            this.chkCursed.Text = "Cursed";
-            this.chkCursed.UseVisualStyleBackColor = true;
-            this.chkCursed.CheckedChanged += new System.EventHandler(this.chkCursed_CheckedChanged);
+            this.chkBlueWin.AutoSize = true;
+            this.chkBlueWin.Location = new System.Drawing.Point(139, 153);
+            this.chkBlueWin.Name = "chkBlueWin";
+            this.chkBlueWin.Size = new System.Drawing.Size(74, 17);
+            this.chkBlueWin.TabIndex = 12;
+            this.chkBlueWin.Text = "Blue Wins";
+            this.chkBlueWin.UseVisualStyleBackColor = true;
+            this.chkBlueWin.CheckedChanged += new System.EventHandler(this.chkBlueWin_CheckedChanged);
             // 
             // Main
             // 
@@ -357,6 +473,15 @@
         private System.Windows.Forms.CheckBox chkKing;
         private System.Windows.Forms.NumericUpDown nudStackSize;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBoardImageToClipboard;
+        private System.Windows.Forms.CheckBox chkBlueWin;
+        private System.Windows.Forms.CheckBox chkRedWin;
+        private System.Windows.Forms.CheckBox chkBlueKingTaken;
+        private System.Windows.Forms.CheckBox chkRedKingTaken;
+        private System.Windows.Forms.CheckBox chkBlueT2;
+        private System.Windows.Forms.CheckBox chkBlueT1;
+        private System.Windows.Forms.CheckBox chkRedT2;
+        private System.Windows.Forms.CheckBox chkRedT1;
     }
 }
 

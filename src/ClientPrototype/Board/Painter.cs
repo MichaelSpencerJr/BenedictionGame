@@ -87,20 +87,20 @@ namespace Benediction.Board
 //Draw game flags in text at the corners
             if ((state.Flags & StateFlags.RedAction1) > 0)
             {
-                DrawBannerText(canvas, "Red Move #1", Color.OrangeRed, true, true);
+                DrawBannerText(canvas, "Ready For Red Move #1", Color.OrangeRed, true, true);
             }
             else if ((state.Flags & StateFlags.RedAction2) > 0)
             {
-                DrawBannerText(canvas, "Red Move #2", Color.OrangeRed, true, true);
+                DrawBannerText(canvas, "Ready For Red Move #2", Color.OrangeRed, true, true);
             }
 
             if ((state.Flags & StateFlags.BlueAction1) > 0)
             {
-                DrawBannerText(canvas, "Blue Move #1", Color.DodgerBlue, true, false);
+                DrawBannerText(canvas, "Ready For Blue Move #1", Color.DodgerBlue, true, false);
             }
             else if ((state.Flags & StateFlags.BlueAction2) > 0)
             {
-                DrawBannerText(canvas, "Blue Move #2", Color.DodgerBlue, true, false);
+                DrawBannerText(canvas, "Ready For Blue Move #2", Color.DodgerBlue, true, false);
             }
 
             if ((state.Flags & StateFlags.RedKingTaken) > 0)
@@ -182,6 +182,8 @@ namespace Benediction.Board
 
         private static Font _sansFont = new Font(FontFamily.GenericSansSerif, 10.0F, FontStyle.Bold);
 
+        private static Font _bannerFont = new Font(FontFamily.GenericSerif, 20.0F, FontStyle.Bold);
+
         private static void DrawText(Graphics canvas, string text, Color color, Point center)
         {
             var textSize = canvas.MeasureString(text, _sansFont, PointF.Empty, StringFormat.GenericDefault);
@@ -202,15 +204,13 @@ namespace Benediction.Board
 
         private static void DrawBannerText(Graphics canvas, string text, Color color, bool isTop, bool isLeft)
         {
-            var textSize = canvas.MeasureString(text, _sansFont, PointF.Empty, StringFormat.GenericDefault);
-
             //left: 10-245 horizontal, right: 475-710
             //top: 10-50 vertical, bottom 490-530
 
-            var targetRect = new Rectangle(isLeft ? 10 : 475, isTop ? 10 : 490, 235, 40);
+            var targetRect = new Rectangle(isLeft ? 10 : 475, isTop ? 10 : 470, 235, 60);
 
             //draw text
-            canvas.DrawString(text, _sansFont, new SolidBrush(color), targetRect,
+            canvas.DrawString(text, _bannerFont, new SolidBrush(color), targetRect,
                 new StringFormat
                 {
                     Alignment = isLeft ? StringAlignment.Near : StringAlignment.Far, 

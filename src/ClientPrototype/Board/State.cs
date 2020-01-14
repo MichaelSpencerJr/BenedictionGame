@@ -26,6 +26,18 @@ namespace Benediction.Board
             Location.I5,
         };
 
+        public static readonly Location[] RedWallAdjacentLocations =
+        {
+            Location.A1, Location.B1, Location.C1, Location.D1, Location.E1, Location.F1, Location.G1, Location.H1,
+            Location.I1
+        };
+
+        public static readonly Location[] BlueWallAdjacentLocations =
+        {
+            Location.A5, Location.B6, Location.C7, Location.D8, Location.E9, Location.F8, Location.G7, Location.H6,
+            Location.I5
+        };
+
         /// <summary>
         /// Board state checksum, for indexing specific boards and for computing a checksum on decoded boards to confirm validity.
         /// </summary>
@@ -192,6 +204,16 @@ namespace Benediction.Board
 
                 return Convert.ToBase64String(output.ToArray());
             }
+        }
+
+        /// <summary>
+        /// Returns a deep copy (duplicated object with different address, which can be edited without accidentally modifying the original)
+        /// of the current game board.
+        /// </summary>
+        /// <returns>Deep copy of current game board</returns>
+        public State DeepCopy()
+        {
+            return new State(GetBuffer());
         }
     }
 }
