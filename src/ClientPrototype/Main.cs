@@ -19,6 +19,8 @@ namespace Benediction
     {
         private State _board = new State();
         private Location _selection = Board.Location.Undefined;
+        private GameAction _action;
+        private bool _suspendEvents = false;
 
         public Main()
         {
@@ -36,6 +38,17 @@ namespace Benediction
             if (Movement.IsValidLocation(location))
             {
                 _selection = location;
+                if (_action != null)
+                {
+                    if (rbPlayerLocation.Checked)
+                    {
+                        _action.Location = location;
+                    }
+                    else if (rbPlayerTarget.Checked && _action is GameTargetAction gta)
+                    {
+                        gta.Target = location;
+                    }
+                }
             }
             else
             {
@@ -44,6 +57,7 @@ namespace Benediction
 
             DrawBoard();
             UpdateEditor();
+            UpdatePlayerMoveControls();
         }
 
         private Point GetBoardCoordinates(int x, int y)
@@ -373,6 +387,200 @@ namespace Benediction
         private void chkBlueWin_CheckedChanged(object sender, EventArgs e)
         {
             UpdateFlag(chkBlueWin.Checked, StateFlags.BlueWin);
+        }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _board = State.FromBase64Gz("H4sIAAAAAAAEAGNgIAwUgRAGGIEQyGdSRPCZGDFUEAOeMKgwMHps4tmqYN778uuiAz6mrq1VAOt/fh2PAAAA");
+                DrawBoard();
+                UpdateEditor();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.ToString(), "Unable to load board");
+            }
+        }
+
+        private void UpdatePlayerMoveControls()
+        {
+            if ((_board.Flags & (StateFlags.RedWin | StateFlags.BlueWin)) > 0)
+            {
+                groupBoxPlayer.Visible = false;
+                groupBoxMove.Visible = false;
+                groupBoxLocation.Visible = false;
+                btnPlayerCommitMove.Enabled = false;
+                return;
+            }
+            if (!(_action is GameAction singleAction))
+            {
+                groupBoxPlayer.Visible = true;
+                groupBoxMove.Visible = true;
+                groupBoxLocation.Visible = false;
+                nudPlayerSplitNumber.Visible = false;
+                btnPlayerCommitMove.Enabled = false;
+                return;
+            }
+            groupBoxPlayer.Visible = true;
+            groupBoxMove.Visible = true;
+            groupBoxLocation.Visible = true;
+
+            if (!(_action is GameTargetAction targetAction))
+            {
+                rbPlayerTarget.Visible = false;
+                lblPlayerTarget.Visible = false;
+                nudPlayerSplitNumber.Visible = false;
+            }
+            else
+            {
+                rbPlayerTarget.Visible = true;
+                lblPlayerTarget.Visible = true;
+                lblPlayerTarget.Text = targetAction.Target.ToString();
+                if (targetAction is GameSplitAction gsa)
+                {
+                    nudPlayerSplitNumber.Visible = true;
+                    nudPlayerSplitNumber.Value = Math.Min(14, Math.Max(1, gsa.Size));
+                }
+                else
+                {
+                    nudPlayerSplitNumber.Visible = false;
+                }
+
+            }
+
+            lblPlayerLocation.Text = singleAction.Location.ToString();
+            switch (singleAction.Side)
+            {
+                case ActionSide.Red:
+                    rbPlayerRed.Checked = true;
+                    rbPlayerBlue.Checked = false;
+                    break;
+                case ActionSide.Blue:
+                    rbPlayerRed.Checked = false;
+                    rbPlayerBlue.Checked = true;
+                    break;
+                default:
+                    rbPlayerRed.Checked = false;
+                    rbPlayerBlue.Checked = false;
+                    break;
+            }
+
+            _suspendEvents = true;
+            rbPlayerBlock.Checked = singleAction is GameBlockAction;
+            rbPlayerDrop.Checked = singleAction is GameDropAction;
+            rbPlayerMerge.Checked = singleAction is GameMergeAction;
+            rbPlayerMove.Checked = singleAction is GameMoveAction;
+            rbPlayerSplit.Checked = singleAction is GameSplitAction;
+            var error = singleAction.CheckError(_board);
+            lblPlayerMoveError.Text = error ?? singleAction.ToString();
+            btnPlayerCommitMove.Enabled = error == null;
+            _suspendEvents = false;
+        }
+
+        private void btnPlayerClearMove_Click(object sender, EventArgs e)
+        {
+            _action = null;
+            UpdatePlayerMoveControls();
+        }
+
+        private void btnPlayerCommitMove_Click(object sender, EventArgs e)
+        {
+            _board = GameAction.PrepareNextTurn(_action.Apply(_board));
+            _selection = Board.Location.Undefined;
+            DrawBoard();
+            UpdateEditor();
+            UpdatePlayerMoveControls();
+        }
+
+        private void rbPlayerRed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_action != null && rbPlayerRed.Checked)
+            {
+                _action.Side = ActionSide.Red;
+                UpdatePlayerMoveControls();
+            }
+        }
+
+        private void rbPlayerBlue_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_action != null && rbPlayerBlue.Checked)
+            {
+                _action.Side = ActionSide.Blue;
+                UpdatePlayerMoveControls();
+            }
+        }
+
+        private ActionSide SelectedSide =>
+            rbPlayerRed.Checked ? ActionSide.Red : rbPlayerBlue.Checked ? ActionSide.Blue : ActionSide.Undefined;
+
+        private void rbPlayerBlock_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!_suspendEvents && rbPlayerBlock.Checked)
+            {
+                _action = new GameBlockAction {Side = SelectedSide, Location = _selection};
+                UpdatePlayerMoveControls();
+            }
+        }
+
+        private void rbPlayerDrop_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!_suspendEvents && rbPlayerDrop.Checked)
+            {
+                _action = new GameDropAction {Side = SelectedSide, Location = _selection};
+                UpdatePlayerMoveControls();
+            }
+        }
+
+        private void rbPlayerMerge_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!_suspendEvents && rbPlayerMerge.Checked)
+            {
+                if (_action is GameTargetAction gta)
+                {
+                    _action = new GameMergeAction {Side = SelectedSide, Location = gta.Location, Target = gta.Target};
+                }
+                else
+                {
+                    _action = new GameMergeAction {Side = SelectedSide, Location = _selection};
+                }
+
+                UpdatePlayerMoveControls();
+            }
+        }
+
+        private void rbPlayerMove_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!_suspendEvents && rbPlayerMove.Checked)
+            {
+                if (_action is GameTargetAction gta)
+                {
+                    _action = new GameMoveAction {Side = SelectedSide, Location = gta.Location, Target = gta.Target};
+                }
+                else
+                {
+                    _action = new GameMoveAction {Side = SelectedSide, Location = _selection};
+                }
+
+                UpdatePlayerMoveControls();
+            }
+        }
+
+        private void rbPlayerSplit_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!_suspendEvents && rbPlayerSplit.Checked)
+            {
+                if (_action is GameTargetAction gta)
+                {
+                    _action = new GameSplitAction {Side = SelectedSide, Location = gta.Location, Target = gta.Target};
+                }
+                else
+                {
+                    _action = new GameSplitAction {Side = SelectedSide, Location = _selection};
+                }
+
+                UpdatePlayerMoveControls();
+            }
         }
     }
 }

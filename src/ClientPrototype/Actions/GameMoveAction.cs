@@ -31,24 +31,11 @@ namespace Benediction.Actions
 
             if (string.IsNullOrEmpty(error))
             {
-                var retval = initialState.DeepCopy();
+                var finalState = initialState.DeepCopy();
 
-                if ((initialState[Target] & Cell.King) == Cell.King)
-                {
-                    retval.Flags |= (initialState[Target] & Cell.SideRed) == Cell.SideRed
-                        ? StateFlags.RedKingTaken
-                        : StateFlags.BlueKingTaken;
-                }
+                ApplyMove(initialState, finalState);
 
-                retval[Target] = initialState[Location] | Cell.Locked;
-                retval[Location] = Cell.Empty;
-                if (CheckLocationTargetReachable(initialState, true) == null)
-                {
-                    //If it's possible to do the indicated move in a way that passes enemy walls, un-curse and bless the moved piece.
-                    retval[Target] = (retval[Target] & ~Cell.Cursed) | Cell.Blessed;
-                }
-                
-                return retval;
+                return finalState;
             }
 
             throw new InvalidOperationException($"Did not check invalid move before applying: {error}");

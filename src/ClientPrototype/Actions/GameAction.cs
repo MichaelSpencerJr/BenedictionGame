@@ -10,12 +10,12 @@ namespace Benediction.Actions
         /// <summary>
         /// Represents which player (which side, red or blue) is performing this action.
         /// </summary>
-        public ActionSide Side { get; }
+        public ActionSide Side { get; set; }
 
         /// <summary>
         /// Represents the board location this action is taking place on or from.
         /// </summary>
-        public Location Location { get; }
+        public Location Location { get; set; }
 
         /// <summary>
         /// Name of this game action
@@ -28,30 +28,43 @@ namespace Benediction.Actions
         /// </summary>
         /// <param name="initialState">Game board this move is being considered for</param>
         /// <returns>Null if the move is allowed, or a brief text explanation of why it cannot be performed</returns>
+        /// <remarks>Each error checker returns null if a move is allowed, so for brevity these top-level error checkers use
+        /// the null-coalescing operator ?? to perform multiple checks in sequence.  From left to right each check is performed.
+        /// If the check returns a string (because that rule blocked the move) then the string is immediately returned and no further
+        /// checks are performed.  If the check returns null (because that rule had no problem with the move) then the ?? operator
+        /// causes the next check in the sequence to be performed.  The process continues until the last rule is checked.
+        /// If all rules pass, null is returned to the caller to indicate the move is allowed.</remarks>
         public abstract string CheckError(State initialState);
 
-        public string CheckErrorBase(State initialState)
+        /// <summary>
+        /// Common error checks which must performed at the start of all player actions:
+        /// Confirms the game is not over, the player submitting the move is active,
+        /// and the move location is valid.
+        /// </summary>
+        /// <param name="state">Game state to check</param>
+        /// <returns>Null if the move is allowed, or a brief text explanation of why it cannot be performed</returns>
+        public string CheckErrorBase(State state)
         {
-            if ((initialState.Flags & (StateFlags.RedWin | StateFlags.BlueWin)) > 0)
+            if ((state.Flags & (StateFlags.RedWin | StateFlags.BlueWin)) > 0)
             {
-                return "Winner Already Decided";
+                return "Game Over!";
             }
 
             if (Side == ActionSide.Blue &&
-                (initialState.Flags & (StateFlags.BlueAction1 | StateFlags.BlueAction2)) == 0)
+                (state.Flags & (StateFlags.RedAction1 | StateFlags.RedAction2)) > 0)
             {
-                return "Not Blue's Turn";
+                return "Your Move, Red";
             }
 
             if (Side == ActionSide.Red &&
-                (initialState.Flags & (StateFlags.RedAction1 | StateFlags.RedAction2)) == 0)
+                (state.Flags & (StateFlags.BlueAction1 | StateFlags.BlueAction2)) > 0)
             {
-                return "Not Red's Turn";
+                return "Your Move, Blue";
             }
 
             if (!Movement.IsValidLocation(Location))
             {
-                return "Not a valid board location.";
+                return "Please Select a Location";
             }
 
             return null;
@@ -59,7 +72,7 @@ namespace Benediction.Actions
 
         /// <summary>
         /// Applies this move to the supplied game board, returning a modified game board.
-        /// Inter-turn logic is not applied here, so be sure to call <seealso cref="PrepareNextTurn"/> on the return value's flags.
+        /// Inter-turn logic is not applied here, so be sure to call <seealso cref="PrepareNextTurn"/> on the return value.
         /// </summary>
         /// <param name="initialState">State of the game board this move is applied to</param>
         /// <returns>State of the game board after this move is applied</returns>
@@ -72,53 +85,103 @@ namespace Benediction.Actions
         public new abstract string ToString();
 
         /// <summary>
-        /// Updates game state flags to indicate win condition (if a king has been taken) and to flag
-        /// the next move (if no win condition).
+        /// Processes game rules which apply after and between player turns.
         /// </summary>
-        /// <param name="initialState">Game state flags immediately after last turn complete</param>
-        /// <returns>Game state flags for start of next turn or for end of game condition</returns>
+        /// <param name="initialState">Game state immediately after a player turn has ended.</param>
+        /// <returns>Game over state, if a win was detected, or game state ready for next player turn</returns>
         public static State PrepareNextTurn(State initialState)
         {
-            var retval = initialState.DeepCopy();
+            var finalState = initialState.DeepCopy();
 
-            if ((initialState.Flags & StateFlags.RedKingTaken) > 0)
-            {
-                retval.Flags = initialState.Flags | StateFlags.BlueWin;
-            }
-            else if ((initialState.Flags & StateFlags.BlueKingTaken) > 0)
-            {
-                retval.Flags = initialState.Flags | StateFlags.RedWin;
-            }
+            CheckKingTaken(finalState);
+            BlessAnyBridges(finalState);
+            CheckBlessedKings(finalState);
+            ApplyCurses(finalState);
+            UpdateTurnFlag(finalState);
 
-            if ((initialState.Flags & (StateFlags.RedWin | StateFlags.BlueWin)) > 0)
-            {
-                retval.Flags = initialState.Flags & (StateFlags.RedKingTaken | StateFlags.BlueKingTaken | StateFlags.RedWin |
-                                       StateFlags.BlueWin);
-                return retval;
-            }
-            if ((initialState.Flags & StateFlags.RedAction1) > 0)
-            {
-                retval.Flags = (initialState.Flags & ~StateFlags.RedAction1) | StateFlags.RedAction2;
-            }
-            else if ((initialState.Flags & StateFlags.RedAction2) > 0)
-            {
-                retval.Flags = (initialState.Flags & ~StateFlags.RedAction2) | StateFlags.BlueAction1;
-                UnlockAllLockedPieces(retval);
-            }
-            else if ((initialState.Flags & StateFlags.BlueAction1) > 0)
-            {
-                retval.Flags = (initialState.Flags & ~StateFlags.BlueAction1) | StateFlags.BlueAction2;
-            }
-
-            if ((initialState.Flags & StateFlags.BlueAction2) > 0)
-            {
-                retval.Flags = (initialState.Flags & ~StateFlags.BlueAction2) | StateFlags.RedAction1;
-                UnlockAllLockedPieces(retval);
-            }
-
-            return retval;
+            return finalState;
         }
 
+        /// <summary>
+        /// Updates Win flag if opposing KingTaken flag is set.
+        /// </summary>
+        /// <param name="state">Game state</param>
+        private static void CheckKingTaken(State state)
+        {
+            if ((state.Flags & StateFlags.RedKingTaken) > 0)
+            {
+                state.Flags |= StateFlags.BlueWin;
+            }
+            else if ((state.Flags & StateFlags.BlueKingTaken) > 0)
+            {
+                state.Flags |= StateFlags.RedWin;
+            }
+        }
+
+        /// <summary>
+        /// Uses <seealso cref="BridgeDetector"/> to find any pieces which are part of a bridge, and blesses those pieces.
+        /// </summary>
+        /// <param name="state">Game state</param>
+        private static void BlessAnyBridges(State state)
+        {
+            foreach (var bridgeLocation in BridgeDetector.GetBridgeSpaces(state, ActionSide.Red))
+            {
+                state[bridgeLocation] |= Cell.Blessed;
+            }
+
+            foreach (var bridgeLocation in BridgeDetector.GetBridgeSpaces(state, ActionSide.Blue))
+            {
+                state[bridgeLocation] |= Cell.Blessed;
+            }
+
+        }
+
+        /// <summary>
+        /// Checks if either side has a blessed king, and sets the win flag for that side if so.
+        /// </summary>
+        /// <param name="state">Game state</param>
+        private static void CheckBlessedKings(State state)
+        {
+            foreach (var location in State.AllBoardLocations)
+            {
+                if ((state[location] & Cell.Blessed) == Cell.Blessed && (state[location] & Cell.King) == Cell.King)
+                {
+                    if ((state[location] & Cell.SideRed) == Cell.SideRed)
+                    {
+                        state.Flags |= StateFlags.RedWin;
+                    }
+                    else
+                    {
+                        state.Flags |= StateFlags.BlueWin;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks if either side has a pending curse which hasn't attached yet (because it can still be prevented with a blessing.)
+        /// If no blessing or king flag is found, applies the curse.  Otherwise removes the pending curse.
+        /// </summary>
+        /// <param name="state">Game state</param>
+        private static void ApplyCurses(State state)
+        {
+            foreach (var location in State.AllBoardLocations)
+            {
+                if ((state[location] & (Cell.Blessed | Cell.King)) == 0 && (state[location] & Cell.CursePending) == Cell.CursePending)
+                {
+                    state[location] = (state[location] & ~Cell.CursePending) | Cell.Cursed;
+                }
+                else
+                {
+                    state[location] &= ~Cell.CursePending;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes all lock flags from all pieces, since locks only persist between a player's first and second moves.
+        /// </summary>
+        /// <param name="state">Game state</param>
         private static void UnlockAllLockedPieces(State state)
         {
             foreach (var location in State.AllBoardLocations)
@@ -127,6 +190,37 @@ namespace Benediction.Actions
                 {
                     state[location] &= ~Cell.Locked;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Ends the game if either player has won. Otherwise advances the turn indicator to the next player turn.
+        /// </summary>
+        /// <param name="state">Game state</param>
+        private static void UpdateTurnFlag(State state)
+        {
+            if ((state.Flags & (StateFlags.RedWin | StateFlags.BlueWin)) > 0)
+            {
+                state.Flags &= (StateFlags.RedKingTaken | StateFlags.BlueKingTaken | StateFlags.RedWin |
+                                                    StateFlags.BlueWin);
+            }
+            else if ((state.Flags & StateFlags.RedAction1) > 0)
+            {
+                state.Flags = (state.Flags & ~StateFlags.RedAction1) | StateFlags.RedAction2;
+            }
+            else if ((state.Flags & StateFlags.RedAction2) > 0)
+            {
+                state.Flags = (state.Flags & ~StateFlags.RedAction2) | StateFlags.BlueAction1;
+                UnlockAllLockedPieces(state);
+            }
+            else if ((state.Flags & StateFlags.BlueAction1) > 0)
+            {
+                state.Flags = (state.Flags & ~StateFlags.BlueAction1) | StateFlags.BlueAction2;
+            }
+            else if ((state.Flags & StateFlags.BlueAction2) > 0)
+            {
+                state.Flags = (state.Flags & ~StateFlags.BlueAction2) | StateFlags.RedAction1;
+                UnlockAllLockedPieces(state);
             }
         }
 
@@ -143,9 +237,14 @@ namespace Benediction.Actions
             return $"{red1} {red2} / {blue1} {blue2}";
         }
 
-        public string CheckLocationEmpty(State initialState)
+        /// <summary>
+        /// Confirms the initial location (or only location, for blocks and drops) is empty.
+        /// </summary>
+        /// <param name="state">Game state to check</param>
+        /// <returns>Null if the move is allowed, or a brief text explanation of why it cannot be performed</returns>
+        public string CheckLocationEmpty(State state)
         {
-            if (initialState[Location] != Cell.Empty)
+            if (state[Location] != Cell.Empty)
             {
                 return $"Location {Location} Not Empty";
             }

@@ -59,9 +59,11 @@ namespace Benediction.Actions
 
             if (string.IsNullOrEmpty(error))
             {
-                var retval = initialState.DeepCopy();
-                retval[Location] = Cell.Blockade;
-                return retval;
+                var finalState = initialState.DeepCopy();
+                
+                finalState[Location] = Cell.Blockade;
+                
+                return finalState;
             }
 
             throw new InvalidOperationException($"Did not check invalid move before applying: {error}");

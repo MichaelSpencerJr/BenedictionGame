@@ -33,12 +33,18 @@ namespace Benediction.Actions
                 var nextExpand = unexpanded.Pop();
                 foreach (var mover in Movement.AllMoves)
                 {
-                    var adjacent = mover(nextExpand, false, false);
-                    if (unconnectedSpaces.Contains(adjacent))
+                    try
                     {
-                        bridgeSpaces.Add(adjacent);
-                        unexpanded.Push(adjacent);
-                        unconnectedSpaces.Remove(adjacent);
+                        var adjacent = mover(nextExpand, false, false);
+                        if (unconnectedSpaces.Contains(adjacent))
+                        {
+                            bridgeSpaces.Add(adjacent);
+                            unexpanded.Push(adjacent);
+                            unconnectedSpaces.Remove(adjacent);
+                        }
+                    }
+                    catch 
+                    { //ignored
                     }
                 }
             }

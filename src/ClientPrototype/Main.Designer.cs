@@ -32,6 +32,15 @@
             this.pbBoard = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpEditor = new System.Windows.Forms.TabPage();
+            this.chkBlueWin = new System.Windows.Forms.CheckBox();
+            this.chkRedWin = new System.Windows.Forms.CheckBox();
+            this.chkBlueKingTaken = new System.Windows.Forms.CheckBox();
+            this.chkRedKingTaken = new System.Windows.Forms.CheckBox();
+            this.chkBlueT2 = new System.Windows.Forms.CheckBox();
+            this.chkBlueT1 = new System.Windows.Forms.CheckBox();
+            this.chkRedT2 = new System.Windows.Forms.CheckBox();
+            this.chkRedT1 = new System.Windows.Forms.CheckBox();
+            this.btnBoardImageToClipboard = new System.Windows.Forms.Button();
             this.chkCursed = new System.Windows.Forms.CheckBox();
             this.chkBlessed = new System.Windows.Forms.CheckBox();
             this.chkKing = new System.Windows.Forms.CheckBox();
@@ -48,17 +57,29 @@
             this.btnImportBoard = new System.Windows.Forms.Button();
             this.btnExportBoard = new System.Windows.Forms.Button();
             this.btnClearBoard = new System.Windows.Forms.Button();
-            this.tpRed = new System.Windows.Forms.TabPage();
-            this.tpBlue = new System.Windows.Forms.TabPage();
-            this.btnBoardImageToClipboard = new System.Windows.Forms.Button();
-            this.chkRedT1 = new System.Windows.Forms.CheckBox();
-            this.chkRedT2 = new System.Windows.Forms.CheckBox();
-            this.chkBlueT1 = new System.Windows.Forms.CheckBox();
-            this.chkBlueT2 = new System.Windows.Forms.CheckBox();
-            this.chkRedKingTaken = new System.Windows.Forms.CheckBox();
-            this.chkBlueKingTaken = new System.Windows.Forms.CheckBox();
-            this.chkRedWin = new System.Windows.Forms.CheckBox();
-            this.chkBlueWin = new System.Windows.Forms.CheckBox();
+            this.tpHumanPlayer = new System.Windows.Forms.TabPage();
+            this.btnPlayerClearMove = new System.Windows.Forms.Button();
+            this.btnPlayerCommitMove = new System.Windows.Forms.Button();
+            this.lblPlayerMoveError = new System.Windows.Forms.Label();
+            this.groupBoxLocation = new System.Windows.Forms.GroupBox();
+            this.lblPlayerTarget = new System.Windows.Forms.Label();
+            this.lblPlayerLocation = new System.Windows.Forms.Label();
+            this.lblMoveType = new System.Windows.Forms.Label();
+            this.rbPlayerTarget = new System.Windows.Forms.RadioButton();
+            this.rbPlayerLocation = new System.Windows.Forms.RadioButton();
+            this.groupBoxMove = new System.Windows.Forms.GroupBox();
+            this.nudPlayerSplitNumber = new System.Windows.Forms.NumericUpDown();
+            this.rbPlayerSplit = new System.Windows.Forms.RadioButton();
+            this.rbPlayerMove = new System.Windows.Forms.RadioButton();
+            this.rbPlayerMerge = new System.Windows.Forms.RadioButton();
+            this.rbPlayerDrop = new System.Windows.Forms.RadioButton();
+            this.rbPlayerBlock = new System.Windows.Forms.RadioButton();
+            this.btnNewGame = new System.Windows.Forms.Button();
+            this.groupBoxPlayer = new System.Windows.Forms.GroupBox();
+            this.rbPlayerBlue = new System.Windows.Forms.RadioButton();
+            this.rbPlayerRed = new System.Windows.Forms.RadioButton();
+            this.tpCpuPlayer = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,6 +88,12 @@
             this.tabControl1.SuspendLayout();
             this.tpEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStackSize)).BeginInit();
+            this.tpHumanPlayer.SuspendLayout();
+            this.groupBoxLocation.SuspendLayout();
+            this.groupBoxMove.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPlayerSplitNumber)).BeginInit();
+            this.groupBoxPlayer.SuspendLayout();
+            this.tpCpuPlayer.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -100,8 +127,8 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpEditor);
-            this.tabControl1.Controls.Add(this.tpRed);
-            this.tabControl1.Controls.Add(this.tpBlue);
+            this.tabControl1.Controls.Add(this.tpHumanPlayer);
+            this.tabControl1.Controls.Add(this.tpCpuPlayer);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -143,6 +170,104 @@
             this.tpEditor.TabIndex = 0;
             this.tpEditor.Text = "Board Editor";
             this.tpEditor.UseVisualStyleBackColor = true;
+            // 
+            // chkBlueWin
+            // 
+            this.chkBlueWin.AutoSize = true;
+            this.chkBlueWin.Location = new System.Drawing.Point(139, 153);
+            this.chkBlueWin.Name = "chkBlueWin";
+            this.chkBlueWin.Size = new System.Drawing.Size(74, 17);
+            this.chkBlueWin.TabIndex = 12;
+            this.chkBlueWin.Text = "Blue Wins";
+            this.chkBlueWin.UseVisualStyleBackColor = true;
+            this.chkBlueWin.CheckedChanged += new System.EventHandler(this.chkBlueWin_CheckedChanged);
+            // 
+            // chkRedWin
+            // 
+            this.chkRedWin.AutoSize = true;
+            this.chkRedWin.Location = new System.Drawing.Point(6, 153);
+            this.chkRedWin.Name = "chkRedWin";
+            this.chkRedWin.Size = new System.Drawing.Size(73, 17);
+            this.chkRedWin.TabIndex = 11;
+            this.chkRedWin.Text = "Red Wins";
+            this.chkRedWin.UseVisualStyleBackColor = true;
+            this.chkRedWin.CheckedChanged += new System.EventHandler(this.chkRedWin_CheckedChanged);
+            // 
+            // chkBlueKingTaken
+            // 
+            this.chkBlueKingTaken.AutoSize = true;
+            this.chkBlueKingTaken.Location = new System.Drawing.Point(139, 130);
+            this.chkBlueKingTaken.Name = "chkBlueKingTaken";
+            this.chkBlueKingTaken.Size = new System.Drawing.Size(105, 17);
+            this.chkBlueKingTaken.TabIndex = 10;
+            this.chkBlueKingTaken.Text = "Blue King Taken";
+            this.chkBlueKingTaken.UseVisualStyleBackColor = true;
+            this.chkBlueKingTaken.CheckedChanged += new System.EventHandler(this.chkBlueKingTaken_CheckedChanged);
+            // 
+            // chkRedKingTaken
+            // 
+            this.chkRedKingTaken.AutoSize = true;
+            this.chkRedKingTaken.Location = new System.Drawing.Point(6, 130);
+            this.chkRedKingTaken.Name = "chkRedKingTaken";
+            this.chkRedKingTaken.Size = new System.Drawing.Size(104, 17);
+            this.chkRedKingTaken.TabIndex = 9;
+            this.chkRedKingTaken.Text = "Red King Taken";
+            this.chkRedKingTaken.UseVisualStyleBackColor = true;
+            this.chkRedKingTaken.CheckedChanged += new System.EventHandler(this.chkRedKingTaken_CheckedChanged);
+            // 
+            // chkBlueT2
+            // 
+            this.chkBlueT2.AutoSize = true;
+            this.chkBlueT2.Location = new System.Drawing.Point(208, 107);
+            this.chkBlueT2.Name = "chkBlueT2";
+            this.chkBlueT2.Size = new System.Drawing.Size(63, 17);
+            this.chkBlueT2.TabIndex = 8;
+            this.chkBlueT2.Text = "Blue T2";
+            this.chkBlueT2.UseVisualStyleBackColor = true;
+            this.chkBlueT2.CheckedChanged += new System.EventHandler(this.chkBlueT2_CheckedChanged);
+            // 
+            // chkBlueT1
+            // 
+            this.chkBlueT1.AutoSize = true;
+            this.chkBlueT1.Location = new System.Drawing.Point(139, 107);
+            this.chkBlueT1.Name = "chkBlueT1";
+            this.chkBlueT1.Size = new System.Drawing.Size(63, 17);
+            this.chkBlueT1.TabIndex = 7;
+            this.chkBlueT1.Text = "Blue T1";
+            this.chkBlueT1.UseVisualStyleBackColor = true;
+            this.chkBlueT1.CheckedChanged += new System.EventHandler(this.chkBlueT1_CheckedChanged);
+            // 
+            // chkRedT2
+            // 
+            this.chkRedT2.AutoSize = true;
+            this.chkRedT2.Location = new System.Drawing.Point(71, 107);
+            this.chkRedT2.Name = "chkRedT2";
+            this.chkRedT2.Size = new System.Drawing.Size(62, 17);
+            this.chkRedT2.TabIndex = 6;
+            this.chkRedT2.Text = "Red T2";
+            this.chkRedT2.UseVisualStyleBackColor = true;
+            this.chkRedT2.CheckedChanged += new System.EventHandler(this.chkRedT2_CheckedChanged);
+            // 
+            // chkRedT1
+            // 
+            this.chkRedT1.AutoSize = true;
+            this.chkRedT1.Location = new System.Drawing.Point(6, 107);
+            this.chkRedT1.Name = "chkRedT1";
+            this.chkRedT1.Size = new System.Drawing.Size(62, 17);
+            this.chkRedT1.TabIndex = 5;
+            this.chkRedT1.Text = "Red T1";
+            this.chkRedT1.UseVisualStyleBackColor = true;
+            this.chkRedT1.CheckedChanged += new System.EventHandler(this.chkRedT1_CheckedChanged);
+            // 
+            // btnBoardImageToClipboard
+            // 
+            this.btnBoardImageToClipboard.Location = new System.Drawing.Point(223, 6);
+            this.btnBoardImageToClipboard.Name = "btnBoardImageToClipboard";
+            this.btnBoardImageToClipboard.Size = new System.Drawing.Size(75, 39);
+            this.btnBoardImageToClipboard.TabIndex = 3;
+            this.btnBoardImageToClipboard.Text = "Board Image to Clipboard";
+            this.btnBoardImageToClipboard.UseVisualStyleBackColor = true;
+            this.btnBoardImageToClipboard.Click += new System.EventHandler(this.btnBoardImageToClipboard_Click);
             // 
             // chkCursed
             // 
@@ -309,123 +434,278 @@
             this.btnClearBoard.UseVisualStyleBackColor = true;
             this.btnClearBoard.Click += new System.EventHandler(this.btnClearBoard_Click);
             // 
-            // tpRed
+            // tpHumanPlayer
             // 
-            this.tpRed.Location = new System.Drawing.Point(4, 22);
-            this.tpRed.Name = "tpRed";
-            this.tpRed.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRed.Size = new System.Drawing.Size(313, 424);
-            this.tpRed.TabIndex = 1;
-            this.tpRed.Text = "Red Move";
-            this.tpRed.UseVisualStyleBackColor = true;
+            this.tpHumanPlayer.Controls.Add(this.btnPlayerClearMove);
+            this.tpHumanPlayer.Controls.Add(this.btnPlayerCommitMove);
+            this.tpHumanPlayer.Controls.Add(this.lblPlayerMoveError);
+            this.tpHumanPlayer.Controls.Add(this.groupBoxLocation);
+            this.tpHumanPlayer.Controls.Add(this.groupBoxMove);
+            this.tpHumanPlayer.Controls.Add(this.btnNewGame);
+            this.tpHumanPlayer.Controls.Add(this.groupBoxPlayer);
+            this.tpHumanPlayer.Location = new System.Drawing.Point(4, 22);
+            this.tpHumanPlayer.Name = "tpHumanPlayer";
+            this.tpHumanPlayer.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHumanPlayer.Size = new System.Drawing.Size(313, 424);
+            this.tpHumanPlayer.TabIndex = 1;
+            this.tpHumanPlayer.Text = "Human Player";
+            this.tpHumanPlayer.UseVisualStyleBackColor = true;
             // 
-            // tpBlue
+            // btnPlayerClearMove
             // 
-            this.tpBlue.Location = new System.Drawing.Point(4, 22);
-            this.tpBlue.Name = "tpBlue";
-            this.tpBlue.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBlue.Size = new System.Drawing.Size(313, 424);
-            this.tpBlue.TabIndex = 2;
-            this.tpBlue.Text = "Blue Move";
-            this.tpBlue.UseVisualStyleBackColor = true;
+            this.btnPlayerClearMove.Location = new System.Drawing.Point(162, 55);
+            this.btnPlayerClearMove.Name = "btnPlayerClearMove";
+            this.btnPlayerClearMove.Size = new System.Drawing.Size(97, 23);
+            this.btnPlayerClearMove.TabIndex = 13;
+            this.btnPlayerClearMove.Text = "Clear Move";
+            this.btnPlayerClearMove.UseVisualStyleBackColor = true;
+            this.btnPlayerClearMove.Click += new System.EventHandler(this.btnPlayerClearMove_Click);
             // 
-            // btnBoardImageToClipboard
+            // btnPlayerCommitMove
             // 
-            this.btnBoardImageToClipboard.Location = new System.Drawing.Point(223, 6);
-            this.btnBoardImageToClipboard.Name = "btnBoardImageToClipboard";
-            this.btnBoardImageToClipboard.Size = new System.Drawing.Size(75, 39);
-            this.btnBoardImageToClipboard.TabIndex = 3;
-            this.btnBoardImageToClipboard.Text = "Board Image to Clipboard";
-            this.btnBoardImageToClipboard.UseVisualStyleBackColor = true;
-            this.btnBoardImageToClipboard.Click += new System.EventHandler(this.btnBoardImageToClipboard_Click);
+            this.btnPlayerCommitMove.Location = new System.Drawing.Point(7, 281);
+            this.btnPlayerCommitMove.Name = "btnPlayerCommitMove";
+            this.btnPlayerCommitMove.Size = new System.Drawing.Size(97, 23);
+            this.btnPlayerCommitMove.TabIndex = 12;
+            this.btnPlayerCommitMove.Text = "Commit Move";
+            this.btnPlayerCommitMove.UseVisualStyleBackColor = true;
+            this.btnPlayerCommitMove.Click += new System.EventHandler(this.btnPlayerCommitMove_Click);
             // 
-            // chkRedT1
+            // lblPlayerMoveError
             // 
-            this.chkRedT1.AutoSize = true;
-            this.chkRedT1.Location = new System.Drawing.Point(6, 107);
-            this.chkRedT1.Name = "chkRedT1";
-            this.chkRedT1.Size = new System.Drawing.Size(62, 17);
-            this.chkRedT1.TabIndex = 5;
-            this.chkRedT1.Text = "Red T1";
-            this.chkRedT1.UseVisualStyleBackColor = true;
-            this.chkRedT1.CheckedChanged += new System.EventHandler(this.chkRedT1_CheckedChanged);
+            this.lblPlayerMoveError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerMoveError.Location = new System.Drawing.Point(6, 206);
+            this.lblPlayerMoveError.Name = "lblPlayerMoveError";
+            this.lblPlayerMoveError.Size = new System.Drawing.Size(299, 72);
+            this.lblPlayerMoveError.TabIndex = 11;
             // 
-            // chkRedT2
+            // groupBoxLocation
             // 
-            this.chkRedT2.AutoSize = true;
-            this.chkRedT2.Location = new System.Drawing.Point(71, 107);
-            this.chkRedT2.Name = "chkRedT2";
-            this.chkRedT2.Size = new System.Drawing.Size(62, 17);
-            this.chkRedT2.TabIndex = 6;
-            this.chkRedT2.Text = "Red T2";
-            this.chkRedT2.UseVisualStyleBackColor = true;
-            this.chkRedT2.CheckedChanged += new System.EventHandler(this.chkRedT2_CheckedChanged);
+            this.groupBoxLocation.Controls.Add(this.lblPlayerTarget);
+            this.groupBoxLocation.Controls.Add(this.lblPlayerLocation);
+            this.groupBoxLocation.Controls.Add(this.lblMoveType);
+            this.groupBoxLocation.Controls.Add(this.rbPlayerTarget);
+            this.groupBoxLocation.Controls.Add(this.rbPlayerLocation);
+            this.groupBoxLocation.Location = new System.Drawing.Point(7, 152);
+            this.groupBoxLocation.Name = "groupBoxLocation";
+            this.groupBoxLocation.Size = new System.Drawing.Size(298, 51);
+            this.groupBoxLocation.TabIndex = 3;
+            this.groupBoxLocation.TabStop = false;
+            this.groupBoxLocation.Text = "Select Location";
             // 
-            // chkBlueT1
+            // lblPlayerTarget
             // 
-            this.chkBlueT1.AutoSize = true;
-            this.chkBlueT1.Location = new System.Drawing.Point(139, 107);
-            this.chkBlueT1.Name = "chkBlueT1";
-            this.chkBlueT1.Size = new System.Drawing.Size(63, 17);
-            this.chkBlueT1.TabIndex = 7;
-            this.chkBlueT1.Text = "Blue T1";
-            this.chkBlueT1.UseVisualStyleBackColor = true;
-            this.chkBlueT1.CheckedChanged += new System.EventHandler(this.chkBlueT1_CheckedChanged);
+            this.lblPlayerTarget.Location = new System.Drawing.Point(239, 24);
+            this.lblPlayerTarget.Name = "lblPlayerTarget";
+            this.lblPlayerTarget.Size = new System.Drawing.Size(53, 18);
+            this.lblPlayerTarget.TabIndex = 10;
             // 
-            // chkBlueT2
+            // lblPlayerLocation
             // 
-            this.chkBlueT2.AutoSize = true;
-            this.chkBlueT2.Location = new System.Drawing.Point(208, 107);
-            this.chkBlueT2.Name = "chkBlueT2";
-            this.chkBlueT2.Size = new System.Drawing.Size(63, 17);
-            this.chkBlueT2.TabIndex = 8;
-            this.chkBlueT2.Text = "Blue T2";
-            this.chkBlueT2.UseVisualStyleBackColor = true;
-            this.chkBlueT2.CheckedChanged += new System.EventHandler(this.chkBlueT2_CheckedChanged);
+            this.lblPlayerLocation.Location = new System.Drawing.Point(126, 24);
+            this.lblPlayerLocation.Name = "lblPlayerLocation";
+            this.lblPlayerLocation.Size = new System.Drawing.Size(53, 18);
+            this.lblPlayerLocation.TabIndex = 9;
             // 
-            // chkRedKingTaken
+            // lblMoveType
             // 
-            this.chkRedKingTaken.AutoSize = true;
-            this.chkRedKingTaken.Location = new System.Drawing.Point(6, 130);
-            this.chkRedKingTaken.Name = "chkRedKingTaken";
-            this.chkRedKingTaken.Size = new System.Drawing.Size(104, 17);
-            this.chkRedKingTaken.TabIndex = 9;
-            this.chkRedKingTaken.Text = "Red King Taken";
-            this.chkRedKingTaken.UseVisualStyleBackColor = true;
-            this.chkRedKingTaken.CheckedChanged += new System.EventHandler(this.chkRedKingTaken_CheckedChanged);
+            this.lblMoveType.Location = new System.Drawing.Point(8, 24);
+            this.lblMoveType.Name = "lblMoveType";
+            this.lblMoveType.Size = new System.Drawing.Size(53, 18);
+            this.lblMoveType.TabIndex = 8;
             // 
-            // chkBlueKingTaken
+            // rbPlayerTarget
             // 
-            this.chkBlueKingTaken.AutoSize = true;
-            this.chkBlueKingTaken.Location = new System.Drawing.Point(139, 130);
-            this.chkBlueKingTaken.Name = "chkBlueKingTaken";
-            this.chkBlueKingTaken.Size = new System.Drawing.Size(105, 17);
-            this.chkBlueKingTaken.TabIndex = 10;
-            this.chkBlueKingTaken.Text = "Blue King Taken";
-            this.chkBlueKingTaken.UseVisualStyleBackColor = true;
-            this.chkBlueKingTaken.CheckedChanged += new System.EventHandler(this.chkBlueKingTaken_CheckedChanged);
+            this.rbPlayerTarget.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbPlayerTarget.AutoSize = true;
+            this.rbPlayerTarget.Location = new System.Drawing.Point(185, 19);
+            this.rbPlayerTarget.Name = "rbPlayerTarget";
+            this.rbPlayerTarget.Size = new System.Drawing.Size(48, 23);
+            this.rbPlayerTarget.TabIndex = 7;
+            this.rbPlayerTarget.TabStop = true;
+            this.rbPlayerTarget.Text = "Target";
+            this.rbPlayerTarget.UseVisualStyleBackColor = true;
             // 
-            // chkRedWin
+            // rbPlayerLocation
             // 
-            this.chkRedWin.AutoSize = true;
-            this.chkRedWin.Location = new System.Drawing.Point(6, 153);
-            this.chkRedWin.Name = "chkRedWin";
-            this.chkRedWin.Size = new System.Drawing.Size(73, 17);
-            this.chkRedWin.TabIndex = 11;
-            this.chkRedWin.Text = "Red Wins";
-            this.chkRedWin.UseVisualStyleBackColor = true;
-            this.chkRedWin.CheckedChanged += new System.EventHandler(this.chkRedWin_CheckedChanged);
+            this.rbPlayerLocation.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbPlayerLocation.AutoSize = true;
+            this.rbPlayerLocation.Location = new System.Drawing.Point(67, 19);
+            this.rbPlayerLocation.Name = "rbPlayerLocation";
+            this.rbPlayerLocation.Size = new System.Drawing.Size(58, 23);
+            this.rbPlayerLocation.TabIndex = 6;
+            this.rbPlayerLocation.TabStop = true;
+            this.rbPlayerLocation.Text = "Location";
+            this.rbPlayerLocation.UseVisualStyleBackColor = true;
             // 
-            // chkBlueWin
+            // groupBoxMove
             // 
-            this.chkBlueWin.AutoSize = true;
-            this.chkBlueWin.Location = new System.Drawing.Point(139, 153);
-            this.chkBlueWin.Name = "chkBlueWin";
-            this.chkBlueWin.Size = new System.Drawing.Size(74, 17);
-            this.chkBlueWin.TabIndex = 12;
-            this.chkBlueWin.Text = "Blue Wins";
-            this.chkBlueWin.UseVisualStyleBackColor = true;
-            this.chkBlueWin.CheckedChanged += new System.EventHandler(this.chkBlueWin_CheckedChanged);
+            this.groupBoxMove.Controls.Add(this.nudPlayerSplitNumber);
+            this.groupBoxMove.Controls.Add(this.rbPlayerSplit);
+            this.groupBoxMove.Controls.Add(this.rbPlayerMove);
+            this.groupBoxMove.Controls.Add(this.rbPlayerMerge);
+            this.groupBoxMove.Controls.Add(this.rbPlayerDrop);
+            this.groupBoxMove.Controls.Add(this.rbPlayerBlock);
+            this.groupBoxMove.Location = new System.Drawing.Point(7, 92);
+            this.groupBoxMove.Name = "groupBoxMove";
+            this.groupBoxMove.Size = new System.Drawing.Size(298, 54);
+            this.groupBoxMove.TabIndex = 2;
+            this.groupBoxMove.TabStop = false;
+            this.groupBoxMove.Text = "Select Move";
+            // 
+            // nudPlayerSplitNumber
+            // 
+            this.nudPlayerSplitNumber.Location = new System.Drawing.Point(248, 22);
+            this.nudPlayerSplitNumber.Maximum = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
+            this.nudPlayerSplitNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudPlayerSplitNumber.Name = "nudPlayerSplitNumber";
+            this.nudPlayerSplitNumber.Size = new System.Drawing.Size(41, 20);
+            this.nudPlayerSplitNumber.TabIndex = 6;
+            this.nudPlayerSplitNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // rbPlayerSplit
+            // 
+            this.rbPlayerSplit.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbPlayerSplit.AutoSize = true;
+            this.rbPlayerSplit.Location = new System.Drawing.Point(205, 19);
+            this.rbPlayerSplit.Name = "rbPlayerSplit";
+            this.rbPlayerSplit.Size = new System.Drawing.Size(37, 23);
+            this.rbPlayerSplit.TabIndex = 5;
+            this.rbPlayerSplit.TabStop = true;
+            this.rbPlayerSplit.Text = "Split";
+            this.rbPlayerSplit.UseVisualStyleBackColor = true;
+            this.rbPlayerSplit.CheckedChanged += new System.EventHandler(this.rbPlayerSplit_CheckedChanged);
+            // 
+            // rbPlayerMove
+            // 
+            this.rbPlayerMove.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbPlayerMove.AutoSize = true;
+            this.rbPlayerMove.Location = new System.Drawing.Point(155, 19);
+            this.rbPlayerMove.Name = "rbPlayerMove";
+            this.rbPlayerMove.Size = new System.Drawing.Size(44, 23);
+            this.rbPlayerMove.TabIndex = 4;
+            this.rbPlayerMove.TabStop = true;
+            this.rbPlayerMove.Text = "Move";
+            this.rbPlayerMove.UseVisualStyleBackColor = true;
+            this.rbPlayerMove.CheckedChanged += new System.EventHandler(this.rbPlayerMove_CheckedChanged);
+            // 
+            // rbPlayerMerge
+            // 
+            this.rbPlayerMerge.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbPlayerMerge.AutoSize = true;
+            this.rbPlayerMerge.Location = new System.Drawing.Point(102, 19);
+            this.rbPlayerMerge.Name = "rbPlayerMerge";
+            this.rbPlayerMerge.Size = new System.Drawing.Size(47, 23);
+            this.rbPlayerMerge.TabIndex = 3;
+            this.rbPlayerMerge.TabStop = true;
+            this.rbPlayerMerge.Text = "Merge";
+            this.rbPlayerMerge.UseVisualStyleBackColor = true;
+            this.rbPlayerMerge.CheckedChanged += new System.EventHandler(this.rbPlayerMerge_CheckedChanged);
+            // 
+            // rbPlayerDrop
+            // 
+            this.rbPlayerDrop.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbPlayerDrop.AutoSize = true;
+            this.rbPlayerDrop.Location = new System.Drawing.Point(56, 19);
+            this.rbPlayerDrop.Name = "rbPlayerDrop";
+            this.rbPlayerDrop.Size = new System.Drawing.Size(40, 23);
+            this.rbPlayerDrop.TabIndex = 2;
+            this.rbPlayerDrop.TabStop = true;
+            this.rbPlayerDrop.Text = "Drop";
+            this.rbPlayerDrop.UseVisualStyleBackColor = true;
+            this.rbPlayerDrop.CheckedChanged += new System.EventHandler(this.rbPlayerDrop_CheckedChanged);
+            // 
+            // rbPlayerBlock
+            // 
+            this.rbPlayerBlock.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbPlayerBlock.AutoSize = true;
+            this.rbPlayerBlock.Location = new System.Drawing.Point(6, 19);
+            this.rbPlayerBlock.Name = "rbPlayerBlock";
+            this.rbPlayerBlock.Size = new System.Drawing.Size(44, 23);
+            this.rbPlayerBlock.TabIndex = 1;
+            this.rbPlayerBlock.TabStop = true;
+            this.rbPlayerBlock.Text = "Block";
+            this.rbPlayerBlock.UseVisualStyleBackColor = true;
+            this.rbPlayerBlock.CheckedChanged += new System.EventHandler(this.rbPlayerBlock_CheckedChanged);
+            // 
+            // btnNewGame
+            // 
+            this.btnNewGame.Location = new System.Drawing.Point(7, 7);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(75, 23);
+            this.btnNewGame.TabIndex = 1;
+            this.btnNewGame.Text = "New Game";
+            this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
+            // 
+            // groupBoxPlayer
+            // 
+            this.groupBoxPlayer.Controls.Add(this.rbPlayerBlue);
+            this.groupBoxPlayer.Controls.Add(this.rbPlayerRed);
+            this.groupBoxPlayer.Location = new System.Drawing.Point(7, 36);
+            this.groupBoxPlayer.Name = "groupBoxPlayer";
+            this.groupBoxPlayer.Size = new System.Drawing.Size(97, 50);
+            this.groupBoxPlayer.TabIndex = 0;
+            this.groupBoxPlayer.TabStop = false;
+            this.groupBoxPlayer.Text = "Select Player";
+            // 
+            // rbPlayerBlue
+            // 
+            this.rbPlayerBlue.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbPlayerBlue.AutoSize = true;
+            this.rbPlayerBlue.Location = new System.Drawing.Point(49, 19);
+            this.rbPlayerBlue.Name = "rbPlayerBlue";
+            this.rbPlayerBlue.Size = new System.Drawing.Size(38, 23);
+            this.rbPlayerBlue.TabIndex = 1;
+            this.rbPlayerBlue.TabStop = true;
+            this.rbPlayerBlue.Text = "Blue";
+            this.rbPlayerBlue.UseVisualStyleBackColor = true;
+            this.rbPlayerBlue.CheckedChanged += new System.EventHandler(this.rbPlayerBlue_CheckedChanged);
+            // 
+            // rbPlayerRed
+            // 
+            this.rbPlayerRed.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbPlayerRed.AutoSize = true;
+            this.rbPlayerRed.Location = new System.Drawing.Point(6, 19);
+            this.rbPlayerRed.Name = "rbPlayerRed";
+            this.rbPlayerRed.Size = new System.Drawing.Size(37, 23);
+            this.rbPlayerRed.TabIndex = 0;
+            this.rbPlayerRed.TabStop = true;
+            this.rbPlayerRed.Text = "Red";
+            this.rbPlayerRed.UseVisualStyleBackColor = true;
+            this.rbPlayerRed.CheckedChanged += new System.EventHandler(this.rbPlayerRed_CheckedChanged);
+            // 
+            // tpCpuPlayer
+            // 
+            this.tpCpuPlayer.Controls.Add(this.label2);
+            this.tpCpuPlayer.Location = new System.Drawing.Point(4, 22);
+            this.tpCpuPlayer.Name = "tpCpuPlayer";
+            this.tpCpuPlayer.Padding = new System.Windows.Forms.Padding(3);
+            this.tpCpuPlayer.Size = new System.Drawing.Size(313, 424);
+            this.tpCpuPlayer.TabIndex = 2;
+            this.tpCpuPlayer.Text = "CPU Player";
+            this.tpCpuPlayer.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "(sorry, not yet)";
             // 
             // Main
             // 
@@ -445,6 +725,16 @@
             this.tpEditor.ResumeLayout(false);
             this.tpEditor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStackSize)).EndInit();
+            this.tpHumanPlayer.ResumeLayout(false);
+            this.groupBoxLocation.ResumeLayout(false);
+            this.groupBoxLocation.PerformLayout();
+            this.groupBoxMove.ResumeLayout(false);
+            this.groupBoxMove.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPlayerSplitNumber)).EndInit();
+            this.groupBoxPlayer.ResumeLayout(false);
+            this.groupBoxPlayer.PerformLayout();
+            this.tpCpuPlayer.ResumeLayout(false);
+            this.tpCpuPlayer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -455,8 +745,8 @@
         private System.Windows.Forms.PictureBox pbBoard;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpEditor;
-        private System.Windows.Forms.TabPage tpRed;
-        private System.Windows.Forms.TabPage tpBlue;
+        private System.Windows.Forms.TabPage tpHumanPlayer;
+        private System.Windows.Forms.TabPage tpCpuPlayer;
         private System.Windows.Forms.Button btnImportBoard;
         private System.Windows.Forms.Button btnExportBoard;
         private System.Windows.Forms.Button btnClearBoard;
@@ -482,6 +772,27 @@
         private System.Windows.Forms.CheckBox chkBlueT1;
         private System.Windows.Forms.CheckBox chkRedT2;
         private System.Windows.Forms.CheckBox chkRedT1;
+        private System.Windows.Forms.Button btnNewGame;
+        private System.Windows.Forms.GroupBox groupBoxPlayer;
+        private System.Windows.Forms.RadioButton rbPlayerBlue;
+        private System.Windows.Forms.RadioButton rbPlayerRed;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnPlayerCommitMove;
+        private System.Windows.Forms.Label lblPlayerMoveError;
+        private System.Windows.Forms.GroupBox groupBoxLocation;
+        private System.Windows.Forms.Label lblPlayerTarget;
+        private System.Windows.Forms.Label lblPlayerLocation;
+        private System.Windows.Forms.Label lblMoveType;
+        private System.Windows.Forms.RadioButton rbPlayerTarget;
+        private System.Windows.Forms.RadioButton rbPlayerLocation;
+        private System.Windows.Forms.GroupBox groupBoxMove;
+        private System.Windows.Forms.RadioButton rbPlayerSplit;
+        private System.Windows.Forms.RadioButton rbPlayerMove;
+        private System.Windows.Forms.RadioButton rbPlayerMerge;
+        private System.Windows.Forms.RadioButton rbPlayerDrop;
+        private System.Windows.Forms.RadioButton rbPlayerBlock;
+        private System.Windows.Forms.Button btnPlayerClearMove;
+        private System.Windows.Forms.NumericUpDown nudPlayerSplitNumber;
     }
 }
 

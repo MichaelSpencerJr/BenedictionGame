@@ -2,6 +2,7 @@
 {
     public enum ActionSide
     {
+        Undefined,
         Red,
         Blue
     }

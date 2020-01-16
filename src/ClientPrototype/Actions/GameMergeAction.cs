@@ -23,13 +23,9 @@ namespace Benediction.Actions
             if (string.IsNullOrEmpty(error))
             {
                 var retval = initialState.DeepCopy();
-                var kingFlag = (initialState[Location] | initialState[Target]) & Cell.King;
 
-                var newSize = (int) (initialState[Location] & Cell.SizeMask) + (int) (initialState[Target] & Cell.SizeMask);
-                retval[Location] = Cell.Empty;
-                retval[Target] = (initialState[Target] & ~(Cell.Blessed | Cell.Cursed | Cell.CursePending | Cell.SizeMask)) |
-                                 (Cell) newSize | kingFlag;
-                
+                ApplyMerge(initialState, retval);
+
                 return retval;
             }
 

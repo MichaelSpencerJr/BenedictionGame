@@ -23,9 +23,18 @@ namespace Benediction.Actions
 
             if (Location == targetHome) return null;
 
-            if (Movement.AllMoves.Any(move => move(Location, false, false) == targetHome))
+            foreach (var move in Movement.AllMoves)
             {
-                return null;
+                try
+                {
+                    if (move(Location, false, false) == targetHome)
+                    {
+                        return null;
+                    }
+                }
+                catch //ignored
+                {
+                }
             }
 
             return $"Drop Must Be Adjacent Your Home At {targetHome}";
@@ -37,14 +46,12 @@ namespace Benediction.Actions
 
             if (string.IsNullOrEmpty(error))
             {
-                var retval = initialState.DeepCopy();
+                var finalState = initialState.DeepCopy();
 
-                retval[Location] = Cell.Size1 | Cell.Locked;
-                if (Side == ActionSide.Red) retval[Location] |= Cell.SideRed;
-                if (Location == (Side == ActionSide.Red ? initialState.RedHome : initialState.BlueHome))
-                    retval[Location] |= Cell.King;
+                finalState[Location] = Cell.Size1 | Cell.Locked;
+                if (Side == ActionSide.Red) finalState[Location] |= Cell.SideRed;
                 
-                return retval;
+                return finalState;
             }
 
             throw new InvalidOperationException($"Did not check invalid move before applying: {error}");

@@ -34,7 +34,8 @@ namespace Benediction.Actions
             if (CheckTargetIsYours(initialState, string.Empty) == null)
             {
                 var blessingRemovedState = initialState.DeepCopy();
-                blessingRemovedState[Location] &= ~Cell.Blessed;
+                blessingRemovedState[Location] &= ~(Cell.Blessed | Cell.SizeMask);
+                blessingRemovedState[Location] |= (Cell)Size;
                 return CheckMergeRules(blessingRemovedState);
             }
 
@@ -47,37 +48,30 @@ namespace Benediction.Actions
 
             if (string.IsNullOrEmpty(error))
             {
-                var retval = initialState.DeepCopy();
-/*
- this needs to be some combination of the move logic:
-                
-                var kingFlag = (initialState[Location] | initialState[Target]) & Cell.King;
+                var finalState = initialState.DeepCopy();
 
-                var newSize = (int) (initialState[Location] & Cell.SizeMask) + (int) (initialState[Target] & Cell.SizeMask);
-                retval[Location] = Cell.Empty;
-                retval[Target] = (initialState[Target] & ~(Cell.Blessed | Cell.Cursed | Cell.CursePending | Cell.SizeMask)) |
-                                 (Cell) newSize | kingFlag;
+                //Modify the source piece so it contains only the part that's being moved or merged.
+                //Afterward we'll place a new CursePending piece with the remaining size.
+                var remainingSize = (int) (initialState[Location] & Cell.SizeMask) - Size;
 
-  and the merge logic:
-                if ((initialState[Target] & Cell.King) == Cell.King)
+                finalState[Location] &= ~(Cell.Blessed | Cell.SizeMask);
+                finalState[Location] |= (Cell)Size;
+
+                if (CheckTargetIsYours(initialState, string.Empty) == null)
                 {
-                    retval.Flags |= (initialState[Target] & Cell.SideRed) == Cell.SideRed
-                        ? StateFlags.RedKingTaken
-                        : StateFlags.BlueKingTaken;
+                    ApplyMerge(initialState, finalState);
+                }
+                else
+                {
+                    ApplyMove(initialState, finalState);
                 }
 
-                retval[Target] = initialState[Location] | Cell.Locked;
-                retval[Location] = Cell.Empty;
-                if (CheckLocationTargetReachable(initialState, true) == null)
-                {
-                    //If it's possible to do the indicated move in a way that passes enemy walls, un-curse and bless the moved piece.
-                    retval[Target] = (retval[Target] & ~Cell.Cursed) | Cell.Blessed;
-                }
-*/
+                finalState[Location] =
+                    (initialState[Location] & ~(Cell.SizeMask | Cell.Locked)) | (Cell) remainingSize | Cell.CursePending;
 
+                finalState[Target] |= Cell.CursePending;
 
-                
-                return retval;
+                return finalState;
             }
 
             throw new InvalidOperationException($"Did not check invalid move before applying: {error}");
