@@ -1,6 +1,6 @@
-﻿namespace Benediction
+﻿namespace Benediction.View
 {
-    partial class Main
+    partial class GamePlayerView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pbBoard = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpEditor = new System.Windows.Forms.TabPage();
+            this.chkCursePending = new System.Windows.Forms.CheckBox();
+            this.chkLocked = new System.Windows.Forms.CheckBox();
+            this.chkBlockade = new System.Windows.Forms.CheckBox();
             this.chkBlueWin = new System.Windows.Forms.CheckBox();
             this.chkRedWin = new System.Windows.Forms.CheckBox();
             this.chkBlueKingTaken = new System.Windows.Forms.CheckBox();
@@ -58,28 +69,18 @@
             this.btnExportBoard = new System.Windows.Forms.Button();
             this.btnClearBoard = new System.Windows.Forms.Button();
             this.tpHumanPlayer = new System.Windows.Forms.TabPage();
-            this.btnPlayerClearMove = new System.Windows.Forms.Button();
-            this.btnPlayerCommitMove = new System.Windows.Forms.Button();
-            this.lblPlayerMoveError = new System.Windows.Forms.Label();
-            this.groupBoxLocation = new System.Windows.Forms.GroupBox();
-            this.lblPlayerTarget = new System.Windows.Forms.Label();
-            this.lblPlayerLocation = new System.Windows.Forms.Label();
-            this.lblMoveType = new System.Windows.Forms.Label();
-            this.rbPlayerTarget = new System.Windows.Forms.RadioButton();
-            this.rbPlayerLocation = new System.Windows.Forms.RadioButton();
-            this.groupBoxMove = new System.Windows.Forms.GroupBox();
-            this.nudPlayerSplitNumber = new System.Windows.Forms.NumericUpDown();
-            this.rbPlayerSplit = new System.Windows.Forms.RadioButton();
-            this.rbPlayerMove = new System.Windows.Forms.RadioButton();
-            this.rbPlayerMerge = new System.Windows.Forms.RadioButton();
-            this.rbPlayerDrop = new System.Windows.Forms.RadioButton();
-            this.rbPlayerBlock = new System.Windows.Forms.RadioButton();
             this.btnNewGame = new System.Windows.Forms.Button();
-            this.groupBoxPlayer = new System.Windows.Forms.GroupBox();
-            this.rbPlayerBlue = new System.Windows.Forms.RadioButton();
-            this.rbPlayerRed = new System.Windows.Forms.RadioButton();
             this.tpCpuPlayer = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dgvGameState = new System.Windows.Forms.DataGridView();
+            this.dgColumnTurn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgColumnRedTurn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgColumnRed2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgColumnBlue1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgColumnBlue2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMove = new System.Windows.Forms.TextBox();
+            this.btnClearMove = new System.Windows.Forms.Button();
+            this.btnCommitMove = new System.Windows.Forms.Button();
+            this.lstAvailableMoves = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -89,11 +90,8 @@
             this.tpEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStackSize)).BeginInit();
             this.tpHumanPlayer.SuspendLayout();
-            this.groupBoxLocation.SuspendLayout();
-            this.groupBoxMove.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPlayerSplitNumber)).BeginInit();
-            this.groupBoxPlayer.SuspendLayout();
             this.tpCpuPlayer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGameState)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -122,7 +120,9 @@
             this.pbBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbBoard.TabIndex = 0;
             this.pbBoard.TabStop = false;
-            this.pbBoard.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseClick);
+            this.pbBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseDown);
+            this.pbBoard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseMove);
+            this.pbBoard.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseUp);
             // 
             // tabControl1
             // 
@@ -138,6 +138,9 @@
             // 
             // tpEditor
             // 
+            this.tpEditor.Controls.Add(this.chkCursePending);
+            this.tpEditor.Controls.Add(this.chkLocked);
+            this.tpEditor.Controls.Add(this.chkBlockade);
             this.tpEditor.Controls.Add(this.chkBlueWin);
             this.tpEditor.Controls.Add(this.chkRedWin);
             this.tpEditor.Controls.Add(this.chkBlueKingTaken);
@@ -170,6 +173,36 @@
             this.tpEditor.TabIndex = 0;
             this.tpEditor.Text = "Board Editor";
             this.tpEditor.UseVisualStyleBackColor = true;
+            // 
+            // chkCursePending
+            // 
+            this.chkCursePending.AutoSize = true;
+            this.chkCursePending.Location = new System.Drawing.Point(87, 382);
+            this.chkCursePending.Name = "chkCursePending";
+            this.chkCursePending.Size = new System.Drawing.Size(92, 17);
+            this.chkCursePending.TabIndex = 27;
+            this.chkCursePending.Text = "CursePending";
+            this.chkCursePending.UseVisualStyleBackColor = true;
+            // 
+            // chkLocked
+            // 
+            this.chkLocked.AutoSize = true;
+            this.chkLocked.Location = new System.Drawing.Point(87, 359);
+            this.chkLocked.Name = "chkLocked";
+            this.chkLocked.Size = new System.Drawing.Size(62, 17);
+            this.chkLocked.TabIndex = 26;
+            this.chkLocked.Text = "Locked";
+            this.chkLocked.UseVisualStyleBackColor = true;
+            // 
+            // chkBlockade
+            // 
+            this.chkBlockade.AutoSize = true;
+            this.chkBlockade.Location = new System.Drawing.Point(87, 336);
+            this.chkBlockade.Name = "chkBlockade";
+            this.chkBlockade.Size = new System.Drawing.Size(71, 17);
+            this.chkBlockade.TabIndex = 25;
+            this.chkBlockade.Text = "Blockade";
+            this.chkBlockade.UseVisualStyleBackColor = true;
             // 
             // chkBlueWin
             // 
@@ -436,13 +469,11 @@
             // 
             // tpHumanPlayer
             // 
-            this.tpHumanPlayer.Controls.Add(this.btnPlayerClearMove);
-            this.tpHumanPlayer.Controls.Add(this.btnPlayerCommitMove);
-            this.tpHumanPlayer.Controls.Add(this.lblPlayerMoveError);
-            this.tpHumanPlayer.Controls.Add(this.groupBoxLocation);
-            this.tpHumanPlayer.Controls.Add(this.groupBoxMove);
+            this.tpHumanPlayer.Controls.Add(this.btnCommitMove);
+            this.tpHumanPlayer.Controls.Add(this.btnClearMove);
+            this.tpHumanPlayer.Controls.Add(this.txtMove);
+            this.tpHumanPlayer.Controls.Add(this.dgvGameState);
             this.tpHumanPlayer.Controls.Add(this.btnNewGame);
-            this.tpHumanPlayer.Controls.Add(this.groupBoxPlayer);
             this.tpHumanPlayer.Location = new System.Drawing.Point(4, 22);
             this.tpHumanPlayer.Name = "tpHumanPlayer";
             this.tpHumanPlayer.Padding = new System.Windows.Forms.Padding(3);
@@ -451,198 +482,9 @@
             this.tpHumanPlayer.Text = "Human Player";
             this.tpHumanPlayer.UseVisualStyleBackColor = true;
             // 
-            // btnPlayerClearMove
-            // 
-            this.btnPlayerClearMove.Location = new System.Drawing.Point(162, 55);
-            this.btnPlayerClearMove.Name = "btnPlayerClearMove";
-            this.btnPlayerClearMove.Size = new System.Drawing.Size(97, 23);
-            this.btnPlayerClearMove.TabIndex = 13;
-            this.btnPlayerClearMove.Text = "Clear Move";
-            this.btnPlayerClearMove.UseVisualStyleBackColor = true;
-            this.btnPlayerClearMove.Click += new System.EventHandler(this.btnPlayerClearMove_Click);
-            // 
-            // btnPlayerCommitMove
-            // 
-            this.btnPlayerCommitMove.Location = new System.Drawing.Point(7, 281);
-            this.btnPlayerCommitMove.Name = "btnPlayerCommitMove";
-            this.btnPlayerCommitMove.Size = new System.Drawing.Size(97, 23);
-            this.btnPlayerCommitMove.TabIndex = 12;
-            this.btnPlayerCommitMove.Text = "Commit Move";
-            this.btnPlayerCommitMove.UseVisualStyleBackColor = true;
-            this.btnPlayerCommitMove.Click += new System.EventHandler(this.btnPlayerCommitMove_Click);
-            // 
-            // lblPlayerMoveError
-            // 
-            this.lblPlayerMoveError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerMoveError.Location = new System.Drawing.Point(6, 206);
-            this.lblPlayerMoveError.Name = "lblPlayerMoveError";
-            this.lblPlayerMoveError.Size = new System.Drawing.Size(299, 72);
-            this.lblPlayerMoveError.TabIndex = 11;
-            // 
-            // groupBoxLocation
-            // 
-            this.groupBoxLocation.Controls.Add(this.lblPlayerTarget);
-            this.groupBoxLocation.Controls.Add(this.lblPlayerLocation);
-            this.groupBoxLocation.Controls.Add(this.lblMoveType);
-            this.groupBoxLocation.Controls.Add(this.rbPlayerTarget);
-            this.groupBoxLocation.Controls.Add(this.rbPlayerLocation);
-            this.groupBoxLocation.Location = new System.Drawing.Point(7, 152);
-            this.groupBoxLocation.Name = "groupBoxLocation";
-            this.groupBoxLocation.Size = new System.Drawing.Size(298, 51);
-            this.groupBoxLocation.TabIndex = 3;
-            this.groupBoxLocation.TabStop = false;
-            this.groupBoxLocation.Text = "Select Location";
-            // 
-            // lblPlayerTarget
-            // 
-            this.lblPlayerTarget.Location = new System.Drawing.Point(239, 24);
-            this.lblPlayerTarget.Name = "lblPlayerTarget";
-            this.lblPlayerTarget.Size = new System.Drawing.Size(53, 18);
-            this.lblPlayerTarget.TabIndex = 10;
-            // 
-            // lblPlayerLocation
-            // 
-            this.lblPlayerLocation.Location = new System.Drawing.Point(126, 24);
-            this.lblPlayerLocation.Name = "lblPlayerLocation";
-            this.lblPlayerLocation.Size = new System.Drawing.Size(53, 18);
-            this.lblPlayerLocation.TabIndex = 9;
-            // 
-            // lblMoveType
-            // 
-            this.lblMoveType.Location = new System.Drawing.Point(8, 24);
-            this.lblMoveType.Name = "lblMoveType";
-            this.lblMoveType.Size = new System.Drawing.Size(53, 18);
-            this.lblMoveType.TabIndex = 8;
-            // 
-            // rbPlayerTarget
-            // 
-            this.rbPlayerTarget.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbPlayerTarget.AutoSize = true;
-            this.rbPlayerTarget.Location = new System.Drawing.Point(185, 19);
-            this.rbPlayerTarget.Name = "rbPlayerTarget";
-            this.rbPlayerTarget.Size = new System.Drawing.Size(48, 23);
-            this.rbPlayerTarget.TabIndex = 7;
-            this.rbPlayerTarget.TabStop = true;
-            this.rbPlayerTarget.Text = "Target";
-            this.rbPlayerTarget.UseVisualStyleBackColor = true;
-            // 
-            // rbPlayerLocation
-            // 
-            this.rbPlayerLocation.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbPlayerLocation.AutoSize = true;
-            this.rbPlayerLocation.Location = new System.Drawing.Point(67, 19);
-            this.rbPlayerLocation.Name = "rbPlayerLocation";
-            this.rbPlayerLocation.Size = new System.Drawing.Size(58, 23);
-            this.rbPlayerLocation.TabIndex = 6;
-            this.rbPlayerLocation.TabStop = true;
-            this.rbPlayerLocation.Text = "Location";
-            this.rbPlayerLocation.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxMove
-            // 
-            this.groupBoxMove.Controls.Add(this.nudPlayerSplitNumber);
-            this.groupBoxMove.Controls.Add(this.rbPlayerSplit);
-            this.groupBoxMove.Controls.Add(this.rbPlayerMove);
-            this.groupBoxMove.Controls.Add(this.rbPlayerMerge);
-            this.groupBoxMove.Controls.Add(this.rbPlayerDrop);
-            this.groupBoxMove.Controls.Add(this.rbPlayerBlock);
-            this.groupBoxMove.Location = new System.Drawing.Point(7, 92);
-            this.groupBoxMove.Name = "groupBoxMove";
-            this.groupBoxMove.Size = new System.Drawing.Size(298, 54);
-            this.groupBoxMove.TabIndex = 2;
-            this.groupBoxMove.TabStop = false;
-            this.groupBoxMove.Text = "Select Move";
-            // 
-            // nudPlayerSplitNumber
-            // 
-            this.nudPlayerSplitNumber.Location = new System.Drawing.Point(248, 22);
-            this.nudPlayerSplitNumber.Maximum = new decimal(new int[] {
-            14,
-            0,
-            0,
-            0});
-            this.nudPlayerSplitNumber.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudPlayerSplitNumber.Name = "nudPlayerSplitNumber";
-            this.nudPlayerSplitNumber.Size = new System.Drawing.Size(41, 20);
-            this.nudPlayerSplitNumber.TabIndex = 6;
-            this.nudPlayerSplitNumber.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // rbPlayerSplit
-            // 
-            this.rbPlayerSplit.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbPlayerSplit.AutoSize = true;
-            this.rbPlayerSplit.Location = new System.Drawing.Point(205, 19);
-            this.rbPlayerSplit.Name = "rbPlayerSplit";
-            this.rbPlayerSplit.Size = new System.Drawing.Size(37, 23);
-            this.rbPlayerSplit.TabIndex = 5;
-            this.rbPlayerSplit.TabStop = true;
-            this.rbPlayerSplit.Text = "Split";
-            this.rbPlayerSplit.UseVisualStyleBackColor = true;
-            this.rbPlayerSplit.CheckedChanged += new System.EventHandler(this.rbPlayerSplit_CheckedChanged);
-            // 
-            // rbPlayerMove
-            // 
-            this.rbPlayerMove.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbPlayerMove.AutoSize = true;
-            this.rbPlayerMove.Location = new System.Drawing.Point(155, 19);
-            this.rbPlayerMove.Name = "rbPlayerMove";
-            this.rbPlayerMove.Size = new System.Drawing.Size(44, 23);
-            this.rbPlayerMove.TabIndex = 4;
-            this.rbPlayerMove.TabStop = true;
-            this.rbPlayerMove.Text = "Move";
-            this.rbPlayerMove.UseVisualStyleBackColor = true;
-            this.rbPlayerMove.CheckedChanged += new System.EventHandler(this.rbPlayerMove_CheckedChanged);
-            // 
-            // rbPlayerMerge
-            // 
-            this.rbPlayerMerge.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbPlayerMerge.AutoSize = true;
-            this.rbPlayerMerge.Location = new System.Drawing.Point(102, 19);
-            this.rbPlayerMerge.Name = "rbPlayerMerge";
-            this.rbPlayerMerge.Size = new System.Drawing.Size(47, 23);
-            this.rbPlayerMerge.TabIndex = 3;
-            this.rbPlayerMerge.TabStop = true;
-            this.rbPlayerMerge.Text = "Merge";
-            this.rbPlayerMerge.UseVisualStyleBackColor = true;
-            this.rbPlayerMerge.CheckedChanged += new System.EventHandler(this.rbPlayerMerge_CheckedChanged);
-            // 
-            // rbPlayerDrop
-            // 
-            this.rbPlayerDrop.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbPlayerDrop.AutoSize = true;
-            this.rbPlayerDrop.Location = new System.Drawing.Point(56, 19);
-            this.rbPlayerDrop.Name = "rbPlayerDrop";
-            this.rbPlayerDrop.Size = new System.Drawing.Size(40, 23);
-            this.rbPlayerDrop.TabIndex = 2;
-            this.rbPlayerDrop.TabStop = true;
-            this.rbPlayerDrop.Text = "Drop";
-            this.rbPlayerDrop.UseVisualStyleBackColor = true;
-            this.rbPlayerDrop.CheckedChanged += new System.EventHandler(this.rbPlayerDrop_CheckedChanged);
-            // 
-            // rbPlayerBlock
-            // 
-            this.rbPlayerBlock.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbPlayerBlock.AutoSize = true;
-            this.rbPlayerBlock.Location = new System.Drawing.Point(6, 19);
-            this.rbPlayerBlock.Name = "rbPlayerBlock";
-            this.rbPlayerBlock.Size = new System.Drawing.Size(44, 23);
-            this.rbPlayerBlock.TabIndex = 1;
-            this.rbPlayerBlock.TabStop = true;
-            this.rbPlayerBlock.Text = "Block";
-            this.rbPlayerBlock.UseVisualStyleBackColor = true;
-            this.rbPlayerBlock.CheckedChanged += new System.EventHandler(this.rbPlayerBlock_CheckedChanged);
-            // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(7, 7);
+            this.btnNewGame.Location = new System.Drawing.Point(6, 6);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(75, 23);
             this.btnNewGame.TabIndex = 1;
@@ -650,72 +492,170 @@
             this.btnNewGame.UseVisualStyleBackColor = true;
             this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
-            // groupBoxPlayer
-            // 
-            this.groupBoxPlayer.Controls.Add(this.rbPlayerBlue);
-            this.groupBoxPlayer.Controls.Add(this.rbPlayerRed);
-            this.groupBoxPlayer.Location = new System.Drawing.Point(7, 36);
-            this.groupBoxPlayer.Name = "groupBoxPlayer";
-            this.groupBoxPlayer.Size = new System.Drawing.Size(97, 50);
-            this.groupBoxPlayer.TabIndex = 0;
-            this.groupBoxPlayer.TabStop = false;
-            this.groupBoxPlayer.Text = "Select Player";
-            // 
-            // rbPlayerBlue
-            // 
-            this.rbPlayerBlue.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbPlayerBlue.AutoSize = true;
-            this.rbPlayerBlue.Location = new System.Drawing.Point(49, 19);
-            this.rbPlayerBlue.Name = "rbPlayerBlue";
-            this.rbPlayerBlue.Size = new System.Drawing.Size(38, 23);
-            this.rbPlayerBlue.TabIndex = 1;
-            this.rbPlayerBlue.TabStop = true;
-            this.rbPlayerBlue.Text = "Blue";
-            this.rbPlayerBlue.UseVisualStyleBackColor = true;
-            this.rbPlayerBlue.CheckedChanged += new System.EventHandler(this.rbPlayerBlue_CheckedChanged);
-            // 
-            // rbPlayerRed
-            // 
-            this.rbPlayerRed.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbPlayerRed.AutoSize = true;
-            this.rbPlayerRed.Location = new System.Drawing.Point(6, 19);
-            this.rbPlayerRed.Name = "rbPlayerRed";
-            this.rbPlayerRed.Size = new System.Drawing.Size(37, 23);
-            this.rbPlayerRed.TabIndex = 0;
-            this.rbPlayerRed.TabStop = true;
-            this.rbPlayerRed.Text = "Red";
-            this.rbPlayerRed.UseVisualStyleBackColor = true;
-            this.rbPlayerRed.CheckedChanged += new System.EventHandler(this.rbPlayerRed_CheckedChanged);
-            // 
             // tpCpuPlayer
             // 
-            this.tpCpuPlayer.Controls.Add(this.label2);
+            this.tpCpuPlayer.Controls.Add(this.lstAvailableMoves);
             this.tpCpuPlayer.Location = new System.Drawing.Point(4, 22);
             this.tpCpuPlayer.Name = "tpCpuPlayer";
             this.tpCpuPlayer.Padding = new System.Windows.Forms.Padding(3);
             this.tpCpuPlayer.Size = new System.Drawing.Size(313, 424);
             this.tpCpuPlayer.TabIndex = 2;
-            this.tpCpuPlayer.Text = "CPU Player";
+            this.tpCpuPlayer.Text = "CPU Player Preview";
             this.tpCpuPlayer.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // dgvGameState
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "(sorry, not yet)";
+            this.dgvGameState.AllowUserToAddRows = false;
+            this.dgvGameState.AllowUserToDeleteRows = false;
+            this.dgvGameState.AllowUserToResizeColumns = false;
+            this.dgvGameState.AllowUserToResizeRows = false;
+            this.dgvGameState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGameState.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            this.dgvGameState.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGameState.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgColumnTurn,
+            this.dgColumnRedTurn1,
+            this.dgColumnRed2,
+            this.dgColumnBlue1,
+            this.dgColumnBlue2});
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGameState.DefaultCellStyle = dataGridViewCellStyle39;
+            this.dgvGameState.Location = new System.Drawing.Point(6, 35);
+            this.dgvGameState.MultiSelect = false;
+            this.dgvGameState.Name = "dgvGameState";
+            this.dgvGameState.ReadOnly = true;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGameState.RowHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            this.dgvGameState.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvGameState.ShowCellErrors = false;
+            this.dgvGameState.ShowEditingIcon = false;
+            this.dgvGameState.Size = new System.Drawing.Size(299, 261);
+            this.dgvGameState.TabIndex = 2;
+            this.dgvGameState.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGameState_CellClick);
             // 
-            // Main
+            // dgColumnTurn
+            // 
+            this.dgColumnTurn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnTurn.DefaultCellStyle = dataGridViewCellStyle34;
+            this.dgColumnTurn.HeaderText = "Turn";
+            this.dgColumnTurn.MaxInputLength = 4;
+            this.dgColumnTurn.Name = "dgColumnTurn";
+            this.dgColumnTurn.ReadOnly = true;
+            this.dgColumnTurn.Width = 54;
+            // 
+            // dgColumnRedTurn1
+            // 
+            this.dgColumnRedTurn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnRedTurn1.DefaultCellStyle = dataGridViewCellStyle35;
+            this.dgColumnRedTurn1.HeaderText = "R1";
+            this.dgColumnRedTurn1.Name = "dgColumnRedTurn1";
+            this.dgColumnRedTurn1.ReadOnly = true;
+            this.dgColumnRedTurn1.Width = 46;
+            // 
+            // dgColumnRed2
+            // 
+            this.dgColumnRed2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnRed2.DefaultCellStyle = dataGridViewCellStyle36;
+            this.dgColumnRed2.HeaderText = "R2";
+            this.dgColumnRed2.Name = "dgColumnRed2";
+            this.dgColumnRed2.ReadOnly = true;
+            this.dgColumnRed2.Width = 46;
+            // 
+            // dgColumnBlue1
+            // 
+            this.dgColumnBlue1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnBlue1.DefaultCellStyle = dataGridViewCellStyle37;
+            this.dgColumnBlue1.HeaderText = "B1";
+            this.dgColumnBlue1.Name = "dgColumnBlue1";
+            this.dgColumnBlue1.ReadOnly = true;
+            this.dgColumnBlue1.Width = 45;
+            // 
+            // dgColumnBlue2
+            // 
+            this.dgColumnBlue2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnBlue2.DefaultCellStyle = dataGridViewCellStyle38;
+            this.dgColumnBlue2.HeaderText = "B2";
+            this.dgColumnBlue2.Name = "dgColumnBlue2";
+            this.dgColumnBlue2.ReadOnly = true;
+            this.dgColumnBlue2.Width = 45;
+            // 
+            // txtMove
+            // 
+            this.txtMove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMove.Location = new System.Drawing.Point(6, 302);
+            this.txtMove.Multiline = true;
+            this.txtMove.Name = "txtMove";
+            this.txtMove.ReadOnly = true;
+            this.txtMove.Size = new System.Drawing.Size(299, 66);
+            this.txtMove.TabIndex = 3;
+            // 
+            // btnClearMove
+            // 
+            this.btnClearMove.Location = new System.Drawing.Point(6, 374);
+            this.btnClearMove.Name = "btnClearMove";
+            this.btnClearMove.Size = new System.Drawing.Size(75, 42);
+            this.btnClearMove.TabIndex = 4;
+            this.btnClearMove.Text = "Clear Move [Esc]";
+            this.btnClearMove.UseVisualStyleBackColor = true;
+            this.btnClearMove.Click += new System.EventHandler(this.btnClearMove_Click);
+            // 
+            // btnCommitMove
+            // 
+            this.btnCommitMove.Location = new System.Drawing.Point(223, 374);
+            this.btnCommitMove.Name = "btnCommitMove";
+            this.btnCommitMove.Size = new System.Drawing.Size(82, 42);
+            this.btnCommitMove.TabIndex = 5;
+            this.btnCommitMove.Text = "Commit Move [Space Bar]";
+            this.btnCommitMove.UseVisualStyleBackColor = true;
+            this.btnCommitMove.Click += new System.EventHandler(this.btnCommitMove_Click);
+            // 
+            // lstAvailableMoves
+            // 
+            this.lstAvailableMoves.FormattingEnabled = true;
+            this.lstAvailableMoves.Location = new System.Drawing.Point(6, 37);
+            this.lstAvailableMoves.Name = "lstAvailableMoves";
+            this.lstAvailableMoves.Size = new System.Drawing.Size(299, 290);
+            this.lstAvailableMoves.TabIndex = 0;
+            // 
+            // GamePlayerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 450);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Main";
+            this.Name = "GamePlayerView";
             this.Text = "Benediction Client Prototype";
             this.Load += new System.EventHandler(this.Main_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GamePlayerView_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GamePlayerView_KeyUp);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -726,15 +666,9 @@
             this.tpEditor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStackSize)).EndInit();
             this.tpHumanPlayer.ResumeLayout(false);
-            this.groupBoxLocation.ResumeLayout(false);
-            this.groupBoxLocation.PerformLayout();
-            this.groupBoxMove.ResumeLayout(false);
-            this.groupBoxMove.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPlayerSplitNumber)).EndInit();
-            this.groupBoxPlayer.ResumeLayout(false);
-            this.groupBoxPlayer.PerformLayout();
+            this.tpHumanPlayer.PerformLayout();
             this.tpCpuPlayer.ResumeLayout(false);
-            this.tpCpuPlayer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGameState)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -773,26 +707,19 @@
         private System.Windows.Forms.CheckBox chkRedT2;
         private System.Windows.Forms.CheckBox chkRedT1;
         private System.Windows.Forms.Button btnNewGame;
-        private System.Windows.Forms.GroupBox groupBoxPlayer;
-        private System.Windows.Forms.RadioButton rbPlayerBlue;
-        private System.Windows.Forms.RadioButton rbPlayerRed;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnPlayerCommitMove;
-        private System.Windows.Forms.Label lblPlayerMoveError;
-        private System.Windows.Forms.GroupBox groupBoxLocation;
-        private System.Windows.Forms.Label lblPlayerTarget;
-        private System.Windows.Forms.Label lblPlayerLocation;
-        private System.Windows.Forms.Label lblMoveType;
-        private System.Windows.Forms.RadioButton rbPlayerTarget;
-        private System.Windows.Forms.RadioButton rbPlayerLocation;
-        private System.Windows.Forms.GroupBox groupBoxMove;
-        private System.Windows.Forms.RadioButton rbPlayerSplit;
-        private System.Windows.Forms.RadioButton rbPlayerMove;
-        private System.Windows.Forms.RadioButton rbPlayerMerge;
-        private System.Windows.Forms.RadioButton rbPlayerDrop;
-        private System.Windows.Forms.RadioButton rbPlayerBlock;
-        private System.Windows.Forms.Button btnPlayerClearMove;
-        private System.Windows.Forms.NumericUpDown nudPlayerSplitNumber;
+        private System.Windows.Forms.CheckBox chkCursePending;
+        private System.Windows.Forms.CheckBox chkLocked;
+        private System.Windows.Forms.CheckBox chkBlockade;
+        private System.Windows.Forms.DataGridView dgvGameState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgColumnTurn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgColumnRedTurn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgColumnRed2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgColumnBlue1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgColumnBlue2;
+        private System.Windows.Forms.Button btnCommitMove;
+        private System.Windows.Forms.Button btnClearMove;
+        private System.Windows.Forms.TextBox txtMove;
+        private System.Windows.Forms.ListBox lstAvailableMoves;
     }
 }
 

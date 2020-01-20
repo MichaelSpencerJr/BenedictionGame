@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Net.NetworkInformation;
 using Benediction.Actions;
 using Benediction.Properties;
 
@@ -26,12 +27,15 @@ namespace Benediction.Board
         public const int BoardHalfColumnRoundingOffset = BoardColumnRange / BoardColumnHighIndex / 2;
 
         /// <summary>
-        /// Draws the provided game board data and cell selection onto an Image
+        /// Draws the provided game board data and cell location onto an Image
         /// </summary>
         /// <param name="state">Game board state, indicating what is present in each cell, where the two homes are, and the current game state flags</param>
-        /// <param name="selection">Board location currently selected by the user, if any</param>
-        /// <returns>Image representing game board data and selection</returns>
-        public static Image DrawBoard(State state, Location selection = Location.Undefined)
+        /// <param name="location">Board location selected by the user for the current move (or move start point)</param>
+        /// <param name="target">Board location selected by the user as the destination for the current move</param>
+        /// <param name="cursorLocation">Board-image-space coordinates of the mouse cursor, for indicating dragged pieces</param>
+        /// <param name="cursorContents">Flags for drawing piece carried by the mouse cursor, if any</param>
+        /// <returns>Image representing game board data and location</returns>
+        public static Image DrawBoard(State state, Location location, Location target, Point cursorLocation, Cell cursorContents = Cell.Empty)
         {
             var retval = new Bitmap(BoardWidth, BoardHeight);
 
@@ -54,26 +58,39 @@ namespace Benediction.Board
                     var layerEmpty = true;
 
                     //Draw any pieces on the board
-                    foreach (var location in State.AllBoardLocations)
+                    foreach (var boardLocation in State.AllBoardLocations)
                     {
-                        if (state[location] == Cell.Empty) continue; //nothing to draw
+                        if (state[boardLocation] == Cell.Empty) continue; //nothing to draw
 
-                        if (state[location] == Cell.Blockade && layer == 0)
+                        if (state[boardLocation] == Cell.Blockade && layer == 0)
                         {
                             //Draw a blockade and continue to next piece
-                            DrawAt(canvas, Resources.Blockade, GetLocationCoordinate(location));
+                            DrawAt(canvas, Resources.Blockade, GetLocationCoordinate(boardLocation));
                             continue;
                         }
 
-                        layerEmpty &= DrawPieceLayer(state, location, layer, canvas);
+                        var stillEmpty = DrawPieceLayer(state, boardLocation, layer, canvas);
+                        if (!stillEmpty)
+                        {
+                            if (boardLocation == location || boardLocation == target)
+                            {
+                                DrawAt(canvas, Resources.Select, GetLocationCoordinate(boardLocation, layer));
+                            }
+                        }
+                        layerEmpty &= stillEmpty;
+                    }
+
+                    if (cursorContents != Cell.Empty)
+                    {
+                        layerEmpty &= DrawPieceLayerAtPoint(cursorContents, layer, cursorLocation, canvas);
                     }
 
                     if (layerEmpty) break;
                 }
 
-                if (Movement.IsValidLocation(selection))
+                if (Movement.IsValidLocation(location))
                 {
-                    DrawAt(canvas, Resources.Select, GetLocationCoordinate(selection));
+                    DrawAt(canvas, Resources.Select, GetLocationCoordinate(location));
                 }
 
                 canvas.Save();
@@ -138,19 +155,21 @@ namespace Benediction.Board
 
         private static bool DrawPieceLayer(State state, Location location, int layer, Graphics canvas)
         {
-            var layerEmpty = true;
-            var piece = state[location];
-            var stackSize = (int) (piece & Cell.SizeMask);
+            return DrawPieceLayerAtPoint(state[location], layer, GetLocationCoordinate(location, layer), canvas);
+        }
 
-            var topPieceCoordinate = GetLocationCoordinate(location, layer);
+        private static bool DrawPieceLayerAtPoint(Cell piece, int layer, Point point, Graphics canvas)
+        {
+            var stackSize = (int) (piece & Cell.SizeMask);
+            var layerEmpty = true;
             if (stackSize > layer)
             {
                 DrawAt(canvas, (piece & Cell.SideRed) == Cell.SideRed ? Resources.Red_Man : Resources.Blue_Man,
-                    topPieceCoordinate);
+                    point);
                 layerEmpty = false;
                 if (layer == 3 || stackSize == layer + 1)
                 {
-                    DrawTopPieceLayer(piece, canvas, topPieceCoordinate, stackSize);
+                    DrawTopPieceLayer(piece, canvas, point, stackSize);
                 }
             }
 

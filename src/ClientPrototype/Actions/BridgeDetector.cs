@@ -18,44 +18,45 @@ namespace Benediction.Actions
                 .Select(kvp => kvp.Key));
 
             var bridgeSpaces = new HashSet<Location>();
-
             foreach (var startingLocation in State.RedWallAdjacentLocations)
             {
+                var potentialBridgeSpaces = new HashSet<Location>();
+
                 if (!unconnectedSpaces.Contains(startingLocation)) continue;
-                bridgeSpaces.Add(startingLocation);
+                potentialBridgeSpaces.Add(startingLocation);
                 unconnectedSpaces.Remove(startingLocation);
-            }
 
-            var unexpanded = new Stack<Location>(bridgeSpaces);
+                var unexpanded = new Stack<Location>(potentialBridgeSpaces);
 
-            while (unexpanded.Count > 0)
-            {
-                var nextExpand = unexpanded.Pop();
-                foreach (var mover in Movement.AllMoves)
+                while (unexpanded.Count > 0)
                 {
-                    try
+                    var nextExpand = unexpanded.Pop();
+                    foreach (var mover in Movement.AllMoves)
                     {
                         var adjacent = mover(nextExpand, false, false);
                         if (unconnectedSpaces.Contains(adjacent))
                         {
-                            bridgeSpaces.Add(adjacent);
+                            potentialBridgeSpaces.Add(adjacent);
                             unexpanded.Push(adjacent);
                             unconnectedSpaces.Remove(adjacent);
                         }
                     }
-                    catch 
-                    { //ignored
+                }
+
+                foreach (var endingLocation in State.BlueWallAdjacentLocations)
+                {
+                    if (potentialBridgeSpaces.Contains(endingLocation))
+                    {
+                        foreach (var potentialBridgeSpace in potentialBridgeSpaces)
+                        {
+                            bridgeSpaces.Add(potentialBridgeSpace);
+                        }
+                        break;
                     }
                 }
             }
 
-            foreach (var endingLocation in State.BlueWallAdjacentLocations)
-            {
-                if (bridgeSpaces.Contains(endingLocation))
-                    return bridgeSpaces;
-            }
-
-            return new HashSet<Location>();
+            return bridgeSpaces;
         }
     }
 }

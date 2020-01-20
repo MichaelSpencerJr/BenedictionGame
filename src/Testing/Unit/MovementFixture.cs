@@ -34,18 +34,20 @@ namespace Testing.Unit
         private void MovementTestInternal(Location from, Location to,
             Func<Location, bool, bool, Location> moverFunc, bool isLegal, string moveName)
         {
-            try
-            {
-                var actualTo = moverFunc(from, true, true);
-                Assert.True(isLegal, "{0} move from {1} was allowed but was expected to be illegal", moveName, from);
-                Assert.AreEqual(to, actualTo, "{0} move from {1} was expected to go to {2} but actually went to {3}.",
-                    moveName, from, actualTo, to);
-                Console.WriteLine($"{moveName} from {from} leads to {to}");
-            }
-            catch
+            var actualTo = moverFunc(from, true, true);
+            if (actualTo == Location.Undefined)
             {
                 Assert.IsFalse(isLegal, "{0} move from {1} was illegal but was expected to be allowed.", moveName,
                     from);
+            }
+            else
+            {
+                Assert.True(isLegal, "{0} move from {1} was allowed but was expected to be illegal", moveName,
+                    from);
+                Assert.AreEqual(to, actualTo,
+                    "{0} move from {1} was expected to go to {2} but actually went to {3}.",
+                    moveName, from, actualTo, to);
+                Console.WriteLine($"{moveName} from {from} leads to {to}");
             }
         }
 

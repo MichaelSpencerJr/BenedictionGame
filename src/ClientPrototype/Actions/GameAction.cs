@@ -94,6 +94,7 @@ namespace Benediction.Actions
             var finalState = initialState.DeepCopy();
 
             CheckKingTaken(finalState);
+            CheckKingCreation(finalState);
             BlessAnyBridges(finalState);
             CheckBlessedKings(finalState);
             ApplyCurses(finalState);
@@ -115,6 +116,19 @@ namespace Benediction.Actions
             else if ((state.Flags & StateFlags.BlueKingTaken) > 0)
             {
                 state.Flags |= StateFlags.RedWin;
+            }
+        }
+
+        private static void CheckKingCreation(State state)
+        {
+            if ((state[state.RedHome] & Cell.SizeMask) > 0)
+            {
+                state[state.RedHome] |= Cell.King;
+            }
+
+            if ((state[state.BlueHome] & Cell.SizeMask) > 0)
+            {
+                state[state.BlueHome] |= Cell.King;
             }
         }
 

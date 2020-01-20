@@ -25,15 +25,9 @@ namespace Benediction.Actions
 
             foreach (var move in Movement.AllMoves)
             {
-                try
+                if (move(Location, false, false) == targetHome)
                 {
-                    if (move(Location, false, false) == targetHome)
-                    {
-                        return null;
-                    }
-                }
-                catch //ignored
-                {
+                    return null;
                 }
             }
 

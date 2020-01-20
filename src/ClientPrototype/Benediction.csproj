@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Actions\ActionSide.cs" />
     <Compile Include="Actions\BridgeDetector.cs" />
-    <Compile Include="Actions\Controller.cs" />
+    <Compile Include="Controller\AvailableActionController.cs" />
     <Compile Include="Actions\GameBlockAction.cs" />
     <Compile Include="Actions\GameDropAction.cs" />
     <Compile Include="Actions\GameMergeAction.cs" />
@@ -62,16 +62,33 @@
     <Compile Include="Actions\GameAction.cs" />
     <Compile Include="Actions\Movement.cs" />
     <Compile Include="Board\Location.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="Controller\IGamePlayerController.cs" />
+    <Compile Include="Game\BoardEditor.cs" />
+    <Compile Include="Game\ClearBoard.cs" />
+    <Compile Include="Game\GameState.cs" />
+    <Compile Include="Game\GameTurn.cs" />
+    <Compile Include="Game\LoadState.cs" />
+    <Compile Include="Game\NewGame.cs" />
+    <Compile Include="Game\NullAction.cs" />
+    <Compile Include="Game\PlayerAction.cs" />
+    <Compile Include="Game\StateInfo.cs" />
+    <Compile Include="Game\StateTransition.cs" />
+    <Compile Include="View\GamePlayerView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="View\GamePlayerView.Designer.cs">
+      <DependentUpon>GamePlayerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\GamePlayerModel.cs" />
+    <Compile Include="Model\GamePlayerState.cs" />
+    <Compile Include="Model\IGamePlayerModel.cs" />
+    <Compile Include="Model\SelectionState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="Controller\GamePlayerController.cs" />
+    <Compile Include="View\IGamePlayerView.cs" />
+    <EmbeddedResource Include="View\GamePlayerView.resx">
+      <DependentUpon>GamePlayerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -101,11 +118,14 @@
     <Content Include="Resources\Blessing.png" />
     <Content Include="Resources\Blockade.png" />
     <Content Include="Resources\Blue_Man.png" />
+    <Content Include="Resources\Blue_Possible.png" />
     <Content Include="Resources\Curse.png" />
     <Content Include="Resources\King.png" />
     <Content Include="Resources\Red_Man.png" />
+    <Content Include="Resources\Red_Possible.png" />
     <Content Include="Resources\Select.png" />
     <Content Include="Resources\StartingPoint.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

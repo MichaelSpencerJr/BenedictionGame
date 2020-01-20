@@ -37,16 +37,11 @@ namespace Benediction.Actions
         {
             foreach (var direction in Movement.AllMoves)
             {
-                try
+                var adjacentCell = direction(Location, false, false);
+                if (adjacentCell == Location.Undefined) continue;
+                if (initialState[adjacentCell] == Cell.Blockade)
                 {
-                    var adjacentCell = direction(Location, false, false);
-                    if (initialState[adjacentCell] == Cell.Blockade)
-                    {
-                        return $"Cannot Blockade Adjacent Existing Blockade {adjacentCell}";
-                    }
-                }
-                catch (ArgumentOutOfRangeException)
-                {
+                    return $"Cannot Blockade Adjacent Existing Blockade {adjacentCell}";
                 }
             }
 

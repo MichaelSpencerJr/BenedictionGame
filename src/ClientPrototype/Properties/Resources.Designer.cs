@@ -103,6 +103,16 @@ namespace Benediction.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Blue_Possible {
+            get {
+                object obj = ResourceManager.GetObject("Blue_Possible", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Curse {
             get {
                 object obj = ResourceManager.GetObject("Curse", resourceCulture);
@@ -126,6 +136,16 @@ namespace Benediction.Properties {
         internal static System.Drawing.Bitmap Red_Man {
             get {
                 object obj = ResourceManager.GetObject("Red_Man", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Red_Possible {
+            get {
+                object obj = ResourceManager.GetObject("Red_Possible", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

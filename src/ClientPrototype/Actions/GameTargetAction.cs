@@ -162,29 +162,24 @@ namespace Benediction.Actions
                 // Stack size controls how many spaces we can move, so progressively check straight line moves of each length.
                 for (var i = 0; i < stackSize; i++)
                 {
-                    try
-                    {
-                        // test the considered move and find its movement vector
-                        var newCell = mover(consideredCell, blueWallWrapAround, redWallWrapAround);
-                        var (horizontal, vertical) = MovementVector(consideredCell, newCell);
-                        consideredCell = newCell;
+                    // test the considered move and find its movement vector
+                    var newCell = mover(consideredCell, blueWallWrapAround, redWallWrapAround);
+                    if (newCell == Location.Undefined) break;
+                    
+                    var (horizontal, vertical) = MovementVector(consideredCell, newCell);
+                    consideredCell = newCell;
 
-                        // if the last single step move has a manhattan distance over 2, this move passed through an enemy wall.
-                        if (Math.Abs(horizontal) + Math.Abs(vertical) > 2)
-                            wrapAroundSeen = true;
+                    // if the last single step move has a manhattan distance over 2, this move passed through an enemy wall.
+                    if (Math.Abs(horizontal) + Math.Abs(vertical) > 2)
+                        wrapAroundSeen = true;
 
-                        // illegal to move onto or through blockades, so stop considering this movement direction if we find one.
-                        if (state[consideredCell] == Cell.Blockade) break;
+                    // illegal to move onto or through blockades, so stop considering this movement direction if we find one.
+                    if (state[consideredCell] == Cell.Blockade) break;
 
-                        if (consideredCell == Target && (wrapAroundSeen || !requireWrapAround)) return null;
-                        
-                        // this cell is reachable but wasn't our target.  Add it to the reachable list and continue checking.
-                        reachable.Add(consideredCell);
-                    }
-                    catch
-                    {
-                        break;
-                    }
+                    if (consideredCell == Target && (wrapAroundSeen || !requireWrapAround)) return null;
+
+                    // this cell is reachable but wasn't our target.  Add it to the reachable list and continue checking.
+                    reachable.Add(consideredCell);
                 }
             }
 
