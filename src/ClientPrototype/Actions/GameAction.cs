@@ -16,6 +16,8 @@ namespace Benediction.Actions
         /// Represents the board location this action is taking place on or from.
         /// </summary>
         public Location Location { get; set; }
+ 
+        public abstract int Size { get; set; }
 
         /// <summary>
         /// Name of this game action

@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pbBoard = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -69,17 +69,17 @@
             this.btnExportBoard = new System.Windows.Forms.Button();
             this.btnClearBoard = new System.Windows.Forms.Button();
             this.tpHumanPlayer = new System.Windows.Forms.TabPage();
-            this.btnNewGame = new System.Windows.Forms.Button();
-            this.tpCpuPlayer = new System.Windows.Forms.TabPage();
+            this.btnCommitMove = new System.Windows.Forms.Button();
+            this.btnClearMove = new System.Windows.Forms.Button();
+            this.txtMove = new System.Windows.Forms.TextBox();
             this.dgvGameState = new System.Windows.Forms.DataGridView();
             this.dgColumnTurn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgColumnRedTurn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgColumnRed2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgColumnBlue1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgColumnBlue2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtMove = new System.Windows.Forms.TextBox();
-            this.btnClearMove = new System.Windows.Forms.Button();
-            this.btnCommitMove = new System.Windows.Forms.Button();
+            this.btnNewGame = new System.Windows.Forms.Button();
+            this.tpCpuPlayer = new System.Windows.Forms.TabPage();
             this.lstAvailableMoves = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -90,8 +90,8 @@
             this.tpEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStackSize)).BeginInit();
             this.tpHumanPlayer.SuspendLayout();
-            this.tpCpuPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGameState)).BeginInit();
+            this.tpCpuPlayer.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -482,6 +482,143 @@
             this.tpHumanPlayer.Text = "Human Player";
             this.tpHumanPlayer.UseVisualStyleBackColor = true;
             // 
+            // btnCommitMove
+            // 
+            this.btnCommitMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCommitMove.Location = new System.Drawing.Point(223, 374);
+            this.btnCommitMove.Name = "btnCommitMove";
+            this.btnCommitMove.Size = new System.Drawing.Size(82, 42);
+            this.btnCommitMove.TabIndex = 5;
+            this.btnCommitMove.Text = "Commit Move [Enter]";
+            this.btnCommitMove.UseVisualStyleBackColor = true;
+            this.btnCommitMove.Click += new System.EventHandler(this.btnCommitMove_Click);
+            // 
+            // btnClearMove
+            // 
+            this.btnClearMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClearMove.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClearMove.Location = new System.Drawing.Point(6, 374);
+            this.btnClearMove.Name = "btnClearMove";
+            this.btnClearMove.Size = new System.Drawing.Size(75, 42);
+            this.btnClearMove.TabIndex = 4;
+            this.btnClearMove.Text = "Clear Move [Esc]";
+            this.btnClearMove.UseVisualStyleBackColor = true;
+            this.btnClearMove.Click += new System.EventHandler(this.btnClearMove_Click);
+            // 
+            // txtMove
+            // 
+            this.txtMove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMove.Location = new System.Drawing.Point(6, 302);
+            this.txtMove.Multiline = true;
+            this.txtMove.Name = "txtMove";
+            this.txtMove.ReadOnly = true;
+            this.txtMove.Size = new System.Drawing.Size(299, 66);
+            this.txtMove.TabIndex = 3;
+            // 
+            // dgvGameState
+            // 
+            this.dgvGameState.AllowUserToAddRows = false;
+            this.dgvGameState.AllowUserToDeleteRows = false;
+            this.dgvGameState.AllowUserToResizeColumns = false;
+            this.dgvGameState.AllowUserToResizeRows = false;
+            this.dgvGameState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle65.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle65.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGameState.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle65;
+            this.dgvGameState.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGameState.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgColumnTurn,
+            this.dgColumnRedTurn1,
+            this.dgColumnRed2,
+            this.dgColumnBlue1,
+            this.dgColumnBlue2});
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle71.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle71.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGameState.DefaultCellStyle = dataGridViewCellStyle71;
+            this.dgvGameState.Location = new System.Drawing.Point(6, 35);
+            this.dgvGameState.MultiSelect = false;
+            this.dgvGameState.Name = "dgvGameState";
+            this.dgvGameState.ReadOnly = true;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle72.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle72.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle72.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle72.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGameState.RowHeadersDefaultCellStyle = dataGridViewCellStyle72;
+            this.dgvGameState.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvGameState.ShowCellErrors = false;
+            this.dgvGameState.ShowEditingIcon = false;
+            this.dgvGameState.Size = new System.Drawing.Size(299, 261);
+            this.dgvGameState.TabIndex = 2;
+            this.dgvGameState.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGameState_CellClick);
+            // 
+            // dgColumnTurn
+            // 
+            this.dgColumnTurn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnTurn.DefaultCellStyle = dataGridViewCellStyle66;
+            this.dgColumnTurn.HeaderText = "Turn";
+            this.dgColumnTurn.MaxInputLength = 4;
+            this.dgColumnTurn.Name = "dgColumnTurn";
+            this.dgColumnTurn.ReadOnly = true;
+            this.dgColumnTurn.Width = 54;
+            // 
+            // dgColumnRedTurn1
+            // 
+            this.dgColumnRedTurn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnRedTurn1.DefaultCellStyle = dataGridViewCellStyle67;
+            this.dgColumnRedTurn1.HeaderText = "R1";
+            this.dgColumnRedTurn1.Name = "dgColumnRedTurn1";
+            this.dgColumnRedTurn1.ReadOnly = true;
+            this.dgColumnRedTurn1.Width = 46;
+            // 
+            // dgColumnRed2
+            // 
+            this.dgColumnRed2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnRed2.DefaultCellStyle = dataGridViewCellStyle68;
+            this.dgColumnRed2.HeaderText = "R2";
+            this.dgColumnRed2.Name = "dgColumnRed2";
+            this.dgColumnRed2.ReadOnly = true;
+            this.dgColumnRed2.Width = 46;
+            // 
+            // dgColumnBlue1
+            // 
+            this.dgColumnBlue1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnBlue1.DefaultCellStyle = dataGridViewCellStyle69;
+            this.dgColumnBlue1.HeaderText = "B1";
+            this.dgColumnBlue1.Name = "dgColumnBlue1";
+            this.dgColumnBlue1.ReadOnly = true;
+            this.dgColumnBlue1.Width = 45;
+            // 
+            // dgColumnBlue2
+            // 
+            this.dgColumnBlue2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnBlue2.DefaultCellStyle = dataGridViewCellStyle70;
+            this.dgColumnBlue2.HeaderText = "B2";
+            this.dgColumnBlue2.Name = "dgColumnBlue2";
+            this.dgColumnBlue2.ReadOnly = true;
+            this.dgColumnBlue2.Width = 45;
+            // 
             // btnNewGame
             // 
             this.btnNewGame.Location = new System.Drawing.Point(6, 6);
@@ -503,140 +640,6 @@
             this.tpCpuPlayer.Text = "CPU Player Preview";
             this.tpCpuPlayer.UseVisualStyleBackColor = true;
             // 
-            // dgvGameState
-            // 
-            this.dgvGameState.AllowUserToAddRows = false;
-            this.dgvGameState.AllowUserToDeleteRows = false;
-            this.dgvGameState.AllowUserToResizeColumns = false;
-            this.dgvGameState.AllowUserToResizeRows = false;
-            this.dgvGameState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGameState.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
-            this.dgvGameState.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGameState.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgColumnTurn,
-            this.dgColumnRedTurn1,
-            this.dgColumnRed2,
-            this.dgColumnBlue1,
-            this.dgColumnBlue2});
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGameState.DefaultCellStyle = dataGridViewCellStyle39;
-            this.dgvGameState.Location = new System.Drawing.Point(6, 35);
-            this.dgvGameState.MultiSelect = false;
-            this.dgvGameState.Name = "dgvGameState";
-            this.dgvGameState.ReadOnly = true;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGameState.RowHeadersDefaultCellStyle = dataGridViewCellStyle40;
-            this.dgvGameState.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvGameState.ShowCellErrors = false;
-            this.dgvGameState.ShowEditingIcon = false;
-            this.dgvGameState.Size = new System.Drawing.Size(299, 261);
-            this.dgvGameState.TabIndex = 2;
-            this.dgvGameState.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGameState_CellClick);
-            // 
-            // dgColumnTurn
-            // 
-            this.dgColumnTurn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgColumnTurn.DefaultCellStyle = dataGridViewCellStyle34;
-            this.dgColumnTurn.HeaderText = "Turn";
-            this.dgColumnTurn.MaxInputLength = 4;
-            this.dgColumnTurn.Name = "dgColumnTurn";
-            this.dgColumnTurn.ReadOnly = true;
-            this.dgColumnTurn.Width = 54;
-            // 
-            // dgColumnRedTurn1
-            // 
-            this.dgColumnRedTurn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgColumnRedTurn1.DefaultCellStyle = dataGridViewCellStyle35;
-            this.dgColumnRedTurn1.HeaderText = "R1";
-            this.dgColumnRedTurn1.Name = "dgColumnRedTurn1";
-            this.dgColumnRedTurn1.ReadOnly = true;
-            this.dgColumnRedTurn1.Width = 46;
-            // 
-            // dgColumnRed2
-            // 
-            this.dgColumnRed2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgColumnRed2.DefaultCellStyle = dataGridViewCellStyle36;
-            this.dgColumnRed2.HeaderText = "R2";
-            this.dgColumnRed2.Name = "dgColumnRed2";
-            this.dgColumnRed2.ReadOnly = true;
-            this.dgColumnRed2.Width = 46;
-            // 
-            // dgColumnBlue1
-            // 
-            this.dgColumnBlue1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgColumnBlue1.DefaultCellStyle = dataGridViewCellStyle37;
-            this.dgColumnBlue1.HeaderText = "B1";
-            this.dgColumnBlue1.Name = "dgColumnBlue1";
-            this.dgColumnBlue1.ReadOnly = true;
-            this.dgColumnBlue1.Width = 45;
-            // 
-            // dgColumnBlue2
-            // 
-            this.dgColumnBlue2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgColumnBlue2.DefaultCellStyle = dataGridViewCellStyle38;
-            this.dgColumnBlue2.HeaderText = "B2";
-            this.dgColumnBlue2.Name = "dgColumnBlue2";
-            this.dgColumnBlue2.ReadOnly = true;
-            this.dgColumnBlue2.Width = 45;
-            // 
-            // txtMove
-            // 
-            this.txtMove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMove.Location = new System.Drawing.Point(6, 302);
-            this.txtMove.Multiline = true;
-            this.txtMove.Name = "txtMove";
-            this.txtMove.ReadOnly = true;
-            this.txtMove.Size = new System.Drawing.Size(299, 66);
-            this.txtMove.TabIndex = 3;
-            // 
-            // btnClearMove
-            // 
-            this.btnClearMove.Location = new System.Drawing.Point(6, 374);
-            this.btnClearMove.Name = "btnClearMove";
-            this.btnClearMove.Size = new System.Drawing.Size(75, 42);
-            this.btnClearMove.TabIndex = 4;
-            this.btnClearMove.Text = "Clear Move [Esc]";
-            this.btnClearMove.UseVisualStyleBackColor = true;
-            this.btnClearMove.Click += new System.EventHandler(this.btnClearMove_Click);
-            // 
-            // btnCommitMove
-            // 
-            this.btnCommitMove.Location = new System.Drawing.Point(223, 374);
-            this.btnCommitMove.Name = "btnCommitMove";
-            this.btnCommitMove.Size = new System.Drawing.Size(82, 42);
-            this.btnCommitMove.TabIndex = 5;
-            this.btnCommitMove.Text = "Commit Move [Space Bar]";
-            this.btnCommitMove.UseVisualStyleBackColor = true;
-            this.btnCommitMove.Click += new System.EventHandler(this.btnCommitMove_Click);
-            // 
             // lstAvailableMoves
             // 
             this.lstAvailableMoves.FormattingEnabled = true;
@@ -647,15 +650,15 @@
             // 
             // GamePlayerView
             // 
+            this.AcceptButton = this.btnCommitMove;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClearMove;
             this.ClientSize = new System.Drawing.Size(870, 450);
             this.Controls.Add(this.splitContainer1);
             this.Name = "GamePlayerView";
             this.Text = "Benediction Client Prototype";
             this.Load += new System.EventHandler(this.Main_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GamePlayerView_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GamePlayerView_KeyUp);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -667,8 +670,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStackSize)).EndInit();
             this.tpHumanPlayer.ResumeLayout(false);
             this.tpHumanPlayer.PerformLayout();
-            this.tpCpuPlayer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGameState)).EndInit();
+            this.tpCpuPlayer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

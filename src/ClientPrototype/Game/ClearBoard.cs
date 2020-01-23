@@ -9,6 +9,10 @@ namespace Benediction.Game
     {
         public override string ToString() => "Clear Board";
         public override int EmptyColumn => -1;
-        public new State NewState => new State();
+        public override State NewState
+        {
+            get => new State();
+            set { }
+        }
     }
 }

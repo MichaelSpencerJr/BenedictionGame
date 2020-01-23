@@ -13,7 +13,7 @@ namespace Benediction.Game
         /// <summary>
         /// Game state applied by this transition
         /// </summary>
-        public State NewState { get; set; }
+        public abstract State NewState { get; set; }
 
         /// <summary>
         /// For container actions which contain sets of other actions, indicates the index into the container

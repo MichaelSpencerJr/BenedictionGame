@@ -16,8 +16,8 @@ namespace Benediction.View
         private IGamePlayerController _controller;
         private Point _lastMouse;
         private Point _keyDownMouse;
-        private Location _firstMouseDownLocation;
-        private bool _lmbDown, _rmbDown;
+        private Location _lastEventLocation;
+        private bool _lmbDown, _rmbDown, _lmbDrag, _rmbDrag;
         public event EventHandler<BoardLocationEventArgs> InputEvent;
         public event EventHandler<BoardNavigationEventArgs> NavigateEvent;
 
@@ -25,77 +25,123 @@ namespace Benediction.View
         public GamePlayerView()
         {
             InitializeComponent();
+            tabControl1.SelectedTab = tpHumanPlayer;
             _model = new GamePlayerModel {Game = new GameState {new NewGame()}};
             _controller = new GamePlayerController(_model, this);
+            RedrawBoard();
+            RedrawMoves();
+            UpdateEditor();
         }
 
         private void pbBoard_MouseDown(object sender, MouseEventArgs e)
         {
             UpdateMouse(e);
-            _firstMouseDownLocation = Painter.GetBoardLocation(_lastMouse);
+            var mouseLocation = BoardPainter.GetBoardLocation(_lastMouse);
+
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                _lmbDown = true;
+            }
+            else if ((e.Button & MouseButtons.Right) == MouseButtons.Right)
+            {
+                _rmbDown = true;
+            }
+
+            if (!Movement.IsValidLocation(mouseLocation)) return;
+            _lastEventLocation = mouseLocation;
+            UpdateEditor();
         }
 
         private void pbBoard_MouseMove(object sender, MouseEventArgs e)
         {
             UpdateMouse(e);
-            var mouseLocation = Painter.GetBoardLocation(_lastMouse);
+            var mouseLocation = BoardPainter.GetBoardLocation(_lastMouse);
+            if (!Movement.IsValidLocation(mouseLocation)) return;
             if (_lmbDown)
             {
-                if (mouseLocation != _firstMouseDownLocation)
+                if (mouseLocation != _lastEventLocation)
                 {
+                    if (!_lmbDrag && !_rmbDrag)
+                    {
+                        InputEvent?.Invoke(sender,
+                            new BoardLocationEventArgs
+                                {Location = _lastEventLocation, MouseEvent = BoardMouseEventType.LeftDragStart});
+                    }
+
                     InputEvent?.Invoke(sender,
-                        new BoardLocationEventArgs
-                            {Location = mouseLocation, MouseEvent = BoardMouseEventType.LeftDragStart});
-                    _firstMouseDownLocation = Board.Location.Undefined;
+                        new BoardLocationEventArgs {Location = mouseLocation, MouseEvent = BoardMouseEventType.Hover});
+                    _lastEventLocation = mouseLocation;
+                    if (!_rmbDrag) _lmbDrag = true;
                 }
             }
             else if (_rmbDown)
             {
-                if (mouseLocation != _firstMouseDownLocation)
+                if (mouseLocation != _lastEventLocation)
                 {
+                    if (!_lmbDrag && !_rmbDrag)
+                    {
+                        InputEvent?.Invoke(sender,
+                            new BoardLocationEventArgs
+                                {Location = _lastEventLocation, MouseEvent = BoardMouseEventType.RightDragStart});
+                    }
+
                     InputEvent?.Invoke(sender,
-                        new BoardLocationEventArgs
-                            {Location = mouseLocation, MouseEvent = BoardMouseEventType.RightDragStart});
-                    _firstMouseDownLocation = Board.Location.Undefined;
+                        new BoardLocationEventArgs {Location = mouseLocation, MouseEvent = BoardMouseEventType.Hover});
+                    _lastEventLocation = mouseLocation;
+                    if (!_lmbDrag) _rmbDrag = true;
                 }
             }
             else
             {
-                InputEvent?.Invoke(sender,
-                    new BoardLocationEventArgs {Location = mouseLocation, MouseEvent = BoardMouseEventType.Hover});
+                if (mouseLocation != _lastEventLocation)
+                {
+                    InputEvent?.Invoke(sender,
+                        new BoardLocationEventArgs {Location = mouseLocation, MouseEvent = BoardMouseEventType.Hover});
+                    _lastEventLocation = mouseLocation;
+                }
             }
+
+            RedrawBoard();
         }
 
         private void pbBoard_MouseUp(object sender, MouseEventArgs e)
         {
             UpdateMouse(e);
-            var mouseLocation = Painter.GetBoardLocation(_lastMouse);
-            if ((e.Button & MouseButtons.Left) == MouseButtons.Left && !_lmbDown)
+            var mouseLocation = BoardPainter.GetBoardLocation(_lastMouse);
+            if (!Movement.IsValidLocation(mouseLocation)) return;
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left && _lmbDown)
             {
                 _lmbDown = false;
                 InputEvent?.Invoke(sender,
                     new BoardLocationEventArgs
                     {
                         Location = mouseLocation,
-                        MouseEvent = mouseLocation == _firstMouseDownLocation
-                            ? BoardMouseEventType.LeftClick
-                            : BoardMouseEventType.LeftDragEnd
+                        MouseEvent = _rmbDrag
+                            ? BoardMouseEventType.PartialDropContinueDrag
+                            : _lmbDrag
+                                ? BoardMouseEventType.LeftDragEnd
+                                : BoardMouseEventType.LeftClick
                     });
+                _lmbDrag = false;
             }
-            else if ((e.Button & MouseButtons.Right) == MouseButtons.Right && !_rmbDown)
+            else if ((e.Button & MouseButtons.Right) == MouseButtons.Right && _rmbDown)
             {
                 _rmbDown = false;
                 InputEvent?.Invoke(sender,
                     new BoardLocationEventArgs
                     {
                         Location = mouseLocation,
-                        MouseEvent = mouseLocation == _firstMouseDownLocation
-                            ? BoardMouseEventType.RightClick
-                            : BoardMouseEventType.RightDragEnd
+                        MouseEvent = _lmbDrag
+                            ? BoardMouseEventType.PartialDropContinueDrag
+                            : _rmbDrag
+                                ? BoardMouseEventType.RightDragEnd
+                                : BoardMouseEventType.RightClick
                     });
+                _rmbDrag = false;
             }
 
-            _firstMouseDownLocation = Board.Location.Undefined;
+            _lastEventLocation = mouseLocation;
+            UpdateEditor();
         }
 
         private void UpdateMouse(MouseEventArgs e)
@@ -105,31 +151,32 @@ namespace Benediction.View
 
         public void RedrawBoard()
         {
+            var redSide = (_model.CommittedState.Flags & (StateFlags.RedAction1 | StateFlags.RedAction2)) > 0;
             switch (_model.SelectionState)
             {
                 case SelectionState.Unselected:
-                    pbBoard.Image = Painter.DrawBoard(_model.CommittedState, Board.Location.Undefined,
-                        Board.Location.Undefined, Point.Empty);
+                    pbBoard.Image = BoardPainter.DrawBoard(_model.CommittedState, Board.Location.Undefined,
+                        Board.Location.Undefined, _model.HighlightLocations, redSide,  Point.Empty);
                     break;
                 case SelectionState.EmptySelected:
-                    pbBoard.Image = Painter.DrawBoard(_model.EditorState, _model.SelectionObject,
-                        Board.Location.Undefined, Point.Empty);
+                    pbBoard.Image = BoardPainter.DrawBoard(_model.EditorState, _model.SelectionObject,
+                        Board.Location.Undefined, _model.HighlightLocations, redSide, Point.Empty);
                     break;
                 case SelectionState.PieceInHand:
                 case SelectionState.SplitInHand:
-                    pbBoard.Image = Painter.DrawBoard(_model.EditorState, _model.SelectionObject,
-                        Board.Location.Undefined, _lastMouse, _model.InHand);
+                    pbBoard.Image = BoardPainter.DrawBoard(_model.EditorState, _model.SelectionObject,
+                        Board.Location.Undefined, _model.HighlightLocations, redSide, _lastMouse, _model.InHand);
                     break;
                 case SelectionState.MoveSelected:
-                    pbBoard.Image = Painter.DrawBoard(_model.EditorState, _model.SelectionObject,
-                        _model.SelectionTarget, Point.Empty);
+                    pbBoard.Image = BoardPainter.DrawBoard(_model.EditorState, _model.SelectionObject,
+                        _model.SelectionTarget, _model.HighlightLocations, redSide, Point.Empty);
                     break;
-                case SelectionState.PartialSplitSelected:
-                    pbBoard.Image = Painter.DrawBoard(_model.EditorState, _model.SelectionObject,
-                        _model.SelectionTarget, _lastMouse, _model.InHand);
-                    break;
+                //case SelectionState.PartialSplitSelected:
+                //    pbBoard.Image = BoardPainter.DrawBoard(_model.EditorState, _model.SelectionObject,
+                //        _model.SelectionTarget, _model.HighlightLocations, redSide, _lastMouse, _model.InHand);
+                //    break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    return;
             }
 
             chkRedT1.Checked = (_model.CommittedState.Flags & StateFlags.RedAction1) > 0;
@@ -144,13 +191,16 @@ namespace Benediction.View
 
         public void RedrawMoves()
         {
+            if (dgvGameState.Rows.Count > _model.Game.Count)
+                dgvGameState.Rows.Clear();
+
             for (var i = 0; i < _model.Game.Count; i++)
             {
-                if (dgvGameState.Rows.Count < i)
-                    dgvGameState.Rows.Add(string.Empty, string.Empty, string.Empty, string.Empty);
+                if (dgvGameState.Rows.Count <= i)
+                    dgvGameState.Rows.Add(i.ToString(), string.Empty, string.Empty, string.Empty, string.Empty);
                 for (var j = 0; j < 4; j++)
                 {
-                    dgvGameState.Rows[i].Cells[j].Value = _model.Game.GridLog(i, j);
+                    dgvGameState.Rows[i].Cells[j+1].Value = _model.Game.GridLog(i, j);
                 }
             }
         }
@@ -161,21 +211,21 @@ namespace Benediction.View
             var actualHeight = splitContainer1.Panel1.Height;
 
             //First identify if we are letter-boxed or pillar-boxed
-            var expectedHeight = Painter.BoardHeight * actualWidth / Painter.BoardWidth;
+            var expectedHeight = BoardPainter.BoardHeight * actualWidth / BoardPainter.BoardWidth;
             if (expectedHeight > actualHeight)
             {
                 //We are pillar boxed.  Identify how much of the image on the left is blank.
-                var expectedWidth = actualHeight * Painter.BoardWidth / Painter.BoardHeight;
+                var expectedWidth = actualHeight * BoardPainter.BoardWidth / BoardPainter.BoardHeight;
                 var widthGap = (actualWidth - expectedWidth) / 2;
-                return new Point((x - widthGap) * Painter.BoardHeight / actualHeight,
-                    y * Painter.BoardHeight / actualHeight);
+                return new Point((x - widthGap) * BoardPainter.BoardHeight / actualHeight,
+                    y * BoardPainter.BoardHeight / actualHeight);
             }
 
             //We are letter boxed.  Identify how much of the image on the top is blank.
-            expectedHeight = actualWidth * Painter.BoardHeight / Painter.BoardWidth;
+            expectedHeight = actualWidth * BoardPainter.BoardHeight / BoardPainter.BoardWidth;
             var heightGap = (actualHeight - expectedHeight) / 2;
-            return new Point(x * Painter.BoardWidth / actualWidth,
-                (y - heightGap) * Painter.BoardWidth / actualWidth);
+            return new Point(x * BoardPainter.BoardWidth / actualWidth,
+                (y - heightGap) * BoardPainter.BoardWidth / actualWidth);
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -424,8 +474,8 @@ namespace Benediction.View
 
         private void btnBoardImageToClipboard_Click(object sender, EventArgs e)
         {
-            Clipboard.SetImage(Painter.DrawBoard(_model.CommittedState, Board.Location.Undefined, Board.Location.Undefined,
-                Point.Empty));
+            Clipboard.SetImage(BoardPainter.DrawBoard(_model.CommittedState, Board.Location.Undefined,
+                Board.Location.Undefined, null, false, Point.Empty));
         }
 
         private void UpdateFlag(bool value, StateFlags flagMask)
@@ -487,25 +537,6 @@ namespace Benediction.View
 
         }
 
-        private void GamePlayerView_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.Space)
-            {
-                _keyDownMouse = _lastMouse;
-            }
-        }
-
-        private void GamePlayerView_KeyUp(object sender, KeyEventArgs e)
-        {
-            if ((e.KeyCode == Keys.Escape || e.KeyCode == Keys.Space) && _keyDownMouse == _lastMouse)
-            {
-                if (e.KeyCode == Keys.Escape)
-                    btnClearMove_Click(sender, e);
-                else if (e.KeyCode == Keys.Space)
-                    btnCommitMove_Click(sender, e);
-            }
-        }
-
         private void btnClearMove_Click(object sender, EventArgs e)
         {
             _controller.ClearMove();
@@ -519,6 +550,7 @@ namespace Benediction.View
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             NavigateEvent?.Invoke(sender, new BoardNavigationEventArgs{EventType = NavigationEventType.NewGame, Selected = new State()});
+            btnCommitMove.Select();
         }
     }
 }

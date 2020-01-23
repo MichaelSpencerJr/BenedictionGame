@@ -9,8 +9,14 @@ namespace Benediction.Actions
     {
         public override string Action => "Drop";
 
-        public override string ToString() => $"@{Location}";
+        public override string ToString() => $"@{Location.ToString().ToLower()}";
    
+        public override int Size
+        {
+            get => int.MaxValue;
+            set { }
+        }
+
         public override string CheckError(State initialState)
         {
             return CheckErrorBase(initialState) ??

@@ -9,6 +9,7 @@ namespace Benediction.Game
     public class LoadState : StateInfo
     {
         public override string ToString() => "Loaded";
+        public override State NewState { get; set; }
         public override int EmptyColumn => -1;
 
         public LoadState(string input)

@@ -9,7 +9,8 @@ namespace Benediction.Game
     /// </summary>
     public class NewGame : StateInfo
     {
-        public override string ToString() => $"New Game, Red Home at {RedHome} and Blue Home at {BlueHome}";
+        public override string ToString() => $"N({RedHome.ToString().ToLower()},{BlueHome.ToString().ToLower()})";
+        public override State NewState { get; set; }
         public override int EmptyColumn => -1;
 
         /// <summary>

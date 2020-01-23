@@ -56,13 +56,15 @@
     <Compile Include="Actions\GameSplitAction.cs" />
     <Compile Include="Actions\GameTargetAction.cs" />
     <Compile Include="Board\Cell.cs" />
-    <Compile Include="Board\Painter.cs" />
+    <Compile Include="View\BoardPainter.cs" />
     <Compile Include="Board\State.cs" />
     <Compile Include="Board\StateFlags.cs" />
     <Compile Include="Actions\GameAction.cs" />
     <Compile Include="Actions\Movement.cs" />
     <Compile Include="Board\Location.cs" />
+    <Compile Include="Controller\HeuristicPolarity.cs" />
     <Compile Include="Controller\IGamePlayerController.cs" />
+    <Compile Include="Controller\ProposedState.cs" />
     <Compile Include="Game\BoardEditor.cs" />
     <Compile Include="Game\ClearBoard.cs" />
     <Compile Include="Game\GameState.cs" />
@@ -73,6 +75,9 @@
     <Compile Include="Game\PlayerAction.cs" />
     <Compile Include="Game\StateInfo.cs" />
     <Compile Include="Game\StateTransition.cs" />
+    <Compile Include="View\BoardLocationEventArgs.cs" />
+    <Compile Include="View\BoardMouseEventType.cs" />
+    <Compile Include="View\BoardNavigationEventArgs.cs" />
     <Compile Include="View\GamePlayerView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +92,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controller\GamePlayerController.cs" />
     <Compile Include="View\IGamePlayerView.cs" />
+    <Compile Include="View\NavigationEventType.cs" />
     <EmbeddedResource Include="View\GamePlayerView.resx">
       <DependentUpon>GamePlayerView.cs</DependentUpon>
     </EmbeddedResource>

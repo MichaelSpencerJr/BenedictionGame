@@ -15,5 +15,6 @@ namespace Benediction.Game
         public State PostActionState { get; set; }
 
         public override string ToString() => Action.ToString();
+        public override State NewState { get; set; }
     }
 }

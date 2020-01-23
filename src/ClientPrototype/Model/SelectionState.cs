@@ -19,8 +19,5 @@
 
         /// <summary>User has selected both endpoints of a move</summary>
         MoveSelected,
-        
-        /// <summary>User has placed part of a piece down as a split and has the option of adding more tokens</summary>
-        PartialSplitSelected
     }
 }

@@ -10,7 +10,13 @@ namespace Benediction.Actions
     {
         public override string Action => "Block";
 
-        public override string ToString() => $"B{Location}";
+        public override string ToString() => $"B{Location.ToString().ToLower()}";
+
+        public override int Size
+        {
+            get => int.MinValue;
+            set { }
+        }
 
         public override string CheckError(State initialState)
         {
@@ -38,7 +44,7 @@ namespace Benediction.Actions
             foreach (var direction in Movement.AllMoves)
             {
                 var adjacentCell = direction(Location, false, false);
-                if (adjacentCell == Location.Undefined) continue;
+                if (!Movement.IsValidLocation(adjacentCell)) continue;
                 if (initialState[adjacentCell] == Cell.Blockade)
                 {
                     return $"Cannot Blockade Adjacent Existing Blockade {adjacentCell}";

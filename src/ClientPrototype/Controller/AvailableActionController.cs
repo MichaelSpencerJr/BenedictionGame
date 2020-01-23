@@ -85,7 +85,7 @@ namespace Benediction.Controller
                             break;
                         }
 
-                        if (currentState[location] == Cell.Empty || (currentState[location] & Cell.SideRed) == sideFlag)
+                        if (currentState[location] == Cell.Empty || (currentState[location] & Cell.SideRed) != sideFlag)
                         {
                             yield return new GameMoveAction
                                 {Side = side, Location = myPieceLocation, Target = location};
@@ -105,20 +105,5 @@ namespace Benediction.Controller
                 }
             }
         }
-    }
-
-    public class ProposedState
-    {
-        public Guid Key { get; set; }
-        public GameAction Action { get; set; }
-        public State Result { get; set; }
-        public HeuristicPolarity Polarity { get; set; }
-        public double Heuristic { get; set; }
-    }
-
-    public enum HeuristicPolarity
-    {
-        RedPositive,
-        BluePositive
     }
 }

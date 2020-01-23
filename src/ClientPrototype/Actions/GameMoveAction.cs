@@ -7,7 +7,13 @@ namespace Benediction.Actions
     {
         public override string Action => "Move";
 
-        public override string ToString() => $"{Location}{Target}";
+        public override string ToString() => $"{Location.ToString().ToLower()}{Target.ToString().ToLower()}";
+
+        public override int Size
+        {
+            get => int.MaxValue;
+            set { }
+        }
 
         public override string CheckError(State initialState)
         {

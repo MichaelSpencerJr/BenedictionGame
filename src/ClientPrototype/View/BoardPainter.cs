@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Net.NetworkInformation;
+using System.Linq;
 using Benediction.Actions;
+using Benediction.Board;
 using Benediction.Properties;
 
-namespace Benediction.Board
+namespace Benediction.View
 {
-    public class Painter
+    public class BoardPainter
     {
         public static readonly int BoardWidth = Resources.BenedictionBoard.Width;
         public static readonly int BoardHeight = Resources.BenedictionBoard.Height;
@@ -32,10 +34,12 @@ namespace Benediction.Board
         /// <param name="state">Game board state, indicating what is present in each cell, where the two homes are, and the current game state flags</param>
         /// <param name="location">Board location selected by the user for the current move (or move start point)</param>
         /// <param name="target">Board location selected by the user as the destination for the current move</param>
+        /// <param name="sideRed"></param>
         /// <param name="cursorLocation">Board-image-space coordinates of the mouse cursor, for indicating dragged pieces</param>
         /// <param name="cursorContents">Flags for drawing piece carried by the mouse cursor, if any</param>
+        /// <param name="highlights"></param>
         /// <returns>Image representing game board data and location</returns>
-        public static Image DrawBoard(State state, Location location, Location target, Point cursorLocation, Cell cursorContents = Cell.Empty)
+        public static Image DrawBoard(State state, Location location, Location target, IEnumerable<Location> highlights, bool sideRed, Point cursorLocation, Cell cursorContents = Cell.Empty)
         {
             var retval = new Bitmap(BoardWidth, BoardHeight);
 
@@ -91,6 +95,23 @@ namespace Benediction.Board
                 if (Movement.IsValidLocation(location))
                 {
                     DrawAt(canvas, Resources.Select, GetLocationCoordinate(location));
+                }
+
+                if (Movement.IsValidLocation(target))
+                {
+                    DrawAt(canvas, Resources.Select, GetLocationCoordinate(target));
+                }
+
+                if (highlights != null)
+                {
+                    foreach (var highlightLocation in highlights)
+                    {
+                        if (Movement.IsValidLocation(highlightLocation))
+                        {
+                            DrawAt(canvas, sideRed ? Resources.Red_Possible : Resources.Blue_Possible,
+                                GetLocationCoordinate(highlightLocation));
+                        }
+                    }
                 }
 
                 canvas.Save();

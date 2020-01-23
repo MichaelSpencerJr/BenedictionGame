@@ -28,7 +28,7 @@ namespace Benediction.Game
         }
 
         public new State InitialState => Red1.InitialState;
-        public new State NewState
+        public override State NewState
         {
             get
             {
@@ -39,6 +39,22 @@ namespace Benediction.Game
                     case 2: return Red2.NewState;
                     case 3: return Blue1.NewState;
                     default: return Blue2.NewState;
+                }
+            }
+            set
+            {
+                switch (EmptyColumn)
+                {
+                    case 0: Red1.InitialState = value;
+                        break;
+                    case 1: Red1.NewState = value;
+                        break;
+                    case 2: Red2.NewState = value;
+                        break;
+                    case 3: Blue1.NewState = value;
+                        break;
+                    default: Blue2.NewState = value;
+                        break;
                 }
             }
         }

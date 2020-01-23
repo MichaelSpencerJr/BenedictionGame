@@ -7,9 +7,9 @@ namespace Benediction.Actions
     {
         public override string Action => "Split";
 
-        public int Size { get; set; }
+        public override int Size { get; set; }
 
-        public override string ToString() => $"{Location}-{Size}-{Target}";
+        public override string ToString() => $"{Location.ToString().ToLower()}-{Size}-{Target.ToString().ToLower()}";
 
         public override string CheckError(State initialState)
         {
@@ -59,6 +59,8 @@ namespace Benediction.Actions
 
                 if (CheckTargetIsYours(initialState, string.Empty) == null)
                 {
+                    finalState[Location] &= ~Cell.SizeMask;
+                    finalState[Location] |= (Cell) Size;
                     ApplyMerge(initialState, finalState);
                 }
                 else
