@@ -243,7 +243,7 @@ namespace Benediction.Actions
             }
 
             //Copy the Location piece to the Target location, overwriting what may have been there.  Also lock that piece against moving again this turn.
-            finalState[Target] = initialState[Location] | Cell.Locked;
+            finalState[Target] = finalState[Location] | Cell.Locked;
 
             //Clear the location where the moved piece came from.
             finalState[Location] = Cell.Empty;

@@ -123,12 +123,12 @@ namespace Benediction.Actions
 
         private static void CheckKingCreation(State state)
         {
-            if ((state[state.RedHome] & Cell.SizeMask) > 0)
+            if ((state[state.RedHome] & Cell.SizeMask) > 0 && (state[state.RedHome] & Cell.SideRed) == Cell.SideRed)
             {
                 state[state.RedHome] |= Cell.King;
             }
 
-            if ((state[state.BlueHome] & Cell.SizeMask) > 0)
+            if ((state[state.BlueHome] & Cell.SizeMask) > 0 && (state[state.RedHome] & Cell.SideRed) == 0)
             {
                 state[state.BlueHome] |= Cell.King;
             }

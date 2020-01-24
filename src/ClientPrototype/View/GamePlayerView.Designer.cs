@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pbBoard = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpEditor = new System.Windows.Forms.TabPage();
             this.chkCursePending = new System.Windows.Forms.CheckBox();
@@ -81,17 +80,18 @@
             this.btnNewGame = new System.Windows.Forms.Button();
             this.tpCpuPlayer = new System.Windows.Forms.TabPage();
             this.lstAvailableMoves = new System.Windows.Forms.ListBox();
+            this.pbBoard = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBoard)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStackSize)).BeginInit();
             this.tpHumanPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGameState)).BeginInit();
             this.tpCpuPlayer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBoard)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -110,19 +110,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(870, 450);
             this.splitContainer1.SplitterDistance = 545;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // pbBoard
-            // 
-            this.pbBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbBoard.Location = new System.Drawing.Point(0, 0);
-            this.pbBoard.Name = "pbBoard";
-            this.pbBoard.Size = new System.Drawing.Size(545, 450);
-            this.pbBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbBoard.TabIndex = 0;
-            this.pbBoard.TabStop = false;
-            this.pbBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseDown);
-            this.pbBoard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseMove);
-            this.pbBoard.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseUp);
             // 
             // tabControl1
             // 
@@ -526,14 +513,14 @@
             this.dgvGameState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle65.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle65.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGameState.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle65;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGameState.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGameState.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGameState.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgColumnTurn,
@@ -541,27 +528,28 @@
             this.dgColumnRed2,
             this.dgColumnBlue1,
             this.dgColumnBlue2});
-            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle71.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle71.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGameState.DefaultCellStyle = dataGridViewCellStyle71;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGameState.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvGameState.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvGameState.Location = new System.Drawing.Point(6, 35);
-            this.dgvGameState.MultiSelect = false;
             this.dgvGameState.Name = "dgvGameState";
             this.dgvGameState.ReadOnly = true;
-            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle72.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle72.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle72.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle72.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGameState.RowHeadersDefaultCellStyle = dataGridViewCellStyle72;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGameState.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvGameState.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvGameState.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGameState.ShowCellErrors = false;
             this.dgvGameState.ShowEditingIcon = false;
             this.dgvGameState.Size = new System.Drawing.Size(299, 261);
@@ -571,8 +559,8 @@
             // dgColumnTurn
             // 
             this.dgColumnTurn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgColumnTurn.DefaultCellStyle = dataGridViewCellStyle66;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnTurn.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgColumnTurn.HeaderText = "Turn";
             this.dgColumnTurn.MaxInputLength = 4;
             this.dgColumnTurn.Name = "dgColumnTurn";
@@ -582,8 +570,8 @@
             // dgColumnRedTurn1
             // 
             this.dgColumnRedTurn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgColumnRedTurn1.DefaultCellStyle = dataGridViewCellStyle67;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnRedTurn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgColumnRedTurn1.HeaderText = "R1";
             this.dgColumnRedTurn1.Name = "dgColumnRedTurn1";
             this.dgColumnRedTurn1.ReadOnly = true;
@@ -592,8 +580,8 @@
             // dgColumnRed2
             // 
             this.dgColumnRed2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgColumnRed2.DefaultCellStyle = dataGridViewCellStyle68;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnRed2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgColumnRed2.HeaderText = "R2";
             this.dgColumnRed2.Name = "dgColumnRed2";
             this.dgColumnRed2.ReadOnly = true;
@@ -602,8 +590,8 @@
             // dgColumnBlue1
             // 
             this.dgColumnBlue1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgColumnBlue1.DefaultCellStyle = dataGridViewCellStyle69;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnBlue1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgColumnBlue1.HeaderText = "B1";
             this.dgColumnBlue1.Name = "dgColumnBlue1";
             this.dgColumnBlue1.ReadOnly = true;
@@ -612,8 +600,8 @@
             // dgColumnBlue2
             // 
             this.dgColumnBlue2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgColumnBlue2.DefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgColumnBlue2.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgColumnBlue2.HeaderText = "B2";
             this.dgColumnBlue2.Name = "dgColumnBlue2";
             this.dgColumnBlue2.ReadOnly = true;
@@ -648,6 +636,19 @@
             this.lstAvailableMoves.Size = new System.Drawing.Size(299, 290);
             this.lstAvailableMoves.TabIndex = 0;
             // 
+            // pbBoard
+            // 
+            this.pbBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbBoard.Location = new System.Drawing.Point(0, 0);
+            this.pbBoard.Name = "pbBoard";
+            this.pbBoard.Size = new System.Drawing.Size(545, 450);
+            this.pbBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBoard.TabIndex = 0;
+            this.pbBoard.TabStop = false;
+            this.pbBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseDown);
+            this.pbBoard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseMove);
+            this.pbBoard.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseUp);
+            // 
             // GamePlayerView
             // 
             this.AcceptButton = this.btnCommitMove;
@@ -663,7 +664,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbBoard)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpEditor.ResumeLayout(false);
             this.tpEditor.PerformLayout();
@@ -672,6 +672,7 @@
             this.tpHumanPlayer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGameState)).EndInit();
             this.tpCpuPlayer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbBoard)).EndInit();
             this.ResumeLayout(false);
 
         }

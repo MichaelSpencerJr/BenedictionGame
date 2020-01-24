@@ -55,7 +55,8 @@ namespace Benediction.Actions
                 var remainingSize = (int) (initialState[Location] & Cell.SizeMask) - Size;
 
                 finalState[Location] &= ~(Cell.Blessed | Cell.SizeMask);
-                finalState[Location] |= (Cell)Size;
+                finalState[Location] |= (Cell)Size; 
+                //eventually remainingSize will be put here, but first we need to use this space as if it's a smaller full-move piece
 
                 if (CheckTargetIsYours(initialState, string.Empty) == null)
                 {
@@ -68,6 +69,7 @@ namespace Benediction.Actions
                     ApplyMove(initialState, finalState);
                 }
 
+                //Now that the split-away part has been used for a full move or merge, put the left-behind part where it should be.
                 finalState[Location] =
                     (initialState[Location] & ~(Cell.SizeMask | Cell.Locked)) | (Cell) remainingSize | Cell.CursePending;
 

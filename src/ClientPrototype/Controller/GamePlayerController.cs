@@ -119,7 +119,7 @@ namespace Benediction.Controller
 
         private void SelectNextVariation()
         {
-            var next = Model.SelectionFilteredActions.Select(ps => ps.Action.Size)
+            var next = Model.AllSelectionActions.Select(ps => ps.Action.Size)
                 .Where(i => i > (Model.SelectedVariation ?? int.MinValue)).ToArray();
 
             if (next.Any())
@@ -142,7 +142,7 @@ namespace Benediction.Controller
                     break;
                 case SelectionState.EmptySelected:
                 case SelectionState.MoveSelected:
-                    if (Model.SelectionFilteredActions.Any())
+                    if (Model.AllSelectionActions.Any())
                     {
                         Model.EditorState = Model.SelectionFilteredActions.First().Action.Apply(Model.CommittedState);
                     }
@@ -296,6 +296,7 @@ namespace Benediction.Controller
                     break;
                 case SelectedOwnPiece: //re-clicked the same piece we just picked up, or dropped it back where we picked it up from
                 case SelectedOwnStack:
+                    Model.SelectionTarget = Location.Undefined;
                     Model.SelectionObject = Location.Undefined;
                     Model.SelectionState = SelectionState.Unselected;
                     Model.SelectedVariation = null;
@@ -334,6 +335,7 @@ namespace Benediction.Controller
                     break;
                 case SelectedOwnPiece: //re-clicked the same piece we just picked up
                     Model.SelectionObject = Location.Undefined;
+                    Model.SelectionTarget = Location.Undefined;
                     Model.SelectionState = SelectionState.Unselected;
                     Model.SelectedVariation = null;
                     VisualizeSelectedMove();
@@ -342,6 +344,7 @@ namespace Benediction.Controller
                     if (lmb) //on left click, put the partial stack back down.
                     {
                         Model.SelectionObject = Location.Undefined;
+                        Model.SelectionTarget = Location.Undefined;
                         Model.SelectionState = SelectionState.Unselected;
                         Model.SelectedVariation = null;
                     }
@@ -398,9 +401,9 @@ namespace Benediction.Controller
                     else
                     {
                         SelectNextVariation();
-                        Model.SelectionState = Model.SelectedVariation == Model.MaxVariation
-                            ? SelectionState.PieceInHand
-                            : SelectionState.SplitInHand;
+                        //Model.SelectionState = Model.SelectedVariation == Model.MaxVariation
+                        //    ? SelectionState.PieceInHand
+                        //    : SelectionState.SplitInHand;
                     }
                     VisualizeSelectedMove();
                     break;

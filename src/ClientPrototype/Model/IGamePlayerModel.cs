@@ -22,16 +22,22 @@ namespace Benediction.Model
         /// <summary>Committed Game Board State</summary>
         State CommittedState { get; set; }
 
+        /// <summary>Computed and Stored List of Actions Available This Move</summary>
         IDictionary<Guid, ProposedState> AvailableActions { get; set; }
 
+        /// <summary>Computed List of Actions Matching Selection -- narrowing and dead-ending, not rotating</summary>
         IOrderedEnumerable<ProposedState> SelectionFilteredActions { get; }
 
+        /// <summary>Computed List of Actions Matching Object and Target -- rotating, not narrowing</summary>
         IOrderedEnumerable<ProposedState> AllSelectionActions { get; }
 
+        /// <summary>Computed List of Action Targets when Only Object Is Selected</summary>
         IEnumerable<Location> HighlightLocations { get; }
 
+        /// <summary>Computed Minimum Piece Count or Variation Matching Object and Target</summary>
         int? MinVariation { get; }
 
+        /// <summary>Computed Maximum Piece Count or Variation Matching Object and Target</summary>
         int? MaxVariation { get; }
 
         /// <summary>Temporary / Display Game Board, used for visualizing a move in progress</summary>
@@ -43,6 +49,7 @@ namespace Benediction.Model
         /// <summary>Current Target of a selected move in progress</summary>
         Location SelectionTarget { get; set; }
 
+        /// <summary>Currently Selected Variation</summary>
         int? SelectedVariation { get; set; }
 
         /// <summary>Piece definition current in-hand, rendered as pinned to the mouse cursor</summary>

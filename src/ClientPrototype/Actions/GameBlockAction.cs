@@ -14,7 +14,7 @@ namespace Benediction.Actions
 
         public override int Size
         {
-            get => int.MinValue;
+            get => -2;
             set { }
         }
 

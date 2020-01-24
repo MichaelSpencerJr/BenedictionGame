@@ -92,12 +92,12 @@ namespace Benediction.View
                     if (layerEmpty) break;
                 }
 
-                if (Movement.IsValidLocation(location))
+                if (Movement.IsValidLocation(location) && (state[location] & Cell.SizeMask) == 0)
                 {
                     DrawAt(canvas, Resources.Select, GetLocationCoordinate(location));
                 }
 
-                if (Movement.IsValidLocation(target))
+                if (Movement.IsValidLocation(target) && (state[target] & Cell.SizeMask) == 0)
                 {
                     DrawAt(canvas, Resources.Select, GetLocationCoordinate(target));
                 }
