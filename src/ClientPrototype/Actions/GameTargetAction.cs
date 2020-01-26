@@ -264,7 +264,7 @@ namespace Benediction.Actions
             var kingAndSideFlags = (initialState[Location] | initialState[Target]) & (Cell.King | Cell.SideRed);
 
             //sum the sizes of the two merging pieces
-            var newSize = (int) (initialState[Location] & Cell.SizeMask) + (int) (initialState[Target] & Cell.SizeMask);
+            var newSize = (int) (finalState[Location] & Cell.SizeMask) + (int) (finalState[Target] & Cell.SizeMask);
             
             //remove the pieces from the source location
             finalState[Location] = Cell.Empty;
