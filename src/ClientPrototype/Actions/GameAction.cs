@@ -114,12 +114,12 @@ namespace Benediction.Actions
         {
             if (state[state.RedHome].IsPiece())
             {
-                state[state.RedHome] = state[state.RedHome].King(true);
+                state[state.RedHome] = state[state.RedHome].King(true).Blessed(false).CursePending(false).Cursed(false);
             }
 
             if (state[state.BlueHome].IsPiece())
             {
-                state[state.BlueHome] = state[state.BlueHome].King(true);
+                state[state.BlueHome] = state[state.BlueHome].King(true).Blessed(false).CursePending(false).Cursed(false);
             }
         }
 

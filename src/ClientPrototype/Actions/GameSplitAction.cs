@@ -50,29 +50,30 @@ namespace Benediction.Actions
             {
                 var finalState = initialState.DeepCopy();
 
-                //Modify the source piece so it contains only the part that's being moved or merged.
-                //Afterward we'll place a new CursePending piece with the remaining size.
                 var remainingSize = (int) (initialState[Location] & Cell.SizeMask) - Size;
 
+                //Remove blessings and set size to just what's being moved/merged.  King or curse flags remain.
                 finalState[Location] &= ~(Cell.Blessed | Cell.SizeMask);
                 finalState[Location] |= (Cell)Size; 
                 //eventually remainingSize will be put here, but first we need to use this space as if it's a smaller full-move piece
 
                 if (CheckTargetIsYours(initialState, string.Empty) == null)
                 {
-                    finalState[Location] &= ~Cell.SizeMask;
-                    finalState[Location] |= (Cell) Size;
+                    //Location still has king, curse, and size info
                     ApplyMerge(initialState, finalState);
+                    //Now that the split-away part has been used for a full move or merge, put the left-behind part where it should be.
+                    finalState[Location] =
+                        (initialState[Location] & ~(Cell.SizeMask | Cell.Locked)) | (Cell) remainingSize;
                 }
                 else
                 {
                     ApplyMove(initialState, finalState);
                     finalState[Target] |= Cell.CursePending;
+                    //Now that the split-away part has been used for a full move or merge, put the left-behind part where it should be.
+                    finalState[Location] =
+                        (initialState[Location] & ~(Cell.SizeMask | Cell.Locked)) | (Cell) remainingSize | Cell.CursePending;
                 }
 
-                //Now that the split-away part has been used for a full move or merge, put the left-behind part where it should be.
-                finalState[Location] =
-                    (initialState[Location] & ~(Cell.SizeMask | Cell.Locked)) | (Cell) remainingSize | Cell.CursePending;
 
                 return finalState;
             }

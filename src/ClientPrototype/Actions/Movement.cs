@@ -57,7 +57,7 @@ namespace Benediction.Actions
                 case Location.E9: if (blueWallWrapAround) return Location.A5; break;
                 case Location.F8: if (blueWallWrapAround) return Location.A4; break;
                 case Location.G7: if (blueWallWrapAround) return Location.A3; break;
-                case Location.G6: if (blueWallWrapAround) return Location.A2; break;
+                case Location.H6: if (blueWallWrapAround) return Location.A2; break;
                 case Location.I5: if (blueWallWrapAround) return Location.A1; break;
                 case Location.I4:
                 case Location.I3:

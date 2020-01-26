@@ -209,11 +209,14 @@ namespace Benediction.Actions
             if ((state[Location] & state[Target] & Cell.King) == Cell.King)
                 return "Kings Cannot Merge With Kings";
 
-            var hasCurse = ((state[Location] | state[Target]) & Cell.Cursed) == Cell.Cursed;
-            var hasBless = ((state[Location] | state[Target]) & Cell.Blessed) == Cell.Blessed;
+            var hasCurse = (state[Location] | state[Target]).IsCursed();
+            var hasBless = (state[Location] | state[Target]).IsBlessed() ||
+                           !state[Location].IsCursed() && CheckLocationTargetReachable(state, true) == null;
 
             if (hasCurse && !hasBless)
+            {
                 return "Cursed Pieces Can Only Merge With Blessed Pieces";
+            }
 
             var fromSize = (int) (state[Location] & Cell.SizeMask);
             var toSize = (int) (state[Target] & Cell.SizeMask);
@@ -272,8 +275,11 @@ namespace Benediction.Actions
             //create a new merged piece from the new size and any king or side flags from the original pieces.
             finalState[Target] = (Cell) newSize | kingAndSideFlags;
 
-            //if the merge target was through an enemy wall, bless the new merged piece
-            ApplyWallWrapAroundBlessing(initialState, finalState);
+            if (initialState[Location].IsKing())
+            {
+                //if the merge target was through an enemy wall, bless the new merged piece
+                ApplyWallWrapAroundBlessing(initialState, finalState);
+            }
         }
 
         /// <summary>
@@ -288,7 +294,7 @@ namespace Benediction.Actions
 
             if (CheckLocationTargetReachable(initialState, true) == null)
             {
-                finalState[Target] |= Cell.Blessed;
+                finalState[Target] = finalState[Target].Blessed(true);
             }
         }
     }

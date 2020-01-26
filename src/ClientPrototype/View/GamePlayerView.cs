@@ -18,7 +18,7 @@ namespace Benediction.View
         private Point _lastMouse;
         private Point _keyDownMouse;
         private Location _lastEventLocation;
-        private bool _lmbDown, _rmbDown, _lmbDrag, _rmbDrag;
+        private bool _lmbDown, _rmbDown, _lmbDrag, _rmbDrag, moveListClicked;
         public event EventHandler<BoardLocationEventArgs> InputEvent;
         public event EventHandler<BoardNavigationEventArgs> NavigateEvent;
 
@@ -125,7 +125,7 @@ namespace Benediction.View
                     }
                 }
             }
-            CpuGridUpdate();
+            if (!moveListClicked) CpuGridUpdate();
         }
 
         private Point GetBoardCoordinates(int x, int y)
@@ -162,6 +162,7 @@ namespace Benediction.View
         {
             if (!(lstAvailableMoves.SelectedItem is ProposedState ps)) return;
             if (!(ps.Action is GameAction ga)) return;
+            moveListClicked = true;
             NavigateEvent?.Invoke(sender, new BoardNavigationEventArgs{EventType = NavigationEventType.ClearMove});
             if (ga is GameTargetAction gta)
             {
@@ -175,8 +176,8 @@ namespace Benediction.View
 
             _model.SelectedVariation = ga.Size;
             RedrawBoard();
-            UpdateGameMoveGrid();
             BoardEditorUpdate();
+            moveListClicked = false;
         }
 
         private void SetBoardEditorControlEnableState(bool unselect = false, bool clearEmpty = false, bool redHome = false,
