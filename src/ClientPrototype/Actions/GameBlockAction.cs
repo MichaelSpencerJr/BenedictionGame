@@ -28,12 +28,12 @@ namespace Benediction.Actions
         {
             if (initialState.RedHome == Location)
             {
-                return $"Cannot Blockade Red Home at Location {Location}";
+                return $"Cannot Block Red Home at Location {Location}";
             }
 
             if (initialState.BlueHome == Location)
             {
-                return $"Cannot Blockade Blue Home at Location {Location}";
+                return $"Cannot Block Blue Home at Location {Location}";
             }
 
             return null;
@@ -45,9 +45,9 @@ namespace Benediction.Actions
             {
                 var adjacentCell = direction(Location, false, false);
                 if (!Movement.IsValidLocation(adjacentCell)) continue;
-                if (initialState[adjacentCell] == Cell.Blockade)
+                if (initialState[adjacentCell].IsBlock())
                 {
-                    return $"Cannot Blockade Adjacent Existing Blockade {adjacentCell}";
+                    return $"Cannot Block Adjacent Existing Block {adjacentCell}";
                 }
             }
 
@@ -62,7 +62,7 @@ namespace Benediction.Actions
             {
                 var finalState = initialState.DeepCopy();
                 
-                finalState[Location] = Cell.Blockade;
+                finalState[Location] = Cell.Block;
                 
                 return finalState;
             }

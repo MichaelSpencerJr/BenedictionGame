@@ -11,7 +11,7 @@ namespace Benediction.Actions
  
         public override int Size
         {
-            get => int.MaxValue;
+            get => 16;
             set { }
         }
 

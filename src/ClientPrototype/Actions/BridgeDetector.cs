@@ -11,10 +11,8 @@ namespace Benediction.Actions
     {
         public static ISet<Location> GetBridgeSpaces(State state, ActionSide side)
         {
-            var sideFlag = side == ActionSide.Red ? Cell.SideRed : Cell.Empty;
-
             var unconnectedSpaces = new HashSet<Location>(state
-                .Where(kvp => (kvp.Value & Cell.SizeMask) > 0 && (kvp.Value & Cell.SideRed) == sideFlag)
+                .Where(kvp => kvp.Value.GetSide(ActionSide.Red, ActionSide.Blue, ActionSide.Undefined) == side)
                 .Select(kvp => kvp.Key));
 
             var bridgeSpaces = new HashSet<Location>();

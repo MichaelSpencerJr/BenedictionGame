@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Benediction.Board
 {
     /// <summary>
     /// Represents a snapshot of a game board, with all of its pieces.
     /// </summary>
-    public class State : Dictionary<Location, Cell>
+    public class State : Dictionary<Location, Cell>, IEquatable<State>
     {
+        public static readonly Guid InvalidBoard = new Guid(new byte[]
+            {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF});
+
         public static readonly Location[] AllBoardLocations =
         {
             Location.A1, Location.A2, Location.A3, Location.A4, Location.A5, Location.B1,
@@ -86,13 +91,27 @@ namespace Benediction.Board
         private static SHA256 _hasher = SHA256.Create();
 
         /// <summary>
-        /// Creates an empty BoardState with no homes or pieces
+        /// Creates an empty <see cref="State"/> with no homes or pieces
         /// </summary>
         public State() : base(AllBoardLocations.Length)
         {
             foreach (var key in AllBoardLocations)
             {
                 this[key] = Cell.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Decodes a <see cref="State"/> from provided input string
+        /// </summary>
+        /// <param name="description">Text description of input board</param>
+        public State(string description) : this()
+        {
+            var lines = description.Split(new[] {"\r\n", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+            ParseHeaderV1(lines[0]);
+            for (var i = 1; i < lines.Length; i++)
+            {
+                ParseSideV1(lines[i]);
             }
         }
 
@@ -124,46 +143,6 @@ namespace Benediction.Board
         }
 
         /// <summary>
-        /// Decodes a board from provided base-64-encoded gzipped text, like from a forum post.  Also checks an included checksum and throws an exception if the data doesn't match the checksum.
-        /// </summary>
-        /// <param name="base64Gz">Base 64 encoded board data</param>
-        /// <returns>Decoded board</returns>
-        public static State FromBase64Gz(string base64Gz)
-        {
-            byte[] decompressedBytes;
-            using (var output = new MemoryStream())
-            {
-                using (var gzBytes = new MemoryStream(Convert.FromBase64String(base64Gz)))
-                using (var decompressor = new GZipStream(gzBytes, CompressionMode.Decompress))
-                {
-                    decompressor.CopyTo(output);
-                }
-
-                decompressedBytes = output.ToArray();
-            }
-
-            if (decompressedBytes.Length != AllBoardLocations.Length * 2 + 21)
-            {
-                throw new ArgumentException("Decoded bytes were not of correct length", nameof(base64Gz));
-            }
-
-            var boardBytes = new byte[AllBoardLocations.Length * 2 + 5];
-            var checksumBytes = new byte[16];
-            Array.ConstrainedCopy(decompressedBytes, 0, boardBytes, 0, boardBytes.Length);
-            Array.ConstrainedCopy(decompressedBytes, AllBoardLocations.Length * 2 + 5, checksumBytes, 0, 16);
-            var encodedChecksum = new Guid(checksumBytes);
-            var decodedBoard = new State(boardBytes);
-
-            if (encodedChecksum != decodedBoard.BoardId)
-            {
-                throw new ArgumentException("Checksum failure in decoded bytes -- not a Benediction board?",
-                    nameof(base64Gz));
-            }
-
-            return decodedBoard;
-        }
-
-        /// <summary>
         /// Encodes the current board information as bytes
         /// </summary>
         /// <returns>127-byte buffer describing the game board</returns>
@@ -185,24 +164,358 @@ namespace Benediction.Board
             return retval;
         }
 
-        /// <summary>
-        /// Encodes the current board information as base64-encoded gzipped text.
-        /// </summary>
-        /// <returns>Base64-encoded gzipped text</returns>
-        public string GetBase64()
-        {
-            using (var output = new MemoryStream())
-            {
-                var inputBytes = new byte[AllBoardLocations.Length * 2 + 21];
-                Array.ConstrainedCopy(GetBuffer(), 0, inputBytes, 0, AllBoardLocations.Length * 2 + 5);
-                Array.ConstrainedCopy(BoardId.ToByteArray(), 0, inputBytes, AllBoardLocations.Length * 2 + 5, 16);
-                using (var input = new MemoryStream(inputBytes))
-                using (var compressor = new GZipStream(output, CompressionLevel.Optimal, true))
-                {
-                    input.CopyTo(compressor);
-                }
+        public const string BenedictionV1Header = "Benediction v1";
+        public const string RedV1Header = ": R";
+        public const string BlueV1Header = " B";
+        public const char SideV1Move1 = '-';
+        public const char SideV1Move2 = '=';
+        public const char SideV1KingTaken = 'x';
+        public const char SideV1Win = 'W';
 
-                return Convert.ToBase64String(output.ToArray());
+        public bool Equals(State other)
+        {
+            return other != null && BoardId == other.BoardId;
+        }
+
+        /// <summary>
+        /// Current game board represented as a human-readable string
+        /// </summary>
+        /// <returns>Game board description</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            char redFlag, blueFlag;
+            if ((Flags & StateFlags.RedAction1) == StateFlags.RedAction1) redFlag = SideV1Move1;
+            else if ((Flags & StateFlags.RedAction2) == StateFlags.RedAction2) redFlag = SideV1Move2;
+            else if ((Flags & StateFlags.RedKingTaken) == StateFlags.RedKingTaken) redFlag = SideV1KingTaken;
+            else if ((Flags & StateFlags.RedWin) == StateFlags.RedWin) redFlag = SideV1Win;
+            else redFlag = ' ';
+            if ((Flags & StateFlags.BlueAction1) == StateFlags.BlueAction1) blueFlag = SideV1Move1;
+            else if ((Flags & StateFlags.BlueAction2) == StateFlags.BlueAction2) blueFlag = SideV1Move2;
+            else if ((Flags & StateFlags.BlueKingTaken) == StateFlags.BlueKingTaken) blueFlag = SideV1KingTaken;
+            else if ((Flags & StateFlags.BlueWin) == StateFlags.BlueWin) blueFlag = SideV1Win;
+            else blueFlag = ' ';
+
+            sb.Append(BenedictionV1Header).Append(RedV1Header).Append(redFlag).Append(RedHome).Append(BlueV1Header)
+                .Append(blueFlag).Append(BlueHome).AppendLine();
+
+            sb.Append("R:");
+            foreach (var column in "ABCDEFGHI")
+            {
+                AddRow(Cell.SideRed, column, sb);
+            }
+
+            sb.AppendLine();
+            sb.Append("B:");
+            foreach (var column in "ABCDEFGHI")
+            {
+                AddRow(Cell.Empty, column, sb);
+            }
+
+            if (Values.Contains(Cell.Block))
+            {
+
+                sb.AppendLine();
+                sb.Append("X:");
+                foreach (var column in "ABCDEFGHI")
+                {
+                    AddRow(Cell.Block, column, sb);
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        public void AddRow(Cell side, char column, StringBuilder output)
+        {
+            var rowPresent = false;
+            foreach (var columnPiece in GetColumn(column))
+            {
+                if (this[columnPiece] != Cell.Empty && (this[columnPiece] & (Cell.SideRed | Cell.Block)) == side)
+                {
+                    if (!rowPresent)
+                    {
+                        output.Append(column);
+                        rowPresent = true;
+                    }
+
+                    output.Append(columnPiece.ToString().Substring(1));
+                    if ((this[columnPiece] & Cell.King) == Cell.King) output.Append('k');
+                    if ((this[columnPiece] & Cell.Blessed) == Cell.Blessed) output.Append('b');
+                    if ((this[columnPiece] & Cell.Cursed) == Cell.Cursed) output.Append('c');
+                    for (var i = Cell.Size2; i <= Cell.SizeMask; i += 1)
+                    {
+                        if ((this[columnPiece] & Cell.SizeMask) >= i)
+                        {
+                            output.Append('+');
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void ParseHeaderV1(string line)
+        {
+            var offset = 0;
+            if (!TryConsume(line, ref offset, BenedictionV1Header)) return;
+            if (!TryConsume(line, ref offset, RedV1Header)) return;
+
+            switch (line[offset++])
+            {
+                case SideV1Move1:
+                    Flags |= StateFlags.RedAction1;
+                    break;
+                case SideV1Move2: 
+                    Flags |= StateFlags.RedAction2;
+                    break;
+                case SideV1KingTaken: 
+                    Flags |= StateFlags.RedKingTaken;
+                    break;
+                case SideV1Win:
+                    Flags |= StateFlags.RedWin;
+                    break;
+            }
+
+            RedHome = (Location) Enum.Parse(typeof(Location), line.Substring(offset, 2));
+            offset += 2;
+
+            if (!TryConsume(line, ref offset, BlueV1Header)) return;
+
+            switch (line[offset++])
+            {
+                case SideV1Move1:
+                    Flags |= StateFlags.BlueAction1;
+                    break;
+                case SideV1Move2: 
+                    Flags |= StateFlags.BlueAction2;
+                    break;
+                case SideV1KingTaken: 
+                    Flags |= StateFlags.BlueKingTaken;
+                    break;
+                case SideV1Win:
+                    Flags |= StateFlags.BlueWin;
+                    break;
+            }
+
+
+            BlueHome = (Location) Enum.Parse(typeof(Location), line.Substring(offset, 2));
+        }
+
+        public static bool TryConsume(string input, ref int offset, string expected)
+        {
+            if (input == null || expected == null || input.Length < offset) return false;
+            if (input.Substring(offset).StartsWith(expected))
+            {
+                offset += expected.Length;
+                return true;
+            }
+
+            return false;
+        }
+
+        public void ParseSideV1(string line)
+        {
+            Cell side;
+            var location = Location.Undefined;
+            var column = Location.Undefined;
+            if (line.StartsWith("R:"))
+            {
+                side = Cell.SideRed;
+            }
+            else if (line.StartsWith("B:"))
+            {
+                side = Cell.Empty;
+            }
+            else if (line.StartsWith("X:"))
+            {
+                side = Cell.Size1 | Cell.Block;
+            }
+            else return;
+
+            foreach (var c in line.Substring(2))
+            {
+                switch (c)
+                {
+                    case 'A':
+                        column = Location.A1;
+                        break;
+                    case 'B':
+                        column = Location.B1;
+                        break;
+                    case 'C':
+                        column = Location.C1;
+                        break;
+                    case 'D':
+                        column = Location.D1;
+                        break;
+                    case 'E':
+                        column = Location.E1;
+                        break;
+                    case 'F':
+                        column = Location.F1;
+                        break;
+                    case 'G':
+                        column = Location.G1;
+                        break;
+                    case 'H':
+                        column = Location.H1;
+                        break;
+                    case 'I':
+                        column = Location.I1;
+                        break;
+                    case '1':
+                        location = column;
+                        this[location] = Cell.Size1 | side;
+                        break;
+                    case '2':
+                        location = column - 0x20;
+                        this[location] = Cell.Size1 | side;
+                        break;
+
+                    case '3':
+                        location = column - 0x40;
+                        this[location] = Cell.Size1 | side;
+                        break;
+
+                    case '4':
+                        location = column - 0x60;
+                        this[location] = Cell.Size1 | side;
+                        break;
+
+                    case '5':
+                        location = column - 0x80;
+                        this[location] = Cell.Size1 | side;
+                        break;
+
+                    case '6':
+                        location = column - 0xA0;
+                        this[location] = Cell.Size1 | side;
+                        break;
+
+                    case '7':
+                        location = column - 0xC0;
+                        this[location] = Cell.Size1 | side;
+                        break;
+
+                    case '8':
+                        location = column - 0xE0;
+                        this[location] = Cell.Size1 | side;
+                        break;
+
+                    case '9':
+                        location = column - 0x100;
+                        this[location] = Cell.Size1 | side;
+                        break;
+                    case 'k':
+                        this[location] |= Cell.King;
+                        break;
+                    case 'b':
+                        this[location] |= Cell.Blessed;
+                        break;
+                    case 'c':
+                        this[location] |= Cell.Cursed;
+                        break;
+                    case '+':
+                        this[location]++;
+                        break;
+
+                }
+            }
+        }
+
+        private static IEnumerable<Location> GetColumn(char column)
+        {
+            switch (column)
+            {
+                case 'A':
+                    yield return Location.A1;
+                    yield return Location.A2;
+                    yield return Location.A3;
+                    yield return Location.A4;
+                    yield return Location.A5;
+                    yield break;
+                case 'B':
+                    yield return Location.B1;
+                    yield return Location.B2;
+                    yield return Location.B3;
+                    yield return Location.B4;
+                    yield return Location.B5;
+                    yield return Location.B6;
+                    yield break;
+                case 'C':
+                    yield return Location.C1;
+                    yield return Location.C2;
+                    yield return Location.C3;
+                    yield return Location.C4;
+                    yield return Location.C5;
+                    yield return Location.C6;
+                    yield return Location.C7;
+                    yield break;
+
+                case 'D':
+                    yield return Location.D1;
+                    yield return Location.D2;
+                    yield return Location.D3;
+                    yield return Location.D4;
+                    yield return Location.D5;
+                    yield return Location.D6;
+                    yield return Location.D7;
+                    yield return Location.D8;
+                    yield break;
+
+                case 'E':
+                    yield return Location.E1;
+                    yield return Location.E2;
+                    yield return Location.E3;
+                    yield return Location.E4;
+                    yield return Location.E5;
+                    yield return Location.E6;
+                    yield return Location.E7;
+                    yield return Location.E8;
+                    yield return Location.E9;
+                    yield break;
+
+                case 'F':
+                    yield return Location.F1;
+                    yield return Location.F2;
+                    yield return Location.F3;
+                    yield return Location.F4;
+                    yield return Location.F5;
+                    yield return Location.F6;
+                    yield return Location.F7;
+                    yield return Location.F8;
+                    yield break;
+
+                case 'G':
+                    yield return Location.G1;
+                    yield return Location.G2;
+                    yield return Location.G3;
+                    yield return Location.G4;
+                    yield return Location.G5;
+                    yield return Location.G6;
+                    yield return Location.G7;
+                    yield break;
+
+                case 'H':
+                    yield return Location.H1;
+                    yield return Location.H2;
+                    yield return Location.H3;
+                    yield return Location.H4;
+                    yield return Location.H5;
+                    yield return Location.H6;
+                    yield break;
+                case 'I':
+                    yield return Location.I1;
+                    yield return Location.I2;
+                    yield return Location.I3;
+                    yield return Location.I4;
+                    yield return Location.I5;
+                    yield break;
             }
         }
 

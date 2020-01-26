@@ -47,19 +47,17 @@ namespace Benediction.Actions
         /// <returns>Null if the move is allowed, or a brief text explanation of why it cannot be performed</returns>
         public string CheckErrorBase(State state)
         {
-            if ((state.Flags & (StateFlags.RedWin | StateFlags.BlueWin)) > 0)
+            if (state.Flags.GameWon())
             {
                 return "Game Over!";
             }
 
-            if (Side == ActionSide.Blue &&
-                (state.Flags & (StateFlags.RedAction1 | StateFlags.RedAction2)) > 0)
+            if (Side == ActionSide.Blue && state.Flags.IsRedTurn())
             {
                 return "Your Move, Red";
             }
 
-            if (Side == ActionSide.Red &&
-                (state.Flags & (StateFlags.BlueAction1 | StateFlags.BlueAction2)) > 0)
+            if (Side == ActionSide.Red && state.Flags.IsBlueTurn())
             {
                 return "Your Move, Blue";
             }
@@ -95,42 +93,33 @@ namespace Benediction.Actions
         {
             var finalState = initialState.DeepCopy();
 
-            CheckKingTaken(finalState);
+            finalState.Flags = finalState.Flags.HandleKingCaptureFlag();
+
             CheckKingCreation(finalState);
             BlessAnyBridges(finalState);
             CheckBlessedKings(finalState);
             ApplyCurses(finalState);
-            UpdateTurnFlag(finalState);
+
+            if (finalState.Flags.IsSecondTurn())
+            {
+                UnlockAllLockedPieces(finalState);
+            }
+
+            finalState.Flags = finalState.Flags.NextTurn();
 
             return finalState;
         }
 
-        /// <summary>
-        /// Updates Win flag if opposing KingTaken flag is set.
-        /// </summary>
-        /// <param name="state">Game state</param>
-        private static void CheckKingTaken(State state)
-        {
-            if ((state.Flags & StateFlags.RedKingTaken) > 0)
-            {
-                state.Flags |= StateFlags.BlueWin;
-            }
-            else if ((state.Flags & StateFlags.BlueKingTaken) > 0)
-            {
-                state.Flags |= StateFlags.RedWin;
-            }
-        }
-
         private static void CheckKingCreation(State state)
         {
-            if ((state[state.RedHome] & Cell.SizeMask) > 0 && (state[state.RedHome] & Cell.SideRed) == Cell.SideRed)
+            if (state[state.RedHome].IsPiece())
             {
-                state[state.RedHome] |= Cell.King;
+                state[state.RedHome] = state[state.RedHome].King(true);
             }
 
-            if ((state[state.BlueHome] & Cell.SizeMask) > 0 && (state[state.RedHome] & Cell.SideRed) == 0)
+            if (state[state.BlueHome].IsPiece())
             {
-                state[state.BlueHome] |= Cell.King;
+                state[state.BlueHome] = state[state.BlueHome].King(true);
             }
         }
 
@@ -142,14 +131,13 @@ namespace Benediction.Actions
         {
             foreach (var bridgeLocation in BridgeDetector.GetBridgeSpaces(state, ActionSide.Red))
             {
-                state[bridgeLocation] |= Cell.Blessed;
+                state[bridgeLocation] = state[bridgeLocation].Blessed(true);
             }
 
             foreach (var bridgeLocation in BridgeDetector.GetBridgeSpaces(state, ActionSide.Blue))
             {
-                state[bridgeLocation] |= Cell.Blessed;
+                state[bridgeLocation] = state[bridgeLocation].Blessed(true);
             }
-
         }
 
         /// <summary>
@@ -160,16 +148,9 @@ namespace Benediction.Actions
         {
             foreach (var location in State.AllBoardLocations)
             {
-                if ((state[location] & Cell.Blessed) == Cell.Blessed && (state[location] & Cell.King) == Cell.King)
+                if (state[location].IsBlessed() && state[location].IsKing())
                 {
-                    if ((state[location] & Cell.SideRed) == Cell.SideRed)
-                    {
-                        state.Flags |= StateFlags.RedWin;
-                    }
-                    else
-                    {
-                        state.Flags |= StateFlags.BlueWin;
-                    }
+                    state.Flags |= state[location].GetSide(StateFlags.RedWin, StateFlags.BlueWin, StateFlags.Undefined);
                 }
             }
         }
@@ -183,14 +164,7 @@ namespace Benediction.Actions
         {
             foreach (var location in State.AllBoardLocations)
             {
-                if ((state[location] & (Cell.Blessed | Cell.King)) == 0 && (state[location] & Cell.CursePending) == Cell.CursePending)
-                {
-                    state[location] = (state[location] & ~Cell.CursePending) | Cell.Cursed;
-                }
-                else
-                {
-                    state[location] &= ~Cell.CursePending;
-                }
+                state[location] = state[location].HandleCursePending();
             }
         }
 
@@ -202,41 +176,7 @@ namespace Benediction.Actions
         {
             foreach (var location in State.AllBoardLocations)
             {
-                if ((state[location] & Cell.Locked) > 0)
-                {
-                    state[location] &= ~Cell.Locked;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Ends the game if either player has won. Otherwise advances the turn indicator to the next player turn.
-        /// </summary>
-        /// <param name="state">Game state</param>
-        private static void UpdateTurnFlag(State state)
-        {
-            if ((state.Flags & (StateFlags.RedWin | StateFlags.BlueWin)) > 0)
-            {
-                state.Flags &= (StateFlags.RedKingTaken | StateFlags.BlueKingTaken | StateFlags.RedWin |
-                                                    StateFlags.BlueWin);
-            }
-            else if ((state.Flags & StateFlags.RedAction1) > 0)
-            {
-                state.Flags = (state.Flags & ~StateFlags.RedAction1) | StateFlags.RedAction2;
-            }
-            else if ((state.Flags & StateFlags.RedAction2) > 0)
-            {
-                state.Flags = (state.Flags & ~StateFlags.RedAction2) | StateFlags.BlueAction1;
-                UnlockAllLockedPieces(state);
-            }
-            else if ((state.Flags & StateFlags.BlueAction1) > 0)
-            {
-                state.Flags = (state.Flags & ~StateFlags.BlueAction1) | StateFlags.BlueAction2;
-            }
-            else if ((state.Flags & StateFlags.BlueAction2) > 0)
-            {
-                state.Flags = (state.Flags & ~StateFlags.BlueAction2) | StateFlags.RedAction1;
-                UnlockAllLockedPieces(state);
+                state[location] = state[location].Locked(false);
             }
         }
 

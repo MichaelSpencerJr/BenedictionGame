@@ -19,27 +19,20 @@ namespace Benediction.Game
         {
             get
             {
-                if (Red1 == null || Red1 is NullAction) return 0;
-                if (Red2 == null || Red2 is NullAction) return 1;
-                if (Blue1 == null || Blue1 is NullAction) return 2;
                 if (Blue2 == null || Blue2 is NullAction) return 3;
+                if (Blue1 == null || Blue1 is NullAction) return 2;
+                if (Red2 == null || Red2 is NullAction) return 1;
+                if (Red1 == null || Red1 is NullAction) return 0;
                 return -1;
             }
         }
 
-        public new State InitialState => Red1.InitialState;
+        public new State InitialState => Red1.InitialState ?? Red1.NewState ?? Red2.NewState ?? Blue1.NewState ?? Blue2.NewState;
         public override State NewState
         {
             get
             {
-                switch (EmptyColumn)
-                {
-                    case 0: return Red1.InitialState;
-                    case 1: return Red1.NewState;
-                    case 2: return Red2.NewState;
-                    case 3: return Blue1.NewState;
-                    default: return Blue2.NewState;
-                }
+                return Blue2.NewState ?? Blue1.NewState ?? Red2.NewState ?? Red1.NewState ?? Red1.InitialState;
             }
             set
             {

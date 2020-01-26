@@ -12,6 +12,6 @@ namespace Benediction.Controller
         public HeuristicPolarity Polarity { get; set; }
         public double Heuristic { get; set; }
 
-        public override string ToString() => Action?.ToString() ?? string.Empty;
+        public override string ToString() => $"{Action?.ToString() ?? string.Empty} - {Heuristic:0.00}";
     }
 }

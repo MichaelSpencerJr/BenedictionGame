@@ -16,37 +16,6 @@ namespace Benediction.Controller
         public IGamePlayerModel Model { get; set; }
         public IGamePlayerView View { get; set; }
 
-        public void ClearMove()
-        {
-            Model.SelectionObject = Location.Undefined;
-            Model.SelectionTarget = Location.Undefined;
-            Model.SelectedVariation = null;
-            Model.EditorState = Model.CommittedState;
-            Model.InHand = Cell.Empty;
-            Model.SelectionState = SelectionState.Unselected;
-            View.RedrawBoard();
-        }
-
-        public void CommitMove()
-        {
-            if ((Model.SelectionState == SelectionState.EmptySelected ||
-                 Model.SelectionState == SelectionState.MoveSelected) && Model.SelectionFilteredActions.Any())
-            {
-                var (updatedModel, errorMessage) =
-                    Model.Game.CommitPlayerMove(Model.SelectionFilteredActions.First().Action);
-                if (errorMessage == null)
-                {
-                    Model.CommittedState = updatedModel;
-                    ClearMove();
-                    var seenList = new HashSet<Guid>();
-                    Model.AvailableActions =
-                        AvailableActionController.GetAvailableActions(Model.CommittedState, seenList);
-                    View.RedrawBoard();
-                    View.RedrawMoves();
-                }
-            }
-        }
-
         public GamePlayerController(IGamePlayerModel model, IGamePlayerView view)
         {
             Model = model;
@@ -63,37 +32,125 @@ namespace Benediction.Controller
             var seenList = new HashSet<Guid>();
             Model.AvailableActions =
                 AvailableActionController.GetAvailableActions(Model.CommittedState, seenList);
+            Model.EditMode = false;
+            Model.Restrictions = RestrictionState.None;
         }
 
         private void ViewOnNavigateEvent(object sender, BoardNavigationEventArgs e)
         {
             switch (e.EventType)
             {
-                case NavigationEventType.ShowHistory:
-                    Model.CommittedState = e.Selected.DeepCopy();
-                    Model.AvailableActions = null;
-                    View.RedrawBoard();
-                    View.RedrawMoves();
+                case NavigationEventType.ClearMove:
+                    ClearMove();
                     break;
-                case NavigationEventType.ShowCurrent:
-                    Model.CommittedState = Model.Game.Last().NewState;
-                    Model.AvailableActions =
-                        AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
-                    View.RedrawBoard();
-                    View.RedrawMoves();
+                case NavigationEventType.CommitMove:
+                    CommitMove();
+                    break;
+                case NavigationEventType.ShowHistory:
+                    ShowHistory(e.Selected);
                     break;
                 case NavigationEventType.NewGame:
-                    Model.Game = new GameState {new NewGame()};
-                    Model.CommittedState = Model.Game.Last().NewState;
-                    ClearMove();
-                    Model.AvailableActions =
-                        AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
-                    View.RedrawMoves();
+                    NewGame();
+                    break;
+                case NavigationEventType.LoadGame:
+                    LoadGame(e.Selected);
+                    break;
+                case NavigationEventType.ToggleEditMode:
+                    ToggleEditMode();
+                    break;
+                case NavigationEventType.Editor:
+                    CommitEditedBoard(e.Selected);
                     break;
             }
-
-
+             
+            View.RedrawBoard();
+            View.UpdateGameMoveGrid();
+            View.BoardEditorUpdate();
         }
+
+        private void ClearMove()
+        {
+            Model.SelectionObject = Location.Undefined;
+            Model.SelectionTarget = Location.Undefined;
+            Model.SelectedVariation = null;
+            Model.EditorState = Model.CommittedState.DeepCopy();
+            Model.InHand = Cell.Empty;
+            Model.SelectionState = SelectionState.Unselected;
+        }
+
+        private void CommitMove()
+        {
+            if ((Model.SelectionState == SelectionState.EmptySelected ||
+                 Model.SelectionState == SelectionState.MoveSelected) && Model.ActionsByObjectTargetSize.Any())
+            {
+                var (updatedModel, errorMessage) =
+                    Model.Game.CommitPlayerMove(Model.ActionsByObjectTargetSize.First().Action);
+                if (errorMessage == null)
+                {
+                    Model.CommittedState = updatedModel;
+                    ClearMove();
+                    var seenList = new HashSet<Guid>();
+                    Model.AvailableActions =
+                        AvailableActionController.GetAvailableActions(Model.CommittedState, seenList);
+                }
+            }
+        }
+        
+        private void ShowHistory(State state)
+        {
+            Model.EditorState = state.DeepCopy();
+            Model.AvailableActions = null;
+        }
+
+        private void NewGame()
+        {
+            Model.Game = new GameState {new NewGame()};
+            Model.CommittedState = Model.Game.Last().NewState;
+            Model.EditMode = false;
+            ClearMove();
+            Model.AvailableActions =
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
+        }
+
+        private void LoadGame(State state)
+        {
+            Model.Game = new GameState {new LoadState(state)};
+            Model.CommittedState = state;
+            Model.EditMode = false;
+            Model.EditorState = state.DeepCopy();
+            ClearMove();
+            Model.AvailableActions =
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
+        }
+
+        private void ToggleEditMode()
+        {
+            Model.EditMode = !Model.EditMode;
+            Model.EditorState = Model.CommittedState.DeepCopy();
+            ClearMove();
+            Model.AvailableActions = Model.EditMode ? null :
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
+        }
+
+        private void CommitEditedBoard(State state)
+        {
+            Model.Game.Add(new BoardEditor {InitialState = Model.CommittedState, NewState = state});
+            Model.CommittedState = state;
+            Model.EditMode = false;
+            Model.EditorState = state.DeepCopy();
+            ClearMove();
+            Model.AvailableActions =
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
+        }
+
+        private static int GetEditorSlot(StateFlags flags)
+        {
+            if (flags.HasFlag(StateFlags.RedAction2)) return 0;
+            if (flags.HasFlag(StateFlags.BlueAction1)) return 1;
+            if (flags.HasFlag(StateFlags.BlueAction2)) return 2;
+            return 3;
+        }
+
 
         private void SelectLowestVariation()
         {
@@ -119,7 +176,7 @@ namespace Benediction.Controller
 
         private void SelectNextVariation()
         {
-            var next = Model.AllSelectionActions.Select(ps => ps.Action.Size)
+            var next = Model.ActionsByObjectTarget.Select(ps => ps.Action.Size)
                 .Where(i => i > (Model.SelectedVariation ?? int.MinValue)).ToArray();
 
             if (next.Any())
@@ -137,18 +194,18 @@ namespace Benediction.Controller
             switch (Model.SelectionState)
             {
                 case SelectionState.Unselected:
-                    Model.EditorState = Model.CommittedState;
+                    Model.EditorState = Model.CommittedState.DeepCopy();
                     Model.InHand = Cell.Empty;
                     break;
                 case SelectionState.EmptySelected:
                 case SelectionState.MoveSelected:
-                    if (Model.AllSelectionActions.Any())
+                    if (Model.ActionsByObjectTarget?.Any() ?? false)
                     {
-                        Model.EditorState = Model.SelectionFilteredActions.First().Action.Apply(Model.CommittedState);
+                        Model.EditorState = Model.ActionsByObjectTargetSize.First().Action.Apply(Model.CommittedState);
                     }
                     else
                     {
-                        Model.EditorState = Model.CommittedState;
+                        Model.EditorState = Model.CommittedState.DeepCopy();
                     }
                     Model.InHand = Cell.Empty;
                     break;
@@ -158,13 +215,29 @@ namespace Benediction.Controller
                     Model.EditorState[Model.SelectionObject] = Cell.Empty;
                     break;
                 case SelectionState.SplitInHand:
-                    Model.EditorState = Model.CommittedState;
-                    Model.InHand = (Model.EditorState[Model.SelectionObject] & ~Cell.SizeMask) | Cell.Size1;
+                    Model.EditorState = Model.CommittedState.DeepCopy();
+                    var min = Model.MinVariation ?? 1;
+                    var max = Model.MaxVariation ?? Model.EditorState[Model.SelectionObject].GetSize();
+                    var takeWith = Math.Max(1, max - min);
+                    Model.InHand = Model.EditorState[Model.SelectionObject].SetSize(takeWith);
+                    Model.EditorState[Model.SelectionObject] = Model.EditorState[Model.SelectionObject].SetSize(Math.Max(1, min));
                     break;
             }
+            //Console.WriteLine($"{Model.SelectionState}: {Model.SelectionObject} -> {Model.SelectionTarget} {Model.MinVariation}--{Model.SelectedVariation}--{Model.MaxVariation}");
+            //if (Model.AvailableActions != null) Console.WriteLine($"{Model.AvailableActions.Count} available total");
+            //else return;
+            //Console.Write("AllSelectionActions: ");
+            //foreach (var action in Model.ActionsByObjectTarget) Console.Write(action.ToString() + " ");
+            //Console.WriteLine();
+            //Console.Write("SelectionFilteredActions: ");
+            //foreach (var action in Model.ActionsByObjectTargetSize) Console.Write(action.ToString() + " ");
+            //Console.WriteLine();
+            //if (Model.HighlightLocations != null) foreach (var loc in Model.HighlightLocations) Console.Write(loc.ToString() + " ");
+            //Console.WriteLine();
+            //Console.WriteLine();
 
             View.RedrawBoard();
-            View.RedrawMoves();
+            View.UpdateGameMoveGrid();
         }
 
         private void ViewOnInputEvent(object sender, BoardLocationEventArgs e)
@@ -252,8 +325,8 @@ namespace Benediction.Controller
                     break;
                 case DeselectedOwnStack:
                     Model.SelectionObject = e.Location;
-                    SelectVariationByMouseButton(lmb);
                     Model.SelectionState = lmb ? SelectionState.PieceInHand : SelectionState.SplitInHand;
+                    SelectVariationByMouseButton(lmb);
                     VisualizeSelectedMove();
                     break;
                 case DeselectedOpponentPiece:
@@ -427,9 +500,6 @@ namespace Benediction.Controller
         private static MouseTargetFlags GetMouseTargetType(IGamePlayerModel model, Location location, Cell contents)
         {
             var flags = MouseTargetFlags.None;
-            var currentTurn = (model.CommittedState.Flags & (StateFlags.RedAction1 | StateFlags.RedAction2)) > 0
-                ? Cell.SideRed
-                : 0;
             
             if (location == model.SelectionObject)
             {
@@ -444,9 +514,9 @@ namespace Benediction.Controller
                 flags |= MouseTargetFlags.Target;
             }
 
-            var size = contents & Cell.SizeMask;
-            if (size <= 0) return flags;
-            if ((contents & Cell.SideRed) == currentTurn)
+            if (!contents.IsPiece()) return flags;
+
+            if (contents.GetSide(model.CommittedState.Flags.IsRedTurn(), model.CommittedState.Flags.IsBlueTurn(), false))
             {
                 flags |= MouseTargetFlags.OwnPiece;
             }
@@ -455,7 +525,7 @@ namespace Benediction.Controller
                 flags |= MouseTargetFlags.OpponentPiece;
             }
 
-            if (size > Cell.Size1)
+            if (contents.IsStack())
             {
                 flags |= MouseTargetFlags.Stack;
             }
@@ -483,17 +553,5 @@ namespace Benediction.Controller
         private const MouseTargetFlags HighlightedOpponentStack = MouseTargetFlags.Stack | MouseTargetFlags.OpponentPiece | MouseTargetFlags.Target;
         private const MouseTargetFlags SelectedOpponentStack = MouseTargetFlags.Stack | MouseTargetFlags.OpponentPiece | MouseTargetFlags.Selection;
         private const MouseTargetFlags TargetedOpponentStack = MouseTargetFlags.Stack | MouseTargetFlags.OpponentPiece | MouseTargetFlags.Selection | MouseTargetFlags.Target;
-
-    }
-
-    [Flags]
-    public enum MouseTargetFlags
-    {
-        None = 0,
-        Target = 0x01,
-        Selection = 0x02,
-        OwnPiece = 0x04,
-        OpponentPiece = 0x08,
-        Stack = 0x10,
     }
 }

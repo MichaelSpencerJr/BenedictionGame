@@ -8,7 +8,5 @@ namespace Benediction.Controller
         IGamePlayerModel Model { get; set; }
 
         IGamePlayerView View { get; set; }
-        void ClearMove();
-        void CommitMove();
     }
 }

@@ -64,9 +64,9 @@ namespace Benediction.View
                     //Draw any pieces on the board
                     foreach (var boardLocation in State.AllBoardLocations)
                     {
-                        if (state[boardLocation] == Cell.Empty) continue; //nothing to draw
+                        if (state[boardLocation].IsEmpty()) continue; //nothing to draw
 
-                        if (state[boardLocation] == Cell.Blockade && layer == 0)
+                        if (state[boardLocation].IsBlock() && layer == 0)
                         {
                             //Draw a blockade and continue to next piece
                             DrawAt(canvas, Resources.Blockade, GetLocationCoordinate(boardLocation));
@@ -84,7 +84,7 @@ namespace Benediction.View
                         layerEmpty &= stillEmpty;
                     }
 
-                    if (cursorContents != Cell.Empty)
+                    if (!cursorContents.IsEmpty())
                     {
                         layerEmpty &= DrawPieceLayerAtPoint(cursorContents, layer, cursorLocation, canvas);
                     }
@@ -92,12 +92,12 @@ namespace Benediction.View
                     if (layerEmpty) break;
                 }
 
-                if (Movement.IsValidLocation(location) && (state[location] & Cell.SizeMask) == 0)
+                if (Movement.IsValidLocation(location) && !state[location].IsPiece())
                 {
                     DrawAt(canvas, Resources.Select, GetLocationCoordinate(location));
                 }
 
-                if (Movement.IsValidLocation(target) && (state[target] & Cell.SizeMask) == 0)
+                if (Movement.IsValidLocation(target) && !state[target].IsPiece())
                 {
                     DrawAt(canvas, Resources.Select, GetLocationCoordinate(target));
                 }
@@ -123,38 +123,38 @@ namespace Benediction.View
         private static void DrawGameFlags(State state, Graphics canvas)
         {
 //Draw game flags in text at the corners
-            if ((state.Flags & StateFlags.RedAction1) > 0)
+            if (state.Flags.HasFlag(StateFlags.RedAction1))
             {
                 DrawBannerText(canvas, "Ready For Red Move #1", Color.OrangeRed, true, true);
             }
-            else if ((state.Flags & StateFlags.RedAction2) > 0)
+            else if (state.Flags.HasFlag(StateFlags.RedAction2))
             {
                 DrawBannerText(canvas, "Ready For Red Move #2", Color.OrangeRed, true, true);
             }
 
-            if ((state.Flags & StateFlags.BlueAction1) > 0)
+            if (state.Flags.HasFlag(StateFlags.BlueAction1))
             {
                 DrawBannerText(canvas, "Ready For Blue Move #1", Color.DodgerBlue, true, false);
             }
-            else if ((state.Flags & StateFlags.BlueAction2) > 0)
+            else if (state.Flags.HasFlag(StateFlags.BlueAction2))
             {
                 DrawBannerText(canvas, "Ready For Blue Move #2", Color.DodgerBlue, true, false);
             }
 
-            if ((state.Flags & StateFlags.RedKingTaken) > 0)
+            if (state.Flags.HasFlag(StateFlags.RedKingTaken))
             {
                 DrawBannerText(canvas, "Red King Has Been Taken", Color.OrangeRed, false, true);
             }
-            else if ((state.Flags & StateFlags.RedWin) > 0)
+            else if (state.Flags.HasFlag(StateFlags.RedWin))
             {
                 DrawBannerText(canvas, "Red Wins", Color.OrangeRed, false, true);
             }
 
-            if ((state.Flags & StateFlags.BlueKingTaken) > 0)
+            if (state.Flags.HasFlag(StateFlags.BlueKingTaken))
             {
                 DrawBannerText(canvas, "Blue King Has Been Taken", Color.DodgerBlue, false, false);
             }
-            else if ((state.Flags & StateFlags.BlueWin) > 0)
+            else if (state.Flags.HasFlag(StateFlags.BlueWin))
             {
                 DrawBannerText(canvas, "Blue Wins", Color.DodgerBlue, false, false);
             }
@@ -181,42 +181,41 @@ namespace Benediction.View
 
         private static bool DrawPieceLayerAtPoint(Cell piece, int layer, Point point, Graphics canvas)
         {
-            var stackSize = (int) (piece & Cell.SizeMask);
             var layerEmpty = true;
-            if (stackSize > layer)
+            if (piece.GetSize() > layer)
             {
-                DrawAt(canvas, (piece & Cell.SideRed) == Cell.SideRed ? Resources.Red_Man : Resources.Blue_Man,
-                    point);
+                var drawPiece = piece.GetSide(Resources.Red_Man, Resources.Blue_Man, null);
+                if (drawPiece != null) DrawAt(canvas, drawPiece, point);
                 layerEmpty = false;
-                if (layer == 3 || stackSize == layer + 1)
+                if (layer == 3 || piece.GetSize() == layer + 1)
                 {
-                    DrawTopPieceLayer(piece, canvas, point, stackSize);
+                    DrawTopPieceLayer(piece, canvas, point);
                 }
             }
 
             return layerEmpty;
         }
 
-        private static void DrawTopPieceLayer(Cell piece, Graphics canvas, Point topPieceCoordinate, int stackSize)
+        private static void DrawTopPieceLayer(Cell piece, Graphics canvas, Point topPieceCoordinate)
         {
-            if ((piece & Cell.King) > 0)
+            if (piece.IsKing())
             {
                 DrawAt(canvas, Resources.King, topPieceCoordinate);
             }
 
-            if ((piece & Cell.Blessed) > 0)
+            if (piece.IsBlessed())
             {
                 DrawAt(canvas, Resources.Blessing, topPieceCoordinate);
             }
 
-            if ((piece & Cell.Cursed) > 0)
+            if (piece.IsCursed())
             {
                 DrawAt(canvas, Resources.Curse, topPieceCoordinate);
             }
 
-            if (stackSize > 4)
+            if (piece.GetSize() > 4)
             {
-                DrawText(canvas, stackSize.ToString(), Color.Black, topPieceCoordinate);
+                DrawText(canvas, piece.GetSize().ToString(), Color.Black, topPieceCoordinate);
             }
         }
 

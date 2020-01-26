@@ -82,8 +82,8 @@ namespace Benediction.Actions
         /// <returns>Null if the move is allowed, or a brief text explanation of why it cannot be performed</returns>
         public string CheckSpace(State state, Location space, bool allowEmpty, bool allowOwnColor, bool allowOtherColor, string spaceDescription, string cannotBeWhat)
         {
-            if (state[space] == Cell.Blockade)
-                return $"{spaceDescription} {space} Contains a Blockade, Which Cannot Be {cannotBeWhat}";
+            if (state[space] == Cell.Block)
+                return $"{spaceDescription} {space} Contains a Block, Which Cannot Be {cannotBeWhat}";
 
             if (state[space] == Cell.Empty)
             {
@@ -174,7 +174,7 @@ namespace Benediction.Actions
                         wrapAroundSeen = true;
 
                     // illegal to move onto or through blockades, so stop considering this movement direction if we find one.
-                    if (state[consideredCell] == Cell.Blockade) break;
+                    if (state[consideredCell] == Cell.Block) break;
 
                     if (consideredCell == Target && (wrapAroundSeen || !requireWrapAround)) return null;
 

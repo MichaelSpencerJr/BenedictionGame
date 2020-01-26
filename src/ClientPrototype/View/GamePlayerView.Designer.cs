@@ -37,11 +37,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pbBoard = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpEditor = new System.Windows.Forms.TabPage();
+            this.btnEditBoard = new System.Windows.Forms.Button();
+            this.btnSaveEdits = new System.Windows.Forms.Button();
             this.chkCursePending = new System.Windows.Forms.CheckBox();
             this.chkLocked = new System.Windows.Forms.CheckBox();
-            this.chkBlockade = new System.Windows.Forms.CheckBox();
             this.chkBlueWin = new System.Windows.Forms.CheckBox();
             this.chkRedWin = new System.Windows.Forms.CheckBox();
             this.chkBlueKingTaken = new System.Windows.Forms.CheckBox();
@@ -79,19 +81,20 @@
             this.dgColumnBlue2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.tpCpuPlayer = new System.Windows.Forms.TabPage();
+            this.btnCpuCommitMove = new System.Windows.Forms.Button();
+            this.btnCpuRandomMove = new System.Windows.Forms.Button();
             this.lstAvailableMoves = new System.Windows.Forms.ListBox();
-            this.pbBoard = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBoard)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStackSize)).BeginInit();
             this.tpHumanPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGameState)).BeginInit();
             this.tpCpuPlayer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBoard)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -111,6 +114,19 @@
             this.splitContainer1.SplitterDistance = 545;
             this.splitContainer1.TabIndex = 0;
             // 
+            // pbBoard
+            // 
+            this.pbBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbBoard.Location = new System.Drawing.Point(0, 0);
+            this.pbBoard.Name = "pbBoard";
+            this.pbBoard.Size = new System.Drawing.Size(545, 450);
+            this.pbBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBoard.TabIndex = 0;
+            this.pbBoard.TabStop = false;
+            this.pbBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseDown);
+            this.pbBoard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseMove);
+            this.pbBoard.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseUp);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpEditor);
@@ -125,9 +141,10 @@
             // 
             // tpEditor
             // 
+            this.tpEditor.Controls.Add(this.btnEditBoard);
+            this.tpEditor.Controls.Add(this.btnSaveEdits);
             this.tpEditor.Controls.Add(this.chkCursePending);
             this.tpEditor.Controls.Add(this.chkLocked);
-            this.tpEditor.Controls.Add(this.chkBlockade);
             this.tpEditor.Controls.Add(this.chkBlueWin);
             this.tpEditor.Controls.Add(this.chkRedWin);
             this.tpEditor.Controls.Add(this.chkBlueKingTaken);
@@ -161,6 +178,26 @@
             this.tpEditor.Text = "Board Editor";
             this.tpEditor.UseVisualStyleBackColor = true;
             // 
+            // btnEditBoard
+            // 
+            this.btnEditBoard.Location = new System.Drawing.Point(196, 315);
+            this.btnEditBoard.Name = "btnEditBoard";
+            this.btnEditBoard.Size = new System.Drawing.Size(75, 39);
+            this.btnEditBoard.TabIndex = 29;
+            this.btnEditBoard.Text = "Edit Board";
+            this.btnEditBoard.UseVisualStyleBackColor = true;
+            this.btnEditBoard.Click += new System.EventHandler(this.btnEditBoard_Click);
+            // 
+            // btnSaveEdits
+            // 
+            this.btnSaveEdits.Location = new System.Drawing.Point(196, 360);
+            this.btnSaveEdits.Name = "btnSaveEdits";
+            this.btnSaveEdits.Size = new System.Drawing.Size(75, 39);
+            this.btnSaveEdits.TabIndex = 28;
+            this.btnSaveEdits.Text = "Save Edits";
+            this.btnSaveEdits.UseVisualStyleBackColor = true;
+            this.btnSaveEdits.Click += new System.EventHandler(this.btnSaveEdits_Click);
+            // 
             // chkCursePending
             // 
             this.chkCursePending.AutoSize = true;
@@ -170,6 +207,7 @@
             this.chkCursePending.TabIndex = 27;
             this.chkCursePending.Text = "CursePending";
             this.chkCursePending.UseVisualStyleBackColor = true;
+            this.chkCursePending.CheckedChanged += new System.EventHandler(this.chkCell_CheckedChanged);
             // 
             // chkLocked
             // 
@@ -180,16 +218,7 @@
             this.chkLocked.TabIndex = 26;
             this.chkLocked.Text = "Locked";
             this.chkLocked.UseVisualStyleBackColor = true;
-            // 
-            // chkBlockade
-            // 
-            this.chkBlockade.AutoSize = true;
-            this.chkBlockade.Location = new System.Drawing.Point(87, 336);
-            this.chkBlockade.Name = "chkBlockade";
-            this.chkBlockade.Size = new System.Drawing.Size(71, 17);
-            this.chkBlockade.TabIndex = 25;
-            this.chkBlockade.Text = "Blockade";
-            this.chkBlockade.UseVisualStyleBackColor = true;
+            this.chkLocked.CheckedChanged += new System.EventHandler(this.chkCell_CheckedChanged);
             // 
             // chkBlueWin
             // 
@@ -200,7 +229,7 @@
             this.chkBlueWin.TabIndex = 12;
             this.chkBlueWin.Text = "Blue Wins";
             this.chkBlueWin.UseVisualStyleBackColor = true;
-            this.chkBlueWin.CheckedChanged += new System.EventHandler(this.chkBlueWin_CheckedChanged);
+            this.chkBlueWin.CheckedChanged += new System.EventHandler(this.chkFlag_CheckedChanged);
             // 
             // chkRedWin
             // 
@@ -211,7 +240,7 @@
             this.chkRedWin.TabIndex = 11;
             this.chkRedWin.Text = "Red Wins";
             this.chkRedWin.UseVisualStyleBackColor = true;
-            this.chkRedWin.CheckedChanged += new System.EventHandler(this.chkRedWin_CheckedChanged);
+            this.chkRedWin.CheckedChanged += new System.EventHandler(this.chkFlag_CheckedChanged);
             // 
             // chkBlueKingTaken
             // 
@@ -222,7 +251,7 @@
             this.chkBlueKingTaken.TabIndex = 10;
             this.chkBlueKingTaken.Text = "Blue King Taken";
             this.chkBlueKingTaken.UseVisualStyleBackColor = true;
-            this.chkBlueKingTaken.CheckedChanged += new System.EventHandler(this.chkBlueKingTaken_CheckedChanged);
+            this.chkBlueKingTaken.CheckedChanged += new System.EventHandler(this.chkFlag_CheckedChanged);
             // 
             // chkRedKingTaken
             // 
@@ -233,7 +262,7 @@
             this.chkRedKingTaken.TabIndex = 9;
             this.chkRedKingTaken.Text = "Red King Taken";
             this.chkRedKingTaken.UseVisualStyleBackColor = true;
-            this.chkRedKingTaken.CheckedChanged += new System.EventHandler(this.chkRedKingTaken_CheckedChanged);
+            this.chkRedKingTaken.CheckedChanged += new System.EventHandler(this.chkFlag_CheckedChanged);
             // 
             // chkBlueT2
             // 
@@ -244,7 +273,7 @@
             this.chkBlueT2.TabIndex = 8;
             this.chkBlueT2.Text = "Blue T2";
             this.chkBlueT2.UseVisualStyleBackColor = true;
-            this.chkBlueT2.CheckedChanged += new System.EventHandler(this.chkBlueT2_CheckedChanged);
+            this.chkBlueT2.CheckedChanged += new System.EventHandler(this.chkFlag_CheckedChanged);
             // 
             // chkBlueT1
             // 
@@ -255,7 +284,7 @@
             this.chkBlueT1.TabIndex = 7;
             this.chkBlueT1.Text = "Blue T1";
             this.chkBlueT1.UseVisualStyleBackColor = true;
-            this.chkBlueT1.CheckedChanged += new System.EventHandler(this.chkBlueT1_CheckedChanged);
+            this.chkBlueT1.CheckedChanged += new System.EventHandler(this.chkFlag_CheckedChanged);
             // 
             // chkRedT2
             // 
@@ -266,7 +295,7 @@
             this.chkRedT2.TabIndex = 6;
             this.chkRedT2.Text = "Red T2";
             this.chkRedT2.UseVisualStyleBackColor = true;
-            this.chkRedT2.CheckedChanged += new System.EventHandler(this.chkRedT2_CheckedChanged);
+            this.chkRedT2.CheckedChanged += new System.EventHandler(this.chkFlag_CheckedChanged);
             // 
             // chkRedT1
             // 
@@ -277,7 +306,7 @@
             this.chkRedT1.TabIndex = 5;
             this.chkRedT1.Text = "Red T1";
             this.chkRedT1.UseVisualStyleBackColor = true;
-            this.chkRedT1.CheckedChanged += new System.EventHandler(this.chkRedT1_CheckedChanged);
+            this.chkRedT1.CheckedChanged += new System.EventHandler(this.chkFlag_CheckedChanged);
             // 
             // btnBoardImageToClipboard
             // 
@@ -298,7 +327,7 @@
             this.chkCursed.TabIndex = 24;
             this.chkCursed.Text = "Cursed";
             this.chkCursed.UseVisualStyleBackColor = true;
-            this.chkCursed.CheckedChanged += new System.EventHandler(this.chkCursed_CheckedChanged);
+            this.chkCursed.CheckedChanged += new System.EventHandler(this.chkCell_CheckedChanged);
             // 
             // chkBlessed
             // 
@@ -309,7 +338,7 @@
             this.chkBlessed.TabIndex = 23;
             this.chkBlessed.Text = "Blessed";
             this.chkBlessed.UseVisualStyleBackColor = true;
-            this.chkBlessed.CheckedChanged += new System.EventHandler(this.chkBlessed_CheckedChanged);
+            this.chkBlessed.CheckedChanged += new System.EventHandler(this.chkCell_CheckedChanged);
             // 
             // chkKing
             // 
@@ -320,7 +349,7 @@
             this.chkKing.TabIndex = 22;
             this.chkKing.Text = "King";
             this.chkKing.UseVisualStyleBackColor = true;
-            this.chkKing.CheckedChanged += new System.EventHandler(this.chkKing_CheckedChanged);
+            this.chkKing.CheckedChanged += new System.EventHandler(this.chkCell_CheckedChanged);
             // 
             // nudStackSize
             // 
@@ -370,7 +399,7 @@
             this.btnBlockadeHere.Name = "btnBlockadeHere";
             this.btnBlockadeHere.Size = new System.Drawing.Size(75, 39);
             this.btnBlockadeHere.TabIndex = 17;
-            this.btnBlockadeHere.Text = "Blockade Here";
+            this.btnBlockadeHere.Text = "Block Here";
             this.btnBlockadeHere.UseVisualStyleBackColor = true;
             this.btnBlockadeHere.Click += new System.EventHandler(this.btnBlockadeHere_Click);
             // 
@@ -549,7 +578,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvGameState.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvGameState.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvGameState.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvGameState.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvGameState.ShowCellErrors = false;
             this.dgvGameState.ShowEditingIcon = false;
             this.dgvGameState.Size = new System.Drawing.Size(299, 261);
@@ -619,6 +648,8 @@
             // 
             // tpCpuPlayer
             // 
+            this.tpCpuPlayer.Controls.Add(this.btnCpuCommitMove);
+            this.tpCpuPlayer.Controls.Add(this.btnCpuRandomMove);
             this.tpCpuPlayer.Controls.Add(this.lstAvailableMoves);
             this.tpCpuPlayer.Location = new System.Drawing.Point(4, 22);
             this.tpCpuPlayer.Name = "tpCpuPlayer";
@@ -628,6 +659,29 @@
             this.tpCpuPlayer.Text = "CPU Player Preview";
             this.tpCpuPlayer.UseVisualStyleBackColor = true;
             // 
+            // btnCpuCommitMove
+            // 
+            this.btnCpuCommitMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCpuCommitMove.Location = new System.Drawing.Point(223, 374);
+            this.btnCpuCommitMove.Name = "btnCpuCommitMove";
+            this.btnCpuCommitMove.Size = new System.Drawing.Size(82, 42);
+            this.btnCpuCommitMove.TabIndex = 7;
+            this.btnCpuCommitMove.Text = "Commit Selected";
+            this.btnCpuCommitMove.UseVisualStyleBackColor = true;
+            this.btnCpuCommitMove.Click += new System.EventHandler(this.btnCommitMove_Click);
+            // 
+            // btnCpuRandomMove
+            // 
+            this.btnCpuRandomMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCpuRandomMove.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCpuRandomMove.Location = new System.Drawing.Point(6, 374);
+            this.btnCpuRandomMove.Name = "btnCpuRandomMove";
+            this.btnCpuRandomMove.Size = new System.Drawing.Size(75, 42);
+            this.btnCpuRandomMove.TabIndex = 6;
+            this.btnCpuRandomMove.Text = "Select Randomly";
+            this.btnCpuRandomMove.UseVisualStyleBackColor = true;
+            this.btnCpuRandomMove.Click += new System.EventHandler(this.btnCpuRandomMove_Click);
+            // 
             // lstAvailableMoves
             // 
             this.lstAvailableMoves.FormattingEnabled = true;
@@ -635,19 +689,7 @@
             this.lstAvailableMoves.Name = "lstAvailableMoves";
             this.lstAvailableMoves.Size = new System.Drawing.Size(299, 290);
             this.lstAvailableMoves.TabIndex = 0;
-            // 
-            // pbBoard
-            // 
-            this.pbBoard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbBoard.Location = new System.Drawing.Point(0, 0);
-            this.pbBoard.Name = "pbBoard";
-            this.pbBoard.Size = new System.Drawing.Size(545, 450);
-            this.pbBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbBoard.TabIndex = 0;
-            this.pbBoard.TabStop = false;
-            this.pbBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseDown);
-            this.pbBoard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseMove);
-            this.pbBoard.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbBoard_MouseUp);
+            this.lstAvailableMoves.SelectedIndexChanged += new System.EventHandler(this.lstAvailableMoves_SelectedIndexChanged);
             // 
             // GamePlayerView
             // 
@@ -659,11 +701,12 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "GamePlayerView";
             this.Text = "Benediction Client Prototype";
-            this.Load += new System.EventHandler(this.Main_Load);
+            this.Load += new System.EventHandler(this.GamePlayerView_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbBoard)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpEditor.ResumeLayout(false);
             this.tpEditor.PerformLayout();
@@ -672,7 +715,6 @@
             this.tpHumanPlayer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGameState)).EndInit();
             this.tpCpuPlayer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbBoard)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -713,7 +755,6 @@
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.CheckBox chkCursePending;
         private System.Windows.Forms.CheckBox chkLocked;
-        private System.Windows.Forms.CheckBox chkBlockade;
         private System.Windows.Forms.DataGridView dgvGameState;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgColumnTurn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgColumnRedTurn1;
@@ -724,6 +765,10 @@
         private System.Windows.Forms.Button btnClearMove;
         private System.Windows.Forms.TextBox txtMove;
         private System.Windows.Forms.ListBox lstAvailableMoves;
+        private System.Windows.Forms.Button btnSaveEdits;
+        private System.Windows.Forms.Button btnEditBoard;
+        private System.Windows.Forms.Button btnCpuCommitMove;
+        private System.Windows.Forms.Button btnCpuRandomMove;
     }
 }
 

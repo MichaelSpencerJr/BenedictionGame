@@ -11,6 +11,7 @@ namespace Benediction.View
         event EventHandler<BoardLocationEventArgs> InputEvent;
         event EventHandler<BoardNavigationEventArgs> NavigateEvent;
         void RedrawBoard();
-        void RedrawMoves();
+        void UpdateGameMoveGrid();
+        void BoardEditorUpdate();
     }
 }

@@ -11,7 +11,7 @@ namespace Benediction.Actions
 
         public override int Size
         {
-            get => 16;
+            get => 17;
             set { }
         }
 
@@ -26,7 +26,7 @@ namespace Benediction.Actions
 
         public string CheckLocationNotLocked(State state)
         {
-            if ((state[Location] & Cell.Locked) == Cell.Locked)
+            if (state[Location].IsLocked())
                 return $"Piece at {Location} Has Already Moved This Turn";
             return null;
         }

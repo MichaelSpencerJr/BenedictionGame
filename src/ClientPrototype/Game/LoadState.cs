@@ -6,20 +6,15 @@ namespace Benediction.Game
     /// Game state transition representing a game state loaded from saved state information,
     /// for which no history information is present.
     /// </summary>
-    public class LoadState : StateInfo
+    public class LoadState : StateTransition
     {
         public override string ToString() => "Loaded";
         public override State NewState { get; set; }
         public override int EmptyColumn => -1;
 
-        public LoadState(string input)
+        public LoadState(State state)
         {
-            NewState = State.FromBase64Gz(input);
-        }
-
-        public LoadState(byte[] input)
-        {
-            NewState = new State(input);
+            NewState = state;
         }
     }
 }

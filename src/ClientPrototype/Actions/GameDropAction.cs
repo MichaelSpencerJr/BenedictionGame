@@ -48,8 +48,7 @@ namespace Benediction.Actions
             {
                 var finalState = initialState.DeepCopy();
 
-                finalState[Location] = Cell.Size1 | Cell.Locked;
-                if (Side == ActionSide.Red) finalState[Location] |= Cell.SideRed;
+                finalState[Location] = Cell.Size1.Locked(true).SetFlag(Cell.SideRed, Side == ActionSide.Red);
                 
                 return finalState;
             }

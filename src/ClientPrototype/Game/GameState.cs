@@ -48,6 +48,7 @@ namespace Benediction.Game
         public (State, string) CommitPlayerMove(GameAction playerMove)
         {
             var lastState = this.Any() ? this[Count - 1].NewState : new State();
+            var moveIdx = (lastState.Flags.IsBlueTurn() ? 2 : 0) + (lastState.Flags.IsSecondTurn() ? 1 : 0);
 
             var error = playerMove.CheckError(lastState);
             if (error != null) return (null, error);
@@ -65,7 +66,7 @@ namespace Benediction.Game
                 Add(nextTurn);
             }
 
-            nextTurn[nextTurn.EmptyColumn] = new PlayerAction
+            nextTurn[moveIdx] = new PlayerAction
             {
                 Action = playerMove, InitialState = lastState, PostActionState = postActionState,
                 NewState = newState

@@ -17,8 +17,8 @@ namespace Benediction.Board
         /// <summary>First four bits indicate number of pieces in the stack, 1-15</summary>
         SizeMask = 0x000F,
 
-        /// <summary>Blockade when SizeMask bits are zero (empty stack) and this bit is set</summary>
-        Blockade = 0x0010,
+        /// <summary>Block when SizeMask bits are zero (empty stack) and this bit is set</summary>
+        Block = 0x0010,
 
         /// <summary>Red-side piece when set, Blue-side piece when unset.</summary>
         SideRed = 0x0020,

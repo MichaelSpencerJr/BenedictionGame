@@ -26,10 +26,10 @@ namespace Benediction.Model
         IDictionary<Guid, ProposedState> AvailableActions { get; set; }
 
         /// <summary>Computed List of Actions Matching Selection -- narrowing and dead-ending, not rotating</summary>
-        IOrderedEnumerable<ProposedState> SelectionFilteredActions { get; }
+        IOrderedEnumerable<ProposedState> ActionsByObjectTargetSize { get; }
 
         /// <summary>Computed List of Actions Matching Object and Target -- rotating, not narrowing</summary>
-        IOrderedEnumerable<ProposedState> AllSelectionActions { get; }
+        IOrderedEnumerable<ProposedState> ActionsByObjectTarget { get; }
 
         /// <summary>Computed List of Action Targets when Only Object Is Selected</summary>
         IEnumerable<Location> HighlightLocations { get; }
@@ -54,5 +54,11 @@ namespace Benediction.Model
 
         /// <summary>Piece definition current in-hand, rendered as pinned to the mouse cursor</summary>
         Cell InHand { get; set; }
+
+        /// <summary>Game modification restrictions in effect, if any</summary>
+        RestrictionState Restrictions { get; set; }
+
+        /// <summary>True if board UI state is currently in editor mode</summary>
+        bool EditMode { get; set; }
     }
 }
