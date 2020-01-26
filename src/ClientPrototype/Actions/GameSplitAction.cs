@@ -67,13 +67,12 @@ namespace Benediction.Actions
                 else
                 {
                     ApplyMove(initialState, finalState);
+                    finalState[Target] |= Cell.CursePending;
                 }
 
                 //Now that the split-away part has been used for a full move or merge, put the left-behind part where it should be.
                 finalState[Location] =
                     (initialState[Location] & ~(Cell.SizeMask | Cell.Locked)) | (Cell) remainingSize | Cell.CursePending;
-
-                finalState[Target] |= Cell.CursePending;
 
                 return finalState;
             }

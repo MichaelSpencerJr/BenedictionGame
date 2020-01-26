@@ -81,7 +81,7 @@ namespace Benediction.Controller
         private void CommitMove()
         {
             if ((Model.SelectionState == SelectionState.EmptySelected ||
-                 Model.SelectionState == SelectionState.MoveSelected) && Model.ActionsByObjectTargetSize.Any())
+                 Model.SelectionState == SelectionState.MoveSelected) && (Model.ActionsByObjectTargetSize?.Any() ?? false))
             {
                 var (updatedModel, errorMessage) =
                     Model.Game.CommitPlayerMove(Model.ActionsByObjectTargetSize.First().Action);
@@ -176,10 +176,10 @@ namespace Benediction.Controller
 
         private void SelectNextVariation()
         {
-            var next = Model.ActionsByObjectTarget.Select(ps => ps.Action.Size)
+            var next = Model.ActionsByObjectTarget?.Select(ps => ps.Action.Size)
                 .Where(i => i > (Model.SelectedVariation ?? int.MinValue)).ToArray();
 
-            if (next.Any())
+            if (next?.Any() ?? false)
             {
                 Model.SelectedVariation = next.Min();
             }

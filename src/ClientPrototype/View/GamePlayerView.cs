@@ -236,6 +236,8 @@ namespace Benediction.View
         public void CpuGridUpdate()
         {
             lstAvailableMoves.Items.Clear();
+            if (_model.AvailableActions == null) return;
+
             foreach (var move in _model.AvailableActions)
             {
                 lstAvailableMoves.Items.Add(move.Value);
