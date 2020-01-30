@@ -1,4 +1,4 @@
-﻿namespace Benediction.Controller
+﻿namespace Benediction.Heuristic
 {
     public enum HeuristicPolarity
     {

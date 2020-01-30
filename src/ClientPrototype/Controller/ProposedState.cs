@@ -1,6 +1,7 @@
 ﻿using System;
 using Benediction.Actions;
 using Benediction.Board;
+using Benediction.Heuristic;
 
 namespace Benediction.Controller
 {

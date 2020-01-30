@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Benediction.Actions;
 using Benediction.Board;
+using Benediction.Heuristic;
 
 namespace Benediction.Controller
 {
     public static class AvailableActionController
     {
-        public static Dictionary<Guid, ProposedState> GetAvailableActions(State currentState, HashSet<Guid> history)
+        public static Dictionary<Guid, ProposedState> GetAvailableActions(State currentState, HashSet<Guid> history, HeuristicPolarity polarity)
         {
             var retval = new Dictionary<Guid, ProposedState>();
 
@@ -18,26 +19,30 @@ namespace Benediction.Controller
 
             var workingHistory = history == null ? new HashSet<Guid>() : new HashSet<Guid>(history);
 
-            GetActionsInternal(retval, workingHistory, AllBlocks, currentState, side);
-            GetActionsInternal(retval, workingHistory, AllDrops, currentState, side);
-            GetActionsInternal(retval, workingHistory, AllMergeMoveSplit, currentState, side);
+            GetActionsInternal(retval, workingHistory, AllBlocks, currentState, side, polarity);
+            GetActionsInternal(retval, workingHistory, AllDrops, currentState, side, polarity);
+            GetActionsInternal(retval, workingHistory, AllMergeMoveSplit, currentState, side, polarity);
             
             return retval;
         }
 
+        public static HeuristicController Heuristic = new HeuristicController();
+
         private static void GetActionsInternal(Dictionary<Guid, ProposedState> availableActions, HashSet<Guid> history,
-            Func<State, ActionSide, IEnumerable<GameAction>> iteratorFunc, State currentState, ActionSide side)
+            Func<State, ActionSide, IEnumerable<GameAction>> iteratorFunc, State currentState, ActionSide side, HeuristicPolarity polarity)
         {
             foreach (var action in iteratorFunc(currentState, side))
             {
                 if (action.CheckError(currentState) != null) continue;
-                var newState = action.Apply(currentState);
+                var newState = GameAction.PrepareNextTurn(action.Apply(currentState));
                 if (history.Add(newState.BoardId))
                 {
                     availableActions[newState.BoardId] = new ProposedState
                     {
-                        Key = newState.BoardId, Action = action, Heuristic = double.NaN, Result = newState,
-                        Polarity = HeuristicPolarity.RedPositive
+                        Key = newState.BoardId, Action = action,
+                        Heuristic = Heuristic.GetScore(newState, polarity),
+                        Result = newState,
+                        Polarity = polarity
                     };
                 }
             }

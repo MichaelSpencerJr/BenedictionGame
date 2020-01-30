@@ -108,11 +108,16 @@ namespace Benediction.Board
         public State(string description) : this()
         {
             var lines = description.Split(new[] {"\r\n", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
-            ParseHeaderV1(lines[0]);
+            ParseHeaderV1(LineFilter(lines[0]));
             for (var i = 1; i < lines.Length; i++)
             {
-                ParseSideV1(lines[i]);
+                ParseSideV1(LineFilter(lines[i]));
             }
+        }
+
+        public static string LineFilter(string input)
+        {
+            return input.Trim(' ', '|', '\t');
         }
 
         /// <summary>
@@ -325,15 +330,15 @@ namespace Benediction.Board
             var column = Location.Undefined;
             if (line.StartsWith("R:"))
             {
-                side = Cell.SideRed;
+                side = Cell.SideRed | Cell.Size1;
             }
             else if (line.StartsWith("B:"))
             {
-                side = Cell.Empty;
+                side = Cell.Size1;
             }
             else if (line.StartsWith("X:"))
             {
-                side = Cell.Size1 | Cell.Block;
+                side = Cell.Block;
             }
             else return;
 
@@ -370,46 +375,46 @@ namespace Benediction.Board
                         break;
                     case '1':
                         location = column;
-                        this[location] = Cell.Size1 | side;
+                        this[location] = side;
                         break;
                     case '2':
                         location = column - 0x20;
-                        this[location] = Cell.Size1 | side;
+                        this[location] = side;
                         break;
 
                     case '3':
                         location = column - 0x40;
-                        this[location] = Cell.Size1 | side;
+                        this[location] = side;
                         break;
 
                     case '4':
                         location = column - 0x60;
-                        this[location] = Cell.Size1 | side;
+                        this[location] = side;
                         break;
 
                     case '5':
                         location = column - 0x80;
-                        this[location] = Cell.Size1 | side;
+                        this[location] = side;
                         break;
 
                     case '6':
                         location = column - 0xA0;
-                        this[location] = Cell.Size1 | side;
+                        this[location] = side;
                         break;
 
                     case '7':
                         location = column - 0xC0;
-                        this[location] = Cell.Size1 | side;
+                        this[location] = side;
                         break;
 
                     case '8':
                         location = column - 0xE0;
-                        this[location] = Cell.Size1 | side;
+                        this[location] = side;
                         break;
 
                     case '9':
                         location = column - 0x100;
-                        this[location] = Cell.Size1 | side;
+                        this[location] = side;
                         break;
                     case 'k':
                         this[location] |= Cell.King;

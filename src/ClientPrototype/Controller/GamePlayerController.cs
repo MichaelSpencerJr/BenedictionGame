@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Benediction.Actions;
 using Benediction.Board;
 using Benediction.Game;
+using Benediction.Heuristic;
 using Benediction.Model;
 using Benediction.View;
 
@@ -31,7 +32,10 @@ namespace Benediction.Controller
             Model.SelectionState = SelectionState.Unselected;
             var seenList = new HashSet<Guid>();
             Model.AvailableActions =
-                AvailableActionController.GetAvailableActions(Model.CommittedState, seenList);
+                AvailableActionController.GetAvailableActions(Model.CommittedState, seenList,
+                    Model.CommittedState.Flags.IsRedTurn()
+                        ? HeuristicPolarity.RedPositive
+                        : HeuristicPolarity.BluePositive);
             Model.EditMode = false;
             Model.Restrictions = RestrictionState.None;
         }
@@ -91,7 +95,10 @@ namespace Benediction.Controller
                     ClearMove();
                     var seenList = new HashSet<Guid>();
                     Model.AvailableActions =
-                        AvailableActionController.GetAvailableActions(Model.CommittedState, seenList);
+                        AvailableActionController.GetAvailableActions(Model.CommittedState, seenList,
+                            Model.CommittedState.Flags.IsRedTurn()
+                                ? HeuristicPolarity.RedPositive
+                                : HeuristicPolarity.BluePositive);
                 }
             }
         }
@@ -99,7 +106,7 @@ namespace Benediction.Controller
         private void ShowHistory(State state)
         {
             Model.EditorState = state.DeepCopy();
-            Model.AvailableActions = null;
+            Model.SelectionState = SelectionState.HistoryView;
         }
 
         private void NewGame()
@@ -109,7 +116,9 @@ namespace Benediction.Controller
             Model.EditMode = false;
             ClearMove();
             Model.AvailableActions =
-                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
+                    ? HeuristicPolarity.RedPositive
+                    : HeuristicPolarity.BluePositive);
         }
 
         private void LoadGame(State state)
@@ -120,7 +129,9 @@ namespace Benediction.Controller
             Model.EditorState = state.DeepCopy();
             ClearMove();
             Model.AvailableActions =
-                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
+                    ? HeuristicPolarity.RedPositive
+                    : HeuristicPolarity.BluePositive);
         }
 
         private void ToggleEditMode()
@@ -129,7 +140,9 @@ namespace Benediction.Controller
             Model.EditorState = Model.CommittedState.DeepCopy();
             ClearMove();
             Model.AvailableActions = Model.EditMode ? null :
-                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
+                    ? HeuristicPolarity.RedPositive
+                    : HeuristicPolarity.BluePositive);
         }
 
         private void CommitEditedBoard(State state)
@@ -140,7 +153,9 @@ namespace Benediction.Controller
             Model.EditorState = state.DeepCopy();
             ClearMove();
             Model.AvailableActions =
-                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
+                    ? HeuristicPolarity.RedPositive
+                    : HeuristicPolarity.BluePositive);
         }
 
         private static int GetEditorSlot(StateFlags flags)

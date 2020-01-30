@@ -63,7 +63,10 @@
     <Compile Include="Actions\GameSplitAction.cs" />
     <Compile Include="Actions\GameTargetAction.cs" />
     <Compile Include="Board\Cell.cs" />
+    <Compile Include="Heuristic\ClassifierBase.cs" />
+    <Compile Include="Heuristic\HeuristicController.cs" />
     <Compile Include="Controller\MouseTargetFlags.cs" />
+    <Compile Include="Heuristic\PieceCount.cs" />
     <Compile Include="Model\RestrictionState.cs" />
     <Compile Include="View\BoardPainter.cs" />
     <Compile Include="Board\State.cs" />
@@ -71,7 +74,7 @@
     <Compile Include="Actions\GameAction.cs" />
     <Compile Include="Actions\Movement.cs" />
     <Compile Include="Board\Location.cs" />
-    <Compile Include="Controller\HeuristicPolarity.cs" />
+    <Compile Include="Heuristic\HeuristicPolarity.cs" />
     <Compile Include="Controller\IGamePlayerController.cs" />
     <Compile Include="Controller\ProposedState.cs" />
     <Compile Include="Game\BoardEditor.cs" />

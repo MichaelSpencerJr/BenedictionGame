@@ -19,5 +19,8 @@
 
         /// <summary>User has selected both endpoints of a move</summary>
         MoveSelected,
+
+        /// <summary>User is viewing a previous board state, not selecting a move</summary>
+        HistoryView,
     }
 }

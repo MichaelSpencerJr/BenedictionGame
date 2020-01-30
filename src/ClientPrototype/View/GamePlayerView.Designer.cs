@@ -81,9 +81,13 @@
             this.dgColumnBlue2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.tpCpuPlayer = new System.Windows.Forms.TabPage();
+            this.btnCpuHighestMove = new System.Windows.Forms.Button();
             this.btnCpuCommitMove = new System.Windows.Forms.Button();
             this.btnCpuRandomMove = new System.Windows.Forms.Button();
             this.lstAvailableMoves = new System.Windows.Forms.ListBox();
+            this.btnCpuAlphaBeta4 = new System.Windows.Forms.Button();
+            this.btnCpuAlphaBeta8 = new System.Windows.Forms.Button();
+            this.btnCpuAlphaBeta12 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -648,6 +652,10 @@
             // 
             // tpCpuPlayer
             // 
+            this.tpCpuPlayer.Controls.Add(this.btnCpuAlphaBeta12);
+            this.tpCpuPlayer.Controls.Add(this.btnCpuAlphaBeta8);
+            this.tpCpuPlayer.Controls.Add(this.btnCpuAlphaBeta4);
+            this.tpCpuPlayer.Controls.Add(this.btnCpuHighestMove);
             this.tpCpuPlayer.Controls.Add(this.btnCpuCommitMove);
             this.tpCpuPlayer.Controls.Add(this.btnCpuRandomMove);
             this.tpCpuPlayer.Controls.Add(this.lstAvailableMoves);
@@ -658,6 +666,18 @@
             this.tpCpuPlayer.TabIndex = 2;
             this.tpCpuPlayer.Text = "CPU Player Preview";
             this.tpCpuPlayer.UseVisualStyleBackColor = true;
+            // 
+            // btnCpuHighestMove
+            // 
+            this.btnCpuHighestMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCpuHighestMove.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCpuHighestMove.Location = new System.Drawing.Point(87, 374);
+            this.btnCpuHighestMove.Name = "btnCpuHighestMove";
+            this.btnCpuHighestMove.Size = new System.Drawing.Size(75, 42);
+            this.btnCpuHighestMove.TabIndex = 8;
+            this.btnCpuHighestMove.Text = "Select Highest";
+            this.btnCpuHighestMove.UseVisualStyleBackColor = true;
+            this.btnCpuHighestMove.Click += new System.EventHandler(this.btnCpuHighestMove_Click);
             // 
             // btnCpuCommitMove
             // 
@@ -690,6 +710,40 @@
             this.lstAvailableMoves.Size = new System.Drawing.Size(299, 290);
             this.lstAvailableMoves.TabIndex = 0;
             this.lstAvailableMoves.SelectedIndexChanged += new System.EventHandler(this.lstAvailableMoves_SelectedIndexChanged);
+            // 
+            // btnCpuAlphaBeta4
+            // 
+            this.btnCpuAlphaBeta4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCpuAlphaBeta4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCpuAlphaBeta4.Location = new System.Drawing.Point(6, 333);
+            this.btnCpuAlphaBeta4.Name = "btnCpuAlphaBeta4";
+            this.btnCpuAlphaBeta4.Size = new System.Drawing.Size(75, 26);
+            this.btnCpuAlphaBeta4.TabIndex = 9;
+            this.btnCpuAlphaBeta4.Text = "α β depth 4";
+            this.btnCpuAlphaBeta4.UseVisualStyleBackColor = true;
+            this.btnCpuAlphaBeta4.Click += new System.EventHandler(this.btnCpuAlphaBeta3_Click);
+            // 
+            // btnCpuAlphaBeta8
+            // 
+            this.btnCpuAlphaBeta8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCpuAlphaBeta8.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCpuAlphaBeta8.Location = new System.Drawing.Point(87, 333);
+            this.btnCpuAlphaBeta8.Name = "btnCpuAlphaBeta8";
+            this.btnCpuAlphaBeta8.Size = new System.Drawing.Size(75, 26);
+            this.btnCpuAlphaBeta8.TabIndex = 10;
+            this.btnCpuAlphaBeta8.Text = "α β depth 8";
+            this.btnCpuAlphaBeta8.UseVisualStyleBackColor = true;
+            // 
+            // btnCpuAlphaBeta12
+            // 
+            this.btnCpuAlphaBeta12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCpuAlphaBeta12.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCpuAlphaBeta12.Location = new System.Drawing.Point(168, 333);
+            this.btnCpuAlphaBeta12.Name = "btnCpuAlphaBeta12";
+            this.btnCpuAlphaBeta12.Size = new System.Drawing.Size(83, 26);
+            this.btnCpuAlphaBeta12.TabIndex = 11;
+            this.btnCpuAlphaBeta12.Text = "α β depth 12";
+            this.btnCpuAlphaBeta12.UseVisualStyleBackColor = true;
             // 
             // GamePlayerView
             // 
@@ -769,6 +823,10 @@
         private System.Windows.Forms.Button btnEditBoard;
         private System.Windows.Forms.Button btnCpuCommitMove;
         private System.Windows.Forms.Button btnCpuRandomMove;
+        private System.Windows.Forms.Button btnCpuHighestMove;
+        private System.Windows.Forms.Button btnCpuAlphaBeta12;
+        private System.Windows.Forms.Button btnCpuAlphaBeta8;
+        private System.Windows.Forms.Button btnCpuAlphaBeta4;
     }
 }
 

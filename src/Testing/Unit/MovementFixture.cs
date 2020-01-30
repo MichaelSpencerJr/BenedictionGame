@@ -46,7 +46,7 @@ namespace Testing.Unit
                     from);
                 Assert.AreEqual(to, actualTo,
                     "{0} move from {1} was expected to go to {2} but actually went to {3}.",
-                    moveName, from, actualTo, to);
+                    moveName, from, to, actualTo);
                 Console.WriteLine($"{moveName} from {from} leads to {to}");
             }
         }
@@ -56,10 +56,16 @@ namespace Testing.Unit
             var cases = new List<object[]>();
 
             cases.Add(new object[] { Location.A5, Location.A1, true});
+            cases.Add(new object[] { Location.B6, Location.B1, true});
+            cases.Add(new object[] { Location.C7, Location.C1, true});
+            cases.Add(new object[] { Location.D8, Location.D1, true});
+            cases.Add(new object[] { Location.E9, Location.E1, true});
+            cases.Add(new object[] { Location.F8, Location.F1, true});
+            cases.Add(new object[] { Location.G7, Location.G1, true});
+            cases.Add(new object[] { Location.H6, Location.H1, true});
+            cases.Add(new object[] { Location.I5, Location.I1, true});
             cases.Add(new object[] { Location.B2, Location.B3, true});
             cases.Add(new object[] { Location.F7, Location.F8, true});
-            cases.Add(new object[] { Location.E9, Location.E1, true});
-            cases.Add(new object[] { Location.I1, Location.I2, true});
 
             return cases;
         }
@@ -68,11 +74,28 @@ namespace Testing.Unit
         {
             var cases = new List<object[]>();
 
-            cases.Add(new object[] { Location.E9, Location.A5, true, false});
             cases.Add(new object[] { Location.A3, Location.B4, true, true});
+            cases.Add(new object[] { Location.B2, Location.C3, true, true});
             cases.Add(new object[] { Location.I2, Location.Undefined, false, false});
-            cases.Add(new object[] { Location.I5, Location.A1, true, true});
+            cases.Add(new object[] { Location.F7, Location.G7, true, true});
             cases.Add(new object[] { Location.A5, Location.B6, true, true});
+            cases.Add(new object[] { Location.B6, Location.C7, true, true});
+            cases.Add(new object[] { Location.C7, Location.D8, true, true});
+            cases.Add(new object[] { Location.D8, Location.E9, true, true});
+            cases.Add(new object[] { Location.E9, Location.A5, true, false});
+            cases.Add(new object[] { Location.F8, Location.A4, true, false});
+            cases.Add(new object[] { Location.G7, Location.A3, true, false});
+            cases.Add(new object[] { Location.H6, Location.A2, true, false});
+            cases.Add(new object[] { Location.I5, Location.A1, true, true});
+            cases.Add(new object[] { Location.A1, Location.B2, true, true});
+            cases.Add(new object[] { Location.B1, Location.C2, true, true});
+            cases.Add(new object[] { Location.C1, Location.D2, true, true});
+            cases.Add(new object[] { Location.D1, Location.E2, true, true});
+            cases.Add(new object[] { Location.E1, Location.F1, true, true});
+            cases.Add(new object[] { Location.F1, Location.G1, true, true});
+            cases.Add(new object[] { Location.G1, Location.H1, true, true});
+            cases.Add(new object[] { Location.H1, Location.I1, true, true});
+            cases.Add(new object[] { Location.I1, Location.Undefined, false, false});
 
             return cases;
         }
@@ -86,6 +109,24 @@ namespace Testing.Unit
             cases.Add(new object[] { Location.A3, Location.Undefined, false, false});
             cases.Add(new object[] { Location.I5, Location.H6, true, true});
             cases.Add(new object[] { Location.F4, Location.E5, true, true});
+            cases.Add(new object[] { Location.A5, Location.I1, true, true});
+            cases.Add(new object[] { Location.B6, Location.I2, true, false});
+            cases.Add(new object[] { Location.C7, Location.I3, true, false});
+            cases.Add(new object[] { Location.D8, Location.I4, true, false});
+            cases.Add(new object[] { Location.E9, Location.I5, true, false});
+            cases.Add(new object[] { Location.F8, Location.E9, true, true});
+            cases.Add(new object[] { Location.G7, Location.F8, true, true});
+            cases.Add(new object[] { Location.H6, Location.G7, true, true});
+            cases.Add(new object[] { Location.I5, Location.H6, true, true});
+            cases.Add(new object[] { Location.B2, Location.A2, true, true});
+            cases.Add(new object[] { Location.B1, Location.A1, true, true});
+            cases.Add(new object[] { Location.C1, Location.B1, true, true});
+            cases.Add(new object[] { Location.D1, Location.C1, true, true});
+            cases.Add(new object[] { Location.E1, Location.D1, true, true});
+            cases.Add(new object[] { Location.F1, Location.E2, true, true});
+            cases.Add(new object[] { Location.G1, Location.F2, true, true});
+            cases.Add(new object[] { Location.H1, Location.G2, true, true});
+            cases.Add(new object[] { Location.I1, Location.H2, true, true});
 
             return cases;
         }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Benediction.Actions;
 using Benediction.Board;
 using Benediction.Controller;
 using Benediction.Game;
+using Benediction.Heuristic;
 using Benediction.Model;
 using Exception = System.Exception;
 
@@ -75,6 +77,10 @@ namespace Benediction.View
                     //    pbBoard.Image = BoardPainter.DrawBoard(_model.EditorState, _model.SelectionObject,
                     //        _model.SelectionTarget, _model.HighlightLocations, redSide, _lastMouse, _model.InHand);
                     //    break;
+                    case SelectionState.HistoryView:
+                        pbBoard.Image = BoardPainter.DrawBoard(_model.EditorState, Board.Location.Undefined,
+                            Board.Location.Undefined, null, true, Point.Empty);
+                        break;
                     default:
                         return;
                 }
@@ -156,6 +162,25 @@ namespace Benediction.View
         {
             if (lstAvailableMoves.Items.Count == 0) return;
             lstAvailableMoves.SelectedIndex = rng.Next(lstAvailableMoves.Items.Count);
+        }
+        private void btnCpuHighestMove_Click(object sender, EventArgs e)
+        {
+            if (lstAvailableMoves.Items.Count == 0) return;
+            var max = _model.AvailableActions.Values.Max(aa => aa.Heuristic);
+            var maxCount = _model.AvailableActions.Values.Count(aa => aa.Heuristic == max);
+            lstAvailableMoves.SelectedIndex = rng.Next(maxCount);
+        }
+
+        private void btnCpuAlphaBeta3_Click(object sender, EventArgs e)
+        {
+            foreach (var action in _model.AvailableActions)
+            {
+                action.Value.Heuristic = AvailableActionController.Heuristic.AlphaBeta(action.Value.Result,
+                    _model.CommittedState.Flags.IsRedTurn()
+                        ? HeuristicPolarity.RedPositive
+                        : HeuristicPolarity.BluePositive, 3);
+            }
+            CpuGridUpdate();
         }
 
         private void lstAvailableMoves_SelectedIndexChanged(object sender, EventArgs e)
@@ -239,9 +264,9 @@ namespace Benediction.View
             lstAvailableMoves.Items.Clear();
             if (_model.AvailableActions == null) return;
 
-            foreach (var move in _model.AvailableActions)
+            foreach (var move in _model.AvailableActions.Values.OrderByDescending(aa => aa.Heuristic))
             {
-                lstAvailableMoves.Items.Add(move.Value);
+                lstAvailableMoves.Items.Add(move);
             }
         }
     }
