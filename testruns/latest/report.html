@@ -1,0 +1,100 @@
+<html>
+  <style type="text/css">
+
+      .strong {
+      font-weight: bold;
+      }
+
+      .smllabel {
+      width:110px;
+      font-weight: bold;
+      }
+
+      td.left {
+      text-align: left;
+      }
+
+      td.right {
+      text-align: right;
+      }
+
+      li {
+      font-family: monospace
+      }
+      .collapsed
+      {
+      border:0;
+      border-collapse: collapse;
+      }
+
+    </style>
+  <body>
+    <h4>Command Line</h4>
+    <pre>"C:\ProgramData\chocolatey\lib\nunit-console-runner\tools\nunit3-console.exe" ..\..\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll --result=report.txt;transform=..\..\..\nunit-transforms\nunit3-summary\text-report.xslt --result=report.html;transform=..\..\..\nunit-transforms\nunit3-summary\html-report.xslt --result=readme.md;transform=..\md-report.xslt --result=TestResult.xml</pre>
+    <h4>Runtime Environment</h4>
+    <table id="runtime">
+      <tr>
+        <td class="smllabel right">OS Version:</td>
+        <td class="left">Microsoft Windows NT 10.0.17134.0</td>
+      </tr>
+      <tr>
+        <td class="smllabel right">CLR Version:</td>
+        <td class="left">4.0.30319.42000</td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="smllabel right">NUnit Version:</td>
+        <td class="left">3.10.0.0</td>
+      </tr>
+    </table>
+    <div id="testfiles">
+      <h4>Test Files</h4>
+      <ol>
+        <li>F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll</li>
+      </ol>
+    </div>
+    <h4>Run Settings</h4>
+    <ul>
+      <li>
+        DefaultTimeout: </li>
+      <li>
+        WorkDirectory: F:\src\BenedictionGame\testruns\latest</li>
+      <li>
+        ImageRuntimeVersion: 4.0.30319</li>
+      <li>
+        ImageTargetFrameworkName: .NETFramework,Version=v4.7.1</li>
+      <li>
+        ImageRequiresX86: False</li>
+      <li>
+        ImageRequiresDefaultAppDomainAssemblyResolver: False</li>
+      <li>
+        NumberOfTestWorkers: 12</li>
+    </ul>
+    <h4>Test Run Summary</h4>
+    <table id="summary" class="collapsed">
+      <tr>
+        <td class="smllabel right">Overall result:</td>
+        <td class="left">Passed</td>
+      </tr>
+      <tr>
+        <td class="smllabel right">Test Count:</td>
+        <td class="left">5, Passed: 5, Failed: 0, Inconclusive: 0, Skipped: 0</td>
+      </tr>
+      <tr>
+        <td class="smllabel right">Start time: </td>
+        <td class="left">2020-02-01 21:04:59Z</td>
+      </tr>
+      <tr>
+        <td class="smllabel right">End time: </td>
+        <td class="left">2020-02-01 21:05:01Z</td>
+      </tr>
+      <tr>
+        <td class="smllabel right">Duration: </td>
+        <td class="left">1.254 seconds
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

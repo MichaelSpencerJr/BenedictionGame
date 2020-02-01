@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="5" result="Passed" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="34" engine-version="3.10.0.0" clr-version="4.0.30319.42000" start-time="2020-02-01 21:04:59Z" end-time="2020-02-01 21:05:01Z" duration="1.253597">
+  <command-line><![CDATA["C:\ProgramData\chocolatey\lib\nunit-console-runner\tools\nunit3-console.exe" ..\..\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll --result=report.txt;transform=..\..\..\nunit-transforms\nunit3-summary\text-report.xslt --result=report.html;transform=..\..\..\nunit-transforms\nunit3-summary\html-report.xslt --result=readme.md;transform=..\md-report.xslt --result=TestResult.xml]]></command-line>
+  <test-suite type="Assembly" id="0-1017" name="Testing.Specflow.dll" fullname="F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.809267" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
+    <environment framework-version="3.12.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.17134.0" platform="Win32NT" cwd="F:\src\BenedictionGame\testruns\latest" machine-name="SPENCER-VR" user="Oculus Rift" user-domain="SPENCER-VR" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="F:\src\BenedictionGame\testruns\latest" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.7.1" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+      <setting name="NumberOfTestWorkers" value="12" />
+    </settings>
+    <properties>
+      <property name="_PID" value="9132" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <test-suite type="SetUpFixture" id="0-1000" name="[default namespace]" fullname="Testing_Specflow_NUnitAssemblyHooks" classname="Testing_Specflow_NUnitAssemblyHooks" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.793674" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
+      <output><![CDATA[-> Loading plugin F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
+-> Using default config
+]]></output>
+      <test-suite type="TestSuite" id="0-1018" name="Testing" fullname="Testing" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.198019" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
+        <test-suite type="TestSuite" id="0-1019" name="Specflow" fullname="Testing.Specflow" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.197995" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
+          <test-suite type="TestSuite" id="0-1020" name="Features" fullname="Testing.Specflow.Features" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.197988" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
+            <test-suite type="TestSuite" id="0-1022" name="GameBoard" fullname="Testing.Specflow.Features.GameBoard" runstate="Runnable" testcasecount="4" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.183534" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="28">
+              <test-suite type="TestFixture" id="0-1011" name="MovementFeature" fullname="Testing.Specflow.Features.GameBoard.MovementFeature" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" testcasecount="4" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.183478" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="28">
+                <properties>
+                  <property name="Description" value="Movement" />
+                </properties>
+                <test-suite type="ParameterizedMethod" id="0-1015" name="MovingNorthWithoutWrappingAround" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" testcasecount="2" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.126261" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="14">
+                  <properties>
+                    <property name="Description" value="Moving North Without Wrapping Around" />
+                  </properties>
+                  <test-case id="0-1013" name="MovingNorthWithoutWrappingAround(&quot;E5&quot;,&quot;E6&quot;,null)" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround(&quot;E5&quot;,&quot;E6&quot;,null)" methodname="MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="1603993162" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.120330" asserts="7">
+                    <output><![CDATA[Given I have an empty E2 E8 board
+Loaded empty game board with Red Home at E2 and Blue Home at E8
+-> done: CommonSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
+Given I add this red piece: E5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/99732cc7-6515-ffb2-b253-95c12d9dd6a6.png?raw=true)
+-> done: CommonSteps.GivenIAddPieces(Red, "E5") (0.0s)
+And the current turn is RedAction1
+Board flags set to: RedAction1
+-> done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
+When the red player moves the piece at E5 to E6
+Accepted: e5e6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/8a7e5a64-8d70-7c87-dd5a-8033eac31e00-E5-E6.png?raw=true)
+-> done: CommonSteps.WhenIMove(Red, E5, E6) (0.0s)
+Then the action succeeds
+-> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+And the board has red pieces matching: E6
+-> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "E6") (0.0s)
+And the current turn is RedAction2
+Board flags set to: RedAction2
+-> done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
+]]></output>
+                  </test-case>
+                  <test-case id="0-1014" name="MovingNorthWithoutWrappingAround(&quot;E4&quot;,&quot;E5&quot;,null)" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround(&quot;E4&quot;,&quot;E5&quot;,null)" methodname="MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="2137005748" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.001130" asserts="7">
+                    <output><![CDATA[Given I have an empty E2 E8 board
+Loaded empty game board with Red Home at E2 and Blue Home at E8
+-> done: CommonSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
+Given I add this red piece: E4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f977260b-db80-81ff-874f-cf6bc707b0dc.png?raw=true)
+-> done: CommonSteps.GivenIAddPieces(Red, "E4") (0.0s)
+And the current turn is RedAction1
+Board flags set to: RedAction1
+-> done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
+When the red player moves the piece at E4 to E5
+Accepted: e4e5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f2a17dbc-ea88-715b-c29d-547ce78ff822-E4-E5.png?raw=true)
+-> done: CommonSteps.WhenIMove(Red, E4, E5) (0.0s)
+Then the action succeeds
+-> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+And the board has red pieces matching: E5
+-> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "E5") (0.0s)
+And the current turn is RedAction2
+Board flags set to: RedAction2
+-> done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
+]]></output>
+                  </test-case>
+                </test-suite>
+                <test-case id="0-1016" name="MovingTooFar" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingTooFar" methodname="MovingTooFar" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="1471039147" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.001625" asserts="7">
+                  <properties>
+                    <property name="Description" value="Moving Too Far" />
+                  </properties>
+                  <output><![CDATA[Given I have an empty E2 E8 board
+Loaded empty game board with Red Home at E2 and Blue Home at E8
+-> done: CommonSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
+Given I add this red piece: E3
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a6b5752d-c52b-655c-5821-a80fe616ffb7.png?raw=true)
+-> done: CommonSteps.GivenIAddPieces(Red, "E3") (0.0s)
+And the current turn is RedAction1
+Board flags set to: RedAction1
+-> done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
+When the red player moves the piece at E3 to E5
+Rejected: e3e5: Stack Size 1 Piece At E3 Cannot Reach E5 (but can reach: E4, E2)
+-> done: CommonSteps.WhenIMove(Red, E3, E5) (0.0s)
+Then the action fails with: Stack Size 1 Piece At E3 Cannot Reach E5 (but can reach: E4, E2)
+-> done: CommonSteps.ThenTheActionFailsWith("Stack Size 1 Piec...") (0.0s)
+And the board has red pieces matching: E3
+-> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "E3") (0.0s)
+And the current turn is RedAction1
+Board flags set to: RedAction1
+-> done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction1) (0.0s)
+]]></output>
+                </test-case>
+                <test-case id="0-1012" name="SingleMoveNorth" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.SingleMoveNorth" methodname="SingleMoveNorth" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="1283484361" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.001009" asserts="7">
+                  <properties>
+                    <property name="Description" value="Single Move North" />
+                  </properties>
+                  <output><![CDATA[Given I have an empty E2 E8 board
+Loaded empty game board with Red Home at E2 and Blue Home at E8
+-> done: CommonSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
+Given I add this red piece: E5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/99732cc7-6515-ffb2-b253-95c12d9dd6a6.png?raw=true)
+-> done: CommonSteps.GivenIAddPieces(Red, "E5") (0.0s)
+And the current turn is RedAction1
+Board flags set to: RedAction1
+-> done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
+When the red player moves the piece at E5 to E6
+Accepted: e5e6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/8a7e5a64-8d70-7c87-dd5a-8033eac31e00-E5-E6.png?raw=true)
+-> done: CommonSteps.WhenIMove(Red, E5, E6) (0.0s)
+Then the action succeeds
+-> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+And the board has red pieces matching: E6
+-> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "E6") (0.0s)
+And the current turn is RedAction2
+Board flags set to: RedAction2
+-> done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+            <test-suite type="TestSuite" id="0-1021" name="GameRules" fullname="Testing.Specflow.Features.GameRules" runstate="Runnable" testcasecount="1" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.197978" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="6">
+              <test-suite type="TestFixture" id="0-1001" name="BlessingRulesFeature" fullname="Testing.Specflow.Features.GameRules.BlessingRulesFeature" classname="Testing.Specflow.Features.GameRules.BlessingRulesFeature" runstate="Runnable" testcasecount="1" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.012530" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="6">
+                <properties>
+                  <property name="Description" value="BlessingRules" />
+                </properties>
+                <test-case id="0-1002" name="SplitMergeSplitAcross" fullname="Testing.Specflow.Features.GameRules.BlessingRulesFeature.SplitMergeSplitAcross" methodname="SplitMergeSplitAcross" classname="Testing.Specflow.Features.GameRules.BlessingRulesFeature" runstate="Runnable" seed="399850745" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.012187" asserts="6">
+                  <properties>
+                    <property name="Description" value="Split Merge Split Across" />
+                  </properties>
+                  <output><![CDATA[Given I define board RedWrapAround as:
+  --- table step argument ---
+  | RedWrapAround             |
+  | Benediction v1: R-E2 B E8 |
+  | R:A4+B4++C7D126+E12k3F12  |
+  | B:E5k                     |
+-> done: CommonSteps.GivenIDefine("RedWrapAround", <table>) (0.0s)
+And I define board BlueWrapAround as:
+  --- table step argument ---
+  | BlueWrapAround            |
+  | Benediction v1: R E2 B-E8 |
+  | R:E5k                     |
+  | B:C1+D7E78kF7G13+H1c6     |
+  | X:A4C6F8G7                |
+-> done: CommonSteps.GivenIDefine("BlueWrapAround", <table>) (0.0s)
+Given I have board BlueWrapAround
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c6552b32-d973-6d15-a20e-a353c4fb7314.png?raw=true)
+Loaded board BlueWrapAround.
+-> done: CommonSteps.GivenIHaveNamedBoard("BlueWrapAround") (0.0s)
+When the blue player moves the piece at H1 to H6
+Rejected: h1h6: Destination H6 Is Your Own Piece and Cannot Be Moved Onto By Blue
+-> done: CommonSteps.WhenIMove(Blue, H1, H6) (0.0s)
+Then the action fails with: Destination H6 Is Your Own Piece and Cannot Be Moved Onto By Blue
+-> done: CommonSteps.ThenTheActionFailsWith("Destination H6 Is...") (0.0s)
+When the blue player moves the piece at H1 to A4
+Rejected: h1a4: Destination A4 Contains a Block, Which Cannot Be Moved Onto
+-> done: CommonSteps.WhenIMove(Blue, H1, A4) (0.0s)
+Then the action fails with: Destination A4 Contains a Block, Which Cannot Be Moved Onto
+-> done: CommonSteps.ThenTheActionFailsWith("Destination A4 Co...") (0.0s)
+]]></output>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="0-1003" name="BlockRulesFeature" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000003" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+                <properties>
+                  <property name="Description" value="BlockRules" />
+                </properties>
+              </test-suite>
+              <test-suite type="TestFixture" id="0-1004" name="CurseRulesFeature" fullname="Testing.Specflow.Features.GameRules.CurseRulesFeature" classname="Testing.Specflow.Features.GameRules.CurseRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+                <properties>
+                  <property name="Description" value="CurseRules" />
+                </properties>
+              </test-suite>
+              <test-suite type="TestFixture" id="0-1005" name="DropRulesFeature" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+                <properties>
+                  <property name="Description" value="DropRules" />
+                </properties>
+              </test-suite>
+              <test-suite type="TestFixture" id="0-1006" name="KingRulesFeature" fullname="Testing.Specflow.Features.GameRules.KingRulesFeature" classname="Testing.Specflow.Features.GameRules.KingRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+                <properties>
+                  <property name="Description" value="KingRules" />
+                </properties>
+              </test-suite>
+              <test-suite type="TestFixture" id="0-1007" name="MergeRulesFeature" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+                <properties>
+                  <property name="Description" value="MergeRules" />
+                </properties>
+              </test-suite>
+              <test-suite type="TestFixture" id="0-1008" name="MovementRulesFeature" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+                <properties>
+                  <property name="Description" value="MovementRules" />
+                </properties>
+              </test-suite>
+              <test-suite type="TestFixture" id="0-1009" name="SplitRulesFeature" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+                <properties>
+                  <property name="Description" value="SplitRules" />
+                </properties>
+              </test-suite>
+              <test-suite type="TestFixture" id="0-1010" name="WrapAroundRulesFeature" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+                <properties>
+                  <property name="Description" value="WrapAroundRules" />
+                </properties>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

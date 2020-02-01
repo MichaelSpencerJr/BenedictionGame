@@ -158,7 +158,7 @@
     <Compile Include="Common\ActionSteps.cs" />
     <Compile Include="Common\CommonSteps.cs" />
     <Compile Include="Common\ControllerSteps.cs" />
-    <Compile Include="Common\TextBoardPrinter.cs" />
+    <Compile Include="Common\BoardPrinter.cs" />
     <Compile Include="Common\ValidationSteps.cs" />
     <Compile Include="Common\ViewSteps.cs" />
     <Compile Include="Context\BoardStateContext.cs" />

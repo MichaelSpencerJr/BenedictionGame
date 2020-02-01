@@ -37,7 +37,7 @@ namespace Testing.Specflow.Common
             Assert.IsNotEmpty(_context.StateLibrary, "Named boards should be defined in Background first.");
             Assert.IsTrue(_context.StateLibrary.ContainsKey(boardName), $"No board was defined in Background with the name {boardName}");
             _context.BoardState = _context.StateLibrary[boardName].DeepCopy();
-            Console.WriteLine(_context.BoardState.Print());
+            Console.WriteLine(_context.BoardState.ImageMarkdown());
             Console.WriteLine($"Loaded board {boardName}.");
         }
 
@@ -74,22 +74,21 @@ namespace Testing.Specflow.Common
 
         [Given(@"I add this (.*) piece: (.*)")]
         [Given(@"I add these (.*) pieces: (.*)")]
-        public void GivenIHaveOneRedPieceAt(ActionSide side, string definition)
+        public void GivenIAddPieces(ActionSide side, string definition)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var beforeState = _context.BoardState.DeepCopy();
             _context.BoardState.ParseSideV1($"{(side == ActionSide.Red ? "R" : "B")}:{definition}");
-            Console.WriteLine(_context.BoardState.PrintDifferencesFrom(beforeState));
+            Console.WriteLine(_context.BoardState.ImageMarkdown());
         }
 
-        private void TryApplyAction(GameAction moveAction, State beforeState)
+        private void TryApplyAction(GameAction moveAction, Location location, Location target = Location.Undefined)
         {
             _context.LastMessage = moveAction.CheckError(_context.BoardState);
             if (_context.LastMessage == null)
             {
                 Console.WriteLine($"Accepted: {moveAction.ToString()}");
                 _context.BoardState = GameAction.PrepareNextTurn(moveAction.Apply(_context.BoardState));
-                Console.WriteLine(_context.BoardState.PrintDifferencesFrom(beforeState));
+                Console.WriteLine(_context.BoardState.ImageMarkdown(location, target));
             }
             else
             {
@@ -101,18 +100,16 @@ namespace Testing.Specflow.Common
         public void WhenIMove(ActionSide side, Location from, Location to)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var beforeState = _context.BoardState.DeepCopy();
             var action = new GameMoveAction {Location = from, Side = side, Target = to};
-            TryApplyAction(action, beforeState);
+            TryApplyAction(action, from, to);
         }
 
         [When(@"the (.*) player merges the (?:piece|stack) at (.*) into (.*)")]
         public void WhenIMerge(ActionSide side, Location from, Location to)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var beforeState = _context.BoardState.DeepCopy();
             var action = new GameMergeAction {Location = from, Side = side, Target = to};
-            TryApplyAction(action, beforeState);
+            TryApplyAction(action, from, to);
         }
 
         [When(@"the (.*) player splits (.*) (?:pieces|stacks) from (.*) onto (.*)")]
@@ -120,9 +117,8 @@ namespace Testing.Specflow.Common
         public void WhenISplit(ActionSide side, int count, Location from, Location to)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var beforeState = _context.BoardState.DeepCopy();
             var action = new GameSplitAction {Location = from, Side = side, Target = to, Size = count};
-            TryApplyAction(action, beforeState);
+            TryApplyAction(action, from, to);
         }
 
 
@@ -131,9 +127,8 @@ namespace Testing.Specflow.Common
         public void WhenIBlockade(ActionSide side, Location location)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var beforeState = _context.BoardState.DeepCopy();
             var action = new GameBlockAction {Location = location, Side = side};
-            TryApplyAction(action, beforeState);
+            TryApplyAction(action, location);
         }
 
         
@@ -141,9 +136,8 @@ namespace Testing.Specflow.Common
         public void WhenIDrop(ActionSide side, Location location)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var beforeState = _context.BoardState.DeepCopy();
             var action = new GameDropAction {Location = location, Side = side};
-            TryApplyAction(action, beforeState);
+            TryApplyAction(action, location);
         }
 
         
@@ -157,7 +151,6 @@ namespace Testing.Specflow.Common
         public void ThenTheActionFailsWith(string error)
         {
             Assert.AreEqual(error, _context.LastMessage);
-            Assert.Fail();
         }
 
         [Then(@"the action fails")]
