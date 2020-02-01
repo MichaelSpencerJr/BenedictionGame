@@ -41,6 +41,7 @@
 		</xsl:call-template>
 	  </xsl:when>
 	  <xsl:when test="starts-with($text, '-&gt; ')">
+        <xsl:value-of select="$newline" />
 	    <xsl:value-of select="' -&gt; '" />
         <xsl:value-of select="substring-before(substring($text, 4),$newline)" />
         <xsl:value-of select="$newline" />

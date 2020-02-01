@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<test-run id="2" testcasecount="5" result="Passed" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="34" engine-version="3.10.0.0" clr-version="4.0.30319.42000" start-time="2020-02-01 21:04:59Z" end-time="2020-02-01 21:05:01Z" duration="1.253597">
+<test-run id="2" testcasecount="5" result="Passed" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="34" engine-version="3.10.0.0" clr-version="4.0.30319.42000" start-time="2020-02-01 22:03:16Z" end-time="2020-02-01 22:03:18Z" duration="1.219669">
   <command-line><![CDATA["C:\ProgramData\chocolatey\lib\nunit-console-runner\tools\nunit3-console.exe" ..\..\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll --result=report.txt;transform=..\..\..\nunit-transforms\nunit3-summary\text-report.xslt --result=report.html;transform=..\..\..\nunit-transforms\nunit3-summary\html-report.xslt --result=readme.md;transform=..\md-report.xslt --result=TestResult.xml]]></command-line>
-  <test-suite type="Assembly" id="0-1017" name="Testing.Specflow.dll" fullname="F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.809267" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
+  <test-suite type="Assembly" id="0-1017" name="Testing.Specflow.dll" fullname="F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 22:03:17Z" end-time="2020-02-01 22:03:18Z" duration="0.794973" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
     <environment framework-version="3.12.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.17134.0" platform="Win32NT" cwd="F:\src\BenedictionGame\testruns\latest" machine-name="SPENCER-VR" user="Oculus Rift" user-domain="SPENCER-VR" culture="en-US" uiculture="en-US" os-architecture="x64" />
     <settings>
       <setting name="DisposeRunners" value="True" />
@@ -13,26 +13,26 @@
       <setting name="NumberOfTestWorkers" value="12" />
     </settings>
     <properties>
-      <property name="_PID" value="9132" />
+      <property name="_PID" value="23720" />
       <property name="_APPDOMAIN" value="domain-" />
     </properties>
-    <test-suite type="SetUpFixture" id="0-1000" name="[default namespace]" fullname="Testing_Specflow_NUnitAssemblyHooks" classname="Testing_Specflow_NUnitAssemblyHooks" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.793674" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
+    <test-suite type="SetUpFixture" id="0-1000" name="[default namespace]" fullname="Testing_Specflow_NUnitAssemblyHooks" classname="Testing_Specflow_NUnitAssemblyHooks" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 22:03:17Z" end-time="2020-02-01 22:03:18Z" duration="0.779659" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
       <output><![CDATA[-> Loading plugin F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
 -> Using default config
 ]]></output>
-      <test-suite type="TestSuite" id="0-1018" name="Testing" fullname="Testing" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.198019" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
-        <test-suite type="TestSuite" id="0-1019" name="Specflow" fullname="Testing.Specflow" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.197995" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
-          <test-suite type="TestSuite" id="0-1020" name="Features" fullname="Testing.Specflow.Features" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.197988" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
-            <test-suite type="TestSuite" id="0-1022" name="GameBoard" fullname="Testing.Specflow.Features.GameBoard" runstate="Runnable" testcasecount="4" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.183534" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="28">
-              <test-suite type="TestFixture" id="0-1011" name="MovementFeature" fullname="Testing.Specflow.Features.GameBoard.MovementFeature" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" testcasecount="4" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.183478" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="28">
+      <test-suite type="TestSuite" id="0-1018" name="Testing" fullname="Testing" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 22:03:17Z" end-time="2020-02-01 22:03:18Z" duration="0.199804" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
+        <test-suite type="TestSuite" id="0-1019" name="Specflow" fullname="Testing.Specflow" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 22:03:17Z" end-time="2020-02-01 22:03:18Z" duration="0.199779" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
+          <test-suite type="TestSuite" id="0-1020" name="Features" fullname="Testing.Specflow.Features" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-01 22:03:17Z" end-time="2020-02-01 22:03:18Z" duration="0.199772" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="34">
+            <test-suite type="TestSuite" id="0-1022" name="GameBoard" fullname="Testing.Specflow.Features.GameBoard" runstate="Runnable" testcasecount="4" result="Passed" start-time="2020-02-01 22:03:17Z" end-time="2020-02-01 22:03:18Z" duration="0.185115" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="28">
+              <test-suite type="TestFixture" id="0-1011" name="MovementFeature" fullname="Testing.Specflow.Features.GameBoard.MovementFeature" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" testcasecount="4" result="Passed" start-time="2020-02-01 22:03:17Z" end-time="2020-02-01 22:03:18Z" duration="0.185065" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="28">
                 <properties>
                   <property name="Description" value="Movement" />
                 </properties>
-                <test-suite type="ParameterizedMethod" id="0-1015" name="MovingNorthWithoutWrappingAround" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" testcasecount="2" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.126261" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="14">
+                <test-suite type="ParameterizedMethod" id="0-1015" name="MovingNorthWithoutWrappingAround" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" testcasecount="2" result="Passed" start-time="2020-02-01 22:03:17Z" end-time="2020-02-01 22:03:18Z" duration="0.128805" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="14">
                   <properties>
                     <property name="Description" value="Moving North Without Wrapping Around" />
                   </properties>
-                  <test-case id="0-1013" name="MovingNorthWithoutWrappingAround(&quot;E5&quot;,&quot;E6&quot;,null)" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround(&quot;E5&quot;,&quot;E6&quot;,null)" methodname="MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="1603993162" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.120330" asserts="7">
+                  <test-case id="0-1013" name="MovingNorthWithoutWrappingAround(&quot;E5&quot;,&quot;E6&quot;,null)" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround(&quot;E5&quot;,&quot;E6&quot;,null)" methodname="MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="240187207" result="Passed" start-time="2020-02-01 22:03:17Z" end-time="2020-02-01 22:03:18Z" duration="0.123057" asserts="7">
                     <output><![CDATA[Given I have an empty E2 E8 board
 Loaded empty game board with Red Home at E2 and Blue Home at E8
 -> done: CommonSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
@@ -55,7 +55,7 @@ Board flags set to: RedAction2
 -> done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1014" name="MovingNorthWithoutWrappingAround(&quot;E4&quot;,&quot;E5&quot;,null)" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround(&quot;E4&quot;,&quot;E5&quot;,null)" methodname="MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="2137005748" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.001130" asserts="7">
+                  <test-case id="0-1014" name="MovingNorthWithoutWrappingAround(&quot;E4&quot;,&quot;E5&quot;,null)" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround(&quot;E4&quot;,&quot;E5&quot;,null)" methodname="MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="1126456781" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.001110" asserts="7">
                     <output><![CDATA[Given I have an empty E2 E8 board
 Loaded empty game board with Red Home at E2 and Blue Home at E8
 -> done: CommonSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
@@ -79,7 +79,7 @@ Board flags set to: RedAction2
 ]]></output>
                   </test-case>
                 </test-suite>
-                <test-case id="0-1016" name="MovingTooFar" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingTooFar" methodname="MovingTooFar" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="1471039147" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.001625" asserts="7">
+                <test-case id="0-1016" name="MovingTooFar" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingTooFar" methodname="MovingTooFar" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="1341560633" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.001517" asserts="7">
                   <properties>
                     <property name="Description" value="Moving Too Far" />
                   </properties>
@@ -104,7 +104,7 @@ Board flags set to: RedAction1
 -> done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction1) (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1012" name="SingleMoveNorth" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.SingleMoveNorth" methodname="SingleMoveNorth" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="1283484361" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.001009" asserts="7">
+                <test-case id="0-1012" name="SingleMoveNorth" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.SingleMoveNorth" methodname="SingleMoveNorth" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="2104628330" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.001018" asserts="7">
                   <properties>
                     <property name="Description" value="Single Move North" />
                   </properties>
@@ -132,12 +132,12 @@ Board flags set to: RedAction2
                 </test-case>
               </test-suite>
             </test-suite>
-            <test-suite type="TestSuite" id="0-1021" name="GameRules" fullname="Testing.Specflow.Features.GameRules" runstate="Runnable" testcasecount="1" result="Passed" start-time="2020-02-01 21:05:00Z" end-time="2020-02-01 21:05:01Z" duration="0.197978" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="6">
-              <test-suite type="TestFixture" id="0-1001" name="BlessingRulesFeature" fullname="Testing.Specflow.Features.GameRules.BlessingRulesFeature" classname="Testing.Specflow.Features.GameRules.BlessingRulesFeature" runstate="Runnable" testcasecount="1" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.012530" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="6">
+            <test-suite type="TestSuite" id="0-1021" name="GameRules" fullname="Testing.Specflow.Features.GameRules" runstate="Runnable" testcasecount="1" result="Passed" start-time="2020-02-01 22:03:17Z" end-time="2020-02-01 22:03:18Z" duration="0.199763" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="6">
+              <test-suite type="TestFixture" id="0-1001" name="BlessingRulesFeature" fullname="Testing.Specflow.Features.GameRules.BlessingRulesFeature" classname="Testing.Specflow.Features.GameRules.BlessingRulesFeature" runstate="Runnable" testcasecount="1" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.012687" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="6">
                 <properties>
                   <property name="Description" value="BlessingRules" />
                 </properties>
-                <test-case id="0-1002" name="SplitMergeSplitAcross" fullname="Testing.Specflow.Features.GameRules.BlessingRulesFeature.SplitMergeSplitAcross" methodname="SplitMergeSplitAcross" classname="Testing.Specflow.Features.GameRules.BlessingRulesFeature" runstate="Runnable" seed="399850745" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.012187" asserts="6">
+                <test-case id="0-1002" name="SplitMergeSplitAcross" fullname="Testing.Specflow.Features.GameRules.BlessingRulesFeature.SplitMergeSplitAcross" methodname="SplitMergeSplitAcross" classname="Testing.Specflow.Features.GameRules.BlessingRulesFeature" runstate="Runnable" seed="1785717462" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.012309" asserts="6">
                   <properties>
                     <property name="Description" value="Split Merge Split Across" />
                   </properties>
@@ -173,42 +173,42 @@ Then the action fails with: Destination A4 Contains a Block, Which Cannot Be Mov
 ]]></output>
                 </test-case>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1003" name="BlockRulesFeature" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000003" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="TestFixture" id="0-1003" name="BlockRulesFeature" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.000003" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
                 <properties>
                   <property name="Description" value="BlockRules" />
                 </properties>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1004" name="CurseRulesFeature" fullname="Testing.Specflow.Features.GameRules.CurseRulesFeature" classname="Testing.Specflow.Features.GameRules.CurseRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="TestFixture" id="0-1004" name="CurseRulesFeature" fullname="Testing.Specflow.Features.GameRules.CurseRulesFeature" classname="Testing.Specflow.Features.GameRules.CurseRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
                 <properties>
                   <property name="Description" value="CurseRules" />
                 </properties>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1005" name="DropRulesFeature" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="TestFixture" id="0-1005" name="DropRulesFeature" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
                 <properties>
                   <property name="Description" value="DropRules" />
                 </properties>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1006" name="KingRulesFeature" fullname="Testing.Specflow.Features.GameRules.KingRulesFeature" classname="Testing.Specflow.Features.GameRules.KingRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="TestFixture" id="0-1006" name="KingRulesFeature" fullname="Testing.Specflow.Features.GameRules.KingRulesFeature" classname="Testing.Specflow.Features.GameRules.KingRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
                 <properties>
                   <property name="Description" value="KingRules" />
                 </properties>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1007" name="MergeRulesFeature" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="TestFixture" id="0-1007" name="MergeRulesFeature" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
                 <properties>
                   <property name="Description" value="MergeRules" />
                 </properties>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1008" name="MovementRulesFeature" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="TestFixture" id="0-1008" name="MovementRulesFeature" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
                 <properties>
                   <property name="Description" value="MovementRules" />
                 </properties>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1009" name="SplitRulesFeature" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="TestFixture" id="0-1009" name="SplitRulesFeature" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
                 <properties>
                   <property name="Description" value="SplitRules" />
                 </properties>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1010" name="WrapAroundRulesFeature" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 21:05:01Z" end-time="2020-02-01 21:05:01Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="TestFixture" id="0-1010" name="WrapAroundRulesFeature" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" testcasecount="0" result="Passed" start-time="2020-02-01 22:03:18Z" end-time="2020-02-01 22:03:18Z" duration="0.000001" total="0" passed="0" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
                 <properties>
                   <property name="Description" value="WrapAroundRules" />
                 </properties>
