@@ -9,7 +9,7 @@ using Benediction.Properties;
 
 namespace Benediction.View
 {
-    public class BoardPainter
+    public static class BoardPainter
     {
         public static readonly int BoardWidth = Resources.BenedictionBoard.Width;
         public static readonly int BoardHeight = Resources.BenedictionBoard.Height;
