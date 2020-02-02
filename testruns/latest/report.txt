@@ -10,20 +10,6 @@ NUnit Version: 3.10.0.0
 Test Files 
     F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll
 
-Errors and Failures
-
-1) Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
-The following board locations had different contents than expected:
-At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
-
-   at Testing.Specflow.Common.CommonSteps.ThenTheBoardHasPiecesMatching(ActionSide side, String definition) in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\CommonSteps.cs:line 106
-   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
-   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 22
-
 Run Settings
     DefaultTimeout: 
     WorkDirectory: F:\src\BenedictionGame\testruns\latest
@@ -34,10 +20,9 @@ Run Settings
     NumberOfTestWorkers: 12
 
 Test Run Summary 
- Overall result: Failed
- Test Count: 118, Passed: 36, Failed: 1, Inconclusive: 81, Skipped: 0
-   Failed Tests - Failures: 1, Errors: 0, Invalid: 0
- Start time: 2020-02-02 18:16:58Z
-   End time: 2020-02-02 18:16:59Z
-   Duration: 1.848 seconds
+ Overall result: Passed
+ Test Count: 117, Passed: 49, Failed: 0, Inconclusive: 68, Skipped: 0
+ Start time: 2020-02-02 23:16:55Z
+   End time: 2020-02-02 23:16:57Z
+   Duration: 1.925 seconds
 

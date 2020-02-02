@@ -10,59 +10,6 @@ NUnit Version: 3.10.0.0
 
     F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll
 
-## Errors and Failures
-
-### 1) Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
-
-The following board locations had different contents than expected:
-At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
-
-
-   at Testing.Specflow.Common.CommonSteps.ThenTheBoardHasPiecesMatching(ActionSide side, String definition) in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\CommonSteps.cs:line 106
-       at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 22
-    
-
-#### Given I define board NewGame as:
-  | New Game Board            |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:D12E12k3F12             |
-  | B:D78E78k9F78             |
-
- -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
-#### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
-
-    Loaded board NewGame.
-
- -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
-#### And I add this red piece: I5c
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b58cce8c-0fb0-0879-1fcd-45fcc2b5395d.png?raw=true)
-
-
- -&gt; done: SetupSteps.GivenIAddPieces(Red, "I5c") (0.0s)
-#### When the red player moves the piece at i5 to a1
-    Accepted: i5a1
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b02d8913-a425-38b9-8854-7b382e9e6660-A1-I5.png?raw=true)
-
-
- -&gt; done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
-#### Then the action succeeds
-
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
-#### And the board has red pieces matching: A1cD12E12k3F12
-    Successfully validated 7 Red pieces.
-
- -&gt; error: The following board locations had different contents than expected:
-    At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
-    
-
-
 ## Tests Which Passed
 
 ### 1) Passed : Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround("E5","E6",null)
@@ -298,7 +245,145 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheBoardHasBlocksMatching("A24B16C35D27E1469...") (0.0s)
 
 
-### 6) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath
+### 6) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockAdjacentAnotherBlock
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have an empty E2 E8 board
+    Loaded empty game board with Red Home at E2 and Blue Home at E8
+
+ -&gt; done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
+#### When the red player blocks e3
+    Accepted: Be3
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/583156d7-4d7e-ea5b-fd2f-8b76e96ea48a-E3.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIBlockade(Red, E3) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+#### When the red player blocks e4
+    Rejected: Be4: Cannot Block Adjacent Existing Block E3
+
+ -&gt; done: ActionSteps.WhenIBlockade(Red, E4) (0.0s)
+#### Then the action fails
+    Failed with: Cannot Block Adjacent Existing Block E3
+
+ -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+#### And the board has blocks matching: E3
+    Successfully validated 1 block.
+
+ -&gt; done: CommonSteps.ThenTheBoardHasBlocksMatching("E3") (0.0s)
+
+
+### 7) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockHomeSpace
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have an empty E2 E8 board
+    Loaded empty game board with Red Home at E2 and Blue Home at E8
+
+ -&gt; done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
+#### When the red player blocks e2
+    Rejected: Be2: Cannot Block Red Home at Location E2
+
+ -&gt; done: ActionSteps.WhenIBlockade(Red, E2) (0.0s)
+#### Then the action fails
+    Failed with: Cannot Block Red Home at Location E2
+
+ -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+#### When the red player blocks e8
+    Rejected: Be8: Cannot Block Blue Home at Location E8
+
+ -&gt; done: ActionSteps.WhenIBlockade(Red, E8) (0.0s)
+#### Then the action fails
+    Failed with: Cannot Block Blue Home at Location E8
+
+ -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+
+
+### 8) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockOccupiedSpace
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have board NewGame
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+
+    Loaded board NewGame.
+
+ -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
+#### When the red player blockades e3
+    Rejected: Be3: Location E3 Not Empty
+
+ -&gt; done: ActionSteps.WhenIBlockade(Red, E3) (0.0s)
+#### Then the action fails
+    Failed with: Location E3 Not Empty
+
+ -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+
+
+### 9) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeCannotBlessCursedPieces
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                         |
+  | - |
+  | Benediction v1: R-E2 B E8     |
+  | R:D12E12k3F6++G1c+2cH2c3c5c6c |
+  | B:E8k                         |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/814cb5e2-fc1a-36e5-5d1a-8c14a9e50781.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player splits 2 pieces from f6 to h4
+    Accepted: f6-2-h4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09674cbf-9813-00b5-2a75-57eb8b4d96cd-F6-H4.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenISplit(Red, 2, F6, H4) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching: D12E12k3F6cG1c+2cH2c3c4b+5c6c
+    Successfully validated 13 Red pieces.
+
+ -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F6cG1c+2c...") (0.0s)
+
+
+### 10) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath
 
 
 
@@ -332,7 +417,263 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "C1b2bD3bE12k4bF12...") (0.0s)
 
 
-### 7) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone
+### 11) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeMaximum
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                                   |
+  | - |
+  | Benediction v1: R-E2 B E8               |
+  | R:A14B245C246D468E2k468kF2467G246H24I23 |
+  | B:E7k                                   |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d95525f1-17d2-eac0-1f5d-6cdb34d27096.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player drops a new piece at d2
+    Accepted: @d2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/79afa5f7-217d-4829-2409-47c55f1e4404-D2.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIDrop(Red, D2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+#### And the game is over and red has won
+
+ -&gt; done: CommonSteps.GameOver(Red) (0.0s)
+#### And the board has red pieces matching: A1b4bB2b4b5bC2b4b6bD2b4b6b8bE2kb4b6b8kbF2b4b6b7bG2b4b6bH2b4bI2b3b
+    Successfully validated 27 Red pieces.
+
+ -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "A1b4bB2b4b5bC2b4b...") (0.0s)
+
+
+### 12) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeWithWrongColorCriticalPiece
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R E2 B-E8 |
+  | R:D12E12k3F12G2H2356      |
+  | B:E8kG4                   |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b3562125-3cee-c7e2-67c3-b4b411cfe6ec.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the blue player moves the piece at g4 to h4
+    Accepted: g4h4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/cf5044be-c432-3746-1739-2868884df9e7-G4-H4.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIMove(Blue, G4, H4) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has blue pieces matching: E8kH4
+    Successfully validated 2 Blue pieces.
+
+ -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Blue, "E8kH4") (0.0s)
+#### And the board has red pieces matching: D12E12k3F12G2H2356
+    Successfully validated 12 Red pieces.
+
+ -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F12G2H2356") (0.0s)
+
+
+### 13) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.HomeDropCompletingBridgeWinsGame
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:A1kE1345F5G5H5I5        |
+  | B:D78E78k9F78             |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5dbd8ef0-9411-39f4-eb9b-ddc996f39edf.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player drops a new piece at e2
+    Accepted: @e2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d6a96ffe-9413-bf7b-9660-93853325811a-E2.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIDrop(Red, E2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching: A1kE1b2kb3b4b5bF5bG5bH5bI5b
+    Successfully validated 10 Red pieces.
+
+ -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "A1kE1b2kb3b4b5bF5...") (0.0s)
+#### And the game is over and red has won
+
+ -&gt; done: CommonSteps.GameOver(Red) (0.0s)
+
+
+### 14) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12G25+H2356    |
+  | B:E8k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ff3696be-88c4-9dc3-f7b8-aed219f754b5.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player splits 1 piece from g5 to h4
+    Accepted: g5-1-h4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/64c2001a-950d-eff3-424b-0960ac0160b8-G5-H4.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenISplit(Red, 1, G5, H4) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching: D1b2bE1b2kb3bF1b2bG2b5bH2b3b4b5b6b
+    Successfully validated 14 Red pieces.
+
+ -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
+
+
+### 15) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F126++G2H2356   |
+  | B:E8k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/739759a2-cf38-4707-eaad-df778518d406.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player splits 2 pieces from f6 to h4
+    Accepted: f6-2-h4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/45498da7-e1bd-7f71-cd92-9887ed24c76f-F6-H4.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenISplit(Red, 2, F6, H4) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching: D1b2bE1b2kb3bF1b2b6cG2bH2b3b4b+5b6b
+    Successfully validated 14 Red pieces.
+
+ -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
+
+
+### 16) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoBlock
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12kF12              |
+  | B:D78E78k9F78             |
+  | X:E3                      |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/05727d7d-a822-e663-e593-85887fdd5e22.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player drops a new piece at e3
+    Rejected: @e3: Location E3 Not Empty
+
+ -&gt; done: ActionSteps.WhenIDrop(Red, E3) (0.0s)
+#### Then the action fails
+    Failed with: Location E3 Not Empty
+
+ -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+
+
+### 17) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoOccupiedSpace
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have board NewGame
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+
+    Loaded board NewGame.
+
+ -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
+#### When the red player drops a new piece at e3
+    Rejected: @e3: Location E3 Not Empty
+
+ -&gt; done: ActionSteps.WhenIDrop(Red, E3) (0.0s)
+#### Then the action fails
+    Failed with: Location E3 Not Empty
+
+ -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+
+
+### 18) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone
 
 
 
@@ -360,7 +701,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 8) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath
+### 19) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath
 
 
 
@@ -398,7 +739,44 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
 
 
-### 9) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.CannotBlockOwnKing
+### 20) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.HomeDropBecomesKing
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E13kF12              |
+  | B:D78E78k9F78             |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e0431d0b-1adc-1d00-8381-6904a3edfbbc.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player drops a new piece at e2
+    Accepted: @e2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/1380d8a2-14ab-4671-c85a-bd608dee0f0c-E2.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIDrop(Red, E2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching: D12E12k3kF12
+    Successfully validated 7 Red pieces.
+
+ -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3kF12") (0.0s)
+
+
+### 21) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.CannotBlockOwnKing
 
 
 
@@ -425,7 +803,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 10) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadAPreviouslyCreatedBoard
+### 22) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadAPreviouslyCreatedBoard
 
 
 
@@ -446,7 +824,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: SetupSteps.GivenIHaveNamedBoard("WeirdSituation1") (0.0s)
 
 
-### 11) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadASavedBoard
+### 23) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadASavedBoard
 
 
 
@@ -472,7 +850,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
 
 
-### 12) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.MergeSplitMergeDoesntCreatePieces
+### 24) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.MergeSplitMergeDoesntCreatePieces
 
 
 
@@ -513,7 +891,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12+E12k3F1") (0.0s)
 
 
-### 13) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d1",null)
+### 25) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d1",null)
 
 
 
@@ -546,7 +924,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 14) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d2",null)
+### 26) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d2",null)
 
 
 
@@ -579,7 +957,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 15) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e1",null)
+### 27) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e1",null)
 
 
 
@@ -612,7 +990,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 16) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e2",null)
+### 28) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e2",null)
 
 
 
@@ -645,7 +1023,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 17) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e3",null)
+### 29) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e3",null)
 
 
 
@@ -678,7 +1056,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 18) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f1",null)
+### 30) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f1",null)
 
 
 
@@ -711,7 +1089,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 19) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f2",null)
+### 31) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f2",null)
 
 
 
@@ -744,7 +1122,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 20) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d7",null)
+### 32) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d7",null)
 
 
 
@@ -777,7 +1155,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 21) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d8",null)
+### 33) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d8",null)
 
 
 
@@ -810,7 +1188,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 22) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e7",null)
+### 34) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e7",null)
 
 
 
@@ -843,7 +1221,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 23) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e8",null)
+### 35) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e8",null)
 
 
 
@@ -876,7 +1254,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 24) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e9",null)
+### 36) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e9",null)
 
 
 
@@ -909,7 +1287,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 25) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f7",null)
+### 37) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f7",null)
 
 
 
@@ -942,7 +1320,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 26) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f8",null)
+### 38) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f8",null)
 
 
 
@@ -975,7 +1353,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 27) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves
+### 39) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves
 
 
 
@@ -1036,7 +1414,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: ActionSteps.WhenISplit(Red, 1, E3, D2) (0.0s)
 
 
-### 28) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_ShortNotation
+### 40) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_ShortNotation
 
 
 
@@ -1097,7 +1475,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: ActionSteps.WhenDoes(Red, "e3-1-d2") (0.0s)
 
 
-### 29) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_TableNotation
+### 41) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_TableNotation
 
 
 
@@ -1257,7 +1635,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.0s)
 
 
-### 30) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard
+### 42) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard
 
 
 
@@ -1286,7 +1664,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: SetupSteps.GivenIAddPieces(Blue, "D45+E56k7F5++++6+...") (0.0s)
 
 
-### 31) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath
+### 43) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath
 
 
 
@@ -1315,7 +1693,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
 
 
-### 32) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed
+### 44) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed
 
 
 
@@ -1352,7 +1730,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
 
 
-### 33) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath
+### 45) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath
 
 
 
@@ -1389,7 +1767,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k6c7cF1") (0.0s)
 
 
-### 34) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath
+### 46) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath
 
 
 
@@ -1428,7 +1806,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF1+2") (0.0s)
 
 
-### 35) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath
+### 47) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath
 
 
 
@@ -1467,7 +1845,7 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF12c3c") (0.0s)
 
 
-### 36) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
+### 48) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
 
 
 
@@ -1503,6 +1881,44 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
  -&gt; done: CommonSteps.GameOver(Red) (0.0s)
 
 
+### 49) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have board NewGame
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+
+    Loaded board NewGame.
+
+ -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
+#### And I add this red piece: I5c
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b58cce8c-0fb0-0879-1fcd-45fcc2b5395d.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "I5c") (0.0s)
+#### When the red player moves the piece at i5 to a1
+    Accepted: i5a1
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2a6a5c48-f089-fed6-fb83-39d8e8783a20-A1-I5.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching: A1cD12E12k3F12
+    Successfully validated 8 Red pieces.
+
+ -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "A1cD12E12k3F12") (0.0s)
+
+
 ## Run Settings
 
     DefaultTimeout: 
@@ -1521,15 +1937,13 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
 
 ## Test Run Summary 
 
- Overall result: Failed
+ Overall result: Passed
 
- Test Count: 118, Passed: 36, Failed: 1, Inconclusive: 81, Skipped: 0
+ Test Count: 117, Passed: 49, Failed: 0, Inconclusive: 68, Skipped: 0
 
-   Failed Tests - Failures: 1, Errors: 0, Invalid: 0
+ Start time: 2020-02-02 23:16:55Z
 
- Start time: 2020-02-02 18:16:58Z
+   End time: 2020-02-02 23:16:57Z
 
-   End time: 2020-02-02 18:16:59Z
-
-   Duration: 1.848 seconds
+   Duration: 1.925 seconds
 
