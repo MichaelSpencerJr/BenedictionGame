@@ -80,16 +80,16 @@ namespace Testing.Specflow.Features.GameRules
         {
 #line 6
 #line hidden
-            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                         "New Game Board"});
-            table14.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "Benediction v1: R-E2 B E8"});
-            table14.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "R:D12E12k3F12"});
-            table14.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "B:D78E78k9F78"});
 #line 7
- testRunner.Given("I define board NewGame as:", ((string)(null)), table14, "Given ");
+ testRunner.Given("I define board NewGame as:", ((string)(null)), table22, "Given ");
 #line hidden
         }
         

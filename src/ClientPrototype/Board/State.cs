@@ -202,31 +202,33 @@ namespace Benediction.Board
             else if ((Flags & StateFlags.BlueWin) == StateFlags.BlueWin) blueFlag = SideV1Win;
             else blueFlag = ' ';
 
-            sb.Append(BenedictionV1Header).Append(RedV1Header).Append(redFlag).Append(RedHome).Append(BlueV1Header)
-                .Append(blueFlag).Append(BlueHome).AppendLine();
+            sb.Append("| ").Append(BenedictionV1Header).Append(RedV1Header).Append(redFlag).Append(RedHome).Append(BlueV1Header)
+                .Append(blueFlag).Append(BlueHome).Append(" |").AppendLine();
 
-            sb.Append("R:");
+            sb.Append("| R:");
             foreach (var column in "ABCDEFGHI")
             {
                 AddRow(Cell.SideRed, column, sb);
             }
 
-            sb.AppendLine();
-            sb.Append("B:");
+            sb.Append(" |").AppendLine();
+            sb.Append("| B:");
             foreach (var column in "ABCDEFGHI")
             {
                 AddRow(Cell.Empty, column, sb);
             }
 
+            sb.Append(" |");
             if (Values.Contains(Cell.Block))
             {
 
                 sb.AppendLine();
-                sb.Append("X:");
+                sb.Append("| X:");
                 foreach (var column in "ABCDEFGHI")
                 {
                     AddRow(Cell.Block, column, sb);
                 }
+                sb.Append(" |");
             }
 
             return sb.ToString();
