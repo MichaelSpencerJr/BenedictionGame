@@ -24,30 +24,6 @@ namespace Testing.Specflow.Common
             _context = injectedContext;
         }
 
-        [Given(@"I have an empty (.*) (.*) board")]
-        public void GivenIHaveAnEmptyBoard(Location redHome, Location blueHome)
-        {
-            _context.BoardState = new State {RedHome = redHome, BlueHome = blueHome};
-            Console.WriteLine($"Loaded empty game board with Red Home at {redHome} and Blue Home at {blueHome}");
-        }
-
-        [Given(@"I have board (.*)")]
-        public void GivenIHaveNamedBoard(string boardName)
-        {
-            Assert.IsNotEmpty(_context.StateLibrary, "Named boards should be defined in Background first.");
-            Assert.IsTrue(_context.StateLibrary.ContainsKey(boardName), $"No board was defined in Background with the name {boardName}");
-            _context.BoardState = _context.StateLibrary[boardName].DeepCopy();
-            Console.WriteLine(_context.BoardState.ImageMarkdown());
-            Console.WriteLine($"Loaded board {boardName}.");
-        }
-
-        [Given(@"I define board (.*) as:")]
-        public void GivenIDefine(string boardName, Table table)
-        {
-            var boardText = string.Join("\r\n", table.Rows.Select(tr => tr[0]));
-            _context.StateLibrary[boardName] = new State(boardText);
-        }
-
         [Given(@"the current turn is (.*)")]
         public void GivenTheCurrentTurnIsRed(StateFlags flags)
         {
@@ -72,85 +48,11 @@ namespace Testing.Specflow.Common
         }
 
 
-        [Given(@"I add this (.*) piece: (.*)")]
-        [Given(@"I add these (.*) pieces: (.*)")]
-        public void GivenIAddPieces(ActionSide side, string definition)
-        {
-            Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            _context.BoardState.ParseSideV1($"{(side == ActionSide.Red ? "R" : "B")}:{definition}");
-            Console.WriteLine(_context.BoardState.ImageMarkdown());
-        }
-
-        private void TryApplyAction(GameAction moveAction, Location location, Location target = Location.Undefined)
-        {
-            _context.LastMessage = moveAction.CheckError(_context.BoardState);
-            if (_context.LastMessage == null)
-            {
-                Console.WriteLine($"Accepted: {moveAction.ToString()}");
-                _context.BoardState = GameAction.PrepareNextTurn(moveAction.Apply(_context.BoardState));
-                Console.WriteLine(_context.BoardState.ImageMarkdown(location, target));
-            }
-            else
-            {
-                Console.WriteLine($"Rejected: {moveAction.ToString()}: {_context.LastMessage}");
-            }
-        }
-
-        [When(@"the (.*) player moves the (?:piece|stack) at (.*) to (.*)")]
-        public void WhenIMove(ActionSide side, Location from, Location to)
-        {
-            Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var action = new GameMoveAction {Location = from, Side = side, Target = to};
-            TryApplyAction(action, from, to);
-        }
-
-        [When(@"the (.*) player merges the (?:piece|stack) at (.*) into (.*)")]
-        public void WhenIMerge(ActionSide side, Location from, Location to)
-        {
-            Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var action = new GameMergeAction {Location = from, Side = side, Target = to};
-            TryApplyAction(action, from, to);
-        }
-
-        [When(@"the (.*) player splits (.*) (?:pieces|stacks) from (.*) onto (.*)")]
-        [When(@"the (.*) player splits (.*) (?:piece|stack) from (.*) onto (.*)")]
-        public void WhenISplit(ActionSide side, int count, Location from, Location to)
-        {
-            Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var action = new GameSplitAction {Location = from, Side = side, Target = to, Size = count};
-            TryApplyAction(action, from, to);
-        }
-
-
-        [When(@"the (.*) player blocks (.*)")]
-        [When(@"the (.*) player blockades (.*)")]
-        public void WhenIBlockade(ActionSide side, Location location)
-        {
-            Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var action = new GameBlockAction {Location = location, Side = side};
-            TryApplyAction(action, location);
-        }
-
-        
-        [When(@"the (.*) player drops a new piece at (.*)")]
-        public void WhenIDrop(ActionSide side, Location location)
-        {
-            Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-            var action = new GameDropAction {Location = location, Side = side};
-            TryApplyAction(action, location);
-        }
-
         
         [Then(@"the action succeeds")]
         public void ThenTheActionSucceeds()
         {
             Assert.IsNull(_context.LastMessage);
-        }
-        
-        [Then(@"the action fails with: (.*)")]
-        public void ThenTheActionFailsWith(string error)
-        {
-            Assert.AreEqual(error, _context.LastMessage);
         }
 
         [Then(@"the action fails")]
@@ -172,6 +74,7 @@ namespace Testing.Specflow.Common
 
             var sb = new StringBuilder();
 
+            var successful = 0;
             foreach (var location in State.AllBoardLocations)
             {
                 if (sideRed)
@@ -190,7 +93,13 @@ namespace Testing.Specflow.Common
                         $"At {location}: Expected {testBoard[location] & ~(Cell.Locked | Cell.CursePending)}, " +
                         $"Got {_context.BoardState[location] & ~(Cell.Locked | Cell.CursePending)}");
                 }
+                else
+                {
+                    successful++;
+                }
             }
+
+            Console.WriteLine($"Successfully validated {successful} {side} piece{(successful == 1 ? "" : "s")}.");
 
             if (sb.Length > 0)
             {
@@ -210,6 +119,8 @@ namespace Testing.Specflow.Common
 
             var sb = new StringBuilder();
 
+            var successful = 0;
+
             foreach (var location in State.AllBoardLocations)
             {
                 if (!_context.BoardState[location].IsBlock() && !testBoard[location].IsBlock()) continue;
@@ -221,11 +132,39 @@ namespace Testing.Specflow.Common
                         $"At {location}: Expected {testBoard[location] & ~(Cell.Locked | Cell.CursePending)}, " +
                         $"Got {_context.BoardState[location] & ~(Cell.Locked | Cell.CursePending)}");
                 }
+                else
+                {
+                    successful++;
+                }
             }
+
+            Console.WriteLine($"Successfully validated {successful} block{(successful == 1 ? "" : "s")}.");
 
             if (sb.Length > 0)
             {
                 Assert.Fail($"The following board locations had different contents than expected:\r\n{sb}");
+            }
+        }
+
+        [Given(@"this test isn't written yet")]
+        public void GivenThisTestIsntWrittenYet()
+        {
+            Assert.Inconclusive("This test isn't written yet.");
+        }
+
+        [Then(@"the game is over and (.*) has won")]
+        public void GameOver(ActionSide side)
+        {
+            Assert.True(_context.BoardState.Flags.GameWon(),
+                $"The game is still in progress: {_context.BoardState.Flags}");
+
+            if (side == ActionSide.Red)
+            {
+                Assert.AreEqual(StateFlags.RedWin, _context.BoardState.Flags & StateFlags.RedWin);
+            }
+            else if (side == ActionSide.Blue)
+            {
+                Assert.AreEqual(StateFlags.BlueWin, _context.BoardState.Flags & StateFlags.BlueWin);
             }
         }
     }

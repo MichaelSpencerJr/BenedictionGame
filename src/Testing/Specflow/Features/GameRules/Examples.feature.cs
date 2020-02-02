@@ -73,6 +73,534 @@ namespace Testing.Specflow.Features.GameRules
         {
             testRunner.CollectScenarioErrors();
         }
+        
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Any header here - the name doesn\'t matter"});
+            table6.AddRow(new string[] {
+                        "Benediction v1: R E2 B-E8"});
+            table6.AddRow(new string[] {
+                        "R:D1+2+E1k+2k+3k+F1k2G1k+2+"});
+            table6.AddRow(new string[] {
+                        "B:D6k+7k+8E7+8k+9k+F78k+H5+"});
+            table6.AddRow(new string[] {
+                        "X:B5C2D4E6F3H6I1"});
+#line 39
+ testRunner.Given("I define board WeirdSituation1 as:", ((string)(null)), table6, "Given ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Load a Previously Created Board")]
+        public virtual void LoadAPreviouslyCreatedBoard()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load a Previously Created Board", null, ((string[])(null)));
+#line 50
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+#line 52
+ testRunner.Given("I have board WeirdSituation1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Start From an Empty Board")]
+        public virtual void StartFromAnEmptyBoard()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Start From an Empty Board", null, ((string[])(null)));
+#line 58
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+#line 59
+ testRunner.Given("I have an empty E2 E8 board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 64
+ testRunner.And("I add this red piece: E3k+", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 66
+ testRunner.And("I add these blue pieces: D45+E56k7F5++++6+b+++7+++++", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Load a Saved Board")]
+        public virtual void LoadASavedBoard()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load a Saved Board", null, ((string[])(null)));
+#line 72
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Board"});
+                table7.AddRow(new string[] {
+                            "Benediction v1: R E2 B-E8"});
+                table7.AddRow(new string[] {
+                            "R:D1+2+E1k+2k+3k+F1k2G1k+2+"});
+                table7.AddRow(new string[] {
+                            "B:D6k+7k+8E7+8k+9k+F78k+H5+"});
+                table7.AddRow(new string[] {
+                            "X:B5C2D4E6F3H6I1"});
+#line 73
+ testRunner.Given("I load this board:", ((string)(null)), table7, "Given ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Perform Some Moves")]
+        public virtual void PerformSomeMoves()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Perform Some Moves", null, ((string[])(null)));
+#line 90
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                            "New Game Board"});
+                table8.AddRow(new string[] {
+                            "Benediction v1: R-E2 B E8"});
+                table8.AddRow(new string[] {
+                            "R:D12E12k3F12"});
+                table8.AddRow(new string[] {
+                            "B:D78E78k9F78"});
+#line 91
+ testRunner.Given("I load this board:", ((string)(null)), table8, "Given ");
+#line hidden
+#line 98
+ testRunner.When("the red player moves the piece at e3 to e4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 101
+ testRunner.When("the red player drops a new piece at e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 104
+ testRunner.When("the blue player blockades c2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 107
+ testRunner.When("the blue player merges the piece at f7 into e7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 108
+ testRunner.When("the red player merges the piece at e4 into e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 111
+ testRunner.When("the red player splits 1 piece from e3 onto d2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Perform Some Moves - Short Notation")]
+        public virtual void PerformSomeMoves_ShortNotation()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Perform Some Moves - Short Notation", null, ((string[])(null)));
+#line 116
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                            "New Game Board"});
+                table9.AddRow(new string[] {
+                            "Benediction v1: R-E2 B E8"});
+                table9.AddRow(new string[] {
+                            "R:D12E12k3F12"});
+                table9.AddRow(new string[] {
+                            "B:D78E78k9F78"});
+#line 117
+ testRunner.Given("I load this board:", ((string)(null)), table9, "Given ");
+#line hidden
+#line 124
+ testRunner.When("red does e3e4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 127
+ testRunner.When("red does @e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 130
+ testRunner.When("blue does Bc2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 133
+ testRunner.When("blue does f7+e7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 134
+ testRunner.When("red does e4+e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 137
+ testRunner.When("red does e3-1-d2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Perform Some Moves - Table Notation")]
+        public virtual void PerformSomeMoves_TableNotation()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Perform Some Moves - Table Notation", null, ((string[])(null)));
+#line 143
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                            "New Game Board"});
+                table10.AddRow(new string[] {
+                            "Benediction v1: R-E2 B E8"});
+                table10.AddRow(new string[] {
+                            "R:D12E12k3F12"});
+                table10.AddRow(new string[] {
+                            "B:D78E78k9F78"});
+#line 144
+ testRunner.Given("I load this board:", ((string)(null)), table10, "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                            "RedAction1",
+                            "RedAction2",
+                            "BlueAction1",
+                            "BlueAction2"});
+                table11.AddRow(new string[] {
+                            "f1+f2",
+                            "f2-1-g2",
+                            "e8+e9",
+                            "Bi3"});
+                table11.AddRow(new string[] {
+                            "e3+d2",
+                            "Bb5",
+                            "f7+f8",
+                            "f8f7"});
+                table11.AddRow(new string[] {
+                            "d2c1",
+                            "e1f1",
+                            "Ba2",
+                            "f7-1-g7"});
+                table11.AddRow(new string[] {
+                            "e2e3",
+                            "d1e1",
+                            "Bf8",
+                            "f7g6"});
+                table11.AddRow(new string[] {
+                            "Bg1",
+                            "Bb1",
+                            "Bd4",
+                            "d7+e7"});
+                table11.AddRow(new string[] {
+                            "f1+e1",
+                            "f2e2",
+                            "@d7",
+                            "d7+d8"});
+                table11.AddRow(new string[] {
+                            "@f2",
+                            "f2+e2",
+                            "@d7",
+                            "@e8"});
+                table11.AddRow(new string[] {
+                            "@f2",
+                            "e3+f2",
+                            "e8+d7",
+                            "@e8"});
+                table11.AddRow(new string[] {
+                            "@d1",
+                            "@e3",
+                            "@f7",
+                            "f7+e8"});
+                table11.AddRow(new string[] {
+                            "@f1",
+                            "@d2",
+                            "@f7",
+                            "Bd6"});
+#line 150
+ testRunner.When("the following moves are performed:", ((string)(null)), table11, "When ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Cannot Block Own King")]
+        public virtual void CannotBlockOwnKing()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot Block Own King", null, ((string[])(null)));
+#line 176
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+#line 177
+ testRunner.Given("I have an empty E2 E8 board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 178
+ testRunner.When("red does Be2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 179
+ testRunner.Then("the action fails", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Merge Split Merge Doesn\'t Create Pieces")]
+        public virtual void MergeSplitMergeDoesntCreatePieces()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Merge Split Merge Doesn\'t Create Pieces", null, ((string[])(null)));
+#line 185
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                            "New Game Board"});
+                table12.AddRow(new string[] {
+                            "Benediction v1: R-E2 B E8"});
+                table12.AddRow(new string[] {
+                            "R:D12E12k3F12"});
+                table12.AddRow(new string[] {
+                            "B:D78E78k9F78"});
+#line 186
+ testRunner.Given("I load this board:", ((string)(null)), table12, "Given ");
+#line hidden
+#line 192
+ testRunner.When("the red player merges the piece at f2 onto e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 193
+ testRunner.And("the red player splits 1 piece from e3 onto d2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 194
+ testRunner.Then("the board has red pieces matching: D12+E12k3F1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("None of These Are Valid Block Locations")]
+        [NUnit.Framework.TestCaseAttribute("d1", null)]
+        [NUnit.Framework.TestCaseAttribute("d2", null)]
+        [NUnit.Framework.TestCaseAttribute("e1", null)]
+        [NUnit.Framework.TestCaseAttribute("e2", null)]
+        [NUnit.Framework.TestCaseAttribute("e3", null)]
+        [NUnit.Framework.TestCaseAttribute("f1", null)]
+        [NUnit.Framework.TestCaseAttribute("f2", null)]
+        [NUnit.Framework.TestCaseAttribute("d7", null)]
+        [NUnit.Framework.TestCaseAttribute("d8", null)]
+        [NUnit.Framework.TestCaseAttribute("e7", null)]
+        [NUnit.Framework.TestCaseAttribute("e8", null)]
+        [NUnit.Framework.TestCaseAttribute("e9", null)]
+        [NUnit.Framework.TestCaseAttribute("f7", null)]
+        [NUnit.Framework.TestCaseAttribute("f8", null)]
+        public virtual void NoneOfTheseAreValidBlockLocations(string blockHere, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("None of These Are Valid Block Locations", null, exampleTags);
+#line 204
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                            "New Game Board"});
+                table13.AddRow(new string[] {
+                            "Benediction v1: R-E2 B E8"});
+                table13.AddRow(new string[] {
+                            "R:D12E12k3F12"});
+                table13.AddRow(new string[] {
+                            "B:D78E78k9F78"});
+#line 205
+ testRunner.Given("I load this board:", ((string)(null)), table13, "Given ");
+#line hidden
+#line 210
+ testRunner.When(string.Format("the red player blockades {0}", blockHere), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 211
+ testRunner.Then("the action fails", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

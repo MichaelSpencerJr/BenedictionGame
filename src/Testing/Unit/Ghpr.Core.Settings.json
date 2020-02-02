@@ -1,34 +1,28 @@
 ﻿{
-  "default": {
-    "outputPath": "C:\\_GHPReporter_Core_Report",
-    "dataServiceFile": "Ghpr.LocalFileSystem.dll",
-    "loggerFile": "",
-    "sprint": "",
-    "reportName": "GHP Report",
-    "projectName": "Awesome project",
-    "runName": "",
-    "runGuid": "",
-    "realTimeGeneration": "True",
-    "runsToDisplay": "5",
-    "testsToDisplay": "5",
-    "escapeTestOutput":  false,
-    "retention": {
-      "amount": 1000,
-      "till": "2017-01-25 10:00:00"
-    }
-  },
+    "default": {
+        "outputPath": "F:\\src\\BenedictionGame\\testruns\\GHPR",
+        "dataServiceFile": "Ghpr.LocalFileSystem.dll",
+        "loggerFile": "",
+        "sprint": "",
+        "reportName": "GHP Test Report",
+        "projectName": "Benediction",
+        "runName": "",
+        "runGuid": "",
+        "realTimeGeneration": "True",
+        "runsToDisplay": "5",
+        "testsToDisplay": "5",
+        "escapeTestOutput": false,
+        "retention": {
+            "amount": 1000,
+            "till": "2030-01-25 10:00:00"
+        }
+    },
   "projects": [
     {
-      "pattern": "*CoolTests.dll",
-      "settings": {
-        "outputPath": "C:\\_GHPReporter_Core_Report\\CoolTests"
-      }
-    },
-    {
-      "pattern": "*AwesomeTests.dll",
-      "settings": {
-        "outputPath": "C:\\_GHPReporter_Core_Report\\AwesomeTests"
-      }
+      "pattern": "*Specflow.dll",
+        "settings": {
+            "outputPath": "F:\\src\\BenedictionGame\\testruns\\GHPR\\SpecFlow"
+        }
     }
   ]
 }
