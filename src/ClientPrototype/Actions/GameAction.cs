@@ -131,12 +131,12 @@ namespace Benediction.Actions
         {
             foreach (var bridgeLocation in BridgeDetector.GetBridgeSpaces(state, ActionSide.Red))
             {
-                state[bridgeLocation] = state[bridgeLocation].Blessed(true);
+                if (!state[bridgeLocation].IsCursed()) state[bridgeLocation] = state[bridgeLocation].Blessed(true);
             }
 
             foreach (var bridgeLocation in BridgeDetector.GetBridgeSpaces(state, ActionSide.Blue))
             {
-                state[bridgeLocation] = state[bridgeLocation].Blessed(true);
+                if (!state[bridgeLocation].IsCursed()) state[bridgeLocation] = state[bridgeLocation].Blessed(true);
             }
         }
 

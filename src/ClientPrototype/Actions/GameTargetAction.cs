@@ -290,7 +290,7 @@ namespace Benediction.Actions
         /// <param name="finalState">State after the move</param>
         public void ApplyWallWrapAroundBlessing(State initialState, State finalState)
         {
-            if ((finalState[Target] | Cell.Cursed) == Cell.Cursed) return;
+            if (finalState[Target].IsCursed()) return;
 
             if (CheckLocationTargetReachable(initialState, true) == null)
             {

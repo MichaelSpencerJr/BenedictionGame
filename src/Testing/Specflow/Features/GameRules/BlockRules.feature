@@ -27,12 +27,22 @@ Scenario: Block Maximum
 	Then the board has blocks matching: A24B16C35D27E1469F27G35H16I24
 		   
 Scenario: Cannot Block Home Space
-	Given this test isn't written yet
-
+	Given I have an empty E2 E8 board
+	When the red player blocks e2
+	Then the action fails
+	When the red player blocks e8
+	Then the action fails
 
 Scenario: Cannot Block Adjacent Another Block
-	Given this test isn't written yet
+	Given I have an empty E2 E8 board
+	When the red player blocks e3
+	Then the action succeeds
+	When the red player blocks e4
+	Then the action fails
+	And the board has blocks matching: E3
 
 
 Scenario: Cannot Block Occupied Space
- 	Given this test isn't written yet
+	Given I have board NewGame
+	When the red player blockades e3
+	Then the action fails

@@ -1527,9 +1527,9 @@ At A1: Expected Size1, SideRed, Cursed, Got Size1, SideRed, Blessed, Cursed
 
    Failed Tests - Failures: 1, Errors: 0, Invalid: 0
 
- Start time: 2020-02-02 05:00:51Z
+ Start time: 2020-02-02 18:16:58Z
 
-   End time: 2020-02-02 05:00:53Z
+   End time: 2020-02-02 18:16:59Z
 
-   Duration: 1.853 seconds
+   Duration: 1.848 seconds
 
