@@ -178,14 +178,14 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Features\GameBoard\Movement.feature" />
-    <None Include="Features\GameRules\BlessingRules.feature" />
     <None Include="Features\GameRules\BlockRules.feature" />
-    <None Include="Features\GameRules\CurseRules.feature" />
+    <None Include="Features\GameRules\BridgeRules.feature" />
     <None Include="Features\GameRules\DropRules.feature" />
-    <None Include="Features\GameRules\KingRules.feature" />
+    <None Include="Features\GameRules\Examples.feature" />
     <None Include="Features\GameRules\MergeRules.feature" />
     <None Include="Features\GameRules\MovementRules.feature" />
     <None Include="Features\GameRules\SplitRules.feature" />
+    <None Include="Features\GameRules\WinLoseRules.feature" />
     <None Include="Features\GameRules\WrapAroundRules.feature" />
     <None Include="Ghpr.Core.Settings.json" />
     <None Include="Ghpr.NUnit.Settings.json" />

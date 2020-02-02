@@ -20,26 +20,24 @@ namespace Testing.Specflow.Features.GameRules
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Movement Rules")]
-    public partial class MovementRulesFeature
+    [NUnit.Framework.DescriptionAttribute("Bridge Rules")]
+    public partial class BridgeRulesFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "MovementRules.feature"
+#line 1 "BridgeRules.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Movement Rules", @"	As a player, I should see that movement rules are applied correctly.  Movement in
-	the first of a player's two turns locks the piece so it cannot be moved on that player's
-	second of two turns, though it can be split and merged.  Movement cannot wrap around
-	through the player's own wall or pass through a block.  Movement cannot capture a
-	piece of your own color, though it can capture an opponent piece.", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Bridge Rules", "\tAs a player, I should see bridge mechanics applied correctly.  Any contiguous\r\n\t" +
+                    "collection of pieces of the same color touching both walls should have a\r\n\tbless" +
+                    "ing reapplied to every uncursed piece in the collection every turn.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -78,11 +76,41 @@ namespace Testing.Specflow.Features.GameRules
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Repeat Moves Not Allowed")]
-        public virtual void RepeatMovesNotAllowed()
+        [NUnit.Framework.DescriptionAttribute("Bridge Happy Path")]
+        public virtual void BridgeHappyPath()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Repeat Moves Not Allowed", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bridge Happy Path", null, ((string[])(null)));
+#line 6
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Bridge Maximum")]
+        public virtual void BridgeMaximum()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bridge Maximum", null, ((string[])(null)));
 #line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -108,11 +136,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Red Cannot Move Through Red Wall")]
-        public virtual void RedCannotMoveThroughRedWall()
+        [NUnit.Framework.DescriptionAttribute("Bridge With Wrong Color Critical Piece")]
+        public virtual void BridgeWithWrongColorCriticalPiece()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Red Cannot Move Through Red Wall", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bridge With Wrong Color Critical Piece", null, ((string[])(null)));
 #line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -138,11 +166,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Blue Cannot Move Through Blue Wall")]
-        public virtual void BlueCannotMoveThroughBlueWall()
+        [NUnit.Framework.DescriptionAttribute("Split Into Bridge Avoids All Curses If Split Pieces Adjacent")]
+        public virtual void SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blue Cannot Move Through Blue Wall", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Split Into Bridge Avoids All Curses If Split Pieces Adjacent", null, ((string[])(null)));
 #line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -168,11 +196,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cannot Depart Edge Of Board")]
-        public virtual void CannotDepartEdgeOfBoard()
+        [NUnit.Framework.DescriptionAttribute("Split Into Bridge Avoids Target Curse If Target Piece Adjacent")]
+        public virtual void SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot Depart Edge Of Board", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Split Into Bridge Avoids Target Curse If Target Piece Adjacent", null, ((string[])(null)));
 #line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -198,11 +226,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Can Capture Enemy Piece")]
-        public virtual void CanCaptureEnemyPiece()
+        [NUnit.Framework.DescriptionAttribute("Split Into Bridge Avoids Source Curse If Source Piece Adjacent")]
+        public virtual void SplitIntoBridgeAvoidsSourceCurseIfSourcePieceAdjacent()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can Capture Enemy Piece", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Split Into Bridge Avoids Source Curse If Source Piece Adjacent", null, ((string[])(null)));
 #line 21
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -228,11 +256,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cannot Capture Own Piece")]
-        public virtual void CannotCaptureOwnPiece()
+        [NUnit.Framework.DescriptionAttribute("Bridge Cannot Bless Cursed Pieces")]
+        public virtual void BridgeCannotBlessCursedPieces()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot Capture Own Piece", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bridge Cannot Bless Cursed Pieces", null, ((string[])(null)));
 #line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -258,72 +286,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cannot Move Onto Block")]
-        public virtual void CannotMoveOntoBlock()
+        [NUnit.Framework.DescriptionAttribute("Home Drop Completing Bridge Wins Game")]
+        public virtual void HomeDropCompletingBridgeWinsGame()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot Move Onto Block", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Home Drop Completing Bridge Wins Game", null, ((string[])(null)));
 #line 27
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cannot Move Over Block")]
-        public virtual void CannotMoveOverBlock()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot Move Over Block", null, ((string[])(null)));
-#line 30
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Move Through Wall Is Assumed If Possible")]
-        public virtual void MoveThroughWallIsAssumedIfPossible()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Move Through Wall Is Assumed If Possible", null, ((string[])(null)));
-#line 33
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);

@@ -150,47 +150,556 @@ NUnit Version: 3.10.0.0
  -&gt; done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
 
 
-### 5) Passed : Testing.Specflow.Features.GameRules.BlessingRulesFeature.SplitMergeSplitAcross
+### 5) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockHappyPath
 
 
 
-#### Given I define board RedWrapAround as:
-  | RedWrapAround             |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:A4+B4++C7D126+E12k3F12  |
-  | B:E5k                     |
 
- -&gt; done: CommonSteps.GivenIDefine("RedWrapAround", &lt;table&gt;) (0.0s)
-#### And I define board BlueWrapAround as:
-  | BlueWrapAround            |
-  | - |
-  | Benediction v1: R E2 B-E8 |
-  | R:E5k                     |
-  | B:C1+D7E78kF7G13+H1c6     |
-  | X:A4C6F8G7                |
 
- -&gt; done: CommonSteps.GivenIDefine("BlueWrapAround", &lt;table&gt;) (0.0s)
-#### Given I have board BlueWrapAround
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c6552b32-d973-6d15-a20e-a353c4fb7314.png?raw=true)
+### 6) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockMaximum
 
-    Loaded board BlueWrapAround.
 
- -&gt; done: CommonSteps.GivenIHaveNamedBoard("BlueWrapAround") (0.0s)
-#### When the blue player moves the piece at H1 to H6
-    Rejected: h1h6: Destination H6 Is Your Own Piece and Cannot Be Moved Onto By Blue
 
- -&gt; done: CommonSteps.WhenIMove(Blue, H1, H6) (0.0s)
-#### Then the action fails with: Destination H6 Is Your Own Piece and Cannot Be Moved Onto By Blue
 
- -&gt; done: CommonSteps.ThenTheActionFailsWith("Destination H6 Is...") (0.0s)
-#### When the blue player moves the piece at H1 to A4
-    Rejected: h1a4: Destination A4 Contains a Block, Which Cannot Be Moved Onto
 
- -&gt; done: CommonSteps.WhenIMove(Blue, H1, A4) (0.0s)
-#### Then the action fails with: Destination A4 Contains a Block, Which Cannot Be Moved Onto
+### 7) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockAdjacentAnotherBlock
 
- -&gt; done: CommonSteps.ThenTheActionFailsWith("Destination A4 Co...") (0.0s)
+
+
+
+
+### 8) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockHomeSpace
+
+
+
+
+
+### 9) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockOccupiedSpace
+
+
+
+
+
+### 10) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeCannotBlessCursedPieces
+
+
+
+
+
+### 11) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath
+
+
+
+
+
+### 12) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeMaximum
+
+
+
+
+
+### 13) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeWithWrongColorCriticalPiece
+
+
+
+
+
+### 14) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.HomeDropCompletingBridgeWinsGame
+
+
+
+
+
+### 15) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent
+
+
+
+
+
+### 16) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsSourceCurseIfSourcePieceAdjacent
+
+
+
+
+
+### 17) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent
+
+
+
+
+
+### 18) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoBlock
+
+
+
+
+
+### 19) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoOccupiedSpace
+
+
+
+
+
+### 20) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone
+
+
+
+
+
+### 21) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath
+
+
+
+
+
+### 22) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.HomeDropBecomesKing
+
+
+
+
+
+### 23) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeAboveStackSizeFifteen
+
+
+
+
+
+### 24) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndCursed
+
+
+
+
+
+### 25) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndKing
+
+
+
+
+
+### 26) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndNormal
+
+
+
+
+
+### 27) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeKingAndKing
+
+
+
+
+
+### 28) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeAboveSizeTwoRequiresBlessing
+
+
+
+
+
+### 29) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeBlessedAndKing
+
+
+
+
+
+### 30) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeCursedAndBlessed
+
+
+
+
+
+### 31) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath
+
+
+
+
+
+### 32) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeMaximum
+
+
+
+
+
+### 33) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndBlessed
+
+
+
+
+
+### 34) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKing
+
+
+
+
+
+### 35) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKingAboveStackSizeTwoRequiresBlessing
+
+
+
+
+
+### 36) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndNormal
+
+
+
+
+
+### 37) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.BlueCannotMoveThroughBlueWall
+
+
+
+
+
+### 38) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CanCaptureEnemyPiece
+
+
+
+
+
+### 39) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotCaptureOwnPiece
+
+
+
+
+
+### 40) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotDepartEdgeOfBoard
+
+
+
+
+
+### 41) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOntoBlock
+
+
+
+
+
+### 42) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOverBlock
+
+
+
+
+
+### 43) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.MoveThroughWallIsAssumedIfPossible
+
+
+
+
+
+### 44) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RedCannotMoveThroughRedWall
+
+
+
+
+
+### 45) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed
+
+
+
+
+
+### 46) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.BlessedStackLosesBlessingUponSplit_Merge
+
+
+
+
+
+### 47) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo
+
+
+
+
+
+### 48) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo
+
+
+
+
+
+### 49) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoCursedPiece
+
+
+
+
+
+### 50) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoKingOverStackSizeTwo
+
+
+
+
+
+### 51) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoRegularPieceOverStackSizeTwo
+
+
+
+
+
+### 52) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOverBlock
+
+
+
+
+
+### 53) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureCannotMoveOverBlock
+
+
+
+
+
+### 54) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath
+
+
+
+
+
+### 55) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo
+
+
+
+
+
+### 56) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath
+
+
+
+
+
+### 57) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeLeavesCorrectlySizedStacks
+
+
+
+
+
+### 58) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOntoBlock
+
+
+
+
+
+### 59) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOverBlock
+
+
+
+
+
+### 60) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCursesBothPieces
+
+
+
+
+
+### 61) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath
+
+
+
+
+
+### 62) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitDistanceCannotExceedSize
+
+
+
+
+
+### 63) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitMustRejectInvalidSizes
+
+
+
+
+
+### 64) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueCapturingAnyRedKingCausesBlueWin
+
+
+
+
+
+### 65) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin
+
+
+
+
+
+### 66) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueJoiningKingToExistingChainCausesRedWin
+
+
+
+
+
+### 67) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin
+
+
+
+
+
+### 68) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
+
+
+
+
+
+### 69) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin
+
+
+
+
+
+### 70) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin
+
+
+
+
+
+### 71) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedCapturingAnyBlueKingCausesRedWin
+
+
+
+
+
+### 72) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedFormingChainWithKingCausesRedWin
+
+
+
+
+
+### 73) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedJoiningKingToExistingChainCausesRedWin
+
+
+
+
+
+### 74) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
+
+
+
+
+
+### 75) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
+
+
+
+
+
+### 76) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin
+
+
+
+
+
+### 77) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin
+
+
+
+
+
+### 78) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize
+
+
+
+
+
+### 79) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplitMergingCanFormAnyStackSize
+
+
+
+
+
+### 80) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair
+
+
+
+
+
+### 81) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing
+
+
+
+
+
+### 82) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed
+
+
+
+
+
+### 83) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndMergingRequiresBlessedTarget
+
+
+
+
+
+### 84) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget
+
+
+
+
+
+### 85) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplittingRemainsCursed
+
+
+
+
+
+### 86) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundOntoHomeBecomesKing
+
+
+
+
+
+### 87) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
+
+
+
+
+
+### 88) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingStackWrappingAroundAndSplitMergingOntoPieceRemainsBlessedAndWinsGame
+
+
+
+
+
+### 89) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundAndMergingOntoPieceRemainsBlessedAndWinsGame
+
+
+
+
+
+### 90) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame
+
+
+
+
+
+### 91) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoRegularSpaceWinsGame
+
+
+
+
+
+### 92) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed
+
+
+
+
+
+### 93) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundOntoHomeBecomesKing
+
+
+
+
+
+### 94) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndMergingCanFormAnyStackSize
+
+
+
+
+
+### 95) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize
+
+
+
+
+
+### 96) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair
+
+
+
 
 
 ## Run Settings
@@ -213,11 +722,11 @@ NUnit Version: 3.10.0.0
 
  Overall result: Passed
 
- Test Count: 5, Passed: 5, Failed: 0, Inconclusive: 0, Skipped: 0
+ Test Count: 96, Passed: 96, Failed: 0, Inconclusive: 0, Skipped: 0
 
- Start time: 2020-02-01 22:03:16Z
+ Start time: 2020-02-02 01:20:59Z
 
-   End time: 2020-02-01 22:03:18Z
+   End time: 2020-02-02 01:21:01Z
 
-   Duration: 1.220 seconds
+   Duration: 1.381 seconds
 
