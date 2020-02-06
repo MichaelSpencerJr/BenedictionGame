@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using Benediction.Actions;
 using Benediction.Board;
 using Benediction.View;
-using Testing.Specflow.Properties;
+using Testing.SpecFlow.Properties;
 
-namespace Testing.Specflow.Common
+namespace Testing.SpecFlow.Common
 {
     public static class BoardPrinter
     {

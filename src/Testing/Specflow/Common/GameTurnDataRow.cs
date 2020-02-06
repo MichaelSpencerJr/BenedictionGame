@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Testing.Specflow.Common
+namespace Testing.SpecFlow.Common
 {
     public class GameTurnDataRow
     {

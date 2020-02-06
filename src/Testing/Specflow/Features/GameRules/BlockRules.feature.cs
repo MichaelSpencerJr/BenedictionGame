@@ -78,16 +78,16 @@ namespace Testing.Specflow.Features.GameRules
         {
 #line 5
 #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "New Game Board"});
-            table1.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "Benediction v1: R-E2 B E8"});
-            table1.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "R:D12E12k3F12"});
-            table1.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "B:D78E78k9F78"});
 #line 6
- testRunner.Given("I define board NewGame as:", ((string)(null)), table1, "Given ");
+ testRunner.Given("I define board NewGame as:", ((string)(null)), table4, "Given ");
 #line hidden
         }
         
@@ -168,38 +168,38 @@ this.FeatureBackground();
 #line 19
  testRunner.Given("I have an empty E2 E8 board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "RedAction1",
                             "RedAction2",
                             "BlueAction1",
                             "BlueAction2"});
-                table2.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "Bd2",
                             "Bf2",
                             "Be1",
                             "Be9"});
-                table2.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "Bd7",
                             "Bf7",
                             "Bb6",
                             "Bc5"});
-                table2.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "Ba4",
                             "Bg5",
                             "Bh6",
                             "Bi4"});
-                table2.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "Bg3",
                             "Bh1",
                             "Bi2",
                             "Bc3"});
-                table2.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "Bb1",
                             "Ba2",
                             "Be6",
                             "Be4"});
 #line 20
- testRunner.When("the following moves are performed:", ((string)(null)), table2, "When ");
+ testRunner.When("the following moves are performed:", ((string)(null)), table5, "When ");
 #line hidden
 #line 27
  testRunner.Then("the board has blocks matching: A24B16C35D27E1469F27G35H16I24", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

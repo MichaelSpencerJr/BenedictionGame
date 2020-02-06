@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<test-run id="2" testcasecount="117" result="Passed" total="117" passed="49" failed="0" inconclusive="68" skipped="0" asserts="394" engine-version="3.10.0.0" clr-version="4.0.30319.42000" start-time="2020-02-02 23:16:55Z" end-time="2020-02-02 23:16:57Z" duration="1.925244">
+<test-run id="2" testcasecount="114" result="Passed" total="114" passed="47" failed="0" inconclusive="67" skipped="0" asserts="635" engine-version="3.10.0.0" clr-version="4.0.30319.42000" start-time="2020-02-06 04:11:18Z" end-time="2020-02-06 04:11:20Z" duration="1.851473">
   <command-line><![CDATA["C:\ProgramData\chocolatey\lib\nunit-console-runner\tools\nunit3-console.exe" ..\..\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll --result=report.txt;transform=..\..\..\nunit-transforms\nunit3-summary\text-report.xslt --result=report.html;transform=..\..\..\nunit-transforms\nunit3-summary\html-report.xslt --result=readme.md;transform=..\md-report.xslt --result=TestResult.xml]]></command-line>
-  <test-suite type="Assembly" id="0-1130" name="Testing.Specflow.dll" fullname="F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll" runstate="Runnable" testcasecount="117" result="Passed" start-time="2020-02-02 23:16:55Z" end-time="2020-02-02 23:16:57Z" duration="1.185648" total="117" passed="49" failed="0" warnings="0" inconclusive="68" skipped="0" asserts="394">
+  <test-suite type="Assembly" id="0-1126" name="Testing.Specflow.dll" fullname="F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll" runstate="Runnable" testcasecount="114" result="Passed" start-time="2020-02-06 04:11:19Z" end-time="2020-02-06 04:11:20Z" duration="1.155509" total="114" passed="47" failed="0" warnings="0" inconclusive="67" skipped="0" asserts="635">
     <environment framework-version="3.12.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.17134.0" platform="Win32NT" cwd="F:\src\BenedictionGame\testruns\latest" machine-name="SPENCER-VR" user="Oculus Rift" user-domain="SPENCER-VR" culture="en-US" uiculture="en-US" os-architecture="x64" />
     <settings>
       <setting name="DisposeRunners" value="True" />
@@ -13,158 +13,213 @@
       <setting name="NumberOfTestWorkers" value="12" />
     </settings>
     <properties>
-      <property name="_PID" value="19680" />
+      <property name="_PID" value="12988" />
       <property name="_APPDOMAIN" value="domain-" />
     </properties>
-    <test-suite type="SetUpFixture" id="0-1000" name="[default namespace]" fullname="Testing_Specflow_NUnitAssemblyHooks" classname="Testing_Specflow_NUnitAssemblyHooks" runstate="Runnable" testcasecount="117" result="Passed" start-time="2020-02-02 23:16:55Z" end-time="2020-02-02 23:16:57Z" duration="1.170211" total="117" passed="49" failed="0" warnings="0" inconclusive="68" skipped="0" asserts="394">
+    <test-suite type="SetUpFixture" id="0-1000" name="[default namespace]" fullname="Testing_Specflow_NUnitAssemblyHooks" classname="Testing_Specflow_NUnitAssemblyHooks" runstate="Runnable" testcasecount="114" result="Passed" start-time="2020-02-06 04:11:19Z" end-time="2020-02-06 04:11:20Z" duration="1.138314" total="114" passed="47" failed="0" warnings="0" inconclusive="67" skipped="0" asserts="635">
       <output><![CDATA[-> Loading plugin F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
 -> Using default config
 ]]></output>
-      <test-suite type="TestSuite" id="0-1131" name="Testing" fullname="Testing" runstate="Runnable" testcasecount="117" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:57Z" duration="0.561506" total="117" passed="49" failed="0" warnings="0" inconclusive="68" skipped="0" asserts="394">
-        <test-suite type="TestSuite" id="0-1132" name="Specflow" fullname="Testing.Specflow" runstate="Runnable" testcasecount="117" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:57Z" duration="0.561476" total="117" passed="49" failed="0" warnings="0" inconclusive="68" skipped="0" asserts="394">
-          <test-suite type="TestSuite" id="0-1133" name="Features" fullname="Testing.Specflow.Features" runstate="Runnable" testcasecount="117" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:57Z" duration="0.561471" total="117" passed="49" failed="0" warnings="0" inconclusive="68" skipped="0" asserts="394">
-            <test-suite type="TestSuite" id="0-1135" name="GameBoard" fullname="Testing.Specflow.Features.GameBoard" runstate="Runnable" testcasecount="4" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.333993" total="4" passed="3" failed="0" warnings="0" inconclusive="1" skipped="0" asserts="24">
-              <test-suite type="TestFixture" id="0-1124" name="MovementFeature" fullname="Testing.Specflow.Features.GameBoard.MovementFeature" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" testcasecount="4" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.333946" total="4" passed="3" failed="0" warnings="0" inconclusive="1" skipped="0" asserts="24">
+      <test-suite type="TestSuite" id="0-1127" name="Testing" fullname="Testing" runstate="Runnable" testcasecount="114" result="Passed" start-time="2020-02-06 04:11:19Z" end-time="2020-02-06 04:11:20Z" duration="0.531558" total="114" passed="47" failed="0" warnings="0" inconclusive="67" skipped="0" asserts="635">
+        <test-suite type="TestSuite" id="0-1128" name="Specflow" fullname="Testing.Specflow" runstate="Runnable" testcasecount="114" result="Passed" start-time="2020-02-06 04:11:19Z" end-time="2020-02-06 04:11:20Z" duration="0.531535" total="114" passed="47" failed="0" warnings="0" inconclusive="67" skipped="0" asserts="635">
+          <test-suite type="TestSuite" id="0-1129" name="Features" fullname="Testing.Specflow.Features" runstate="Runnable" testcasecount="114" result="Passed" start-time="2020-02-06 04:11:19Z" end-time="2020-02-06 04:11:20Z" duration="0.531530" total="114" passed="47" failed="0" warnings="0" inconclusive="67" skipped="0" asserts="635">
+            <test-suite type="TestSuite" id="0-1131" name="ExampleGames" fullname="Testing.Specflow.Features.ExampleGames" runstate="Runnable" testcasecount="1" result="Passed" start-time="2020-02-06 04:11:19Z" end-time="2020-02-06 04:11:20Z" duration="0.246443" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="265">
+              <test-suite type="TestFixture" id="0-1124" name="AlekSamplesFeature" fullname="Testing.Specflow.Features.ExampleGames.AlekSamplesFeature" classname="Testing.Specflow.Features.ExampleGames.AlekSamplesFeature" runstate="Runnable" testcasecount="1" result="Passed" start-time="2020-02-06 04:11:19Z" end-time="2020-02-06 04:11:20Z" duration="0.245242" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="265">
                 <properties>
-                  <property name="Description" value="Movement" />
+                  <property name="Description" value="Alek Samples" />
                 </properties>
-                <test-suite type="ParameterizedMethod" id="0-1128" name="MovingNorthWithoutWrappingAround" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" testcasecount="2" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.147591" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="14">
+                <test-case id="0-1125" name="AlekSampleGame1" fullname="Testing.Specflow.Features.ExampleGames.AlekSamplesFeature.AlekSampleGame1" methodname="AlekSampleGame1" classname="Testing.Specflow.Features.ExampleGames.AlekSamplesFeature" runstate="Runnable" seed="1656105482" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.190351" asserts="265">
                   <properties>
-                    <property name="Description" value="Moving North Without Wrapping Around" />
+                    <property name="Description" value="Alek Sample Game 1" />
                   </properties>
-                  <test-case id="0-1126" name="MovingNorthWithoutWrappingAround(&quot;E5&quot;,&quot;E6&quot;,null)" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround(&quot;E5&quot;,&quot;E6&quot;,null)" methodname="MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="1010284116" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.140840" asserts="7">
-                    <output><![CDATA[Given I have an empty E2 E8 board
-Loaded empty game board with Red Home at E2 and Blue Home at E8
--> done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
-Given I add this red piece: E5
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/99732cc7-6515-ffb2-b253-95c12d9dd6a6.png?raw=true)
--> done: SetupSteps.GivenIAddPieces(Red, "E5") (0.0s)
-And the current turn is RedAction1
-Board flags set to: RedAction1
--> done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
-When the red player moves the piece at E5 to E6
-Accepted: e5e6
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/8a7e5a64-8d70-7c87-dd5a-8033eac31e00-E5-E6.png?raw=true)
--> done: ActionSteps.WhenIMove(Red, E5, E6) (0.0s)
-Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
-And the board has red pieces matching: E6
-Successfully validated 1 Red piece.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "E6") (0.0s)
-And the current turn is RedAction2
-Board flags set to: RedAction2
--> done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
-]]></output>
-                  </test-case>
-                  <test-case id="0-1127" name="MovingNorthWithoutWrappingAround(&quot;E4&quot;,&quot;E5&quot;,null)" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround(&quot;E4&quot;,&quot;E5&quot;,null)" methodname="MovingNorthWithoutWrappingAround" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="765507751" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.001198" asserts="7">
-                    <output><![CDATA[Given I have an empty E2 E8 board
-Loaded empty game board with Red Home at E2 and Blue Home at E8
--> done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
-Given I add this red piece: E4
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f977260b-db80-81ff-874f-cf6bc707b0dc.png?raw=true)
--> done: SetupSteps.GivenIAddPieces(Red, "E4") (0.0s)
-And the current turn is RedAction1
-Board flags set to: RedAction1
--> done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
-When the red player moves the piece at E4 to E5
+                  <output><![CDATA[Given I define board NewGame as:
+  --- table step argument ---
+  | New Game Board            |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+-> done: SetupSteps.GivenIDefine("NewGame", <table>) (0.0s)
+Given I have board NewGame
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+Loaded board NewGame.
+-> done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
+When the following moves are performed:
+  --- table step argument ---
+  | RedAction1 | RedAction2 | BlueAction1 | BlueAction2 |
+  | e3e4       | @e3        | f8+f7       | @f8         |
+  | d1+d2      | @d1        | d7d6        | @d7         |
+  | f1+f2      | @f1        | f7f5        | @f7         |
+  | f2f4       | f4-1-f5    | d7+d6       | d6b4        |
+  | d2f3       | @f2        | b4b2        | Bc2         |
+  | f3h3       | f1+f2      | b2i5        | e9+f8       |
+  | h3h5       | h5-1-i5    | @e9         | @d7         |
+  | f4g4       | f2f4       | f8h6        | h6-1-i5     |
+  | e3+e4      | h5i5       | h6i5        | @f8         |
+  | f4d5       | e4e5       | e8+e9       | Bc7         |
+  | e1+e2      | e2e4       | f7+e7       | e7e5        |
+  | e4e5       | d5e6       | Be7         | @f7         |
+  | e5c5       | Ba5        | d8+d7       | @d8         |
+  | e6c6       | c6-1-d7    | d8d7        | @d8         |
+  | c5b4       | c6d7       |             |             |
+Accepted: e3e4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/0f8cfc55-c7ea-8d9f-0af6-7449cf98dba1-E3-E4.png?raw=true)
+Accepted: @e3
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5182a0c2-1497-e92b-e861-6a4831aba196-E3.png?raw=true)
+Accepted: f8+f7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/246ade30-9149-6e15-1754-5c585fbe12f6-F7-F8.png?raw=true)
+Accepted: @f8
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2a36d76d-78f8-b4d4-278b-c252c0132438-F8.png?raw=true)
+Accepted: d1+d2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/412215e4-91f3-c0db-694a-f3c099d58ce1-D1-D2.png?raw=true)
+Accepted: @d1
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/0fd5b26e-b69d-9c51-bc0f-b9a7ef11330e-D1.png?raw=true)
+Accepted: d7d6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/84bd4ce7-479a-dc84-152a-5bb470124c94-D6-D7.png?raw=true)
+Accepted: @d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/892498d2-57e1-d2e1-ef39-9a26316cae87-D7.png?raw=true)
+Accepted: f1+f2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e7bf8bac-aaa3-6e9c-7e05-52587c930053-F1-F2.png?raw=true)
+Accepted: @f1
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d4383f3d-960a-3413-23be-45d6694e109d-F1.png?raw=true)
+Accepted: f7f5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/bddc193d-3577-f592-a629-1f83b22a064c-F5-F7.png?raw=true)
+Accepted: @f7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/aced0ec3-c164-6d6e-7354-f84e43060853-F7.png?raw=true)
+Accepted: f2f4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/462d066e-518c-f89c-d13f-f33e88f35262-F2-F4.png?raw=true)
+Accepted: f4-1-f5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c2deb277-8566-eaa1-a4a8-a346415328d9-F4-F5.png?raw=true)
+Accepted: d7+d6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/69c732c2-612e-1ce4-9473-0c90e71bc801-D6-D7.png?raw=true)
+Accepted: d6b4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c6a71c27-1553-a846-bc81-8d9d92103183-B4-D6.png?raw=true)
+Accepted: d2f3
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/78b3e894-b5d2-99ce-2981-0a7bb28d0f08-D2-F3.png?raw=true)
+Accepted: @f2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e85ac896-837e-daf4-083a-9c1ab03d5074-F2.png?raw=true)
+Accepted: b4b2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9e7ceb29-67d3-42a8-a381-3d4862c708ed-B2-B4.png?raw=true)
+Accepted: Bc2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/698df008-1472-7591-fd72-de4de7b099b0-C2.png?raw=true)
+Accepted: f3h3
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/7100041e-bc5d-3007-f3ba-56ea4f1226c7-F3-H3.png?raw=true)
+Accepted: f1+f2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ba82f962-da6e-8719-7031-45bc05c4710b-F1-F2.png?raw=true)
+Accepted: b2i5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/20e8f512-0ebe-3bbf-fabc-cff2d32943ef-B2-I5.png?raw=true)
+Accepted: e9+f8
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/add6a93f-195a-0629-b65f-c3e3645c0956-E9-F8.png?raw=true)
+Accepted: h3h5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/832c0e80-803e-b6ad-fdb1-e26b1d0d7881-H3-H5.png?raw=true)
+Accepted: h5-1-i5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c113ab50-fda5-5a8a-72ad-a000f7b851ae-H5-I5.png?raw=true)
+Accepted: @e9
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/977ba4fe-26c4-2cd8-87f1-9f122b0f604b-E9.png?raw=true)
+Accepted: @d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/70a1c945-25ab-f152-3284-e3548ff809de-D7.png?raw=true)
+Accepted: f4g4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4ed658a3-82f5-05cc-130f-4d5b299ec475-F4-G4.png?raw=true)
+Accepted: f2f4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9a59a1cf-68e1-38bd-b59b-930ed2d4e622-F2-F4.png?raw=true)
+Accepted: f8h6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/417e5ae0-f267-6403-df0a-83e1b767b344-F8-H6.png?raw=true)
+Accepted: h6-1-i5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/13576040-16af-1bc1-00a6-970cceb0e638-H6-I5.png?raw=true)
+Accepted: e3+e4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ca93e6b4-e3dd-2bd6-5653-7c8201d9aa71-E3-E4.png?raw=true)
+Accepted: h5i5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3236547e-9a18-c636-96b9-01f0e11d2247-H5-I5.png?raw=true)
+Accepted: h6i5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/1c5feb37-70fa-fefa-91be-3b7ffbcfb2d0-H6-I5.png?raw=true)
+Accepted: @f8
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b2030054-cefb-f25d-6ebf-e30e4cb54a55-F8.png?raw=true)
+Accepted: f4d5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/7f538c98-0659-e305-dc48-67af7a44eb0e-D5-F4.png?raw=true)
 Accepted: e4e5
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f2a17dbc-ea88-715b-c29d-547ce78ff822-E4-E5.png?raw=true)
--> done: ActionSteps.WhenIMove(Red, E4, E5) (0.0s)
-Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
-And the board has red pieces matching: E5
-Successfully validated 1 Red piece.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "E5") (0.0s)
-And the current turn is RedAction2
-Board flags set to: RedAction2
--> done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
-]]></output>
-                  </test-case>
-                </test-suite>
-                <test-case id="0-1129" name="MovingTooFar" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.MovingTooFar" methodname="MovingTooFar" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="658547269" result="Inconclusive" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.134681" asserts="3">
-                  <properties>
-                    <property name="Description" value="Moving Too Far" />
-                  </properties>
-                  <reason>
-                    <message><![CDATA[No matching step definition found for one or more steps.
-using System;
-using TechTalk.SpecFlow;
-
-namespace MyNamespace
-{
-    [Binding]
-    public class StepDefinitions
-    {
-        [Then(@"the action fails with: Stack Size (.*) Piece At E(.*) Cannot Reach E(.*) \(but can reach: E(.*), E(.*)\)")]
-        public void ThenTheActionFailsWithStackSizePieceAtECannotReachEButCanReachEE(int p0, int p1, int p2, int p3, int p4)
-        {
-            ScenarioContext.Current.Pending();
-        }
-    }
-}
-]]></message>
-                  </reason>
-                  <output><![CDATA[Given I have an empty E2 E8 board
-Loaded empty game board with Red Home at E2 and Blue Home at E8
--> done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
-Given I add this red piece: E3
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a6b5752d-c52b-655c-5821-a80fe616ffb7.png?raw=true)
--> done: SetupSteps.GivenIAddPieces(Red, "E3") (0.0s)
-And the current turn is RedAction1
-Board flags set to: RedAction1
--> done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
-When the red player moves the piece at E3 to E5
-Rejected: e3e5: Stack Size 1 Piece At E3 Cannot Reach E5 (but can reach: E4, E2)
--> done: ActionSteps.WhenIMove(Red, E3, E5) (0.0s)
-Then the action fails with: Stack Size 1 Piece At E3 Cannot Reach E5 (but can reach: E4, E2)
--> No matching step definition found for the step. Use the following code to create one:
-        [Then(@"the action fails with: Stack Size (.*) Piece At E(.*) Cannot Reach E(.*) \(but can reach: E(.*), E(.*)\)")]
-        public void ThenTheActionFailsWithStackSizePieceAtECannotReachEButCanReachEE(int p0, int p1, int p2, int p3, int p4)
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-And the board has red pieces matching: E3
--> skipped because of previous errors
-And the current turn is RedAction1
--> skipped because of previous errors
-]]></output>
-                </test-case>
-                <test-case id="0-1125" name="SingleMoveNorth" fullname="Testing.Specflow.Features.GameBoard.MovementFeature.SingleMoveNorth" methodname="SingleMoveNorth" classname="Testing.Specflow.Features.GameBoard.MovementFeature" runstate="Runnable" seed="733047997" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.001362" asserts="7">
-                  <properties>
-                    <property name="Description" value="Single Move North" />
-                  </properties>
-                  <output><![CDATA[Given I have an empty E2 E8 board
-Loaded empty game board with Red Home at E2 and Blue Home at E8
--> done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
-Given I add this red piece: E5
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/99732cc7-6515-ffb2-b253-95c12d9dd6a6.png?raw=true)
--> done: SetupSteps.GivenIAddPieces(Red, "E5") (0.0s)
-And the current turn is RedAction1
-Board flags set to: RedAction1
--> done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
-When the red player moves the piece at E5 to E6
-Accepted: e5e6
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/8a7e5a64-8d70-7c87-dd5a-8033eac31e00-E5-E6.png?raw=true)
--> done: ActionSteps.WhenIMove(Red, E5, E6) (0.0s)
-Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
-And the board has red pieces matching: E6
-Successfully validated 1 Red piece.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "E6") (0.0s)
-And the current turn is RedAction2
-Board flags set to: RedAction2
--> done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/7a31c5a1-7013-00f7-586c-51fa1261e3be-E4-E5.png?raw=true)
+Accepted: e8+e9
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5486a738-3525-064a-e505-dcf19f7d1bce-E8-E9.png?raw=true)
+Accepted: Bc7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b2e8be61-98e6-d12e-256c-263987c6292a-C7.png?raw=true)
+Accepted: e1+e2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ec3d4e52-f68c-5330-4572-e506aa1c025d-E1-E2.png?raw=true)
+Accepted: e2e4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/667a0689-0074-5026-3f4b-18e2b2c8ce22-E2-E4.png?raw=true)
+Accepted: f7+e7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ff4bb56e-3e38-6c84-f248-184b56308161-E7-F7.png?raw=true)
+Accepted: e7e5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ecb771ba-e27c-698b-940b-29d18f3dcf6a-E5-E7.png?raw=true)
+Accepted: e4e5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/cce4a8ab-151d-b2bd-1fe7-42ca6713778f-E4-E5.png?raw=true)
+Accepted: d5e6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/949af7e8-dbbe-a07a-79e9-69db64804c02-D5-E6.png?raw=true)
+Accepted: Be7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/05ce5c65-06c6-c9c7-ed69-e05b5a54514c-E7.png?raw=true)
+Accepted: @f7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/08eb9363-2960-f18d-5269-e4046a2cf59f-F7.png?raw=true)
+Accepted: e5c5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/df666ba2-e203-2ac2-be49-4434e496a98f-C5-E5.png?raw=true)
+Accepted: Ba5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c00cc2d-d800-9fed-78f9-e9d23938ed1a-A5.png?raw=true)
+Accepted: d8+d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a35d3439-ec84-af0f-b7b2-a4187037965b-D7-D8.png?raw=true)
+Accepted: @d8
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ac999153-ca4b-8acb-2b0b-c24140bb2466-D8.png?raw=true)
+Accepted: e6c6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d23babbf-5b8d-b756-2c94-fa3af912fe37-C6-E6.png?raw=true)
+Accepted: c6-1-d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/32d32974-62f4-755d-7a03-38ea67beccc6-C6-D7.png?raw=true)
+Accepted: d8d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/97338497-3862-93ee-e843-38e4260b4082-D7-D8.png?raw=true)
+Accepted: @d8
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/325e409a-1c86-89f9-525b-9b863dc08392-D8.png?raw=true)
+Accepted: c5b4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/55eed42c-b69b-8cfe-df94-34ac94b045c0-B4-C5.png?raw=true)
+Accepted: c6d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/fa0292c9-9df4-c4b7-986e-45d432ea12e9-C6-D7.png?raw=true)
+-> done: ActionSteps.WhenTheFollowingMoves(<table>) (0.1s)
+Then the following locations match:
+  --- table step argument ---
+  | Location | Contents | Size | Type   |
+  | A5       | Block    |      |        |
+  | C7       | Block    |      |        |
+  | C2       | Block    |      |        |
+  | E7       | Block    |      |        |
+  | D1       | Red      | 1    | Normal |
+  | B4       | Red      | 2    | King   |
+  | D7       | Red      | 1    | Cursed |
+  | F5       | Red      | 1    | Cursed |
+  | G4       | Red      | 1    | Cursed |
+  | D8       | Blue     | 1    | Normal |
+  | E9       | Blue     | 2    | King   |
+  | F7       | Blue     | 1    | Normal |
+  | F8       | Blue     | 1    | Normal |
+  | I5       | Blue     | 1    | Cursed |
+A5 OK
+C7 OK
+C2 OK
+E7 OK
+D1 OK
+B4 OK
+D7 OK
+F5 OK
+G4 OK
+D8 OK
+E9 OK
+F7 OK
+F8 OK
+I5 OK
+-> done: ValidationSteps.ThenTheFollowingLocationsMatch(<table>) (0.0s)
 ]]></output>
                 </test-case>
               </test-suite>
             </test-suite>
-            <test-suite type="TestSuite" id="0-1134" name="GameRules" fullname="Testing.Specflow.Features.GameRules" runstate="Runnable" testcasecount="113" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:57Z" duration="0.561458" total="113" passed="46" failed="0" warnings="0" inconclusive="67" skipped="0" asserts="370">
-              <test-suite type="TestFixture" id="0-1001" name="BlockRulesFeature" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.054417" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="80">
+            <test-suite type="TestSuite" id="0-1130" name="GameRules" fullname="Testing.Specflow.Features.GameRules" runstate="Runnable" testcasecount="113" result="Passed" start-time="2020-02-06 04:11:19Z" end-time="2020-02-06 04:11:20Z" duration="0.531520" total="113" passed="46" failed="0" warnings="0" inconclusive="67" skipped="0" asserts="370">
+              <test-suite type="TestFixture" id="0-1001" name="BlockRulesFeature" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.012354" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="80">
                 <properties>
                   <property name="Description" value="Block Rules" />
                 </properties>
-                <test-case id="0-1002" name="BlockHappyPath" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockHappyPath" methodname="BlockHappyPath" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" seed="824479722" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.017937" asserts="5">
+                <test-case id="0-1002" name="BlockHappyPath" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockHappyPath" methodname="BlockHappyPath" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" seed="91772611" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.004580" asserts="5">
                   <properties>
                     <property name="Description" value="Block Happy Path" />
                   </properties>
@@ -184,13 +239,13 @@ Accepted: Ba1
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e5c4514c-8802-69fd-4f37-202fa92f03ef-A1.png?raw=true)
 -> done: ActionSteps.WhenIBlockade(Red, A1) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has blocks matching: A1
 Successfully validated 1 block.
--> done: CommonSteps.ThenTheBoardHasBlocksMatching("A1") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasBlocksMatching("A1") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1003" name="BlockMaximum" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockMaximum" methodname="BlockMaximum" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" seed="2029648475" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.032502" asserts="62">
+                <test-case id="0-1003" name="BlockMaximum" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockMaximum" methodname="BlockMaximum" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" seed="740720676" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.003680" asserts="62">
                   <properties>
                     <property name="Description" value="Block Maximum" />
                   </properties>
@@ -255,10 +310,10 @@ Accepted: Be4
 -> done: ActionSteps.WhenTheFollowingMoves(<table>) (0.0s)
 Then the board has blocks matching: A24B16C35D27E1469F27G35H16I24
 Successfully validated 20 blocks.
--> done: CommonSteps.ThenTheBoardHasBlocksMatching("A24B16C35D27E1469...") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasBlocksMatching("A24B16C35D27E1469...") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1005" name="CannotBlockAdjacentAnotherBlock" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockAdjacentAnotherBlock" methodname="CannotBlockAdjacentAnotherBlock" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" seed="696876585" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.001831" asserts="5">
+                <test-case id="0-1005" name="CannotBlockAdjacentAnotherBlock" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockAdjacentAnotherBlock" methodname="CannotBlockAdjacentAnotherBlock" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" seed="1307879403" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001872" asserts="5">
                   <properties>
                     <property name="Description" value="Cannot Block Adjacent Another Block" />
                   </properties>
@@ -277,19 +332,19 @@ Accepted: Be3
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/583156d7-4d7e-ea5b-fd2f-8b76e96ea48a-E3.png?raw=true)
 -> done: ActionSteps.WhenIBlockade(Red, E3) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 When the red player blocks e4
 Rejected: Be4: Cannot Block Adjacent Existing Block E3
 -> done: ActionSteps.WhenIBlockade(Red, E4) (0.0s)
 Then the action fails
 Failed with: Cannot Block Adjacent Existing Block E3
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 And the board has blocks matching: E3
 Successfully validated 1 block.
--> done: CommonSteps.ThenTheBoardHasBlocksMatching("E3") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasBlocksMatching("E3") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1004" name="CannotBlockHomeSpace" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockHomeSpace" methodname="CannotBlockHomeSpace" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" seed="205423807" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.000819" asserts="4">
+                <test-case id="0-1004" name="CannotBlockHomeSpace" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockHomeSpace" methodname="CannotBlockHomeSpace" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" seed="1689692799" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000922" asserts="4">
                   <properties>
                     <property name="Description" value="Cannot Block Home Space" />
                   </properties>
@@ -308,16 +363,16 @@ Rejected: Be2: Cannot Block Red Home at Location E2
 -> done: ActionSteps.WhenIBlockade(Red, E2) (0.0s)
 Then the action fails
 Failed with: Cannot Block Red Home at Location E2
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 When the red player blocks e8
 Rejected: Be8: Cannot Block Blue Home at Location E8
 -> done: ActionSteps.WhenIBlockade(Red, E8) (0.0s)
 Then the action fails
 Failed with: Cannot Block Blue Home at Location E8
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1006" name="CannotBlockOccupiedSpace" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockOccupiedSpace" methodname="CannotBlockOccupiedSpace" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" seed="220821563" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:56Z" duration="0.000772" asserts="4">
+                <test-case id="0-1006" name="CannotBlockOccupiedSpace" fullname="Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockOccupiedSpace" methodname="CannotBlockOccupiedSpace" classname="Testing.Specflow.Features.GameRules.BlockRulesFeature" runstate="Runnable" seed="698074160" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000800" asserts="4">
                   <properties>
                     <property name="Description" value="Cannot Block Occupied Space" />
                   </properties>
@@ -337,15 +392,15 @@ Rejected: Be3: Location E3 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, E3) (0.0s)
 Then the action fails
 Failed with: Location E3 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                 </test-case>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1007" name="BridgeRulesFeature" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" testcasecount="7" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:57Z" duration="0.031550" total="7" passed="7" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="25">
+              <test-suite type="TestFixture" id="0-1007" name="BridgeRulesFeature" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" testcasecount="7" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.037144" total="7" passed="7" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="25">
                 <properties>
                   <property name="Description" value="Bridge Rules" />
                 </properties>
-                <test-case id="0-1013" name="BridgeCannotBlessCursedPieces" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeCannotBlessCursedPieces" methodname="BridgeCannotBlessCursedPieces" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="394749354" result="Passed" start-time="2020-02-02 23:16:56Z" end-time="2020-02-02 23:16:57Z" duration="0.020468" asserts="3">
+                <test-case id="0-1013" name="BridgeCannotBlessCursedPieces" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeCannotBlessCursedPieces" methodname="BridgeCannotBlessCursedPieces" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="119015352" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.018716" asserts="3">
                   <properties>
                     <property name="Description" value="Bridge Cannot Bless Cursed Pieces" />
                   </properties>
@@ -369,13 +424,13 @@ Accepted: f6-2-h4
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09674cbf-9813-00b5-2a75-57eb8b4d96cd-F6-H4.png?raw=true)
 -> done: ActionSteps.WhenISplit(Red, 2, F6, H4) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has red pieces matching: D12E12k3F6cG1c+2cH2c3c4b+5c6c
 Successfully validated 13 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F6cG1c+2c...") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F6cG1c+2c...") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1008" name="BridgeHappyPath" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath" methodname="BridgeHappyPath" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="1636578804" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001135" asserts="2">
+                <test-case id="0-1008" name="BridgeHappyPath" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath" methodname="BridgeHappyPath" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="2048311924" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001796" asserts="2">
                   <properties>
                     <property name="Description" value="Bridge Happy Path" />
                   </properties>
@@ -400,10 +455,10 @@ Accepted: d1c1
 -> done: ActionSteps.WhenIMove(Red, D1, C1) (0.0s)
 Then the board has red pieces matching: C1b2bD3bE12k4bF124bG4bH4bI4b5b
 Successfully validated 13 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "C1b2bD3bE12k4bF12...") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "C1b2bD3bE12k4bF12...") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1009" name="BridgeMaximum" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeMaximum" methodname="BridgeMaximum" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="1744427102" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.003020" asserts="5">
+                <test-case id="0-1009" name="BridgeMaximum" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeMaximum" methodname="BridgeMaximum" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="996672127" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.007439" asserts="5">
                   <properties>
                     <property name="Description" value="Bridge Maximum" />
                   </properties>
@@ -427,15 +482,15 @@ Accepted: @d2
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/79afa5f7-217d-4829-2409-47c55f1e4404-D2.png?raw=true)
 -> done: ActionSteps.WhenIDrop(Red, D2) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the game is over and red has won
--> done: CommonSteps.GameOver(Red) (0.0s)
+-> done: ValidationSteps.GameOver(Red) (0.0s)
 And the board has red pieces matching: A1b4bB2b4b5bC2b4b6bD2b4b6b8bE2kb4b6b8kbF2b4b6b7bG2b4b6bH2b4bI2b3b
 Successfully validated 27 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "A1b4bB2b4b5bC2b4b...") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1b4bB2b4b5bC2b4b...") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1010" name="BridgeWithWrongColorCriticalPiece" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeWithWrongColorCriticalPiece" methodname="BridgeWithWrongColorCriticalPiece" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="753424918" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001128" asserts="4">
+                <test-case id="0-1010" name="BridgeWithWrongColorCriticalPiece" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeWithWrongColorCriticalPiece" methodname="BridgeWithWrongColorCriticalPiece" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="1310283841" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.003398" asserts="4">
                   <properties>
                     <property name="Description" value="Bridge With Wrong Color Critical Piece" />
                   </properties>
@@ -459,16 +514,16 @@ Accepted: g4h4
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/cf5044be-c432-3746-1739-2868884df9e7-G4-H4.png?raw=true)
 -> done: ActionSteps.WhenIMove(Blue, G4, H4) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has blue pieces matching: E8kH4
 Successfully validated 2 Blue pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Blue, "E8kH4") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Blue, "E8kH4") (0.0s)
 And the board has red pieces matching: D12E12k3F12G2H2356
 Successfully validated 12 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F12G2H2356") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F12G2H2356") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1014" name="HomeDropCompletingBridgeWinsGame" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.HomeDropCompletingBridgeWinsGame" methodname="HomeDropCompletingBridgeWinsGame" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="1339473457" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001128" asserts="5">
+                <test-case id="0-1014" name="HomeDropCompletingBridgeWinsGame" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.HomeDropCompletingBridgeWinsGame" methodname="HomeDropCompletingBridgeWinsGame" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="2009604972" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001255" asserts="5">
                   <properties>
                     <property name="Description" value="Home Drop Completing Bridge Wins Game" />
                   </properties>
@@ -492,15 +547,15 @@ Accepted: @e2
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d6a96ffe-9413-bf7b-9660-93853325811a-E2.png?raw=true)
 -> done: ActionSteps.WhenIDrop(Red, E2) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has red pieces matching: A1kE1b2kb3b4b5bF5bG5bH5bI5b
 Successfully validated 10 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "A1kE1b2kb3b4b5bF5...") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1kE1b2kb3b4b5bF5...") (0.0s)
 And the game is over and red has won
--> done: CommonSteps.GameOver(Red) (0.0s)
+-> done: ValidationSteps.GameOver(Red) (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1011" name="SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent" methodname="SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="706395520" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.003128" asserts="3">
+                <test-case id="0-1011" name="SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent" methodname="SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="1596015421" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.002682" asserts="3">
                   <properties>
                     <property name="Description" value="Split Into Bridge Avoids All Curses If Split Pieces Adjacent" />
                   </properties>
@@ -524,13 +579,13 @@ Accepted: g5-1-h4
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/64c2001a-950d-eff3-424b-0960ac0160b8-G5-H4.png?raw=true)
 -> done: ActionSteps.WhenISplit(Red, 1, G5, H4) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has red pieces matching: D1b2bE1b2kb3bF1b2bG2b5bH2b3b4b5b6b
 Successfully validated 14 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1012" name="SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent" methodname="SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="2111692835" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001113" asserts="3">
+                <test-case id="0-1012" name="SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent" fullname="Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent" methodname="SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent" classname="Testing.Specflow.Features.GameRules.BridgeRulesFeature" runstate="Runnable" seed="1808633673" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001228" asserts="3">
                   <properties>
                     <property name="Description" value="Split Into Bridge Avoids Target Curse If Target Piece Adjacent" />
                   </properties>
@@ -554,18 +609,18 @@ Accepted: f6-2-h4
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/45498da7-e1bd-7f71-cd92-9887ed24c76f-F6-H4.png?raw=true)
 -> done: ActionSteps.WhenISplit(Red, 2, F6, H4) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has red pieces matching: D1b2bE1b2kb3bF1b2b6cG2bH2b3b4b+5b6b
 Successfully validated 14 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
 ]]></output>
                 </test-case>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1015" name="DropRulesFeature" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.006663" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="19">
+              <test-suite type="TestFixture" id="0-1015" name="DropRulesFeature" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.006523" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="19">
                 <properties>
                   <property name="Description" value="Drop Rules" />
                 </properties>
-                <test-case id="0-1018" name="CannotDropOntoBlock" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoBlock" methodname="CannotDropOntoBlock" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" seed="1657840309" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001371" asserts="2">
+                <test-case id="0-1018" name="CannotDropOntoBlock" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoBlock" methodname="CannotDropOntoBlock" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" seed="624431142" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001596" asserts="2">
                   <properties>
                     <property name="Description" value="Cannot Drop Onto Block" />
                   </properties>
@@ -590,10 +645,10 @@ Rejected: @e3: Location E3 Not Empty
 -> done: ActionSteps.WhenIDrop(Red, E3) (0.0s)
 Then the action fails
 Failed with: Location E3 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1019" name="CannotDropOntoOccupiedSpace" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoOccupiedSpace" methodname="CannotDropOntoOccupiedSpace" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" seed="1373754190" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000768" asserts="4">
+                <test-case id="0-1019" name="CannotDropOntoOccupiedSpace" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoOccupiedSpace" methodname="CannotDropOntoOccupiedSpace" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" seed="194214893" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000851" asserts="4">
                   <properties>
                     <property name="Description" value="Cannot Drop Onto Occupied Space" />
                   </properties>
@@ -613,10 +668,10 @@ Rejected: @e3: Location E3 Not Empty
 -> done: ActionSteps.WhenIDrop(Red, E3) (0.0s)
 Then the action fails
 Failed with: Location E3 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1017" name="CannotDropOutsideZone" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone" methodname="CannotDropOutsideZone" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" seed="2078153819" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000774" asserts="4">
+                <test-case id="0-1017" name="CannotDropOutsideZone" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone" methodname="CannotDropOutsideZone" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" seed="301507664" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000860" asserts="4">
                   <properties>
                     <property name="Description" value="Cannot Drop Outside Zone" />
                   </properties>
@@ -636,10 +691,10 @@ Rejected: @e5: Drop Must Be Adjacent Your Home At E2
 -> done: ActionSteps.WhenIDrop(Red, E5) (0.0s)
 Then the action fails
 Failed with: Drop Must Be Adjacent Your Home At E2
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1016" name="DropHappyPath" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath" methodname="DropHappyPath" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" seed="577748186" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.002404" asserts="6">
+                <test-case id="0-1016" name="DropHappyPath" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath" methodname="DropHappyPath" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" seed="911112705" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001687" asserts="6">
                   <properties>
                     <property name="Description" value="Drop Happy Path" />
                   </properties>
@@ -659,16 +714,16 @@ Accepted: e3+f2
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2bb95324-1990-6880-7344-3f8bc6e10ece-E3-F2.png?raw=true)
 -> done: ActionSteps.WhenIMerge(Red, E3, F2) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 When the red player drops a new piece at e3
 Accepted: @e3
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/290c59e7-37b9-974f-069c-26f19bc400fb-E3.png?raw=true)
 -> done: ActionSteps.WhenIDrop(Red, E3) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1020" name="HomeDropBecomesKing" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature.HomeDropBecomesKing" methodname="HomeDropBecomesKing" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" seed="1184610336" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000974" asserts="3">
+                <test-case id="0-1020" name="HomeDropBecomesKing" fullname="Testing.Specflow.Features.GameRules.DropRulesFeature.HomeDropBecomesKing" methodname="HomeDropBecomesKing" classname="Testing.Specflow.Features.GameRules.DropRulesFeature" runstate="Runnable" seed="1697315421" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001122" asserts="3">
                   <properties>
                     <property name="Description" value="Home Drop Becomes King" />
                   </properties>
@@ -692,18 +747,18 @@ Accepted: @e2
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/1380d8a2-14ab-4671-c85a-bd608dee0f0c-E2.png?raw=true)
 -> done: ActionSteps.WhenIDrop(Red, E2) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has red pieces matching: D12E12k3kF12
 Successfully validated 7 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3kF12") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3kF12") (0.0s)
 ]]></output>
                 </test-case>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1021" name="ExamplesFeature" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" testcasecount="22" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.024586" total="22" passed="22" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="211">
+              <test-suite type="TestFixture" id="0-1021" name="ExamplesFeature" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" testcasecount="22" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.026273" total="22" passed="22" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="211">
                 <properties>
                   <property name="Description" value="Examples" />
                 </properties>
-                <test-case id="0-1028" name="CannotBlockOwnKing" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.CannotBlockOwnKing" methodname="CannotBlockOwnKing" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="158045785" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001564" asserts="4">
+                <test-case id="0-1028" name="CannotBlockOwnKing" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.CannotBlockOwnKing" methodname="CannotBlockOwnKing" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="211810387" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001927" asserts="4">
                   <properties>
                     <property name="Description" value="Cannot Block Own King" />
                   </properties>
@@ -723,10 +778,10 @@ Rejected: Be2: Cannot Block Red Home at Location E2
 -> done: ActionSteps.WhenDoes(Red, "Be2") (0.0s)
 Then the action fails
 Failed with: Cannot Block Red Home at Location E2
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1022" name="LoadAPreviouslyCreatedBoard" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.LoadAPreviouslyCreatedBoard" methodname="LoadAPreviouslyCreatedBoard" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="304764110" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000648" asserts="2">
+                <test-case id="0-1022" name="LoadAPreviouslyCreatedBoard" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.LoadAPreviouslyCreatedBoard" methodname="LoadAPreviouslyCreatedBoard" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="931943732" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000789" asserts="2">
                   <properties>
                     <property name="Description" value="Load a Previously Created Board" />
                   </properties>
@@ -744,7 +799,7 @@ Loaded board WeirdSituation1.
 -> done: SetupSteps.GivenIHaveNamedBoard("WeirdSituation1") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1024" name="LoadASavedBoard" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.LoadASavedBoard" methodname="LoadASavedBoard" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1582269234" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000739" asserts="0">
+                <test-case id="0-1024" name="LoadASavedBoard" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.LoadASavedBoard" methodname="LoadASavedBoard" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1645560307" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000832" asserts="0">
                   <properties>
                     <property name="Description" value="Load a Saved Board" />
                   </properties>
@@ -767,7 +822,7 @@ Given I load this board:
 -> done: SetupSteps.GivenILoad(<table>) (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1029" name="MergeSplitMergeDoesntCreatePieces" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.MergeSplitMergeDoesntCreatePieces" methodname="MergeSplitMergeDoesntCreatePieces" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="804696044" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001119" asserts="3">
+                <test-case id="0-1029" name="MergeSplitMergeDoesntCreatePieces" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.MergeSplitMergeDoesntCreatePieces" methodname="MergeSplitMergeDoesntCreatePieces" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="113537605" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001276" asserts="3">
                   <properties>
                     <property name="Description" value="Merge Split Merge Doesn't Create Pieces" />
                   </properties>
@@ -797,14 +852,14 @@ Accepted: e3-1-d2
 -> done: ActionSteps.WhenISplit(Red, 1, E3, D2) (0.0s)
 Then the board has red pieces matching: D12+E12k3F1
 Successfully validated 6 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12+E12k3F1") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12+E12k3F1") (0.0s)
 ]]></output>
                 </test-case>
-                <test-suite type="ParameterizedMethod" id="0-1044" name="NoneOfTheseAreValidBlockLocations" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" testcasecount="14" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.008888" total="14" passed="14" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="28">
+                <test-suite type="ParameterizedMethod" id="0-1044" name="NoneOfTheseAreValidBlockLocations" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" testcasecount="14" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.005992" total="14" passed="14" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="28">
                   <properties>
                     <property name="Description" value="None of These Are Valid Block Locations" />
                   </properties>
-                  <test-case id="0-1030" name="NoneOfTheseAreValidBlockLocations(&quot;d1&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;d1&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1011407176" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000871" asserts="2">
+                  <test-case id="0-1030" name="NoneOfTheseAreValidBlockLocations(&quot;d1&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;d1&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1006147740" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001023" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -826,10 +881,10 @@ Rejected: Bd1: Location D1 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, D1) (0.0s)
 Then the action fails
 Failed with: Location D1 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1031" name="NoneOfTheseAreValidBlockLocations(&quot;d2&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;d2&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1581128967" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000335" asserts="2">
+                  <test-case id="0-1031" name="NoneOfTheseAreValidBlockLocations(&quot;d2&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;d2&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="2110737615" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000350" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -851,10 +906,10 @@ Rejected: Bd2: Location D2 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, D2) (0.0s)
 Then the action fails
 Failed with: Location D2 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1032" name="NoneOfTheseAreValidBlockLocations(&quot;e1&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e1&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1449989928" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000334" asserts="2">
+                  <test-case id="0-1032" name="NoneOfTheseAreValidBlockLocations(&quot;e1&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e1&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1763278384" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000359" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -876,10 +931,10 @@ Rejected: Be1: Location E1 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, E1) (0.0s)
 Then the action fails
 Failed with: Location E1 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1033" name="NoneOfTheseAreValidBlockLocations(&quot;e2&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e2&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1096398728" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000370" asserts="2">
+                  <test-case id="0-1033" name="NoneOfTheseAreValidBlockLocations(&quot;e2&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e2&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1999588496" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000320" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -901,10 +956,10 @@ Rejected: Be2: Location E2 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, E2) (0.0s)
 Then the action fails
 Failed with: Location E2 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1034" name="NoneOfTheseAreValidBlockLocations(&quot;e3&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e3&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="851885161" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000395" asserts="2">
+                  <test-case id="0-1034" name="NoneOfTheseAreValidBlockLocations(&quot;e3&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e3&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="802572347" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000312" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -926,10 +981,10 @@ Rejected: Be3: Location E3 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, E3) (0.0s)
 Then the action fails
 Failed with: Location E3 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1035" name="NoneOfTheseAreValidBlockLocations(&quot;f1&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;f1&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1956697903" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.003273" asserts="2">
+                  <test-case id="0-1035" name="NoneOfTheseAreValidBlockLocations(&quot;f1&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;f1&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="990572871" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000334" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -951,10 +1006,10 @@ Rejected: Bf1: Location F1 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, F1) (0.0s)
 Then the action fails
 Failed with: Location F1 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1036" name="NoneOfTheseAreValidBlockLocations(&quot;f2&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;f2&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="846893222" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000527" asserts="2">
+                  <test-case id="0-1036" name="NoneOfTheseAreValidBlockLocations(&quot;f2&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;f2&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="2054201186" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000338" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -976,10 +1031,10 @@ Rejected: Bf2: Location F2 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, F2) (0.0s)
 Then the action fails
 Failed with: Location F2 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1037" name="NoneOfTheseAreValidBlockLocations(&quot;d7&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;d7&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1280345186" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000370" asserts="2">
+                  <test-case id="0-1037" name="NoneOfTheseAreValidBlockLocations(&quot;d7&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;d7&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="206372153" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000353" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -1001,10 +1056,10 @@ Rejected: Bd7: Location D7 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, D7) (0.0s)
 Then the action fails
 Failed with: Location D7 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1038" name="NoneOfTheseAreValidBlockLocations(&quot;d8&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;d8&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="11505061" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000350" asserts="2">
+                  <test-case id="0-1038" name="NoneOfTheseAreValidBlockLocations(&quot;d8&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;d8&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="581587123" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000360" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -1026,10 +1081,10 @@ Rejected: Bd8: Location D8 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, D8) (0.0s)
 Then the action fails
 Failed with: Location D8 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1039" name="NoneOfTheseAreValidBlockLocations(&quot;e7&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e7&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="875556638" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000356" asserts="2">
+                  <test-case id="0-1039" name="NoneOfTheseAreValidBlockLocations(&quot;e7&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e7&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1473278463" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000346" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -1051,10 +1106,10 @@ Rejected: Be7: Location E7 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, E7) (0.0s)
 Then the action fails
 Failed with: Location E7 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1040" name="NoneOfTheseAreValidBlockLocations(&quot;e8&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e8&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="490463422" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000352" asserts="2">
+                  <test-case id="0-1040" name="NoneOfTheseAreValidBlockLocations(&quot;e8&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e8&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="2117755215" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000328" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -1076,10 +1131,10 @@ Rejected: Be8: Location E8 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, E8) (0.0s)
 Then the action fails
 Failed with: Location E8 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1041" name="NoneOfTheseAreValidBlockLocations(&quot;e9&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e9&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1571741518" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000351" asserts="2">
+                  <test-case id="0-1041" name="NoneOfTheseAreValidBlockLocations(&quot;e9&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;e9&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="95639098" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000322" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -1101,10 +1156,10 @@ Rejected: Be9: Location E9 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, E9) (0.0s)
 Then the action fails
 Failed with: Location E9 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1042" name="NoneOfTheseAreValidBlockLocations(&quot;f7&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;f7&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="372211140" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000455" asserts="2">
+                  <test-case id="0-1042" name="NoneOfTheseAreValidBlockLocations(&quot;f7&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;f7&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="554398765" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000312" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -1126,10 +1181,10 @@ Rejected: Bf7: Location F7 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, F7) (0.0s)
 Then the action fails
 Failed with: Location F7 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
-                  <test-case id="0-1043" name="NoneOfTheseAreValidBlockLocations(&quot;f8&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;f8&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1479536246" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000401" asserts="2">
+                  <test-case id="0-1043" name="NoneOfTheseAreValidBlockLocations(&quot;f8&quot;,null)" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations(&quot;f8&quot;,null)" methodname="NoneOfTheseAreValidBlockLocations" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="132761586" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000380" asserts="2">
                     <output><![CDATA[Given I define board WeirdSituation1 as:
   --- table step argument ---
   | Any header here - the name doesn't matter |
@@ -1151,11 +1206,11 @@ Rejected: Bf8: Location F8 Not Empty
 -> done: ActionSteps.WhenIBlockade(Red, F8) (0.0s)
 Then the action fails
 Failed with: Location F8 Not Empty
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                   </test-case>
                 </test-suite>
-                <test-case id="0-1025" name="PerformSomeMoves" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves" methodname="PerformSomeMoves" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1217613684" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001809" asserts="6">
+                <test-case id="0-1025" name="PerformSomeMoves" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves" methodname="PerformSomeMoves" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1221590065" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.004697" asserts="6">
                   <properties>
                     <property name="Description" value="Perform Some Moves" />
                   </properties>
@@ -1201,7 +1256,7 @@ Accepted: e3-1-d2
 -> done: ActionSteps.WhenISplit(Red, 1, E3, D2) (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1026" name="PerformSomeMoves_ShortNotation" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_ShortNotation" methodname="PerformSomeMoves_ShortNotation" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1724360181" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001536" asserts="23">
+                <test-case id="0-1026" name="PerformSomeMoves_ShortNotation" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_ShortNotation" methodname="PerformSomeMoves_ShortNotation" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1212268084" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001864" asserts="23">
                   <properties>
                     <property name="Description" value="Perform Some Moves - Short Notation" />
                   </properties>
@@ -1247,7 +1302,7 @@ Accepted: e3-1-d2
 -> done: ActionSteps.WhenDoes(Red, "e3-1-d2") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1027" name="PerformSomeMoves_TableNotation" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_TableNotation" methodname="PerformSomeMoves_TableNotation" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1055790005" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.006521" asserts="143">
+                <test-case id="0-1027" name="PerformSomeMoves_TableNotation" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_TableNotation" methodname="PerformSomeMoves_TableNotation" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1614247514" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.006701" asserts="143">
                   <properties>
                     <property name="Description" value="Perform Some Moves - Table Notation" />
                   </properties>
@@ -1363,7 +1418,7 @@ Accepted: Bd6
 -> done: ActionSteps.WhenTheFollowingMoves(<table>) (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1023" name="StartFromAnEmptyBoard" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard" methodname="StartFromAnEmptyBoard" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="1972463331" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001361" asserts="2">
+                <test-case id="0-1023" name="StartFromAnEmptyBoard" fullname="Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard" methodname="StartFromAnEmptyBoard" classname="Testing.Specflow.Features.GameRules.ExamplesFeature" runstate="Runnable" seed="236444984" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001732" asserts="2">
                   <properties>
                     <property name="Description" value="Start From an Empty Board" />
                   </properties>
@@ -1387,11 +1442,11 @@ And I add these blue pieces: D45+E56k7F5++++6+b+++7+++++
 ]]></output>
                 </test-case>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1045" name="MergeRulesFeature" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" testcasecount="14" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.027800" total="14" passed="1" failed="0" warnings="0" inconclusive="13" skipped="0" asserts="4">
+              <test-suite type="TestFixture" id="0-1045" name="MergeRulesFeature" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" testcasecount="14" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.107934" total="14" passed="1" failed="0" warnings="0" inconclusive="13" skipped="0" asserts="4">
                 <properties>
                   <property name="Description" value="Merge Rules" />
                 </properties>
-                <test-case id="0-1059" name="CannotMergeAboveStackSizeFifteen" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeAboveStackSizeFifteen" methodname="CannotMergeAboveStackSizeFifteen" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="720938035" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.011111" asserts="0">
+                <test-case id="0-1059" name="CannotMergeAboveStackSizeFifteen" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeAboveStackSizeFifteen" methodname="CannotMergeAboveStackSizeFifteen" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="680783722" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.091486" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Merge Above Stack Size Fifteen" />
                   </properties>
@@ -1409,7 +1464,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1053" name="CannotMergeCursedAndCursed" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndCursed" methodname="CannotMergeCursedAndCursed" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="81183746" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001576" asserts="0">
+                <test-case id="0-1053" name="CannotMergeCursedAndCursed" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndCursed" methodname="CannotMergeCursedAndCursed" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="959061255" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001489" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Merge Cursed and Cursed" />
                   </properties>
@@ -1427,7 +1482,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1057" name="CannotMergeCursedAndKing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndKing" methodname="CannotMergeCursedAndKing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1788092144" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001475" asserts="0">
+                <test-case id="0-1057" name="CannotMergeCursedAndKing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndKing" methodname="CannotMergeCursedAndKing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1236110288" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001176" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Merge Cursed and King" />
                   </properties>
@@ -1445,7 +1500,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1052" name="CannotMergeCursedAndNormal" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndNormal" methodname="CannotMergeCursedAndNormal" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="695062964" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001289" asserts="0">
+                <test-case id="0-1052" name="CannotMergeCursedAndNormal" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndNormal" methodname="CannotMergeCursedAndNormal" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1274534504" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001180" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Merge Cursed and Normal" />
                   </properties>
@@ -1463,7 +1518,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1058" name="CannotMergeKingAndKing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeKingAndKing" methodname="CannotMergeKingAndKing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1150023267" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001222" asserts="0">
+                <test-case id="0-1058" name="CannotMergeKingAndKing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeKingAndKing" methodname="CannotMergeKingAndKing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="2091368565" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001188" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Merge King and King" />
                   </properties>
@@ -1481,7 +1536,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1049" name="MergeAboveSizeTwoRequiresBlessing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeAboveSizeTwoRequiresBlessing" methodname="MergeAboveSizeTwoRequiresBlessing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1623784112" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001298" asserts="0">
+                <test-case id="0-1049" name="MergeAboveSizeTwoRequiresBlessing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeAboveSizeTwoRequiresBlessing" methodname="MergeAboveSizeTwoRequiresBlessing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="281286768" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001187" asserts="0">
                   <properties>
                     <property name="Description" value="Merge Above Size Two Requires Blessing" />
                   </properties>
@@ -1499,7 +1554,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1056" name="MergeBlessedAndKing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeBlessedAndKing" methodname="MergeBlessedAndKing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="630579814" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001285" asserts="0">
+                <test-case id="0-1056" name="MergeBlessedAndKing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeBlessedAndKing" methodname="MergeBlessedAndKing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="945483838" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001291" asserts="0">
                   <properties>
                     <property name="Description" value="Merge Blessed and King" />
                   </properties>
@@ -1517,7 +1572,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1051" name="MergeCursedAndBlessed" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeCursedAndBlessed" methodname="MergeCursedAndBlessed" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1334095680" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001203" asserts="0">
+                <test-case id="0-1051" name="MergeCursedAndBlessed" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeCursedAndBlessed" methodname="MergeCursedAndBlessed" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="890051886" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001226" asserts="0">
                   <properties>
                     <property name="Description" value="Merge Cursed and Blessed" />
                   </properties>
@@ -1535,7 +1590,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1046" name="MergeHappyPath" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath" methodname="MergeHappyPath" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1354216472" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.000950" asserts="4">
+                <test-case id="0-1046" name="MergeHappyPath" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath" methodname="MergeHappyPath" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="110053292" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.000984" asserts="4">
                   <properties>
                     <property name="Description" value="Merge Happy Path" />
                   </properties>
@@ -1555,10 +1610,10 @@ Accepted: e3+f2
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2bb95324-1990-6880-7344-3f8bc6e10ece-E3-F2.png?raw=true)
 -> done: ActionSteps.WhenIMerge(Red, E3, F2) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1047" name="MergeMaximum" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeMaximum" methodname="MergeMaximum" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="875204222" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001167" asserts="0">
+                <test-case id="0-1047" name="MergeMaximum" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeMaximum" methodname="MergeMaximum" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="68498629" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001344" asserts="0">
                   <properties>
                     <property name="Description" value="Merge Maximum" />
                   </properties>
@@ -1576,7 +1631,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1050" name="MergeNormalAndBlessed" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndBlessed" methodname="MergeNormalAndBlessed" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1244393027" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001231" asserts="0">
+                <test-case id="0-1050" name="MergeNormalAndBlessed" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndBlessed" methodname="MergeNormalAndBlessed" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1410525902" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001324" asserts="0">
                   <properties>
                     <property name="Description" value="Merge Normal and Blessed" />
                   </properties>
@@ -1594,7 +1649,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1054" name="MergeNormalAndKing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKing" methodname="MergeNormalAndKing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1875708685" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001209" asserts="0">
+                <test-case id="0-1054" name="MergeNormalAndKing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKing" methodname="MergeNormalAndKing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1767866711" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001210" asserts="0">
                   <properties>
                     <property name="Description" value="Merge Normal and King" />
                   </properties>
@@ -1612,7 +1667,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1055" name="MergeNormalAndKingAboveStackSizeTwoRequiresBlessing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKingAboveStackSizeTwoRequiresBlessing" methodname="MergeNormalAndKingAboveStackSizeTwoRequiresBlessing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1974817510" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001134" asserts="0">
+                <test-case id="0-1055" name="MergeNormalAndKingAboveStackSizeTwoRequiresBlessing" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKingAboveStackSizeTwoRequiresBlessing" methodname="MergeNormalAndKingAboveStackSizeTwoRequiresBlessing" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="813129265" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001214" asserts="0">
                   <properties>
                     <property name="Description" value="Merge Normal and King Above Stack Size Two Requires Blessing" />
                   </properties>
@@ -1630,7 +1685,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1048" name="MergeNormalAndNormal" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndNormal" methodname="MergeNormalAndNormal" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1367136384" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001139" asserts="0">
+                <test-case id="0-1048" name="MergeNormalAndNormal" fullname="Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndNormal" methodname="MergeNormalAndNormal" classname="Testing.Specflow.Features.GameRules.MergeRulesFeature" runstate="Runnable" seed="1065017493" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001141" asserts="0">
                   <properties>
                     <property name="Description" value="Merge Normal and Normal" />
                   </properties>
@@ -1649,11 +1704,11 @@ Given this test isn't written yet
 ]]></output>
                 </test-case>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1060" name="MovementRulesFeature" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" testcasecount="9" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.012373" total="9" passed="1" failed="0" warnings="0" inconclusive="8" skipped="0" asserts="6">
+              <test-suite type="TestFixture" id="0-1060" name="MovementRulesFeature" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" testcasecount="9" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.013096" total="9" passed="1" failed="0" warnings="0" inconclusive="8" skipped="0" asserts="6">
                 <properties>
                   <property name="Description" value="Movement Rules" />
                 </properties>
-                <test-case id="0-1063" name="BlueCannotMoveThroughBlueWall" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.BlueCannotMoveThroughBlueWall" methodname="BlueCannotMoveThroughBlueWall" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="597711006" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.002368" asserts="0">
+                <test-case id="0-1063" name="BlueCannotMoveThroughBlueWall" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.BlueCannotMoveThroughBlueWall" methodname="BlueCannotMoveThroughBlueWall" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="1223942425" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001807" asserts="0">
                   <properties>
                     <property name="Description" value="Blue Cannot Move Through Blue Wall" />
                   </properties>
@@ -1671,7 +1726,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1065" name="CanCaptureEnemyPiece" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.CanCaptureEnemyPiece" methodname="CanCaptureEnemyPiece" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="685144625" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001282" asserts="0">
+                <test-case id="0-1065" name="CanCaptureEnemyPiece" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.CanCaptureEnemyPiece" methodname="CanCaptureEnemyPiece" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="710587583" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001350" asserts="0">
                   <properties>
                     <property name="Description" value="Can Capture Enemy Piece" />
                   </properties>
@@ -1689,7 +1744,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1066" name="CannotCaptureOwnPiece" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotCaptureOwnPiece" methodname="CannotCaptureOwnPiece" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="559091083" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001184" asserts="0">
+                <test-case id="0-1066" name="CannotCaptureOwnPiece" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotCaptureOwnPiece" methodname="CannotCaptureOwnPiece" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="2007711111" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001217" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Capture Own Piece" />
                   </properties>
@@ -1707,7 +1762,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1064" name="CannotDepartEdgeOfBoard" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotDepartEdgeOfBoard" methodname="CannotDepartEdgeOfBoard" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="1045442213" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001231" asserts="0">
+                <test-case id="0-1064" name="CannotDepartEdgeOfBoard" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotDepartEdgeOfBoard" methodname="CannotDepartEdgeOfBoard" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="1473177251" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001197" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Depart Edge Of Board" />
                   </properties>
@@ -1725,7 +1780,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1067" name="CannotMoveOntoBlock" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOntoBlock" methodname="CannotMoveOntoBlock" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="951914420" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001305" asserts="0">
+                <test-case id="0-1067" name="CannotMoveOntoBlock" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOntoBlock" methodname="CannotMoveOntoBlock" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="1811483774" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.002257" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Move Onto Block" />
                   </properties>
@@ -1743,7 +1798,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1068" name="CannotMoveOverBlock" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOverBlock" methodname="CannotMoveOverBlock" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="405316197" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001172" asserts="0">
+                <test-case id="0-1068" name="CannotMoveOverBlock" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOverBlock" methodname="CannotMoveOverBlock" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="895398476" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001320" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Move Over Block" />
                   </properties>
@@ -1761,7 +1816,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1069" name="MoveThroughWallIsAssumedIfPossible" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.MoveThroughWallIsAssumedIfPossible" methodname="MoveThroughWallIsAssumedIfPossible" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="1015896429" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001183" asserts="0">
+                <test-case id="0-1069" name="MoveThroughWallIsAssumedIfPossible" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.MoveThroughWallIsAssumedIfPossible" methodname="MoveThroughWallIsAssumedIfPossible" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="1734011160" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001192" asserts="0">
                   <properties>
                     <property name="Description" value="Move Through Wall Is Assumed If Possible" />
                   </properties>
@@ -1779,7 +1834,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1062" name="RedCannotMoveThroughRedWall" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.RedCannotMoveThroughRedWall" methodname="RedCannotMoveThroughRedWall" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="848472085" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001144" asserts="0">
+                <test-case id="0-1062" name="RedCannotMoveThroughRedWall" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.RedCannotMoveThroughRedWall" methodname="RedCannotMoveThroughRedWall" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="1679593629" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001187" asserts="0">
                   <properties>
                     <property name="Description" value="Red Cannot Move Through Red Wall" />
                   </properties>
@@ -1797,7 +1852,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1061" name="RepeatMovesNotAllowed" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed" methodname="RepeatMovesNotAllowed" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="811368072" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001069" asserts="6">
+                <test-case id="0-1061" name="RepeatMovesNotAllowed" fullname="Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed" methodname="RepeatMovesNotAllowed" classname="Testing.Specflow.Features.GameRules.MovementRulesFeature" runstate="Runnable" seed="604103594" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001109" asserts="6">
                   <properties>
                     <property name="Description" value="Repeat Moves Not Allowed" />
                   </properties>
@@ -1817,21 +1872,21 @@ Accepted: e3e4
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/0f8cfc55-c7ea-8d9f-0af6-7449cf98dba1-E3-E4.png?raw=true)
 -> done: ActionSteps.WhenIMove(Red, E3, E4) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 When the red player moves the piece at e4 to e5
 Rejected: e4e5: Piece at E4 Has Already Moved This Turn
 -> done: ActionSteps.WhenIMove(Red, E4, E5) (0.0s)
 Then the action fails
 Failed with: Piece at E4 Has Already Moved This Turn
--> done: CommonSteps.ThenTheActionFails() (0.0s)
+-> done: ValidationSteps.ThenTheActionFails() (0.0s)
 ]]></output>
                 </test-case>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1070" name="SplitRulesFeature" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" testcasecount="18" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.024771" total="18" passed="3" failed="0" warnings="0" inconclusive="15" skipped="0" asserts="15">
+              <test-suite type="TestFixture" id="0-1070" name="SplitRulesFeature" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" testcasecount="18" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.023914" total="18" passed="3" failed="0" warnings="0" inconclusive="15" skipped="0" asserts="15">
                 <properties>
                   <property name="Description" value="Split Rules" />
                 </properties>
-                <test-case id="0-1085" name="BlessedStackLosesBlessingUponSplit_Merge" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.BlessedStackLosesBlessingUponSplit_Merge" methodname="BlessedStackLosesBlessingUponSplit_Merge" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="275824309" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001869" asserts="0">
+                <test-case id="0-1085" name="BlessedStackLosesBlessingUponSplit_Merge" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.BlessedStackLosesBlessingUponSplit_Merge" methodname="BlessedStackLosesBlessingUponSplit_Merge" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="930872996" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001850" asserts="0">
                   <properties>
                     <property name="Description" value="Blessed Stack Loses Blessing Upon Split-Merge" />
                   </properties>
@@ -1849,7 +1904,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1087" name="CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo" methodname="CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1298186084" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001280" asserts="0">
+                <test-case id="0-1087" name="CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo" methodname="CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="353601570" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001180" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Split-Merge Blessed Stack Onto King Over Stack Size Two" />
                   </properties>
@@ -1867,7 +1922,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1086" name="CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo" methodname="CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1021151174" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001469" asserts="0">
+                <test-case id="0-1086" name="CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo" methodname="CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="803898980" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001234" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Split-Merge Blessed Stack Onto Regular Piece Over Stack Size Two" />
                   </properties>
@@ -1885,7 +1940,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1081" name="CannotSplit_MergeOntoCursedPiece" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoCursedPiece" methodname="CannotSplit_MergeOntoCursedPiece" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1392171202" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001228" asserts="0">
+                <test-case id="0-1081" name="CannotSplit_MergeOntoCursedPiece" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoCursedPiece" methodname="CannotSplit_MergeOntoCursedPiece" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1505178015" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001171" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Split-Merge Onto Cursed Piece" />
                   </properties>
@@ -1903,7 +1958,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1084" name="CannotSplit_MergeOntoKingOverStackSizeTwo" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoKingOverStackSizeTwo" methodname="CannotSplit_MergeOntoKingOverStackSizeTwo" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1686804038" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001237" asserts="0">
+                <test-case id="0-1084" name="CannotSplit_MergeOntoKingOverStackSizeTwo" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoKingOverStackSizeTwo" methodname="CannotSplit_MergeOntoKingOverStackSizeTwo" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="678151427" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001178" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Split-Merge Onto King Over Stack Size Two" />
                   </properties>
@@ -1921,7 +1976,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1083" name="CannotSplit_MergeOntoRegularPieceOverStackSizeTwo" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoRegularPieceOverStackSizeTwo" methodname="CannotSplit_MergeOntoRegularPieceOverStackSizeTwo" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1071317284" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001393" asserts="0">
+                <test-case id="0-1083" name="CannotSplit_MergeOntoRegularPieceOverStackSizeTwo" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoRegularPieceOverStackSizeTwo" methodname="CannotSplit_MergeOntoRegularPieceOverStackSizeTwo" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="879426469" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001192" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Split-Merge Onto Regular Piece Over Stack Size Two" />
                   </properties>
@@ -1939,7 +1994,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1082" name="CannotSplit_MergeOverBlock" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOverBlock" methodname="CannotSplit_MergeOverBlock" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="413638593" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001419" asserts="0">
+                <test-case id="0-1082" name="CannotSplit_MergeOverBlock" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOverBlock" methodname="CannotSplit_MergeOverBlock" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="277775457" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001193" asserts="0">
                   <properties>
                     <property name="Description" value="Cannot Split-Merge Over Block" />
                   </properties>
@@ -1957,7 +2012,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1079" name="Split_CaptureCannotMoveOverBlock" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureCannotMoveOverBlock" methodname="Split_CaptureCannotMoveOverBlock" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1548814215" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001520" asserts="0">
+                <test-case id="0-1079" name="Split_CaptureCannotMoveOverBlock" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureCannotMoveOverBlock" methodname="Split_CaptureCannotMoveOverBlock" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1097238514" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001319" asserts="0">
                   <properties>
                     <property name="Description" value="Split-Capture Cannot Move Over Block" />
                   </properties>
@@ -1975,7 +2030,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1072" name="Split_CaptureHappyPath" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath" methodname="Split_CaptureHappyPath" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1587429861" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001109" asserts="3">
+                <test-case id="0-1072" name="Split_CaptureHappyPath" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath" methodname="Split_CaptureHappyPath" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1127326048" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001122" asserts="3">
                   <properties>
                     <property name="Description" value="Split-Capture Happy Path" />
                   </properties>
@@ -1999,13 +2054,13 @@ Accepted: e6-1-e7
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/aa865385-577d-aac7-3912-28c2e901c45a-E6-E7.png?raw=true)
 -> done: ActionSteps.WhenISplit(Red, 1, E6, E7) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has red pieces matching: D12E12k6c7cF1
 Successfully validated 7 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k6c7cF1") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k6c7cF1") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1088" name="Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo" methodname="Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="2118998481" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001214" asserts="0">
+                <test-case id="0-1088" name="Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo" methodname="Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="895969108" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001143" asserts="0">
                   <properties>
                     <property name="Description" value="Split-Merge Blessed Stack Onto Blessed Piece Over Stack Size Two" />
                   </properties>
@@ -2023,7 +2078,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1073" name="Split_MergeHappyPath" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath" methodname="Split_MergeHappyPath" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="89478779" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001779" asserts="6">
+                <test-case id="0-1073" name="Split_MergeHappyPath" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath" methodname="Split_MergeHappyPath" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1155346640" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001123" asserts="6">
                   <properties>
                     <property name="Description" value="Split-Merge Happy Path" />
                   </properties>
@@ -2047,13 +2102,13 @@ Accepted: f2-1-f1
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/323bfd4a-e930-dde8-3188-8ed715a90869-F1-F2.png?raw=true)
 -> done: ActionSteps.WhenISplit(Red, 1, F2, F1) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has red pieces matching: D12E12kF1+2
 Successfully validated 6 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF1+2") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF1+2") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1080" name="Split_MergeLeavesCorrectlySizedStacks" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeLeavesCorrectlySizedStacks" methodname="Split_MergeLeavesCorrectlySizedStacks" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1965647421" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001234" asserts="0">
+                <test-case id="0-1080" name="Split_MergeLeavesCorrectlySizedStacks" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeLeavesCorrectlySizedStacks" methodname="Split_MergeLeavesCorrectlySizedStacks" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1268300664" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001122" asserts="0">
                   <properties>
                     <property name="Description" value="Split-Merge Leaves Correctly Sized Stacks" />
                   </properties>
@@ -2071,7 +2126,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1077" name="Split_MoveCannotMoveOntoBlock" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOntoBlock" methodname="Split_MoveCannotMoveOntoBlock" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1246725711" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001240" asserts="0">
+                <test-case id="0-1077" name="Split_MoveCannotMoveOntoBlock" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOntoBlock" methodname="Split_MoveCannotMoveOntoBlock" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1642431136" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001189" asserts="0">
                   <properties>
                     <property name="Description" value="Split-Move Cannot Move Onto Block" />
                   </properties>
@@ -2089,7 +2144,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1078" name="Split_MoveCannotMoveOverBlock" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOverBlock" methodname="Split_MoveCannotMoveOverBlock" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="384305362" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001274" asserts="0">
+                <test-case id="0-1078" name="Split_MoveCannotMoveOverBlock" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOverBlock" methodname="Split_MoveCannotMoveOverBlock" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="949698891" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001235" asserts="0">
                   <properties>
                     <property name="Description" value="Split-Move Cannot Move Over Block" />
                   </properties>
@@ -2107,7 +2162,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1076" name="Split_MoveCursesBothPieces" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCursesBothPieces" methodname="Split_MoveCursesBothPieces" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="841754329" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001234" asserts="0">
+                <test-case id="0-1076" name="Split_MoveCursesBothPieces" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCursesBothPieces" methodname="Split_MoveCursesBothPieces" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="310002481" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001969" asserts="0">
                   <properties>
                     <property name="Description" value="Split-Move Curses Both Pieces" />
                   </properties>
@@ -2125,7 +2180,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1071" name="Split_MoveHappyPath" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath" methodname="Split_MoveHappyPath" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1796803329" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001182" asserts="6">
+                <test-case id="0-1071" name="Split_MoveHappyPath" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath" methodname="Split_MoveHappyPath" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1281422964" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001459" asserts="6">
                   <properties>
                     <property name="Description" value="Split-Move Happy Path" />
                   </properties>
@@ -2149,13 +2204,13 @@ Accepted: f2-1-f3
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3f79924d-8b43-978e-30d1-510532590828-F2-F3.png?raw=true)
 -> done: ActionSteps.WhenISplit(Red, 1, F2, F3) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has red pieces matching: D12E12kF12c3c
 Successfully validated 7 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF12c3c") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF12c3c") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1075" name="SplitDistanceCannotExceedSize" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitDistanceCannotExceedSize" methodname="SplitDistanceCannotExceedSize" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1062216241" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001256" asserts="0">
+                <test-case id="0-1075" name="SplitDistanceCannotExceedSize" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitDistanceCannotExceedSize" methodname="SplitDistanceCannotExceedSize" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="1914114214" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001365" asserts="0">
                   <properties>
                     <property name="Description" value="Split Distance Cannot Exceed Size" />
                   </properties>
@@ -2173,7 +2228,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1074" name="SplitMustRejectInvalidSizes" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitMustRejectInvalidSizes" methodname="SplitMustRejectInvalidSizes" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="601372970" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001258" asserts="0">
+                <test-case id="0-1074" name="SplitMustRejectInvalidSizes" fullname="Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitMustRejectInvalidSizes" methodname="SplitMustRejectInvalidSizes" classname="Testing.Specflow.Features.GameRules.SplitRulesFeature" runstate="Runnable" seed="915221218" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001289" asserts="0">
                   <properties>
                     <property name="Description" value="Split Must Reject Invalid Sizes" />
                   </properties>
@@ -2192,11 +2247,11 @@ Given this test isn't written yet
 ]]></output>
                 </test-case>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1089" name="WinLoseRulesFeature" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" testcasecount="14" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.018377" total="14" passed="1" failed="0" warnings="0" inconclusive="13" skipped="0" asserts="4">
+              <test-suite type="TestFixture" id="0-1089" name="WinLoseRulesFeature" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" testcasecount="14" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.031978" total="14" passed="1" failed="0" warnings="0" inconclusive="13" skipped="0" asserts="4">
                 <properties>
                   <property name="Description" value="Win Lose Rules" />
                 </properties>
-                <test-case id="0-1093" name="BlueCapturingAnyRedKingCausesBlueWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueCapturingAnyRedKingCausesBlueWin" methodname="BlueCapturingAnyRedKingCausesBlueWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="768797314" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001823" asserts="0">
+                <test-case id="0-1093" name="BlueCapturingAnyRedKingCausesBlueWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueCapturingAnyRedKingCausesBlueWin" methodname="BlueCapturingAnyRedKingCausesBlueWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="969638749" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.002020" asserts="0">
                   <properties>
                     <property name="Description" value="Blue Capturing Any Red King Causes Blue Win" />
                   </properties>
@@ -2214,7 +2269,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1095" name="BlueFormingChainWithKingCausesBlueWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin" methodname="BlueFormingChainWithKingCausesBlueWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1330032591" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001113" asserts="0">
+                <test-case id="0-1095" name="BlueFormingChainWithKingCausesBlueWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin" methodname="BlueFormingChainWithKingCausesBlueWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="990171558" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001232" asserts="0">
                   <properties>
                     <property name="Description" value="Blue Forming Chain With King Causes Blue Win" />
                   </properties>
@@ -2232,7 +2287,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1097" name="BlueJoiningKingToExistingChainCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueJoiningKingToExistingChainCausesRedWin" methodname="BlueJoiningKingToExistingChainCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1668076599" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001094" asserts="0">
+                <test-case id="0-1097" name="BlueJoiningKingToExistingChainCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueJoiningKingToExistingChainCausesRedWin" methodname="BlueJoiningKingToExistingChainCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1578421441" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001187" asserts="0">
                   <properties>
                     <property name="Description" value="Blue Joining King To Existing Chain Causes Red Win" />
                   </properties>
@@ -2250,7 +2305,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1091" name="BlueKingPassingRedWallCausesBlueWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin" methodname="BlueKingPassingRedWallCausesBlueWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1598211192" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001104" asserts="0">
+                <test-case id="0-1091" name="BlueKingPassingRedWallCausesBlueWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin" methodname="BlueKingPassingRedWallCausesBlueWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1589683080" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001162" asserts="0">
                   <properties>
                     <property name="Description" value="Blue King Passing Red Wall Causes Blue Win" />
                   </properties>
@@ -2268,7 +2323,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1101" name="BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" methodname="BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1699205498" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001089" asserts="0">
+                <test-case id="0-1101" name="BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" methodname="BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="2082387569" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001249" asserts="0">
                   <properties>
                     <property name="Description" value="Blue Moving Blessed Piece Onto Blue Home Does Not Cause Win" />
                   </properties>
@@ -2286,7 +2341,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1100" name="BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin" methodname="BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="832768267" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001112" asserts="0">
+                <test-case id="0-1100" name="BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin" methodname="BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="21320806" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001170" asserts="0">
                   <properties>
                     <property name="Description" value="Blue Moving Blessed Piece Onto Red Home Does Not Cause Win" />
                   </properties>
@@ -2304,7 +2359,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1103" name="BlueWithNoLegalMovesCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin" methodname="BlueWithNoLegalMovesCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="585776761" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001119" asserts="0">
+                <test-case id="0-1103" name="BlueWithNoLegalMovesCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin" methodname="BlueWithNoLegalMovesCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="548348053" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001164" asserts="0">
                   <properties>
                     <property name="Description" value="Blue With No Legal Moves Causes Red Win" />
                   </properties>
@@ -2322,7 +2377,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1092" name="RedCapturingAnyBlueKingCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedCapturingAnyBlueKingCausesRedWin" methodname="RedCapturingAnyBlueKingCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1830910551" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001380" asserts="0">
+                <test-case id="0-1092" name="RedCapturingAnyBlueKingCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedCapturingAnyBlueKingCausesRedWin" methodname="RedCapturingAnyBlueKingCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1446641522" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001166" asserts="0">
                   <properties>
                     <property name="Description" value="Red Capturing Any Blue King Causes Red Win" />
                   </properties>
@@ -2340,7 +2395,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1094" name="RedFormingChainWithKingCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedFormingChainWithKingCausesRedWin" methodname="RedFormingChainWithKingCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="60689547" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001195" asserts="0">
+                <test-case id="0-1094" name="RedFormingChainWithKingCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedFormingChainWithKingCausesRedWin" methodname="RedFormingChainWithKingCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1048450656" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001204" asserts="0">
                   <properties>
                     <property name="Description" value="Red Forming Chain With King Causes Red Win" />
                   </properties>
@@ -2358,7 +2413,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1096" name="RedJoiningKingToExistingChainCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedJoiningKingToExistingChainCausesRedWin" methodname="RedJoiningKingToExistingChainCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1119517219" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001154" asserts="0">
+                <test-case id="0-1096" name="RedJoiningKingToExistingChainCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedJoiningKingToExistingChainCausesRedWin" methodname="RedJoiningKingToExistingChainCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="376391608" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.015134" asserts="0">
                   <properties>
                     <property name="Description" value="Red Joining King To Existing Chain Causes Red Win" />
                   </properties>
@@ -2376,7 +2431,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1090" name="RedKingPassingBlueWallCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin" methodname="RedKingPassingBlueWallCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="824609866" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001053" asserts="4">
+                <test-case id="0-1090" name="RedKingPassingBlueWallCausesRedWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin" methodname="RedKingPassingBlueWallCausesRedWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1891319619" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001185" asserts="4">
                   <properties>
                     <property name="Description" value="Red King Passing Blue Wall Causes Red Win" />
                   </properties>
@@ -2400,12 +2455,12 @@ Accepted: i5a1
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3f0ceff8-f87b-9005-4ecc-6c276fc8a8e7-A1-I5.png?raw=true)
 -> done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the game is over and red has won
--> done: CommonSteps.GameOver(Red) (0.0s)
+-> done: ValidationSteps.GameOver(Red) (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1099" name="RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" methodname="RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="79573236" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001214" asserts="0">
+                <test-case id="0-1099" name="RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" methodname="RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="326810993" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001219" asserts="0">
                   <properties>
                     <property name="Description" value="Red Moving Blessed Piece Onto Blue Home Does Not Cause Win" />
                   </properties>
@@ -2423,7 +2478,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1098" name="RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin" methodname="RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="2087258587" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001999" asserts="0">
+                <test-case id="0-1098" name="RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin" methodname="RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1852935080" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001136" asserts="0">
                   <properties>
                     <property name="Description" value="Red Moving Blessed Piece Onto Red Home Does Not Cause Win" />
                   </properties>
@@ -2441,7 +2496,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1102" name="RedWithNoLegalMovesCausesBlueWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin" methodname="RedWithNoLegalMovesCausesBlueWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="627591130" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001394" asserts="0">
+                <test-case id="0-1102" name="RedWithNoLegalMovesCausesBlueWin" fullname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin" methodname="RedWithNoLegalMovesCausesBlueWin" classname="Testing.Specflow.Features.GameRules.WinLoseRulesFeature" runstate="Runnable" seed="1004900361" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001191" asserts="0">
                   <properties>
                     <property name="Description" value="Red With No Legal Moves Causes Blue Win" />
                   </properties>
@@ -2460,11 +2515,11 @@ Given this test isn't written yet
 ]]></output>
                 </test-case>
               </test-suite>
-              <test-suite type="TestFixture" id="0-1104" name="WrapAroundRulesFeature" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" testcasecount="19" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.024528" total="19" passed="1" failed="0" warnings="0" inconclusive="18" skipped="0" asserts="6">
+              <test-suite type="TestFixture" id="0-1104" name="WrapAroundRulesFeature" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" testcasecount="19" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.023524" total="19" passed="1" failed="0" warnings="0" inconclusive="18" skipped="0" asserts="6">
                 <properties>
                   <property name="Description" value="Wrap Around Rules" />
                 </properties>
-                <test-case id="0-1115" name="BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize" methodname="BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="2093336004" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001884" asserts="0">
+                <test-case id="0-1115" name="BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize" methodname="BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1387639101" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001766" asserts="0">
                   <properties>
                     <property name="Description" value="Blessed Piece Wrapping Around and Merging Can Form Any Stack Size" />
                   </properties>
@@ -2482,7 +2537,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1121" name="BlessedPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" methodname="BlessedPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="409618320" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001266" asserts="0">
+                <test-case id="0-1121" name="BlessedPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" methodname="BlessedPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1461153026" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001120" asserts="0">
                   <properties>
                     <property name="Description" value="Blessed Piece Wrapping Around and Split Merging Can Form Any Stack Size" />
                   </properties>
@@ -2500,7 +2555,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1118" name="BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair" methodname="BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="863739927" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001184" asserts="0">
+                <test-case id="0-1118" name="BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair" methodname="BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="349622933" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001090" asserts="0">
                   <properties>
                     <property name="Description" value="Blessed Piece Wrapping Around and Splitting Leaves Bless-Curse Pair" />
                   </properties>
@@ -2518,7 +2573,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1110" name="BlessedPieceWrappingAroundOntoHomeBecomesKing" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing" methodname="BlessedPieceWrappingAroundOntoHomeBecomesKing" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1070548151" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001115" asserts="0">
+                <test-case id="0-1110" name="BlessedPieceWrappingAroundOntoHomeBecomesKing" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing" methodname="BlessedPieceWrappingAroundOntoHomeBecomesKing" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1296343546" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001105" asserts="0">
                   <properties>
                     <property name="Description" value="Blessed Piece Wrapping Around Onto Home Becomes King" />
                   </properties>
@@ -2536,7 +2591,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1107" name="BlessedPieceWrappingAroundRemainsBlessed" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed" methodname="BlessedPieceWrappingAroundRemainsBlessed" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1712725577" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001110" asserts="0">
+                <test-case id="0-1107" name="BlessedPieceWrappingAroundRemainsBlessed" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed" methodname="BlessedPieceWrappingAroundRemainsBlessed" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1789141881" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001914" asserts="0">
                   <properties>
                     <property name="Description" value="Blessed Piece Wrapping Around Remains Blessed" />
                   </properties>
@@ -2554,7 +2609,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1113" name="CursedPieceWrappingAroundAndMergingRequiresBlessedTarget" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndMergingRequiresBlessedTarget" methodname="CursedPieceWrappingAroundAndMergingRequiresBlessedTarget" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="2068563242" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001118" asserts="0">
+                <test-case id="0-1113" name="CursedPieceWrappingAroundAndMergingRequiresBlessedTarget" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndMergingRequiresBlessedTarget" methodname="CursedPieceWrappingAroundAndMergingRequiresBlessedTarget" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="525658633" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001215" asserts="0">
                   <properties>
                     <property name="Description" value="Cursed Piece Wrapping Around and Merging Requires Blessed Target" />
                   </properties>
@@ -2572,7 +2627,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1119" name="CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget" methodname="CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1935755068" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001100" asserts="0">
+                <test-case id="0-1119" name="CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget" methodname="CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1167843099" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001183" asserts="0">
                   <properties>
                     <property name="Description" value="Cursed Piece Wrapping Around and Split Merging Requires Blessed Target" />
                   </properties>
@@ -2590,7 +2645,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1116" name="CursedPieceWrappingAroundAndSplittingRemainsCursed" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplittingRemainsCursed" methodname="CursedPieceWrappingAroundAndSplittingRemainsCursed" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1682189429" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001110" asserts="0">
+                <test-case id="0-1116" name="CursedPieceWrappingAroundAndSplittingRemainsCursed" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplittingRemainsCursed" methodname="CursedPieceWrappingAroundAndSplittingRemainsCursed" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1365602671" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001195" asserts="0">
                   <properties>
                     <property name="Description" value="Cursed Piece Wrapping Around and Splitting Remains Cursed" />
                   </properties>
@@ -2608,7 +2663,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1108" name="CursedPieceWrappingAroundOntoHomeBecomesKing" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundOntoHomeBecomesKing" methodname="CursedPieceWrappingAroundOntoHomeBecomesKing" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="762361635" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001112" asserts="0">
+                <test-case id="0-1108" name="CursedPieceWrappingAroundOntoHomeBecomesKing" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundOntoHomeBecomesKing" methodname="CursedPieceWrappingAroundOntoHomeBecomesKing" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="999556138" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001226" asserts="0">
                   <properties>
                     <property name="Description" value="Cursed Piece Wrapping Around Onto Home Becomes King" />
                   </properties>
@@ -2626,7 +2681,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1105" name="CursedPieceWrappingAroundRemainsCursed" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed" methodname="CursedPieceWrappingAroundRemainsCursed" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1644051252" result="Passed" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001064" asserts="6">
+                <test-case id="0-1105" name="CursedPieceWrappingAroundRemainsCursed" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed" methodname="CursedPieceWrappingAroundRemainsCursed" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="401116513" result="Passed" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001119" asserts="6">
                   <properties>
                     <property name="Description" value="Cursed Piece Wrapping Around Remains Cursed" />
                   </properties>
@@ -2649,13 +2704,13 @@ Accepted: i5a1
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2a6a5c48-f089-fed6-fb83-39d8e8783a20-A1-I5.png?raw=true)
 -> done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
 Then the action succeeds
--> done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+-> done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 And the board has red pieces matching: A1cD12E12k3F12
 Successfully validated 8 Red pieces.
--> done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "A1cD12E12k3F12") (0.0s)
+-> done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1cD12E12k3F12") (0.0s)
 ]]></output>
                 </test-case>
-                <test-case id="0-1123" name="KingStackWrappingAroundAndSplitMergingOntoPieceRemainsBlessedAndWinsGame" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingStackWrappingAroundAndSplitMergingOntoPieceRemainsBlessedAndWinsGame" methodname="KingStackWrappingAroundAndSplitMergingOntoPieceRemainsBlessedAndWinsGame" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1868275015" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001263" asserts="0">
+                <test-case id="0-1123" name="KingStackWrappingAroundAndSplitMergingOntoPieceRemainsBlessedAndWinsGame" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingStackWrappingAroundAndSplitMergingOntoPieceRemainsBlessedAndWinsGame" methodname="KingStackWrappingAroundAndSplitMergingOntoPieceRemainsBlessedAndWinsGame" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="924648813" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001204" asserts="0">
                   <properties>
                     <property name="Description" value="King Stack Wrapping Around and Split Merging Onto Piece Remains Blessed and Wins Game" />
                   </properties>
@@ -2673,7 +2728,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1122" name="KingWrappingAroundAndMergingOntoPieceRemainsBlessedAndWinsGame" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundAndMergingOntoPieceRemainsBlessedAndWinsGame" methodname="KingWrappingAroundAndMergingOntoPieceRemainsBlessedAndWinsGame" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="366954510" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001136" asserts="0">
+                <test-case id="0-1122" name="KingWrappingAroundAndMergingOntoPieceRemainsBlessedAndWinsGame" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundAndMergingOntoPieceRemainsBlessedAndWinsGame" methodname="KingWrappingAroundAndMergingOntoPieceRemainsBlessedAndWinsGame" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="2017596590" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001239" asserts="0">
                   <properties>
                     <property name="Description" value="King Wrapping Around And Merging Onto Piece Remains Blessed and Wins Game" />
                   </properties>
@@ -2691,7 +2746,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1112" name="KingWrappingAroundOntoHomeWinsGame" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame" methodname="KingWrappingAroundOntoHomeWinsGame" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1495624593" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001189" asserts="0">
+                <test-case id="0-1112" name="KingWrappingAroundOntoHomeWinsGame" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame" methodname="KingWrappingAroundOntoHomeWinsGame" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="360429842" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001244" asserts="0">
                   <properties>
                     <property name="Description" value="King Wrapping Around Onto Home Wins Game" />
                   </properties>
@@ -2709,7 +2764,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1111" name="KingWrappingAroundOntoRegularSpaceWinsGame" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoRegularSpaceWinsGame" methodname="KingWrappingAroundOntoRegularSpaceWinsGame" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1163449214" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001216" asserts="0">
+                <test-case id="0-1111" name="KingWrappingAroundOntoRegularSpaceWinsGame" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoRegularSpaceWinsGame" methodname="KingWrappingAroundOntoRegularSpaceWinsGame" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="531942428" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001082" asserts="0">
                   <properties>
                     <property name="Description" value="King Wrapping Around Onto Regular Space Wins Game" />
                   </properties>
@@ -2727,7 +2782,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1106" name="NormalPieceWrappingAroundBecomesBlessed" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed" methodname="NormalPieceWrappingAroundBecomesBlessed" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1242015693" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001243" asserts="0">
+                <test-case id="0-1106" name="NormalPieceWrappingAroundBecomesBlessed" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed" methodname="NormalPieceWrappingAroundBecomesBlessed" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="622168569" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001070" asserts="0">
                   <properties>
                     <property name="Description" value="Normal Piece Wrapping Around Becomes Blessed" />
                   </properties>
@@ -2745,7 +2800,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1109" name="NormalPieceWrappingAroundOntoHomeBecomesKing" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundOntoHomeBecomesKing" methodname="NormalPieceWrappingAroundOntoHomeBecomesKing" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="716128813" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001299" asserts="0">
+                <test-case id="0-1109" name="NormalPieceWrappingAroundOntoHomeBecomesKing" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundOntoHomeBecomesKing" methodname="NormalPieceWrappingAroundOntoHomeBecomesKing" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1872493724" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001045" asserts="0">
                   <properties>
                     <property name="Description" value="Normal Piece Wrapping Around Onto Home Becomes King" />
                   </properties>
@@ -2763,7 +2818,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1114" name="RegularPieceWrappingAroundAndMergingCanFormAnyStackSize" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndMergingCanFormAnyStackSize" methodname="RegularPieceWrappingAroundAndMergingCanFormAnyStackSize" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="114553360" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001115" asserts="0">
+                <test-case id="0-1114" name="RegularPieceWrappingAroundAndMergingCanFormAnyStackSize" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndMergingCanFormAnyStackSize" methodname="RegularPieceWrappingAroundAndMergingCanFormAnyStackSize" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1544866743" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001040" asserts="0">
                   <properties>
                     <property name="Description" value="Regular Piece Wrapping Around and Merging Can Form Any Stack Size" />
                   </properties>
@@ -2781,7 +2836,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1120" name="RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" methodname="RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1537886529" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.002039" asserts="0">
+                <test-case id="0-1120" name="RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" methodname="RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="971490947" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001060" asserts="0">
                   <properties>
                     <property name="Description" value="Regular Piece Wrapping Around and Split Merging Can Form Any Stack Size" />
                   </properties>
@@ -2799,7 +2854,7 @@ Given this test isn't written yet
 -> error: This test isn't written yet.
 ]]></output>
                 </test-case>
-                <test-case id="0-1117" name="RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair" methodname="RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="296825935" result="Inconclusive" start-time="2020-02-02 23:16:57Z" end-time="2020-02-02 23:16:57Z" duration="0.001416" asserts="0">
+                <test-case id="0-1117" name="RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair" fullname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair" methodname="RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair" classname="Testing.Specflow.Features.GameRules.WrapAroundRulesFeature" runstate="Runnable" seed="1219421154" result="Inconclusive" start-time="2020-02-06 04:11:20Z" end-time="2020-02-06 04:11:20Z" duration="0.001089" asserts="0">
                   <properties>
                     <property name="Description" value="Regular Piece Wrapping Around and Splitting Leaves Bless-Curse Pair" />
                   </properties>

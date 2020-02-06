@@ -21,8 +21,8 @@ Run Settings
 
 Test Run Summary 
  Overall result: Passed
- Test Count: 117, Passed: 49, Failed: 0, Inconclusive: 68, Skipped: 0
- Start time: 2020-02-02 23:16:55Z
-   End time: 2020-02-02 23:16:57Z
-   Duration: 1.925 seconds
+ Test Count: 114, Passed: 47, Failed: 0, Inconclusive: 67, Skipped: 0
+ Start time: 2020-02-06 04:11:18Z
+   End time: 2020-02-06 04:11:20Z
+   Duration: 1.851 seconds
 

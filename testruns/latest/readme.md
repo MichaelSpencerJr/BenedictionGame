@@ -12,115 +12,254 @@ NUnit Version: 3.10.0.0
 
 ## Tests Which Passed
 
-### 1) Passed : Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround("E5","E6",null)
+### 1) Passed : Testing.Specflow.Features.ExampleGames.AlekSamplesFeature.AlekSampleGame1
 
 
 
-#### Given I have an empty E2 E8 board
-    Loaded empty game board with Red Home at E2 and Blue Home at E8
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
 
- -&gt; done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
-#### Given I add this red piece: E5
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/99732cc7-6515-ffb2-b253-95c12d9dd6a6.png?raw=true)
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have board NewGame
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
 
+    Loaded board NewGame.
 
- -&gt; done: SetupSteps.GivenIAddPieces(Red, "E5") (0.0s)
-#### And the current turn is RedAction1
-    Board flags set to: RedAction1
+ -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
+#### When the following moves are performed:
+  | RedAction1 | RedAction2 | BlueAction1 | BlueAction2 |
+  | - | - | - | - |
+  | e3e4       | @e3        | f8+f7       | @f8         |
+  | d1+d2      | @d1        | d7d6        | @d7         |
+  | f1+f2      | @f1        | f7f5        | @f7         |
+  | f2f4       | f4-1-f5    | d7+d6       | d6b4        |
+  | d2f3       | @f2        | b4b2        | Bc2         |
+  | f3h3       | f1+f2      | b2i5        | e9+f8       |
+  | h3h5       | h5-1-i5    | @e9         | @d7         |
+  | f4g4       | f2f4       | f8h6        | h6-1-i5     |
+  | e3+e4      | h5i5       | h6i5        | @f8         |
+  | f4d5       | e4e5       | e8+e9       | Bc7         |
+  | e1+e2      | e2e4       | f7+e7       | e7e5        |
+  | e4e5       | d5e6       | Be7         | @f7         |
+  | e5c5       | Ba5        | d8+d7       | @d8         |
+  | e6c6       | c6-1-d7    | d8d7        | @d8         |
+  | c5b4       | c6d7       |             |             |
+    Accepted: e3e4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/0f8cfc55-c7ea-8d9f-0af6-7449cf98dba1-E3-E4.png?raw=true)
 
- -&gt; done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
-#### When the red player moves the piece at E5 to E6
-    Accepted: e5e6
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/8a7e5a64-8d70-7c87-dd5a-8033eac31e00-E5-E6.png?raw=true)
+    Accepted: @e3
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5182a0c2-1497-e92b-e861-6a4831aba196-E3.png?raw=true)
 
+    Accepted: f8+f7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/246ade30-9149-6e15-1754-5c585fbe12f6-F7-F8.png?raw=true)
 
- -&gt; done: ActionSteps.WhenIMove(Red, E5, E6) (0.0s)
-#### Then the action succeeds
+    Accepted: @f8
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2a36d76d-78f8-b4d4-278b-c252c0132438-F8.png?raw=true)
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
-#### And the board has red pieces matching: E6
-    Successfully validated 1 Red piece.
+    Accepted: d1+d2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/412215e4-91f3-c0db-694a-f3c099d58ce1-D1-D2.png?raw=true)
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "E6") (0.0s)
-#### And the current turn is RedAction2
-    Board flags set to: RedAction2
+    Accepted: @d1
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/0fd5b26e-b69d-9c51-bc0f-b9a7ef11330e-D1.png?raw=true)
 
- -&gt; done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
+    Accepted: d7d6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/84bd4ce7-479a-dc84-152a-5bb470124c94-D6-D7.png?raw=true)
 
+    Accepted: @d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/892498d2-57e1-d2e1-ef39-9a26316cae87-D7.png?raw=true)
 
-### 2) Passed : Testing.Specflow.Features.GameBoard.MovementFeature.MovingNorthWithoutWrappingAround("E4","E5",null)
+    Accepted: f1+f2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e7bf8bac-aaa3-6e9c-7e05-52587c930053-F1-F2.png?raw=true)
 
+    Accepted: @f1
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d4383f3d-960a-3413-23be-45d6694e109d-F1.png?raw=true)
 
+    Accepted: f7f5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/bddc193d-3577-f592-a629-1f83b22a064c-F5-F7.png?raw=true)
 
-#### Given I have an empty E2 E8 board
-    Loaded empty game board with Red Home at E2 and Blue Home at E8
+    Accepted: @f7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/aced0ec3-c164-6d6e-7354-f84e43060853-F7.png?raw=true)
 
- -&gt; done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
-#### Given I add this red piece: E4
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f977260b-db80-81ff-874f-cf6bc707b0dc.png?raw=true)
+    Accepted: f2f4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/462d066e-518c-f89c-d13f-f33e88f35262-F2-F4.png?raw=true)
 
+    Accepted: f4-1-f5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c2deb277-8566-eaa1-a4a8-a346415328d9-F4-F5.png?raw=true)
 
- -&gt; done: SetupSteps.GivenIAddPieces(Red, "E4") (0.0s)
-#### And the current turn is RedAction1
-    Board flags set to: RedAction1
+    Accepted: d7+d6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/69c732c2-612e-1ce4-9473-0c90e71bc801-D6-D7.png?raw=true)
 
- -&gt; done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
-#### When the red player moves the piece at E4 to E5
+    Accepted: d6b4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c6a71c27-1553-a846-bc81-8d9d92103183-B4-D6.png?raw=true)
+
+    Accepted: d2f3
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/78b3e894-b5d2-99ce-2981-0a7bb28d0f08-D2-F3.png?raw=true)
+
+    Accepted: @f2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e85ac896-837e-daf4-083a-9c1ab03d5074-F2.png?raw=true)
+
+    Accepted: b4b2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9e7ceb29-67d3-42a8-a381-3d4862c708ed-B2-B4.png?raw=true)
+
+    Accepted: Bc2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/698df008-1472-7591-fd72-de4de7b099b0-C2.png?raw=true)
+
+    Accepted: f3h3
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/7100041e-bc5d-3007-f3ba-56ea4f1226c7-F3-H3.png?raw=true)
+
+    Accepted: f1+f2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ba82f962-da6e-8719-7031-45bc05c4710b-F1-F2.png?raw=true)
+
+    Accepted: b2i5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/20e8f512-0ebe-3bbf-fabc-cff2d32943ef-B2-I5.png?raw=true)
+
+    Accepted: e9+f8
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/add6a93f-195a-0629-b65f-c3e3645c0956-E9-F8.png?raw=true)
+
+    Accepted: h3h5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/832c0e80-803e-b6ad-fdb1-e26b1d0d7881-H3-H5.png?raw=true)
+
+    Accepted: h5-1-i5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c113ab50-fda5-5a8a-72ad-a000f7b851ae-H5-I5.png?raw=true)
+
+    Accepted: @e9
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/977ba4fe-26c4-2cd8-87f1-9f122b0f604b-E9.png?raw=true)
+
+    Accepted: @d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/70a1c945-25ab-f152-3284-e3548ff809de-D7.png?raw=true)
+
+    Accepted: f4g4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4ed658a3-82f5-05cc-130f-4d5b299ec475-F4-G4.png?raw=true)
+
+    Accepted: f2f4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9a59a1cf-68e1-38bd-b59b-930ed2d4e622-F2-F4.png?raw=true)
+
+    Accepted: f8h6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/417e5ae0-f267-6403-df0a-83e1b767b344-F8-H6.png?raw=true)
+
+    Accepted: h6-1-i5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/13576040-16af-1bc1-00a6-970cceb0e638-H6-I5.png?raw=true)
+
+    Accepted: e3+e4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ca93e6b4-e3dd-2bd6-5653-7c8201d9aa71-E3-E4.png?raw=true)
+
+    Accepted: h5i5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3236547e-9a18-c636-96b9-01f0e11d2247-H5-I5.png?raw=true)
+
+    Accepted: h6i5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/1c5feb37-70fa-fefa-91be-3b7ffbcfb2d0-H6-I5.png?raw=true)
+
+    Accepted: @f8
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b2030054-cefb-f25d-6ebf-e30e4cb54a55-F8.png?raw=true)
+
+    Accepted: f4d5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/7f538c98-0659-e305-dc48-67af7a44eb0e-D5-F4.png?raw=true)
+
     Accepted: e4e5
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f2a17dbc-ea88-715b-c29d-547ce78ff822-E4-E5.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/7a31c5a1-7013-00f7-586c-51fa1261e3be-E4-E5.png?raw=true)
+
+    Accepted: e8+e9
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5486a738-3525-064a-e505-dcf19f7d1bce-E8-E9.png?raw=true)
+
+    Accepted: Bc7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b2e8be61-98e6-d12e-256c-263987c6292a-C7.png?raw=true)
+
+    Accepted: e1+e2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ec3d4e52-f68c-5330-4572-e506aa1c025d-E1-E2.png?raw=true)
+
+    Accepted: e2e4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/667a0689-0074-5026-3f4b-18e2b2c8ce22-E2-E4.png?raw=true)
+
+    Accepted: f7+e7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ff4bb56e-3e38-6c84-f248-184b56308161-E7-F7.png?raw=true)
+
+    Accepted: e7e5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ecb771ba-e27c-698b-940b-29d18f3dcf6a-E5-E7.png?raw=true)
+
+    Accepted: e4e5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/cce4a8ab-151d-b2bd-1fe7-42ca6713778f-E4-E5.png?raw=true)
+
+    Accepted: d5e6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/949af7e8-dbbe-a07a-79e9-69db64804c02-D5-E6.png?raw=true)
+
+    Accepted: Be7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/05ce5c65-06c6-c9c7-ed69-e05b5a54514c-E7.png?raw=true)
+
+    Accepted: @f7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/08eb9363-2960-f18d-5269-e4046a2cf59f-F7.png?raw=true)
+
+    Accepted: e5c5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/df666ba2-e203-2ac2-be49-4434e496a98f-C5-E5.png?raw=true)
+
+    Accepted: Ba5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c00cc2d-d800-9fed-78f9-e9d23938ed1a-A5.png?raw=true)
+
+    Accepted: d8+d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a35d3439-ec84-af0f-b7b2-a4187037965b-D7-D8.png?raw=true)
+
+    Accepted: @d8
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ac999153-ca4b-8acb-2b0b-c24140bb2466-D8.png?raw=true)
+
+    Accepted: e6c6
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d23babbf-5b8d-b756-2c94-fa3af912fe37-C6-E6.png?raw=true)
+
+    Accepted: c6-1-d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/32d32974-62f4-755d-7a03-38ea67beccc6-C6-D7.png?raw=true)
+
+    Accepted: d8d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/97338497-3862-93ee-e843-38e4260b4082-D7-D8.png?raw=true)
+
+    Accepted: @d8
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/325e409a-1c86-89f9-525b-9b863dc08392-D8.png?raw=true)
+
+    Accepted: c5b4
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/55eed42c-b69b-8cfe-df94-34ac94b045c0-B4-C5.png?raw=true)
+
+    Accepted: c6d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/fa0292c9-9df4-c4b7-986e-45d432ea12e9-C6-D7.png?raw=true)
 
 
- -&gt; done: ActionSteps.WhenIMove(Red, E4, E5) (0.0s)
-#### Then the action succeeds
+ -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.1s)
+#### Then the following locations match:
+  | Location | Contents | Size | Type   |
+  | - | - | - | - |
+  | A5       | Block    |      |        |
+  | C7       | Block    |      |        |
+  | C2       | Block    |      |        |
+  | E7       | Block    |      |        |
+  | D1       | Red      | 1    | Normal |
+  | B4       | Red      | 2    | King   |
+  | D7       | Red      | 1    | Cursed |
+  | F5       | Red      | 1    | Cursed |
+  | G4       | Red      | 1    | Cursed |
+  | D8       | Blue     | 1    | Normal |
+  | E9       | Blue     | 2    | King   |
+  | F7       | Blue     | 1    | Normal |
+  | F8       | Blue     | 1    | Normal |
+  | I5       | Blue     | 1    | Cursed |
+    A5 OK
+    C7 OK
+    C2 OK
+    E7 OK
+    D1 OK
+    B4 OK
+    D7 OK
+    F5 OK
+    G4 OK
+    D8 OK
+    E9 OK
+    F7 OK
+    F8 OK
+    I5 OK
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
-#### And the board has red pieces matching: E5
-    Successfully validated 1 Red piece.
-
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "E5") (0.0s)
-#### And the current turn is RedAction2
-    Board flags set to: RedAction2
-
- -&gt; done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
-
-
-### 3) Passed : Testing.Specflow.Features.GameBoard.MovementFeature.SingleMoveNorth
-
-
-
-#### Given I have an empty E2 E8 board
-    Loaded empty game board with Red Home at E2 and Blue Home at E8
-
- -&gt; done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
-#### Given I add this red piece: E5
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/99732cc7-6515-ffb2-b253-95c12d9dd6a6.png?raw=true)
-
-
- -&gt; done: SetupSteps.GivenIAddPieces(Red, "E5") (0.0s)
-#### And the current turn is RedAction1
-    Board flags set to: RedAction1
-
- -&gt; done: CommonSteps.GivenTheCurrentTurnIsRed(RedAction1) (0.0s)
-#### When the red player moves the piece at E5 to E6
-    Accepted: e5e6
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/8a7e5a64-8d70-7c87-dd5a-8033eac31e00-E5-E6.png?raw=true)
-
-
- -&gt; done: ActionSteps.WhenIMove(Red, E5, E6) (0.0s)
-#### Then the action succeeds
-
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
-#### And the board has red pieces matching: E6
-    Successfully validated 1 Red piece.
-
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "E6") (0.0s)
-#### And the current turn is RedAction2
-    Board flags set to: RedAction2
-
- -&gt; done: CommonSteps.ThenTheCurrentTurnIsRed(RedAction2) (0.0s)
+ -&gt; done: ValidationSteps.ThenTheFollowingLocationsMatch(&lt;table&gt;) (0.0s)
 
 
-### 4) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockHappyPath
+### 2) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockHappyPath
 
 
 
@@ -146,14 +285,14 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIBlockade(Red, A1) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has blocks matching: A1
     Successfully validated 1 block.
 
- -&gt; done: CommonSteps.ThenTheBoardHasBlocksMatching("A1") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasBlocksMatching("A1") (0.0s)
 
 
-### 5) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockMaximum
+### 3) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockMaximum
 
 
 
@@ -242,10 +381,10 @@ NUnit Version: 3.10.0.0
 #### Then the board has blocks matching: A24B16C35D27E1469F27G35H16I24
     Successfully validated 20 blocks.
 
- -&gt; done: CommonSteps.ThenTheBoardHasBlocksMatching("A24B16C35D27E1469...") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasBlocksMatching("A24B16C35D27E1469...") (0.0s)
 
 
-### 6) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockAdjacentAnotherBlock
+### 4) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockAdjacentAnotherBlock
 
 
 
@@ -269,7 +408,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIBlockade(Red, E3) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### When the red player blocks e4
     Rejected: Be4: Cannot Block Adjacent Existing Block E3
 
@@ -277,14 +416,14 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Cannot Block Adjacent Existing Block E3
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 #### And the board has blocks matching: E3
     Successfully validated 1 block.
 
- -&gt; done: CommonSteps.ThenTheBoardHasBlocksMatching("E3") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasBlocksMatching("E3") (0.0s)
 
 
-### 7) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockHomeSpace
+### 5) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockHomeSpace
 
 
 
@@ -307,7 +446,7 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Cannot Block Red Home at Location E2
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 #### When the red player blocks e8
     Rejected: Be8: Cannot Block Blue Home at Location E8
 
@@ -315,10 +454,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Cannot Block Blue Home at Location E8
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 8) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockOccupiedSpace
+### 6) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockOccupiedSpace
 
 
 
@@ -343,10 +482,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location E3 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 9) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeCannotBlessCursedPieces
+### 7) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeCannotBlessCursedPieces
 
 
 
@@ -376,14 +515,14 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenISplit(Red, 2, F6, H4) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has red pieces matching: D12E12k3F6cG1c+2cH2c3c4b+5c6c
     Successfully validated 13 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F6cG1c+2c...") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F6cG1c+2c...") (0.0s)
 
 
-### 10) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath
+### 8) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath
 
 
 
@@ -414,10 +553,10 @@ NUnit Version: 3.10.0.0
 #### Then the board has red pieces matching: C1b2bD3bE12k4bF124bG4bH4bI4b5b
     Successfully validated 13 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "C1b2bD3bE12k4bF12...") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "C1b2bD3bE12k4bF12...") (0.0s)
 
 
-### 11) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeMaximum
+### 9) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeMaximum
 
 
 
@@ -447,17 +586,17 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIDrop(Red, D2) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the game is over and red has won
 
- -&gt; done: CommonSteps.GameOver(Red) (0.0s)
+ -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 #### And the board has red pieces matching: A1b4bB2b4b5bC2b4b6bD2b4b6b8bE2kb4b6b8kbF2b4b6b7bG2b4b6bH2b4bI2b3b
     Successfully validated 27 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "A1b4bB2b4b5bC2b4b...") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1b4bB2b4b5bC2b4b...") (0.0s)
 
 
-### 12) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeWithWrongColorCriticalPiece
+### 10) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeWithWrongColorCriticalPiece
 
 
 
@@ -487,18 +626,18 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIMove(Blue, G4, H4) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has blue pieces matching: E8kH4
     Successfully validated 2 Blue pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Blue, "E8kH4") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Blue, "E8kH4") (0.0s)
 #### And the board has red pieces matching: D12E12k3F12G2H2356
     Successfully validated 12 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F12G2H2356") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F12G2H2356") (0.0s)
 
 
-### 13) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.HomeDropCompletingBridgeWinsGame
+### 11) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.HomeDropCompletingBridgeWinsGame
 
 
 
@@ -528,17 +667,17 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIDrop(Red, E2) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has red pieces matching: A1kE1b2kb3b4b5bF5bG5bH5bI5b
     Successfully validated 10 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "A1kE1b2kb3b4b5bF5...") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1kE1b2kb3b4b5bF5...") (0.0s)
 #### And the game is over and red has won
 
- -&gt; done: CommonSteps.GameOver(Red) (0.0s)
+ -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 14) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent
+### 12) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent
 
 
 
@@ -568,14 +707,14 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenISplit(Red, 1, G5, H4) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has red pieces matching: D1b2bE1b2kb3bF1b2bG2b5bH2b3b4b5b6b
     Successfully validated 14 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
 
 
-### 15) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent
+### 13) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent
 
 
 
@@ -605,14 +744,14 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenISplit(Red, 2, F6, H4) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has red pieces matching: D1b2bE1b2kb3bF1b2b6cG2bH2b3b4b+5b6b
     Successfully validated 14 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
 
 
-### 16) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoBlock
+### 14) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoBlock
 
 
 
@@ -642,10 +781,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location E3 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 17) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoOccupiedSpace
+### 15) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoOccupiedSpace
 
 
 
@@ -670,10 +809,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location E3 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 18) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone
+### 16) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone
 
 
 
@@ -698,10 +837,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Drop Must Be Adjacent Your Home At E2
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 19) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath
+### 17) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath
 
 
 
@@ -727,7 +866,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIMerge(Red, E3, F2) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### When the red player drops a new piece at e3
     Accepted: @e3
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/290c59e7-37b9-974f-069c-26f19bc400fb-E3.png?raw=true)
@@ -736,10 +875,10 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIDrop(Red, E3) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 
 
-### 20) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.HomeDropBecomesKing
+### 18) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.HomeDropBecomesKing
 
 
 
@@ -769,14 +908,14 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIDrop(Red, E2) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has red pieces matching: D12E12k3kF12
     Successfully validated 7 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3kF12") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3kF12") (0.0s)
 
 
-### 21) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.CannotBlockOwnKing
+### 19) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.CannotBlockOwnKing
 
 
 
@@ -800,10 +939,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Cannot Block Red Home at Location E2
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 22) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadAPreviouslyCreatedBoard
+### 20) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadAPreviouslyCreatedBoard
 
 
 
@@ -824,7 +963,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: SetupSteps.GivenIHaveNamedBoard("WeirdSituation1") (0.0s)
 
 
-### 23) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadASavedBoard
+### 21) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadASavedBoard
 
 
 
@@ -850,7 +989,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
 
 
-### 24) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.MergeSplitMergeDoesntCreatePieces
+### 22) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.MergeSplitMergeDoesntCreatePieces
 
 
 
@@ -888,10 +1027,10 @@ NUnit Version: 3.10.0.0
 #### Then the board has red pieces matching: D12+E12k3F1
     Successfully validated 6 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12+E12k3F1") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12+E12k3F1") (0.0s)
 
 
-### 25) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d1",null)
+### 23) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d1",null)
 
 
 
@@ -921,10 +1060,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location D1 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 26) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d2",null)
+### 24) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d2",null)
 
 
 
@@ -954,10 +1093,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location D2 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 27) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e1",null)
+### 25) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e1",null)
 
 
 
@@ -987,10 +1126,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location E1 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 28) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e2",null)
+### 26) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e2",null)
 
 
 
@@ -1020,10 +1159,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location E2 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 29) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e3",null)
+### 27) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e3",null)
 
 
 
@@ -1053,10 +1192,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location E3 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 30) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f1",null)
+### 28) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f1",null)
 
 
 
@@ -1086,10 +1225,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location F1 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 31) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f2",null)
+### 29) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f2",null)
 
 
 
@@ -1119,10 +1258,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location F2 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 32) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d7",null)
+### 30) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d7",null)
 
 
 
@@ -1152,10 +1291,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location D7 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 33) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d8",null)
+### 31) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d8",null)
 
 
 
@@ -1185,10 +1324,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location D8 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 34) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e7",null)
+### 32) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e7",null)
 
 
 
@@ -1218,10 +1357,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location E7 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 35) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e8",null)
+### 33) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e8",null)
 
 
 
@@ -1251,10 +1390,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location E8 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 36) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e9",null)
+### 34) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e9",null)
 
 
 
@@ -1284,10 +1423,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location E9 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 37) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f7",null)
+### 35) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f7",null)
 
 
 
@@ -1317,10 +1456,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location F7 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 38) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f8",null)
+### 36) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f8",null)
 
 
 
@@ -1350,10 +1489,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Location F8 Not Empty
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 39) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves
+### 37) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves
 
 
 
@@ -1414,7 +1553,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenISplit(Red, 1, E3, D2) (0.0s)
 
 
-### 40) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_ShortNotation
+### 38) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_ShortNotation
 
 
 
@@ -1475,7 +1614,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenDoes(Red, "e3-1-d2") (0.0s)
 
 
-### 41) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_TableNotation
+### 39) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_TableNotation
 
 
 
@@ -1635,7 +1774,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.0s)
 
 
-### 42) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard
+### 40) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard
 
 
 
@@ -1664,7 +1803,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: SetupSteps.GivenIAddPieces(Blue, "D45+E56k7F5++++6+...") (0.0s)
 
 
-### 43) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath
+### 41) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath
 
 
 
@@ -1690,10 +1829,10 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIMerge(Red, E3, F2) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 
 
-### 44) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed
+### 42) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed
 
 
 
@@ -1719,7 +1858,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIMove(Red, E3, E4) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### When the red player moves the piece at e4 to e5
     Rejected: e4e5: Piece at E4 Has Already Moved This Turn
 
@@ -1727,10 +1866,10 @@ NUnit Version: 3.10.0.0
 #### Then the action fails
     Failed with: Piece at E4 Has Already Moved This Turn
 
- -&gt; done: CommonSteps.ThenTheActionFails() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 45) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath
+### 43) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath
 
 
 
@@ -1760,14 +1899,14 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenISplit(Red, 1, E6, E7) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has red pieces matching: D12E12k6c7cF1
     Successfully validated 7 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k6c7cF1") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k6c7cF1") (0.0s)
 
 
-### 46) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath
+### 44) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath
 
 
 
@@ -1799,14 +1938,14 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenISplit(Red, 1, F2, F1) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has red pieces matching: D12E12kF1+2
     Successfully validated 6 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF1+2") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF1+2") (0.0s)
 
 
-### 47) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath
+### 45) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath
 
 
 
@@ -1838,14 +1977,14 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenISplit(Red, 1, F2, F3) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has red pieces matching: D12E12kF12c3c
     Successfully validated 7 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF12c3c") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF12c3c") (0.0s)
 
 
-### 48) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
+### 46) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
 
 
 
@@ -1875,13 +2014,13 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the game is over and red has won
 
- -&gt; done: CommonSteps.GameOver(Red) (0.0s)
+ -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 49) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
+### 47) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
 
 
 
@@ -1912,11 +2051,11 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
 #### Then the action succeeds
 
- -&gt; done: CommonSteps.ThenTheActionSucceeds() (0.0s)
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 #### And the board has red pieces matching: A1cD12E12k3F12
     Successfully validated 8 Red pieces.
 
- -&gt; done: CommonSteps.ThenTheBoardHasPiecesMatching(Red, "A1cD12E12k3F12") (0.0s)
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1cD12E12k3F12") (0.0s)
 
 
 ## Run Settings
@@ -1939,11 +2078,11 @@ NUnit Version: 3.10.0.0
 
  Overall result: Passed
 
- Test Count: 117, Passed: 49, Failed: 0, Inconclusive: 68, Skipped: 0
+ Test Count: 114, Passed: 47, Failed: 0, Inconclusive: 67, Skipped: 0
 
- Start time: 2020-02-02 23:16:55Z
+ Start time: 2020-02-06 04:11:18Z
 
-   End time: 2020-02-02 23:16:57Z
+   End time: 2020-02-06 04:11:20Z
 
-   Duration: 1.925 seconds
+   Duration: 1.851 seconds
 

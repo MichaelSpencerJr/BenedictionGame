@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 using TechTalk.SpecFlow.Bindings;
+using Testing.SpecFlow.Hooks;
 
 namespace Testing.SpecFlow.Hooks
 {

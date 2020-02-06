@@ -80,16 +80,16 @@ namespace Testing.Specflow.Features.GameRules
         {
 #line 7
 #line hidden
-            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
                         "New Game Board"});
-            table24.AddRow(new string[] {
+            table27.AddRow(new string[] {
                         "Benediction v1: R-E2 B E8"});
-            table24.AddRow(new string[] {
+            table27.AddRow(new string[] {
                         "R:D12E12k3F12"});
-            table24.AddRow(new string[] {
+            table27.AddRow(new string[] {
                         "B:D78E78k9F78"});
 #line 8
- testRunner.Given("I define board NewGame as:", ((string)(null)), table24, "Given ");
+ testRunner.Given("I define board NewGame as:", ((string)(null)), table27, "Given ");
 #line hidden
         }
         
@@ -170,16 +170,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table25.AddRow(new string[] {
+                table28.AddRow(new string[] {
                             "Benediction v1: R=E2 B E8"});
-                table25.AddRow(new string[] {
+                table28.AddRow(new string[] {
                             "R:D12E12k6+F1"});
-                table25.AddRow(new string[] {
+                table28.AddRow(new string[] {
                             "B:D78E78k9F5+"});
 #line 23
- testRunner.Given("I load this board:", ((string)(null)), table25, "Given ");
+ testRunner.Given("I load this board:", ((string)(null)), table28, "Given ");
 #line hidden
 #line 28
  testRunner.When("the red player splits 1 piece from e6 onto e7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

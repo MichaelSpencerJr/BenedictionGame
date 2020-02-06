@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 
-namespace Testing.Specflow.Common
+namespace Testing.SpecFlow.Common
 {
     [Binding]
     public sealed class ControllerSteps

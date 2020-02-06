@@ -79,16 +79,16 @@ namespace Testing.Specflow.Features.GameRules
         {
 #line 6
 #line hidden
-            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
                         "New Game Board"});
-            table11.AddRow(new string[] {
+            table14.AddRow(new string[] {
                         "Benediction v1: R-E2 B E8"});
-            table11.AddRow(new string[] {
+            table14.AddRow(new string[] {
                         "R:D12E12k3F12"});
-            table11.AddRow(new string[] {
+            table14.AddRow(new string[] {
                         "B:D78E78k9F78"});
 #line 7
- testRunner.Given("I define board NewGame as:", ((string)(null)), table11, "Given ");
+ testRunner.Given("I define board NewGame as:", ((string)(null)), table14, "Given ");
 #line hidden
         }
         
@@ -211,18 +211,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table12.AddRow(new string[] {
+                table15.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
-                table12.AddRow(new string[] {
+                table15.AddRow(new string[] {
                             "R:D12E12kF12"});
-                table12.AddRow(new string[] {
+                table15.AddRow(new string[] {
                             "B:D78E78k9F78"});
-                table12.AddRow(new string[] {
+                table15.AddRow(new string[] {
                             "X:E3"});
 #line 28
- testRunner.Given("I load this board:", ((string)(null)), table12, "Given ");
+ testRunner.Given("I load this board:", ((string)(null)), table15, "Given ");
 #line hidden
 #line 34
  testRunner.When("the red player drops a new piece at e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -305,16 +305,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table13.AddRow(new string[] {
+                table16.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
-                table13.AddRow(new string[] {
+                table16.AddRow(new string[] {
                             "R:D12E13kF12"});
-                table13.AddRow(new string[] {
+                table16.AddRow(new string[] {
                             "B:D78E78k9F78"});
 #line 44
- testRunner.Given("I load this board:", ((string)(null)), table13, "Given ");
+ testRunner.Given("I load this board:", ((string)(null)), table16, "Given ");
 #line hidden
 #line 49
  testRunner.When("the red player drops a new piece at e2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

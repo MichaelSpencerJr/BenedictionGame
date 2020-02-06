@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Testing.Specflow.Properties {
+namespace Testing.SpecFlow.Properties {
     using System;
     
     

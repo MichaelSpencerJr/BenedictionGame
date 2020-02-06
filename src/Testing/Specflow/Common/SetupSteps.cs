@@ -8,7 +8,7 @@ using NUnit.Framework;
 using TechTalk.SpecFlow;
 using Testing.SpecFlow.Context;
 
-namespace Testing.Specflow.Common
+namespace Testing.SpecFlow.Common
 {
     [Binding]
     public sealed class SetupSteps

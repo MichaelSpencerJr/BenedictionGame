@@ -9,7 +9,7 @@ using TechTalk.SpecFlow;
 using Testing.SpecFlow.Context;
 using TechTalk.SpecFlow.Assist;
 
-namespace Testing.Specflow.Common
+namespace Testing.SpecFlow.Common
 {
     [Binding]
     public sealed class ActionSteps

@@ -165,7 +165,6 @@
     <Compile Include="Common\ViewSteps.cs" />
     <Compile Include="Context\BoardStateContext.cs" />
     <Compile Include="Context\GameStateContext.cs" />
-    <Compile Include="Features\GameBoard\MovementBindings.cs" />
     <Compile Include="Hooks\FeatureHooks.cs" />
     <Compile Include="Mock\MockController.cs" />
     <Compile Include="Mock\MockModel.cs" />
@@ -179,7 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Features\GameBoard\Movement.feature" />
+    <None Include="Features\ExampleGames\AlekSamples.feature" />
     <None Include="Features\GameRules\BlockRules.feature" />
     <None Include="Features\GameRules\BridgeRules.feature" />
     <None Include="Features\GameRules\DropRules.feature" />
