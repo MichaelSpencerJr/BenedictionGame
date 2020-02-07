@@ -30,7 +30,7 @@ Scenario: Blue King Passing Red Wall Causes Blue Win
 	|B:A2k+D5+E9F78		   |
 	|X:B2D4F4                  |
 	When the red player moves the piece at a2 to a5
-	then the action succeeds
+	Then the action succeeds
 	And the game is over and blue has won
 
 
@@ -85,7 +85,7 @@ Scenario: Red Joining King To Existing Chain Causes Red Win
 	|Benediction v1: R-E2 B E8 |
 	|R:F2k+I1b2b3b+4c5c	   |
 	|B:A1c2c4+5+E8k		   |
-	When the red player moves the piece from to f2 to h2 
+	When the red player moves the piece from f2 to h2 
 	Then the action succeeds 
 	And the game is over and red has won
 

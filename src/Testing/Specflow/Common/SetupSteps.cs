@@ -47,6 +47,7 @@ namespace Testing.SpecFlow.Common
         }
 
         [Given(@"I load this board:")]
+        [Given(@"I load this board")]
         public void GivenILoad(Table table)
         {
             var boardText = string.Join("\r\n", table.Rows.Select(tr => tr[0]));

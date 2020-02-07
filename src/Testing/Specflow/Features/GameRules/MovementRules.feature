@@ -121,5 +121,5 @@ Scenario: Move Through Wall Is Assumed If Possible
 	|B:B3+++D8E8k9F78	   |
 	|X:E5F6G3		   |
 	When the blue player moves the piece at b3 to b5
-	There should be a blue four-stack with a blessing on b5
+	Then there should be a blue four-stack with a blessing on b5
 	

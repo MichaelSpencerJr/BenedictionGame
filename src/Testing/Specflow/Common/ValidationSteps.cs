@@ -53,6 +53,7 @@ namespace Testing.SpecFlow.Common
             Console.WriteLine($"Failed with: {_context.LastMessage}");
         }
 
+        [Then(@"the board has (.*) pieces matching (.*)")]
         [Then(@"the board has (.*) pieces matching: (.*)")]
         public void ThenTheBoardHasPiecesMatching(ActionSide side, string definition)
         {
@@ -181,6 +182,129 @@ namespace Testing.SpecFlow.Common
                 $"{success} Success{(success == 1 ? "" : "es")} and {failure} " +
                 $"Failure{(failure == 1 ? "" : "s")} out of {count} Total.");
         }
+
+        [Then(@"there should be a (.*) (.*)-stack on (.*)")]
+        [Then(@"there should be a (.*) (.*) stack on (.*)")]
+        public void ThenThereShouldBe(ActionSide side, string countWord, Location location)
+        {
+            var validation = ValidateLocationSideCountInternal(side, countWord, location);
+
+            var sb = new StringBuilder();
+            Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
+        }
+
+        //there should be a blue king on e(.*) without any blessing
+        [Then(@"there should be a (.*) (.*)-stack king on (.*)")]
+        [Then(@"there should be a (.*) (.*) stack king on (.*)")]
+        [Then(@"there should be a (.*) (.*)-stack king on (.*) without any blessing")]
+        [Then(@"there should be a (.*) (.*) stack king on (.*) without any blessing")]
+        public void ThenThereShouldBeKing(ActionSide side, string countWord, Location location)
+        {
+            var validation = ValidateLocationSideCountInternal(side, countWord, location);
+            validation.Type = ValidationFlag.King;
+            var sb = new StringBuilder();
+            Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
+        }
+
+        //there should be a blue king on e(.*) without any blessing
+        [Then(@"there should be a (.*) king on (.*)")]
+        [Then(@"there should be a (.*) king on (.*) without any blessing")]
+        public void ThenThereShouldBeKingNoSize(ActionSide side, Location location)
+        {
+            var validation = ValidateLocationSideCountInternal(side, "no", location);
+            validation.Type = ValidationFlag.King;
+            validation.Size = null;
+            var sb = new StringBuilder();
+            Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
+        }
+
+        [Then(@"there should be a (.*)-stack king on (.*)")]
+        [Then(@"there should be a (.*) stack king on (.*)")]
+        [Then(@"there should be a (.*)-stack king on (.*) without any blessing")]
+        [Then(@"there should be a (.*) stack king on (.*) without any blessing")]
+        public void ThenThereShouldBeKingNoColor(string countWord, Location location)
+        {
+            var validation = ValidateLocationSideCountInternal(ActionSide.Red, countWord, location);
+            validation.Type = ValidationFlag.King;
+            validation.Contents = ValidationPiece.AnyColor;
+            var sb = new StringBuilder();
+            Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
+        }
+        
+        [Then(@"there should be a (.*) (.*)-stack blessed king on (.*)")]
+        [Then(@"there should be a (.*) (.*) stack blessed king on (.*)")]
+        [Then(@"there should be a (.*) (.*)-stack king with a blessing on (.*)")]
+        [Then(@"there should be a (.*) (.*) stack king with a blessing on (.*)")]
+        public void ThenThereShouldBeBlessedKing(ActionSide side, string countWord, Location location)
+        {
+            var validation = ValidateLocationSideCountInternal(side, countWord, location);
+            validation.Type = ValidationFlag.BlessedKing;
+            var sb = new StringBuilder();
+            Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
+        }
+
+        
+        [Then(@"there should be a blessed (.*) (.*)-stack on (.*)")]
+        [Then(@"there should be a blessed (.*) (.*) stack on (.*)")]
+        [Then(@"there should be a (.*) blessed (.*)-stack on (.*)")]
+        [Then(@"there should be a (.*) blessed (.*) stack on (.*)")]
+        [Then(@"there should be a (.*) (.*)-stack with a blessing on (.*)")]
+        [Then(@"there should be a (.*) (.*) stack with a blessing on (.*)")]
+        public void ThenThereShouldBeBlessed(ActionSide side, string countWord, Location location)
+        {
+            var validation = ValidateLocationSideCountInternal(side, countWord, location);
+            validation.Type = ValidationFlag.Blessed;
+            var sb = new StringBuilder();
+            Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
+        }
+
+        
+        [Then(@"there should be a cursed (.*) (.*)-stack on (.*)")]
+        [Then(@"there should be a cursed (.*) (.*) stack on (.*)")]
+        [Then(@"there should be a (.*) cursed (.*)-stack on (.*)")]
+        [Then(@"there should be a (.*) cursed (.*) stack on (.*)")]
+        [Then(@"there should be a (.*) (.*)-stack with a curse on (.*)")]
+        [Then(@"there should be a (.*) (.*) stack with a curse on (.*)")]
+        public void ThenThereShouldBeCursed(ActionSide side, string countWord, Location location)
+        {
+            var validation = ValidateLocationSideCountInternal(side, countWord, location);
+            validation.Type = ValidationFlag.Cursed;
+            var sb = new StringBuilder();
+            Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
+        }
+
+        private static ValidationType ValidateLocationSideCountInternal(ActionSide side, string countWord, Location location)
+        {
+            var count = CommonSteps.ParseWordNumber(countWord);
+            var validation = new ValidationType {Location = location, Size = count, Type = ValidationFlag.Normal};
+            if (side == ActionSide.Blue)
+            {
+                validation.Contents = ValidationPiece.Blue;
+            }
+            else if (side == ActionSide.Red)
+            {
+                validation.Contents = ValidationPiece.Red;
+            }
+
+            return validation;
+        }
+
+        [Then(@"there should be a (.*) piece on (.*)")]
+        public void ThenThereShouldBe(ActionSide side, Location location) => ThenThereShouldBe(side, "one", location);
+
+        [Then(@"there should not be any (.*) pieces on (.*)")]
+        public void ThenThereShouldNotBeAny(ActionSide side, Location location)
+        {
+            var contents = _context.BoardState[location];
+            if (side == ActionSide.Blue)
+            {
+                Assert.IsFalse(contents.BluePiece(), $"{location} unexpectedly did contain a blue piece.");
+            }
+            else if (side == ActionSide.Red)
+            {
+                Assert.IsFalse(contents.RedPiece(), $"{location} unexpectedly did contain a red piece.");
+            }
+        }
     }
 
     public static class Validation
@@ -275,6 +399,9 @@ namespace Testing.SpecFlow.Common
                         expected = Cell.Block;
                         mask = ~(Cell) 0;
                         break;
+                    case ValidationPiece.AnyColor:
+                        mask |= Cell.Block;
+                        break;
                 }
             }
 
@@ -298,7 +425,8 @@ namespace Testing.SpecFlow.Common
         Empty,
         Red,
         Blue,
-        Block
+        Block,
+        AnyColor
     }
 
     public enum ValidationFlag

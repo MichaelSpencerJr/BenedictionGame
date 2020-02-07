@@ -55,6 +55,120 @@
         <li>F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll</li>
       </ol>
     </div>
+    <h4>Errors and Failures</h4>
+    <ol>
+      <li>
+        <pre>Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin<br />  Expected: RedWin
+  But was:  Undefined
+<br />   at Testing.SpecFlow.Common.ValidationSteps.GameOver(ActionSide side) in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 149
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
+   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.ScenarioCleanup()
+   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WinLoseRules.feature:line 80
+</pre>
+      </li>
+      <li>
+        <pre>Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin<br />  Expected: null
+  But was:  "Source A2 Is Not Your Piece and Cannot Be Moved By Red"
+<br />   at Testing.SpecFlow.Common.ValidationSteps.ThenTheActionSucceeds() in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 46
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
+   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.ScenarioCleanup()
+   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WinLoseRules.feature:line 34
+</pre>
+      </li>
+      <li>
+        <pre>Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin<br />  The game is still in progress: BlueAction2
+  Expected: True
+  But was:  False
+<br />   at Testing.SpecFlow.Common.ValidationSteps.GameOver(ActionSide side) in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 144
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
+   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.ScenarioCleanup()
+   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WinLoseRules.feature:line 170
+</pre>
+      </li>
+      <li>
+        <pre>Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin<br />  The game is still in progress: RedAction2
+  Expected: True
+  But was:  False
+<br />   at Testing.SpecFlow.Common.ValidationSteps.GameOver(ActionSide side) in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 144
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
+   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.ScenarioCleanup()
+   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WinLoseRules.feature:line 158
+</pre>
+      </li>
+      <li>
+        <pre>Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing<br />  Expected: null
+  But was:  "Destination E2 Is Your Own Piece and Cannot Be Moved Onto By Red"
+<br />   at Testing.SpecFlow.Common.ValidationSteps.ThenTheActionSucceeds() in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 46
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
+   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
+   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 72
+</pre>
+      </li>
+      <li>
+        <pre>Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed<br />  Expected: null
+  But was:  "Source I5 is Empty and Cannot Be Moved"
+<br />   at Testing.SpecFlow.Common.ValidationSteps.ThenTheActionSucceeds() in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 46
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
+   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
+   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 38
+</pre>
+      </li>
+      <li>
+        <pre>Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed<br />  Expected: null
+  But was:  "Source I5 is Empty and Cannot Be Moved"
+<br />   at Testing.SpecFlow.Common.ValidationSteps.ThenTheActionSucceeds() in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 46
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
+   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
+   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 22
+</pre>
+      </li>
+      <li>
+        <pre>Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame<br />  The game is still in progress: BlueAction1
+  Expected: True
+  But was:  False
+<br />   at Testing.SpecFlow.Common.ValidationSteps.GameOver(ActionSide side) in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 144
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
+   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
+   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 96
+</pre>
+      </li>
+      <li>
+        <pre>Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed<br />  Expected: null
+  But was:  "Source I5 is Empty and Cannot Be Moved"
+<br />   at Testing.SpecFlow.Common.ValidationSteps.ThenTheActionSucceeds() in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 46
+   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
+   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
+   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
+   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 30
+</pre>
+      </li>
+    </ol>
     <h4>Run Settings</h4>
     <ul>
       <li>
@@ -76,23 +190,28 @@
     <table id="summary" class="collapsed">
       <tr>
         <td class="smllabel right">Overall result:</td>
-        <td class="left">Passed</td>
+        <td class="left">Failed</td>
       </tr>
       <tr>
         <td class="smllabel right">Test Count:</td>
-        <td class="left">114, Passed: 47, Failed: 0, Inconclusive: 67, Skipped: 0</td>
+        <td class="left">114, Passed: 67, Failed: 9, Inconclusive: 38, Skipped: 0</td>
+      </tr>
+      <tr>
+        <td class="smllabel right">Failed Tests: </td>
+        <td class="left">
+            Failures: 9, Errors: 0, Invalid: 0</td>
       </tr>
       <tr>
         <td class="smllabel right">Start time: </td>
-        <td class="left">2020-02-06 04:11:18Z</td>
+        <td class="left">2020-02-07 01:48:31Z</td>
       </tr>
       <tr>
         <td class="smllabel right">End time: </td>
-        <td class="left">2020-02-06 04:11:20Z</td>
+        <td class="left">2020-02-07 01:48:37Z</td>
       </tr>
       <tr>
         <td class="smllabel right">Duration: </td>
-        <td class="left">1.851 seconds
+        <td class="left">5.918 seconds
         </td>
       </tr>
     </table>

@@ -38,15 +38,16 @@ namespace Testing.SpecFlow.Common
             }
         }
 
-        [When(@"the (.*) player moves the (?:piece|stack) (?:at|from) (.*) (?:to|into|onto) (.*)")]
+        [When(@"the (.*) player moves (?:a|the) (?:piece|stack) (?:on|at|from) (.*) (?:to|into|onto) (.*)")]
         public void WhenIMove(ActionSide side, Location from, Location to)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
             var action = new GameMoveAction {Location = from, Side = side, Target = to};
             TryApplyAction(action, from, to);
         }
+        //When the red player moves the piece at h2 two points to the northeast
 
-        [When(@"the (.*) player merges the (?:piece|stack) (?:at|from) (.*) (?:to|into|onto) (.*)")]
+        [When(@"the (.*) player merges (?:a|the) (?:piece|stack) (?:on|at|from) (.*) (?:to|into|onto) (.*)")]
         public void WhenIMerge(ActionSide side, Location from, Location to)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
@@ -54,9 +55,10 @@ namespace Testing.SpecFlow.Common
             TryApplyAction(action, from, to);
         }
 
-        [When(@"the (.*) player splits (.*) (?:piece|stack|pieces|stacks) (?:at|from) (.*) (?:to|into|onto) (.*)")]
-        public void WhenISplit(ActionSide side, int count, Location from, Location to)
+        [When(@"the (.*) player splits (.*) (?:piece|stack|pieces|stacks) (?:on|at|from) (.*) (?:to|into|onto) (.*)")]
+        public void WhenISplit(ActionSide side, string countWord, Location from, Location to)
         {
+            var count = CommonSteps.ParseWordNumber(countWord);
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
             var action = new GameSplitAction {Location = from, Side = side, Target = to, Size = count};
             TryApplyAction(action, from, to);
@@ -74,6 +76,7 @@ namespace Testing.SpecFlow.Common
 
         
         [When(@"the (.*) player drops a new piece at (.*)")]
+        [When(@"the (.*) player places a piece at (.*)")]
         public void WhenIDrop(ActionSide side, Location location)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
@@ -126,9 +129,7 @@ namespace Testing.SpecFlow.Common
                         $"{move.Substring(0, 2)} was not a valid Location.");
                     Assert.IsTrue(Enum.TryParse(move.Substring(move.Length - 2, 2).ToUpper(), out target),
                         $"{move.Substring(move.Length - 2, 2)} was not a valid Location.");
-                    Assert.IsTrue(int.TryParse(move.Substring(3, move.Length - 6), out var size),
-                        $"{move.Substring(3, move.Length - 6)} was not a valid Size.");
-                    WhenISplit(side, size, location, target);
+                    WhenISplit(side, move.Substring(3, move.Length - 6), location, target);
                     break;
             }
 
@@ -167,6 +168,67 @@ namespace Testing.SpecFlow.Common
             }
 
             Assert.IsFalse(empty, "Missing table argument containing moves to perform.");
+        }
+
+        [When(@"the (.*) player moves the (?:piece|stack) (?:at|from) (.*) (.*) points to the (.*)")]
+        public void WhenIMovePointsDirection(ActionSide side, Location from, string distance, string direction)
+        {
+            Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
+
+            var distanceInt = CommonSteps.ParseWordNumber(distance);
+            Func<Location, bool, bool, Location> directionFunc;
+            switch (direction.ToLower().Trim())
+            {
+                case "north":
+                    directionFunc = Movement.North;
+                    break;
+                case "south":
+                    directionFunc = Movement.South;
+                    break;
+                case "northeast":
+                case "north-east":
+                case "north east":
+                    directionFunc = Movement.NorthEast;
+                    break;
+                case "northwest":
+                case "north-west":
+                case "north west":
+                    directionFunc = Movement.NorthWest;
+                    break;
+                case "southeast":
+                case "south-east":
+                case "south east":
+                    directionFunc = Movement.SouthEast;
+                    break;
+                case "southwest":
+                case "south-west":
+                case "south west":
+                    directionFunc = Movement.SouthWest;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction,
+                        "Was not a recognizable movement direction.");
+            }
+
+            var canPassRedWall = side == ActionSide.Blue;
+            var canPassBlueWall = side == ActionSide.Red;
+
+            var to = from;
+
+            for (var i = 0; i < distanceInt; i++)
+            {
+                var next = directionFunc(to, canPassBlueWall, canPassRedWall);
+                if (!Movement.IsValidLocation(next))
+                {
+                    _context.LastMessage = $"Unable to reach point {i + 1} {direction} from {to} (starting from {from})";
+                    Console.WriteLine(_context.LastMessage);
+                    return;
+                }
+                to = next;
+            }
+
+            var action = new GameMoveAction {Location = from, Side = side, Target = to};
+            TryApplyAction(action, from, to);
         }
     }
 }
