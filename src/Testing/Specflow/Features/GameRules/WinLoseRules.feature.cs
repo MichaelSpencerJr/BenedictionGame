@@ -178,7 +178,7 @@ this.FeatureBackground();
                 TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
                 table37.AddRow(new string[] {
-                            "Benediction v1: R-E2 B E8"});
+                            "Benediction v1: R E2 B-E8"});
                 table37.AddRow(new string[] {
                             "R:D12F2k+3+H2+"});
                 table37.AddRow(new string[] {
@@ -189,7 +189,7 @@ this.FeatureBackground();
  testRunner.Given("I load this board:", ((string)(null)), table37, "Given ");
 #line hidden
 #line 32
- testRunner.When("the red player moves the piece at a2 to a5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the blue player moves the piece at a2 to a5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 33
  testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -415,7 +415,7 @@ this.FeatureBackground();
  testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 80
- testRunner.And("the game is over and red has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the game is over and blue has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

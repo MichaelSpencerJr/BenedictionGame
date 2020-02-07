@@ -16,7 +16,7 @@ Background:
 
 Scenario: Cursed Piece Wrapping Around Remains Cursed
 	Given I have board NewGame
-	And I add this red piece: i5c
+	And I add this red piece: I5c
 	When the red player moves the piece at i5 to a1
 	Then the action succeeds
 	And the board has red pieces matching: A1cD12E12k3F12
@@ -24,7 +24,7 @@ Scenario: Cursed Piece Wrapping Around Remains Cursed
 
 Scenario: Normal Piece Wrapping Around Becomes Blessed
 	Given I have board NewGame
-	And I add this red piece: i5
+	And I add this red piece: I5
 	When the red player moves the piece at i5 to a1
 	Then the action succeeds
 	And the board has red pieces matching: A1bD12E12k3F12
@@ -32,7 +32,7 @@ Scenario: Normal Piece Wrapping Around Becomes Blessed
 
 Scenario: Blessed Piece Wrapping Around Remains Blessed
 	Given I have board NewGame
-	And I add this red piece: i5b
+	And I add this red piece: I5b
 	When the red player moves the piece at i5 to a1
 	Then the action succeeds
 	And the board has red pieces matching: A1bD12E12k3F12
@@ -64,10 +64,21 @@ Scenario: Blessed Piece Wrapping Around Onto Home Becomes King
 	Given I load this board
 	|Board			   |
 	|Benediction v1: R-E2 B E8 |
-	|R:C1+E2k5+9b+		   |
+	|R:C1+D2kE5+9b+		   |
 	|B:B6+C3+4k+		   |
 	|X:A35B2D4		   |
 	When the red player moves the piece at e9 to e2 
+	Then the action succeeds 
+	And the board has red pieces matching C1+D2kE2k+5+
+	
+Scenario: Blessed Piece Wrapping Around Merging Onto Home Becomes King
+	Given I load this board
+	|Board			   |
+	|Benediction v1: R-E2 B E8 |
+	|R:C1+E2k5+9b+		   |
+	|B:B6+C3+4k+		   |
+	|X:A35B2D4		   |
+	When the red player merges the piece at e9 onto e2 
 	Then the action succeeds 
 	And the board has red pieces matching C1+E2k++5+
 

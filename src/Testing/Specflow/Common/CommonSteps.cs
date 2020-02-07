@@ -1,7 +1,16 @@
 ﻿using System;
+using NUnit.Framework;
+using TechTalk.SpecFlow;
 
+[Binding]
 static internal class CommonSteps
 {
+    [Given(@"this test isn't written yet")]
+    public static void GivenThisTestIsntWrittenYet()
+    {
+        Assert.Inconclusive();
+    }
+
     public static int ParseWordNumber(string word)
     {
         switch (word.ToLower().Trim())

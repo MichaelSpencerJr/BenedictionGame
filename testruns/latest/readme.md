@@ -12,105 +12,7 @@ NUnit Version: 3.10.0.0
 
 ## Errors and Failures
 
-### 1) Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin
-
-  Expected: RedWin
-  But was:  Undefined
-
-
-   at Testing.SpecFlow.Common.ValidationSteps.GameOver(ActionSide side) in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 149
-       at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-       at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.ScenarioCleanup()
-       at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WinLoseRules.feature:line 80
-    
-
-#### Given I define board NewGame as:
-  | New Game Board            |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:D12E12k3F12             |
-  | B:D78E78k9F78             |
-
- -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
-#### Given I load this board
-  | Board                     |
-  | - |
-  | Benediction v1: R E2 B=E8 |
-  | R:D123k+E4c5cF5cG2c5cH2c  |
-  | B:A1c2cB3k4k5C6D8+E9F8+   |
-  | X:B2C7D4F246H3I4          |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9ea9e8d6-a1d0-4495-c5dc-8d8b3c1e69d9.png?raw=true)
-
-
- -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
-#### When the blue player places a piece at d7
-    Accepted: @d7
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4b89473d-54c7-dd3c-76ea-e1abab5b3803-D7.png?raw=true)
-
-
- -&gt; done: ActionSteps.WhenIDrop(Blue, D7) (0.0s)
-#### Then the action succeeds
-
- -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
-#### And the game is over and red has won
-
- -&gt; error:   Expected: RedWin
-      But was:  Undefined
-    
-
-
-### 2) Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin
-
-  Expected: null
-  But was:  "Source A2 Is Not Your Piece and Cannot Be Moved By Red"
-
-
-   at Testing.SpecFlow.Common.ValidationSteps.ThenTheActionSucceeds() in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 46
-       at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-       at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.ScenarioCleanup()
-       at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WinLoseRules.feature:line 34
-    
-
-#### Given I define board NewGame as:
-  | New Game Board            |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:D12E12k3F12             |
-  | B:D78E78k9F78             |
-
- -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
-#### Given I load this board:
-  | Board                     |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:D12F2k+3+H2+            |
-  | B:A2k+D5+E9F78            |
-  | X:B2D4F4                  |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/99b0a999-5a88-69d0-ca81-32ab7f114b5d.png?raw=true)
-
-
- -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
-#### When the red player moves the piece at a2 to a5
-    Rejected: a2a5: Source A2 Is Not Your Piece and Cannot Be Moved By Red
-
- -&gt; done: ActionSteps.WhenIMove(Red, A2, A5) (0.0s)
-#### Then the action succeeds
-
- -&gt; error:   Expected: null
-      But was:  "Source A2 Is Not Your Piece and Cannot Be Moved By Red"
-    
-#### And the game is over and blue has won
-
- -&gt; skipped because of previous errors
-
-
-### 3) Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin
+### 1) Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin
 
   The game is still in progress: BlueAction2
   Expected: True
@@ -162,7 +64,7 @@ NUnit Version: 3.10.0.0
     
 
 
-### 4) Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin
+### 2) Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin
 
   The game is still in progress: RedAction2
   Expected: True
@@ -214,151 +116,7 @@ NUnit Version: 3.10.0.0
     
 
 
-### 5) Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing
-
-  Expected: null
-  But was:  "Destination E2 Is Your Own Piece and Cannot Be Moved Onto By Red"
-
-
-   at Testing.SpecFlow.Common.ValidationSteps.ThenTheActionSucceeds() in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 46
-       at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 72
-    
-
-#### Given I define board NewGame as:
-  | New Game Board            |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:D12E12k3F12             |
-  | B:D78E78k9F78             |
-
- -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
-#### Given I load this board
-  | Board                     |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:C1+E2k5+9b+             |
-  | B:B6+C3+4k+               |
-  | X:A35B2D4                 |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/52f1d9c2-59cc-8f43-5f64-989b684fd5f3.png?raw=true)
-
-
- -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
-#### When the red player moves the piece at e9 to e2
-    Rejected: e9e2: Destination E2 Is Your Own Piece and Cannot Be Moved Onto By Red
-
- -&gt; done: ActionSteps.WhenIMove(Red, E9, E2) (0.0s)
-#### Then the action succeeds
-
- -&gt; error:   Expected: null
-      But was:  "Destination E2 Is Your Own Piece and Cannot Be Moved Onto By Red"
-    
-#### And the board has red pieces matching C1+E2k++5+
-
- -&gt; skipped because of previous errors
-
-
-### 6) Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed
-
-  Expected: null
-  But was:  "Source I5 is Empty and Cannot Be Moved"
-
-
-   at Testing.SpecFlow.Common.ValidationSteps.ThenTheActionSucceeds() in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 46
-       at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 38
-    
-
-#### Given I define board NewGame as:
-  | New Game Board            |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:D12E12k3F12             |
-  | B:D78E78k9F78             |
-
- -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
-#### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
-
-    Loaded board NewGame.
-
- -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
-#### And I add this red piece: i5b
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
-
-
- -&gt; done: SetupSteps.GivenIAddPieces(Red, "i5b") (0.0s)
-#### When the red player moves the piece at i5 to a1
-    Rejected: i5a1: Source I5 is Empty and Cannot Be Moved
-
- -&gt; done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
-#### Then the action succeeds
-
- -&gt; error:   Expected: null
-      But was:  "Source I5 is Empty and Cannot Be Moved"
-    
-#### And the board has red pieces matching: A1bD12E12k3F12
-
- -&gt; skipped because of previous errors
-
-
-### 7) Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
-
-  Expected: null
-  But was:  "Source I5 is Empty and Cannot Be Moved"
-
-
-   at Testing.SpecFlow.Common.ValidationSteps.ThenTheActionSucceeds() in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 46
-       at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 22
-    
-
-#### Given I define board NewGame as:
-  | New Game Board            |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:D12E12k3F12             |
-  | B:D78E78k9F78             |
-
- -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
-#### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
-
-    Loaded board NewGame.
-
- -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
-#### And I add this red piece: i5c
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
-
-
- -&gt; done: SetupSteps.GivenIAddPieces(Red, "i5c") (0.0s)
-#### When the red player moves the piece at i5 to a1
-    Rejected: i5a1: Source I5 is Empty and Cannot Be Moved
-
- -&gt; done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
-#### Then the action succeeds
-
- -&gt; error:   Expected: null
-      But was:  "Source I5 is Empty and Cannot Be Moved"
-    
-#### And the board has red pieces matching: A1cD12E12k3F12
-
- -&gt; skipped because of previous errors
-
-
-### 8) Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame
+### 3) Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame
 
   The game is still in progress: BlueAction1
   Expected: True
@@ -371,7 +129,7 @@ NUnit Version: 3.10.0.0
        at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
        at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
        at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 96
+       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 107
     
 
 #### Given I define board NewGame as:
@@ -410,54 +168,6 @@ NUnit Version: 3.10.0.0
     
 
 
-### 9) Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed
-
-  Expected: null
-  But was:  "Source I5 is Empty and Cannot Be Moved"
-
-
-   at Testing.SpecFlow.Common.ValidationSteps.ThenTheActionSucceeds() in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 46
-       at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-       at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
-       at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 30
-    
-
-#### Given I define board NewGame as:
-  | New Game Board            |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:D12E12k3F12             |
-  | B:D78E78k9F78             |
-
- -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
-#### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
-
-    Loaded board NewGame.
-
- -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
-#### And I add this red piece: i5
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
-
-
- -&gt; done: SetupSteps.GivenIAddPieces(Red, "i5") (0.0s)
-#### When the red player moves the piece at i5 to a1
-    Rejected: i5a1: Source I5 is Empty and Cannot Be Moved
-
- -&gt; done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
-#### Then the action succeeds
-
- -&gt; error:   Expected: null
-      But was:  "Source I5 is Empty and Cannot Be Moved"
-    
-#### And the board has red pieces matching: A1bD12E12k3F12
-
- -&gt; skipped because of previous errors
-
-
 ## Tests Which Passed
 
 ### 1) Passed : Testing.Specflow.Features.ExampleGames.AlekSamplesFeature.AlekSampleGame1
@@ -477,7 +187,7 @@ NUnit Version: 3.10.0.0
 
     Loaded board NewGame.
 
- -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.1s)
+ -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
 #### When the following moves are performed:
   | RedAction1 | RedAction2 | BlueAction1 | BlueAction2 |
   | - | - | - | - |
@@ -671,7 +381,7 @@ NUnit Version: 3.10.0.0
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/fa0292c9-9df4-c4b7-986e-45d432ea12e9-C6-D7.png?raw=true)
 
 
- -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (1.3s)
+ -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.1s)
 #### Then the following locations match:
   | Location | Contents | Size | Type   |
   | - | - | - | - |
@@ -825,7 +535,7 @@ NUnit Version: 3.10.0.0
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5be7070c-b19f-276f-bbdf-d214f222b5d3-E4.png?raw=true)
 
 
- -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.3s)
+ -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.0s)
 #### Then the board has blocks matching: A24B16C35D27E1469F27G35H16I24
     Successfully validated 20 blocks.
 
@@ -2219,7 +1929,7 @@ NUnit Version: 3.10.0.0
 ![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/1fc66954-f9c4-f931-2dcc-e80f493b0699-D6.png?raw=true)
 
 
- -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.8s)
+ -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.0s)
 
 
 ### 40) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard
@@ -2829,7 +2539,44 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 55) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueJoiningKingToExistingChainCausesRedWin
+### 55) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board
+  | Board                     |
+  | - |
+  | Benediction v1: R E2 B=E8 |
+  | R:D123k+E4c5cF5cG2c5cH2c  |
+  | B:A1c2cB3k4k5C6D8+E9F8+   |
+  | X:B2C7D4F246H3I4          |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9ea9e8d6-a1d0-4495-c5dc-8d8b3c1e69d9.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the blue player places a piece at d7
+    Accepted: @d7
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4b89473d-54c7-dd3c-76ea-e1abab5b3803-D7.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIDrop(Blue, D7) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And the game is over and blue has won
+
+ -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
+
+
+### 56) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueJoiningKingToExistingChainCausesRedWin
 
 
 
@@ -2866,7 +2613,44 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 56) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
+### 57) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R E2 B-E8 |
+  | R:D12F2k+3+H2+            |
+  | B:A2k+D5+E9F78            |
+  | X:B2D4F4                  |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3f5ddc1e-8e47-da49-a23e-f3ef026b2d9b.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the blue player moves the piece at a2 to a5
+    Accepted: a2a5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/968fb9a2-44c0-24be-4562-1b13aaf7f68a-A2-A5.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIMove(Blue, A2, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And the game is over and blue has won
+
+ -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
+
+
+### 58) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
 
 
 
@@ -2903,7 +2687,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoSize(Blue, E8) (0.0s)
 
 
-### 57) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin
+### 59) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin
 
 
 
@@ -2940,7 +2724,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoSize(Blue, E2) (0.0s)
 
 
-### 58) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedCapturingAnyBlueKingCausesRedWin
+### 60) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedCapturingAnyBlueKingCausesRedWin
 
 
 
@@ -2977,7 +2761,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 59) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedFormingChainWithKingCausesRedWin
+### 61) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedFormingChainWithKingCausesRedWin
 
 
 
@@ -3014,7 +2798,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 60) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedJoiningKingToExistingChainCausesRedWin
+### 62) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedJoiningKingToExistingChainCausesRedWin
 
 
 
@@ -3050,7 +2834,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 61) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
+### 63) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
 
 
 
@@ -3086,7 +2870,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 62) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
+### 64) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
 
 
 
@@ -3123,7 +2907,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoSize(Red, E8) (0.0s)
 
 
-### 63) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin
+### 65) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin
 
 
 
@@ -3160,7 +2944,121 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoColor("two", E2) (0.0s)
 
 
-### 64) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndMergingRequiresBlessedTarget
+### 66) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundMergingOntoHomeBecomesKing
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:C1+E2k5+9b+             |
+  | B:B6+C3+4k+               |
+  | X:A35B2D4                 |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/52f1d9c2-59cc-8f43-5f64-989b684fd5f3.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player merges the piece at e9 onto e2
+    Accepted: e9+e2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/060b4b2e-65c0-04e6-4dcb-1b303243471e-E2-E9.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIMerge(Red, E9, E2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching C1+E2k++5+
+    Successfully validated 3 Red pieces.
+
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "C1+E2k++5+") (0.0s)
+
+
+### 67) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:C1+D2kE5+9b+            |
+  | B:B6+C3+4k+               |
+  | X:A35B2D4                 |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/bee7a4ab-739a-25dd-cce0-af0f6bc8aa5c.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player moves the piece at e9 to e2
+    Accepted: e9e2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5626a320-d721-624a-1cbd-6d286333c8ee-E2-E9.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIMove(Red, E9, E2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching C1+D2kE2k+5+
+    Successfully validated 4 Red pieces.
+
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "C1+D2kE2k+5+") (0.0s)
+
+
+### 68) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have board NewGame
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+
+    Loaded board NewGame.
+
+ -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
+#### And I add this red piece: I5b
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4b58034c-f49e-02d9-afaa-c7b264068cc2.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "I5b") (0.0s)
+#### When the red player moves the piece at i5 to a1
+    Accepted: i5a1
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d8a73958-ca9d-b572-ba02-a2d5f24f1446-A1-I5.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching: A1bD12E12k3F12
+    Successfully validated 8 Red pieces.
+
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1bD12E12k3F12") (0.0s)
+
+
+### 69) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndMergingRequiresBlessedTarget
 
 
 
@@ -3206,7 +3104,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A4++D128k++E137cF12") (0.0s)
 
 
-### 65) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundOntoHomeBecomesKing
+### 70) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundOntoHomeBecomesKing
 
 
 
@@ -3243,7 +3141,45 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1+3E2k+3k+7c") (0.0s)
 
 
-### 66) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoRegularSpaceWinsGame
+### 71) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have board NewGame
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+
+    Loaded board NewGame.
+
+ -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
+#### And I add this red piece: I5c
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b58cce8c-0fb0-0879-1fcd-45fcc2b5395d.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "I5c") (0.0s)
+#### When the red player moves the piece at i5 to a1
+    Accepted: i5a1
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2a6a5c48-f089-fed6-fb83-39d8e8783a20-A1-I5.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching: A1cD12E12k3F12
+    Successfully validated 8 Red pieces.
+
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1cD12E12k3F12") (0.0s)
+
+
+### 72) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoRegularSpaceWinsGame
 
 
 
@@ -3280,7 +3216,45 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 67) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundOntoHomeBecomesKing
+### 73) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have board NewGame
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+
+    Loaded board NewGame.
+
+ -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
+#### And I add this red piece: I5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a1573ad0-761c-3260-c032-2f426d00808a.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "I5") (0.0s)
+#### When the red player moves the piece at i5 to a1
+    Accepted: i5a1
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d8a73958-ca9d-b572-ba02-a2d5f24f1446-A1-I5.png?raw=true)
+
+
+ -&gt; done: ActionSteps.WhenIMove(Red, I5, A1) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And the board has red pieces matching: A1bD12E12k3F12
+    Successfully validated 8 Red pieces.
+
+ -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1bD12E12k3F12") (0.0s)
+
+
+### 74) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundOntoHomeBecomesKing
 
 
 
@@ -3338,13 +3312,13 @@ NUnit Version: 3.10.0.0
 
  Overall result: Failed
 
- Test Count: 114, Passed: 67, Failed: 9, Inconclusive: 38, Skipped: 0
+ Test Count: 115, Passed: 74, Failed: 3, Inconclusive: 38, Skipped: 0
 
-   Failed Tests - Failures: 9, Errors: 0, Invalid: 0
+   Failed Tests - Failures: 3, Errors: 0, Invalid: 0
 
- Start time: 2020-02-07 01:48:31Z
+ Start time: 2020-02-07 02:02:03Z
 
-   End time: 2020-02-07 01:48:37Z
+   End time: 2020-02-07 02:02:05Z
 
-   Duration: 5.918 seconds
+   Duration: 1.854 seconds
 
