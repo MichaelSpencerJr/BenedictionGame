@@ -50,6 +50,8 @@ namespace Testing.SpecFlow.Common
         public void ThenTheActionFails()
         {
             Assert.IsNotNull(_context.LastMessage);
+            Assert.AreNotEqual("Your Move, Red", _context.LastMessage, "Test Setup Error: Wrong Move State For Action");
+            Assert.AreNotEqual("Your Move, Blue", _context.LastMessage, "Test Setup Error: Wrong Move State For Action");
             Console.WriteLine($"Failed with: {_context.LastMessage}");
         }
 

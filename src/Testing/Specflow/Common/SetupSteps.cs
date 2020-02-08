@@ -35,7 +35,10 @@ namespace Testing.SpecFlow.Common
             Assert.IsNotEmpty(_context.StateLibrary, "Named boards should be defined in Background first.");
             Assert.IsTrue(_context.StateLibrary.ContainsKey(boardName), $"No board was defined in Background with the name {boardName}");
             _context.BoardState = _context.StateLibrary[boardName].DeepCopy();
-            Console.WriteLine(_context.BoardState.ImageMarkdown());
+            if (_context.ImageBehavior == BoardImageBehavior.EveryStep || _context.ImageBehavior == BoardImageBehavior.EveryChange)
+            {
+                Console.WriteLine(_context.BoardState.ImageMarkdown());
+            }
             Console.WriteLine($"Loaded board {boardName}.");
         }
 
@@ -52,7 +55,11 @@ namespace Testing.SpecFlow.Common
         {
             var boardText = string.Join("\r\n", table.Rows.Select(tr => tr[0]));
             _context.BoardState = new State(boardText);
-            Console.WriteLine(_context.BoardState.ImageMarkdown());
+            if (_context.ImageBehavior == BoardImageBehavior.EveryStep ||
+                _context.ImageBehavior == BoardImageBehavior.EveryChange)
+            {
+                Console.WriteLine(_context.BoardState.ImageMarkdown());
+            }
         }
 
         [Given(@"I add this (\S*) piece: (.*)")]
@@ -61,7 +68,11 @@ namespace Testing.SpecFlow.Common
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
             _context.BoardState.ParseSideV1($"{(side == ActionSide.Red ? "R" : "B")}:{definition}");
-            Console.WriteLine(_context.BoardState.ImageMarkdown());
+            if (_context.ImageBehavior == BoardImageBehavior.EveryStep ||
+                _context.ImageBehavior == BoardImageBehavior.EveryChange)
+            {
+                Console.WriteLine(_context.BoardState.ImageMarkdown());
+            }
         }
 
     }

@@ -30,7 +30,11 @@ namespace Testing.SpecFlow.Common
             {
                 Console.WriteLine($"Accepted: {moveAction.ToString()}");
                 _context.BoardState = GameAction.PrepareNextTurn(moveAction.Apply(_context.BoardState));
-                Console.WriteLine(_context.BoardState.ImageMarkdown(location, target));
+                
+                if (_context.ImageBehavior == BoardImageBehavior.EveryStep)
+                {
+                    Console.WriteLine(_context.BoardState.ImageMarkdown(location, target));
+                }
             }
             else
             {

@@ -1,4 +1,5 @@
-﻿Feature: Split Rules
+﻿@every-change
+Feature: Split Rules
 	As a player I should see that split rules are applied correctly.  The split-away part should
 	be allowed to move the same number of spaces and the size of the split-away stack.  For split-moves
 	and split-captures, both split-away and left-behind parts should be cursed - unless another mechanic
@@ -15,6 +16,7 @@ Background:
 	| Benediction v1: R-E2 B E8                                   |
 	| R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
 	| B:D78E78k9F78                                               |
+
 
 Scenario: Split-Move Happy Path
 	Given I have board NewGame
@@ -73,8 +75,6 @@ Scenario: Split Distance Cannot Exceed Size
 	Then the action fails
 	When the red player splits 3 pieces from d2 onto d6
 	Then the action fails
-
-
 
 
 Scenario: Split-Move Curses Both Pieces

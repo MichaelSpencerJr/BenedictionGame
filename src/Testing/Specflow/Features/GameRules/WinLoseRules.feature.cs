@@ -21,12 +21,14 @@ namespace Testing.Specflow.Features.GameRules
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Win Lose Rules")]
+    [NUnit.Framework.CategoryAttribute("every-change")]
     public partial class WinLoseRulesFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private string[] _featureTags = new string[] {
+                "every-change"};
         
 #line 1 "WinLoseRules.feature"
 #line hidden
@@ -38,7 +40,8 @@ namespace Testing.Specflow.Features.GameRules
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Win Lose Rules", @"	As a player, I should see win and loss conditions applied correctly.  I should win
 	when a king piece of mine becomes blessed, though not when a blessed piece of mine
 	becomes a king.  I should lose if one of my king pieces is captured.  I should lose
-	if I am unable to make a move.", ProgrammingLanguage.CSharp, ((string[])(null)));
+	if I am unable to make a move.", ProgrammingLanguage.CSharp, new string[] {
+                        "every-change"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -78,18 +81,18 @@ namespace Testing.Specflow.Features.GameRules
         
         public virtual void FeatureBackground()
         {
-#line 7
-#line hidden
-            TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
-                        "New Game Board"});
-            table59.AddRow(new string[] {
-                        "Benediction v1: R-E2 B E8"});
-            table59.AddRow(new string[] {
-                        "R:D12E12k3F12"});
-            table59.AddRow(new string[] {
-                        "B:D78E78k9F78"});
 #line 8
- testRunner.Given("I define board NewGame as:", ((string)(null)), table59, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
+                        "New Game Board"});
+            table61.AddRow(new string[] {
+                        "Benediction v1: R-E2 B E8"});
+            table61.AddRow(new string[] {
+                        "R:D12E12k3F12"});
+            table61.AddRow(new string[] {
+                        "B:D78E78k9F78"});
+#line 9
+ testRunner.Given("I define board NewGame as:", ((string)(null)), table61, "Given ");
 #line hidden
         }
         
@@ -99,7 +102,7 @@ namespace Testing.Specflow.Features.GameRules
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Red King Passing Blue Wall Causes Red Win", null, ((string[])(null)));
-#line 14
+#line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -119,27 +122,27 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table60.AddRow(new string[] {
+                table62.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
-                table60.AddRow(new string[] {
+                table62.AddRow(new string[] {
                             "R:D12E12k3F12I5k"});
-                table60.AddRow(new string[] {
+                table62.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 15
- testRunner.Given("I load this board:", ((string)(null)), table60, "Given ");
-#line hidden
-#line 20
- testRunner.When("the red player moves the piece at i5 to a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+ testRunner.Given("I load this board:", ((string)(null)), table62, "Given ");
 #line hidden
 #line 21
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the red player moves the piece at i5 to a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 22
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 23
  testRunner.And("the game is over and red has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -152,7 +155,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blue King Passing Red Wall Causes Blue Win", null, ((string[])(null)));
-#line 25
+#line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -172,29 +175,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table61.AddRow(new string[] {
+                table63.AddRow(new string[] {
                             "Benediction v1: R E2 B-E8"});
-                table61.AddRow(new string[] {
+                table63.AddRow(new string[] {
                             "R:D12F2k+3+H2+"});
-                table61.AddRow(new string[] {
+                table63.AddRow(new string[] {
                             "B:A2k+D5+E9F78"});
-                table61.AddRow(new string[] {
+                table63.AddRow(new string[] {
                             "X:B2D4F4"});
-#line 26
- testRunner.Given("I load this board:", ((string)(null)), table61, "Given ");
-#line hidden
-#line 32
- testRunner.When("the blue player moves the piece at a2 to a5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 27
+ testRunner.Given("I load this board:", ((string)(null)), table63, "Given ");
 #line hidden
 #line 33
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the blue player moves the piece at a2 to a5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 34
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 35
  testRunner.And("the game is over and blue has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -207,7 +210,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Red Capturing Any Blue King Causes Red Win", null, ((string[])(null)));
-#line 37
+#line 38
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -227,29 +230,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table62.AddRow(new string[] {
+                table64.AddRow(new string[] {
                             "Benediction v1: R=E2 B E8"});
-                table62.AddRow(new string[] {
+                table64.AddRow(new string[] {
                             "R:D123k+F3+H2+"});
-                table62.AddRow(new string[] {
+                table64.AddRow(new string[] {
                             "B:B3kC3kD5+E9F78"});
-                table62.AddRow(new string[] {
+                table64.AddRow(new string[] {
                             "X:B2D4F4"});
-#line 38
- testRunner.Given("I load this board", ((string)(null)), table62, "Given ");
-#line hidden
-#line 44
- testRunner.When("the red player moves the piece at d3 to c3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 39
+ testRunner.Given("I load this board", ((string)(null)), table64, "Given ");
 #line hidden
 #line 45
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the red player moves the piece at d3 to c3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 46
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 47
  testRunner.And("the game is over and red has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -262,7 +265,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blue Capturing Any Red King Causes Blue Win", null, ((string[])(null)));
-#line 49
+#line 50
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -282,29 +285,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table63.AddRow(new string[] {
+                table65.AddRow(new string[] {
                             "Benediction v1: R E2 B-E8"});
-                table63.AddRow(new string[] {
+                table65.AddRow(new string[] {
                             "R:D123k+F3+H2+"});
-                table63.AddRow(new string[] {
+                table65.AddRow(new string[] {
                             "B:B3kC3kD5+E9F78"});
-                table63.AddRow(new string[] {
+                table65.AddRow(new string[] {
                             "X:B2D4F4"});
-#line 50
- testRunner.Given("I load this board", ((string)(null)), table63, "Given ");
-#line hidden
-#line 56
- testRunner.When("the blue player moves the piece at c3 to d3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 51
+ testRunner.Given("I load this board", ((string)(null)), table65, "Given ");
 #line hidden
 #line 57
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the blue player moves the piece at c3 to d3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 58
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 59
  testRunner.And("the game is over and blue has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -317,7 +320,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Red Forming Chain With King Causes Red Win", null, ((string[])(null)));
-#line 60
+#line 61
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -337,29 +340,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table66 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table64.AddRow(new string[] {
+                table66.AddRow(new string[] {
                             "Benediction v1: R=E2 B E8"});
-                table64.AddRow(new string[] {
+                table66.AddRow(new string[] {
                             "R:D123k+E4c5cF5cG5cH5+"});
-                table64.AddRow(new string[] {
+                table66.AddRow(new string[] {
                             "B:B3k4k5+D78+E79F8+"});
-                table64.AddRow(new string[] {
+                table66.AddRow(new string[] {
                             "X:B2C7D4F46"});
-#line 61
- testRunner.Given("I load this board", ((string)(null)), table64, "Given ");
-#line hidden
-#line 67
- testRunner.When("the red player splits one piece from h5 to h6", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 62
+ testRunner.Given("I load this board", ((string)(null)), table66, "Given ");
 #line hidden
 #line 68
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the red player splits one piece from h5 to h6", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 69
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 70
  testRunner.And("the game is over and red has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -372,7 +375,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blue Forming Chain With King Causes Blue Win", null, ((string[])(null)));
-#line 71
+#line 72
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -392,29 +395,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table67 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table65.AddRow(new string[] {
+                table67.AddRow(new string[] {
                             "Benediction v1: R E2 B=E8"});
-                table65.AddRow(new string[] {
+                table67.AddRow(new string[] {
                             "R:D123k+E4c5cF5cG2c5cH2c"});
-                table65.AddRow(new string[] {
+                table67.AddRow(new string[] {
                             "B:A1c2cB3k4k5C6D8+E9F8+"});
-                table65.AddRow(new string[] {
+                table67.AddRow(new string[] {
                             "X:B2C7D4F246H3I4"});
-#line 72
- testRunner.Given("I load this board", ((string)(null)), table65, "Given ");
-#line hidden
-#line 78
- testRunner.When("the blue player places a piece at d7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 73
+ testRunner.Given("I load this board", ((string)(null)), table67, "Given ");
 #line hidden
 #line 79
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the blue player places a piece at d7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 80
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 81
  testRunner.And("the game is over and blue has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -427,7 +430,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Red Joining King To Existing Chain Causes Red Win", null, ((string[])(null)));
-#line 82
+#line 83
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -447,27 +450,27 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table66 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table68 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table66.AddRow(new string[] {
+                table68.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
-                table66.AddRow(new string[] {
+                table68.AddRow(new string[] {
                             "R:F2k+I1b2b3b+4c5c"});
-                table66.AddRow(new string[] {
+                table68.AddRow(new string[] {
                             "B:A1c2c4+5+E8k"});
-#line 83
- testRunner.Given("I load this board", ((string)(null)), table66, "Given ");
-#line hidden
-#line 88
- testRunner.When("the red player moves the piece from f2 to h2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 84
+ testRunner.Given("I load this board", ((string)(null)), table68, "Given ");
 #line hidden
 #line 89
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the red player moves the piece from f2 to h2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 90
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 91
  testRunner.And("the game is over and red has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -480,7 +483,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blue Joining King To Existing Chain Causes Red Win", null, ((string[])(null)));
-#line 92
+#line 93
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -500,29 +503,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table67 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table69 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table67.AddRow(new string[] {
+                table69.AddRow(new string[] {
                             "Benediction v1: R E2 B-E8"});
-                table67.AddRow(new string[] {
+                table69.AddRow(new string[] {
                             "R:E3k+I1b2b3b+4c5c"});
-                table67.AddRow(new string[] {
+                table69.AddRow(new string[] {
                             "B:A1c2c3b4b5b+D7k+"});
-                table67.AddRow(new string[] {
+                table69.AddRow(new string[] {
                             "X:E46G36H4"});
-#line 93
- testRunner.Given("I load this board", ((string)(null)), table67, "Given ");
-#line hidden
-#line 99
- testRunner.When("the blue player moves the piece from d7 to b5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 94
+ testRunner.Given("I load this board", ((string)(null)), table69, "Given ");
 #line hidden
 #line 100
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the blue player moves the piece from d7 to b5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 101
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 102
  testRunner.And("the game is over and blue has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -535,7 +538,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Red Moving Blessed Piece Onto Red Home Does Not Cause Win", null, ((string[])(null)));
-#line 104
+#line 105
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -555,29 +558,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table68 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table68.AddRow(new string[] {
+                table70.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
-                table68.AddRow(new string[] {
+                table70.AddRow(new string[] {
                             "R:C2b+D123E13F12k"});
-                table68.AddRow(new string[] {
+                table70.AddRow(new string[] {
                             "B:C5+D7E7+8kF8+"});
-                table68.AddRow(new string[] {
+                table70.AddRow(new string[] {
                             "X:B6D6F5H3"});
-#line 105
- testRunner.Given("I load this board", ((string)(null)), table68, "Given ");
-#line hidden
-#line 111
- testRunner.When("the red player moves the piece from c2 to e2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 106
+ testRunner.Given("I load this board", ((string)(null)), table70, "Given ");
 #line hidden
 #line 112
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the red player moves the piece from c2 to e2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 113
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 114
  testRunner.And("there should be a two-stack king on e2 without any blessing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -590,7 +593,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Red Moving Blessed Piece Onto Blue Home Does Not Cause Win", null, ((string[])(null)));
-#line 115
+#line 116
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -610,29 +613,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table69 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table71 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table69.AddRow(new string[] {
+                table71.AddRow(new string[] {
                             "Benediction v1: R=E2 B E8"});
-                table69.AddRow(new string[] {
+                table71.AddRow(new string[] {
                             "R:F2b7b+G2k+H3bI4c5c"});
-                table69.AddRow(new string[] {
+                table71.AddRow(new string[] {
                             "B:A2c3bB3c5+D2b+F8k+"});
-                table69.AddRow(new string[] {
+                table71.AddRow(new string[] {
                             "X:A5E46G36H4"});
-#line 116
- testRunner.Given("I load this board", ((string)(null)), table69, "Given ");
-#line hidden
-#line 122
- testRunner.When("the red player moves a piece from f7 to e8", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 117
+ testRunner.Given("I load this board", ((string)(null)), table71, "Given ");
 #line hidden
 #line 123
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the red player moves a piece from f7 to e8", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 124
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 125
  testRunner.And("there should be a red king on e8 without any blessing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -645,7 +648,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blue Moving Blessed Piece Onto Red Home Does Not Cause Win", null, ((string[])(null)));
-#line 127
+#line 128
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -665,29 +668,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table72 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table70.AddRow(new string[] {
+                table72.AddRow(new string[] {
                             "Benediction v1: R E2 B-E8"});
-                table70.AddRow(new string[] {
+                table72.AddRow(new string[] {
                             "R:F2b7b+G2k+H3bI4c5c"});
-                table70.AddRow(new string[] {
+                table72.AddRow(new string[] {
                             "B:A2c3bB3c5+D2b+F8k+"});
-                table70.AddRow(new string[] {
+                table72.AddRow(new string[] {
                             "X:A5E46G36H4"});
-#line 128
- testRunner.Given("I load this board", ((string)(null)), table70, "Given ");
-#line hidden
-#line 134
- testRunner.When("the blue player moves a piece from d2 to e2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 129
+ testRunner.Given("I load this board", ((string)(null)), table72, "Given ");
 #line hidden
 #line 135
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the blue player moves a piece from d2 to e2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 136
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 137
  testRunner.And("there should be a blue king on e2 without any blessing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -700,7 +703,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blue Moving Blessed Piece Onto Blue Home Does Not Cause Win", null, ((string[])(null)));
-#line 138
+#line 139
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -720,29 +723,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table71 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table73 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table71.AddRow(new string[] {
+                table73.AddRow(new string[] {
                             "Benediction v1: R E2 B-E8"});
-                table71.AddRow(new string[] {
+                table73.AddRow(new string[] {
                             "R:E3k+G1b+2bI2b4c5c"});
-                table71.AddRow(new string[] {
+                table73.AddRow(new string[] {
                             "B:A1c2c3b4bD7b+F8k+"});
-                table71.AddRow(new string[] {
+                table73.AddRow(new string[] {
                             "X:A5E46G36H4"});
-#line 139
- testRunner.Given("I load this board", ((string)(null)), table71, "Given ");
-#line hidden
-#line 145
- testRunner.When("the blue player moves the piece from d7 to e8", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 140
+ testRunner.Given("I load this board", ((string)(null)), table73, "Given ");
 #line hidden
 #line 146
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the blue player moves the piece from d7 to e8", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 147
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 148
  testRunner.And("there should be a blue king on e8 without any blessing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -755,7 +758,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Red With No Legal Moves Causes Blue Win", null, ((string[])(null)));
-#line 149
+#line 150
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -775,29 +778,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table72 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table74 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table72.AddRow(new string[] {
+                table74.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
-                table72.AddRow(new string[] {
+                table74.AddRow(new string[] {
                             "R:A1k"});
-                table72.AddRow(new string[] {
+                table74.AddRow(new string[] {
                             "B:D2+E1k2k3c8k9F2c7"});
-                table72.AddRow(new string[] {
+                table74.AddRow(new string[] {
                             "X:B246D168E4F18G35H16I24"});
-#line 150
- testRunner.Given("I load this board", ((string)(null)), table72, "Given ");
-#line hidden
-#line 156
- testRunner.When("the red player moves the piece from a1 to a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 151
+ testRunner.Given("I load this board", ((string)(null)), table74, "Given ");
 #line hidden
 #line 157
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the red player moves the piece from a1 to a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 158
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 159
  testRunner.And("the game is over and blue has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -810,7 +813,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Red Win With No Legal Moves Causes Red Win", null, ((string[])(null)));
-#line 160
+#line 161
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -830,29 +833,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table73 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table75 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table73.AddRow(new string[] {
+                table75.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
-                table73.AddRow(new string[] {
+                table75.AddRow(new string[] {
                             "R:A1k"});
-                table73.AddRow(new string[] {
+                table75.AddRow(new string[] {
                             "B:A2kD2+E1k2k3c8k9F2c7"});
-                table73.AddRow(new string[] {
+                table75.AddRow(new string[] {
                             "X:B246D168E4F18G35H16I24"});
-#line 161
- testRunner.Given("I load this board", ((string)(null)), table73, "Given ");
-#line hidden
-#line 167
- testRunner.When("the red player moves the piece from a1 to a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 162
+ testRunner.Given("I load this board", ((string)(null)), table75, "Given ");
 #line hidden
 #line 168
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the red player moves the piece from a1 to a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 169
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 170
  testRunner.And("the game is over and red has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -865,7 +868,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blue With No Legal Moves Causes Red Win", null, ((string[])(null)));
-#line 172
+#line 173
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -885,29 +888,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table74 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table76 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table74.AddRow(new string[] {
+                table76.AddRow(new string[] {
                             "Benediction v1: R E2 B-E8"});
-                table74.AddRow(new string[] {
+                table76.AddRow(new string[] {
                             "R:D7cE12k78k9cF17c"});
-                table74.AddRow(new string[] {
+                table76.AddRow(new string[] {
                             "B:B3k"});
-                table74.AddRow(new string[] {
+                table76.AddRow(new string[] {
                             "X:A135C16D358F358G16H2I35"});
-#line 173
- testRunner.Given("I load this board", ((string)(null)), table74, "Given ");
-#line hidden
-#line 179
- testRunner.When("the blue player moves the piece from b3 to a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 174
+ testRunner.Given("I load this board", ((string)(null)), table76, "Given ");
 #line hidden
 #line 180
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the blue player moves the piece from b3 to a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 181
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 182
  testRunner.And("the game is over and red has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -920,7 +923,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blue Win With No Legal Moves Causes Blue Win", null, ((string[])(null)));
-#line 184
+#line 185
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -940,29 +943,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 8
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table75 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table77 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table75.AddRow(new string[] {
+                table77.AddRow(new string[] {
                             "Benediction v1: R E2 B-E8"});
-                table75.AddRow(new string[] {
+                table77.AddRow(new string[] {
                             "R:A2kD7cE12k78k9cF17c"});
-                table75.AddRow(new string[] {
+                table77.AddRow(new string[] {
                             "B:B3k"});
-                table75.AddRow(new string[] {
+                table77.AddRow(new string[] {
                             "X:A135C16D358F358G16H2I35"});
-#line 185
- testRunner.Given("I load this board", ((string)(null)), table75, "Given ");
-#line hidden
-#line 191
- testRunner.When("the blue player moves the piece from b3 to a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 186
+ testRunner.Given("I load this board", ((string)(null)), table77, "Given ");
 #line hidden
 #line 192
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("the blue player moves the piece from b3 to a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 193
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 194
  testRunner.And("the game is over and blue has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

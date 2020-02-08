@@ -1,4 +1,5 @@
-﻿Feature: Merge Rules
+﻿@every-change
+Feature: Merge Rules
 	As a player, I should see that merge rules are applied correctly.  Cursed pieces cannot
 	merge with other non-blessed pieces.  Merges must not exceed stack size 2 unless one
 	piece involved in the merge is blessed.  Merges remove blessings and curses.

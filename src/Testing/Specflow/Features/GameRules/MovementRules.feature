@@ -1,4 +1,5 @@
-﻿Feature: Movement Rules
+﻿@every-change
+Feature: Movement Rules
 	As a player, I should see that movement rules are applied correctly.  Movement in
 	the first of a player's two turns locks the piece so it cannot be moved on that player's
 	second of two turns, though it can be split and merged.  Movement cannot wrap around
@@ -40,6 +41,7 @@ Scenario: Red Cannot Move Through Red Wall
 
 Scenario: Blue Cannot Move Through Blue Wall
 	Given I have board NewGame
+	And the current turn is BlueAction1
 	When the blue player moves the piece at e9 to e1
 	Then the action fails
 	When the blue player moves the piece at e9 to e5
@@ -57,20 +59,20 @@ Scenario: Blue Cannot Move Through Blue Wall
 
 Scenario: Cannot Depart Edge Of Board
 	Given I load this board
-	|Board			   |
-	|Benediction v1: R-E2 B E8 |
-	|R:D12E12k3H2+		   |
-	|B:B5+E78k9F78 		   |
+	| Board                     |
+	| Benediction v1: R-E2 B E8 |
+	| R:D12E12k3H2+             |
+	| B:B5+E78k9F78             |
 	When the red player moves the piece at h2 two points to the northeast
 	Then the action fails
 
 
 Scenario: Can Capture Enemy Piece
 	Given I load this board
-	|Board			   |
-	|Benediction v1: R-E2 B E8 |
-	|R:D12E12k3F24+		   |
-	|B:D5+7E78k9F78		   |
+	| Board                     |
+	| Benediction v1: R-E2 B E8 |
+	| R:D12E12k3F24+            |
+	| B:D5+7E78k9F78            |
 	When the red player moves the piece at f4 two points to the northwest
 	Then there should be a red two-stack on d5
 	And there should not be any blue pieces on d5
@@ -78,20 +80,21 @@ Scenario: Can Capture Enemy Piece
 
 Scenario: Cannot Capture Own Piece
 	Given I load this board
-	|Board			   |
-	|Benediction v1: R-E2 B E8 |
-	|R:D12E12k3F24+		   |
-	|B:D5+7E78k9F78		   |
+	| Board                     |
+	| Benediction v1: R-E2 B E8 |
+	| R:D12E12k3F24+            |
+	| B:D5+7E78k9F78            |
 	When the red player moves the piece at f4 two points to the south
 	Then the action fails
 
+
 Scenario: Cannot Move Onto Block
 	Given I load this board
-	|Board			   |
-	|Benediction v1: R-E2 B E8 |
-	|R:D12E12k3F24+		   |
-	|B:D5+7E78k9F78		   |
-	|X:E5G3			   |
+	| Board                     |
+	| Benediction v1: R-E2 B E8 |
+	| R:D12E12k3F24+            |
+	| B:D5+7E78k9F78            |
+	| X:E5G3                    |
 	When the red player moves the piece at f4 to e5 
 	Then the action fails
 	Given the current turn is BlueAction1
@@ -100,11 +103,11 @@ Scenario: Cannot Move Onto Block
 
 Scenario: Cannot Move Over Block
 	Given I load this board
-	|Board			   |
-	|Benediction v1: R-E2 B E8 |
-	|R:D12E12k3F24+		   |
-	|B:D5+7E78k9F78		   |
-	|X:E5G3			   |
+	| Board                     |
+	| Benediction v1: R-E2 B E8 |
+	| R:D12E12k3F24+            |
+	| B:D5+7E78k9F78            |
+	| X:E5G3                    |
 	When the red player moves the piece at f4 two points to the northwest 
 	Then the action fails
 	
@@ -116,11 +119,11 @@ Scenario: Move Through Wall Is Assumed If Possible
 	# and gain a blessing if possible.
 
 	Given I load this board
-	|Board			   |
-	|Benediction v1: R E2 B=E8 |
-	|R:D12E12k3H4+++	   |
-	|B:B3+++D8E8k9F78	   |
-	|X:E5F6G3		   |
+	| Board                     |
+	| Benediction v1: R E2 B=E8 |
+	| R:D12E12k3H4+++           |
+	| B:B3+++D8E8k9F78          |
+	| X:E5F6G3                  |
 	When the blue player moves the piece at b3 to b5
 	Then there should be a blue four-stack with a blessing on b5
 	

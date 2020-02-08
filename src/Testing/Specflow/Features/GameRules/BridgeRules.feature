@@ -1,4 +1,5 @@
-﻿Feature: Bridge Rules
+﻿@every-change
+Feature: Bridge Rules
 	As a player, I should see bridge mechanics applied correctly.  Any contiguous
 	collection of pieces of the same color touching both walls should have a
 	blessing reapplied to every uncursed piece in the collection every turn.

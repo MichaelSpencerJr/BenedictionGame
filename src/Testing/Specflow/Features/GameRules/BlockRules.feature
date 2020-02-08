@@ -1,4 +1,5 @@
-﻿Feature: Block Rules
+﻿@every-change
+Feature: Block Rules
 	As a player, I should be able to place a block anywhere that is not a player home space,
 	does not contain a piece, and is not adjacent to another block.
 
@@ -15,16 +16,18 @@ Scenario: Block Happy Path
 	Then the action succeeds
 	And the board has blocks matching: A1
 
+@scenario-image-only
 Scenario: Block Maximum
 	Given I have an empty E2 E8 board
 	When the following moves are performed:
 	| RedAction1 | RedAction2 | BlueAction1 | BlueAction2 |
-	| Bd2        | Bf2        | Be1         | Be9         |
-	| Bd7        | Bf7        | Bb6         | Bc5         |
-	| Ba4        | Bg5        | Bh6         | Bi4         |
-	| Bg3        | Bh1        | Bi2         | Bc3         |
-	| Bb1        | Ba2        | Be6         | Be4         |
-	Then the board has blocks matching: A24B16C35D27E1469F27G35H16I24
+	| Be9        | Bb6        | Bd7         | Bf7         |
+	| Bh6        | Ba4        | Bc5         | Be6         |
+	| Bg5        | Bi4        | Bb3         | Bd4         |
+	| Bf4        | Bh3        | Ba1         | Bc2         |
+	| Be3        | Bg2        | Bi1         | Bd1         |
+	| Bf1        |            |             |             |
+	Then the board has blocks matching: A14B36C25D147E369F147G25H36I14
 		   
 Scenario: Cannot Block Home Space
 	Given I have an empty E2 E8 board

@@ -163,9 +163,12 @@
     <Compile Include="Common\SetupSteps.cs" />
     <Compile Include="Common\ValidationSteps.cs" />
     <Compile Include="Common\ViewSteps.cs" />
+    <Compile Include="Context\BoardImageBehavior.cs" />
     <Compile Include="Context\BoardStateContext.cs" />
+    <Compile Include="Context\FeatureContextExtensions.cs" />
     <Compile Include="Context\GameStateContext.cs" />
     <Compile Include="Hooks\FeatureHooks.cs" />
+    <Compile Include="Hooks\ScenarioHooks.cs" />
     <Compile Include="Mock\MockController.cs" />
     <Compile Include="Mock\MockModel.cs" />
     <Compile Include="Mock\MockView.cs" />

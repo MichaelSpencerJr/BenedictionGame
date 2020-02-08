@@ -15,5 +15,7 @@ namespace Testing.SpecFlow.Context
         public Exception LastError { get; set; }
         public IEnumerable<ProposedState> AvailableActions { get; set; }
         public IDictionary<string, State> StateLibrary { get; set; } = new Dictionary<string, State>(StringComparer.InvariantCultureIgnoreCase);
+        public BoardImageBehavior ImageBehavior { get; set; }
+        public Guid LastPrintedBoard { get; set; }
     }
 }

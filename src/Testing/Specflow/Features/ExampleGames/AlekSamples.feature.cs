@@ -21,12 +21,14 @@ namespace Testing.Specflow.Features.ExampleGames
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Alek Samples")]
+    [NUnit.Framework.CategoryAttribute("scenario-image-only")]
     public partial class AlekSamplesFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private string[] _featureTags = new string[] {
+                "scenario-image-only"};
         
 #line 1 "AlekSamples.feature"
 #line hidden
@@ -36,7 +38,8 @@ namespace Testing.Specflow.Features.ExampleGames
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Alek Samples", "\tIn order to confirm rules are processed correctly,\r\n\tI should be able to walk th" +
-                    "rough some sample games and confirm their moves are all handled correctly.", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "rough some sample games and confirm their moves are all handled correctly.", ProgrammingLanguage.CSharp, new string[] {
+                        "scenario-image-only"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,7 +79,7 @@ namespace Testing.Specflow.Features.ExampleGames
         
         public virtual void FeatureBackground()
         {
-#line 5
+#line 6
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "New Game Board"});
@@ -86,7 +89,7 @@ namespace Testing.Specflow.Features.ExampleGames
                         "R:D12E12k3F12"});
             table1.AddRow(new string[] {
                         "B:D78E78k9F78"});
-#line 6
+#line 7
  testRunner.Given("I define board NewGame as:", ((string)(null)), table1, "Given ");
 #line hidden
         }
@@ -97,7 +100,7 @@ namespace Testing.Specflow.Features.ExampleGames
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Alek Sample Game 1", null, ((string[])(null)));
-#line 12
+#line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -117,10 +120,10 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 5
+#line 6
 this.FeatureBackground();
 #line hidden
-#line 13
+#line 15
  testRunner.Given("I have board NewGame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -203,7 +206,7 @@ this.FeatureBackground();
                             "c6d7",
                             "",
                             ""});
-#line 14
+#line 16
  testRunner.When("the following moves are performed:", ((string)(null)), table2, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -281,8 +284,195 @@ this.FeatureBackground();
                             "Blue",
                             "1",
                             "Cursed"});
-#line 31
+#line 33
  testRunner.Then("the following locations match:", ((string)(null)), table3, "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Alek Sample Game 2")]
+        public virtual void AlekSampleGame2()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Alek Sample Game 2", null, ((string[])(null)));
+#line 50
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+#line 51
+ testRunner.Given("I have board NewGame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "RedAction1",
+                            "RedAction2",
+                            "BlueAction1",
+                            "BlueAction2"});
+                table4.AddRow(new string[] {
+                            "f1+f2",
+                            "@f1",
+                            "f8+f7",
+                            "@f8"});
+                table4.AddRow(new string[] {
+                            "d2+e3",
+                            "@d2",
+                            "d7+e7",
+                            "@d7"});
+                table4.AddRow(new string[] {
+                            "d1+d2",
+                            "@d1",
+                            "d8+d7",
+                            "@d8"});
+                table4.AddRow(new string[] {
+                            "e1+d1",
+                            "@e1",
+                            "e9+d8",
+                            "@e9"});
+                table4.AddRow(new string[] {
+                            "e1+f1",
+                            "@e1",
+                            "f8+e9",
+                            "@f8"});
+                table4.AddRow(new string[] {
+                            "e1+e2",
+                            "@e1",
+                            "f8+e8",
+                            "@f8"});
+                table4.AddRow(new string[] {
+                            "d1d3",
+                            "@d1",
+                            "d7b5",
+                            "@d7"});
+                table4.AddRow(new string[] {
+                            "f2h2",
+                            "@f2",
+                            "f7f5",
+                            "@f7"});
+                table4.AddRow(new string[] {
+                            "h2f4",
+                            "f4-1-f5",
+                            "e7e6",
+                            "e6-1-f5"});
+                table4.AddRow(new string[] {
+                            "Be7",
+                            "f4f5",
+                            "e6f5",
+                            "b5d5"});
+                table4.AddRow(new string[] {
+                            "d3d5",
+                            "d2d4",
+                            "d8-1-d7",
+                            "d7d5"});
+                table4.AddRow(new string[] {
+                            "d4d5",
+                            "f1f3",
+                            "f8+f7",
+                            "e8f8"});
+                table4.AddRow(new string[] {
+                            "d5f6",
+                            "f6-1-f7",
+                            "f5f6",
+                            "f8f7"});
+                table4.AddRow(new string[] {
+                            "f3f4",
+                            "e3e5",
+                            "f7e8",
+                            "@f7"});
+                table4.AddRow(new string[] {
+                            "e5d5",
+                            "f4f6",
+                            "f7f6",
+                            "e8f8"});
+                table4.AddRow(new string[] {
+                            "d5f6",
+                            "e2e4",
+                            "f8f6",
+                            "Be5"});
+                table4.AddRow(new string[] {
+                            "e4d3",
+                            "@e3",
+                            "f6h4",
+                            "Bh2"});
+                table4.AddRow(new string[] {
+                            "f2+e3",
+                            "e3g3",
+                            "",
+                            ""});
+#line 52
+ testRunner.When("the following moves are performed:", ((string)(null)), table4, "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Location",
+                            "Contents",
+                            "Size",
+                            "Type"});
+                table5.AddRow(new string[] {
+                            "E5",
+                            "Block",
+                            "",
+                            ""});
+                table5.AddRow(new string[] {
+                            "E7",
+                            "Block",
+                            "",
+                            ""});
+                table5.AddRow(new string[] {
+                            "H2",
+                            "Block",
+                            "",
+                            ""});
+                table5.AddRow(new string[] {
+                            "D1",
+                            "Red",
+                            "1",
+                            "Normal"});
+                table5.AddRow(new string[] {
+                            "D3",
+                            "Red",
+                            "2",
+                            "King"});
+                table5.AddRow(new string[] {
+                            "E1",
+                            "Red",
+                            "1",
+                            "Normal"});
+                table5.AddRow(new string[] {
+                            "G3",
+                            "Red",
+                            "2",
+                            "Normal"});
+                table5.AddRow(new string[] {
+                            "D8",
+                            "Blue",
+                            "1",
+                            "Normal"});
+                table5.AddRow(new string[] {
+                            "H4",
+                            "Blue",
+                            "2",
+                            "King"});
+#line 72
+ testRunner.Then("the following locations match:", ((string)(null)), table5, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
