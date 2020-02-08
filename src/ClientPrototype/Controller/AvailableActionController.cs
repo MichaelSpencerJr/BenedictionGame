@@ -50,9 +50,10 @@ namespace Benediction.Controller
 
         private static IEnumerable<GameAction> AllBlocks(State currentState, ActionSide side)
         {
-            return from location in State.AllBoardLocations
-                where currentState[location].IsEmpty()
-                select new GameBlockAction {Location = location, Side = side};
+            foreach (var location in State.AllBoardLocations)
+            {
+                if (currentState[location].IsEmpty()) yield return new GameBlockAction {Location = location, Side = side};
+            }
         }
 
         private static IEnumerable<GameAction> AllDrops(State currentState, ActionSide side)
@@ -105,6 +106,24 @@ namespace Benediction.Controller
                         }
                     }
                 }
+            }
+        }
+
+        public static IEnumerable<GameAction> AllActions(State currentState, ActionSide side)
+        {
+            foreach (var block in AllBlocks(currentState, side))
+            {
+                if (block.CheckError(currentState) == null) yield return block;
+            }
+
+            foreach (var drop in AllDrops(currentState, side))
+            {
+                if (drop.CheckError(currentState) == null) yield return drop;
+            }
+
+            foreach (var move in AllMergeMoveSplit(currentState, side))
+            {
+                if (move.CheckError(currentState) == null)  yield return move;
             }
         }
     }

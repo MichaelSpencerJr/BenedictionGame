@@ -10,47 +10,6 @@ NUnit Version: 3.10.0.0
 Test Files 
     F:\src\BenedictionGame\src\Testing\Specflow\bin\Debug\Testing.Specflow.dll
 
-Errors and Failures
-
-1) Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin
-  The game is still in progress: BlueAction2
-  Expected: True
-  But was:  False
-
-   at Testing.SpecFlow.Common.ValidationSteps.GameOver(ActionSide side) in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 144
-   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.ScenarioCleanup()
-   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WinLoseRules.feature:line 170
-
-2) Failed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin
-  The game is still in progress: RedAction2
-  Expected: True
-  But was:  False
-
-   at Testing.SpecFlow.Common.ValidationSteps.GameOver(ActionSide side) in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 144
-   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.ScenarioCleanup()
-   at Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WinLoseRules.feature:line 158
-
-3) Failed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame
-  The game is still in progress: BlueAction1
-  Expected: True
-  But was:  False
-
-   at Testing.SpecFlow.Common.ValidationSteps.GameOver(ActionSide side) in F:\src\BenedictionGame\src\Testing\SpecFlow\Common\ValidationSteps.cs:line 144
-   at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan&amp; duration) in D:\a\1\s\TechTalk.SpecFlow\Bindings\BindingInvoker.cs:line 69
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 517
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(IContextManager contextManager, StepInstance stepInstance) in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 422
-   at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep() in D:\a\1\s\TechTalk.SpecFlow\Infrastructure\TestExecutionEngine.cs:line 256
-   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.ScenarioCleanup()
-   at Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame() in F:\src\BenedictionGame\src\Testing\SpecFlow\Features\GameRules\WrapAroundRules.feature:line 107
-
 Run Settings
     DefaultTimeout: 
     WorkDirectory: F:\src\BenedictionGame\testruns\latest
@@ -61,10 +20,9 @@ Run Settings
     NumberOfTestWorkers: 12
 
 Test Run Summary 
- Overall result: Failed
- Test Count: 115, Passed: 74, Failed: 3, Inconclusive: 38, Skipped: 0
-   Failed Tests - Failures: 3, Errors: 0, Invalid: 0
- Start time: 2020-02-07 02:02:03Z
-   End time: 2020-02-07 02:02:05Z
-   Duration: 1.854 seconds
+ Overall result: Passed
+ Test Count: 118, Passed: 114, Failed: 0, Inconclusive: 4, Skipped: 0
+ Start time: 2020-02-08 05:13:01Z
+   End time: 2020-02-08 05:13:03Z
+   Duration: 1.994 seconds
 

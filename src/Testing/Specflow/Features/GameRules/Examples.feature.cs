@@ -99,7 +99,7 @@ namespace Testing.Specflow.Features.GameRules
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load a Previously Created Board", null, ((string[])(null)));
-#line 50
+#line 51
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -122,7 +122,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 52
+#line 53
  testRunner.Given("I have board WeirdSituation1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             }
@@ -135,7 +135,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Start From an Empty Board", null, ((string[])(null)));
-#line 58
+#line 60
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -158,13 +158,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 59
+#line 61
  testRunner.Given("I have an empty E2 E8 board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 64
+#line 66
  testRunner.And("I add this red piece: E3k+", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 66
+#line 68
  testRunner.And("I add these blue pieces: D45+E56k7F5++++6+b+++7+++++", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -177,7 +177,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load a Saved Board", null, ((string[])(null)));
-#line 72
+#line 75
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -210,7 +210,7 @@ this.FeatureBackground();
                             "B:D6k+7k+8E7+8k+9k+F78k+H5+"});
                 table18.AddRow(new string[] {
                             "X:B5C2D4E6F3H6I1"});
-#line 73
+#line 76
  testRunner.Given("I load this board:", ((string)(null)), table18, "Given ");
 #line hidden
             }
@@ -223,7 +223,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Perform Some Moves", null, ((string[])(null)));
-#line 90
+#line 94
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -254,25 +254,25 @@ this.FeatureBackground();
                             "R:D12E12k3F12"});
                 table19.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 91
+#line 95
  testRunner.Given("I load this board:", ((string)(null)), table19, "Given ");
 #line hidden
-#line 98
+#line 102
  testRunner.When("the red player moves the piece at e3 to e4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 101
+#line 105
  testRunner.When("the red player drops a new piece at e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 104
+#line 108
  testRunner.When("the blue player blockades c2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 107
+#line 111
  testRunner.When("the blue player merges the piece at f7 into e7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 108
+#line 112
  testRunner.When("the red player merges the piece at e4 into e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 111
+#line 115
  testRunner.When("the red player splits 1 piece from e3 onto d2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
@@ -285,7 +285,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Perform Some Moves - Short Notation", null, ((string[])(null)));
-#line 116
+#line 121
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -316,25 +316,25 @@ this.FeatureBackground();
                             "R:D12E12k3F12"});
                 table20.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 117
+#line 122
  testRunner.Given("I load this board:", ((string)(null)), table20, "Given ");
 #line hidden
-#line 124
+#line 129
  testRunner.When("red does e3e4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 127
+#line 132
  testRunner.When("red does @e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 130
+#line 135
  testRunner.When("blue does Bc2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 133
+#line 138
  testRunner.When("blue does f7+e7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 134
+#line 139
  testRunner.When("red does e4+e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 137
+#line 142
  testRunner.When("red does e3-1-d2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
@@ -347,7 +347,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Perform Some Moves - Table Notation", null, ((string[])(null)));
-#line 143
+#line 149
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -378,7 +378,7 @@ this.FeatureBackground();
                             "R:D12E12k3F12"});
                 table21.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 144
+#line 150
  testRunner.Given("I load this board:", ((string)(null)), table21, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
@@ -436,7 +436,7 @@ this.FeatureBackground();
                             "@d2",
                             "@f7",
                             "Bd6"});
-#line 150
+#line 156
  testRunner.When("the following moves are performed:", ((string)(null)), table22, "When ");
 #line hidden
             }
@@ -449,7 +449,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot Block Own King", null, ((string[])(null)));
-#line 176
+#line 183
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -472,13 +472,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 177
+#line 184
  testRunner.Given("I have an empty E2 E8 board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 178
+#line 185
  testRunner.When("red does Be2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 179
+#line 186
  testRunner.Then("the action fails", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -491,7 +491,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Merge Split Merge Doesn\'t Create Pieces", null, ((string[])(null)));
-#line 185
+#line 193
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -522,16 +522,16 @@ this.FeatureBackground();
                             "R:D12E12k3F12"});
                 table23.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 186
+#line 194
  testRunner.Given("I load this board:", ((string)(null)), table23, "Given ");
 #line hidden
-#line 192
+#line 200
  testRunner.When("the red player merges the piece at f2 onto e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 193
+#line 201
  testRunner.And("the red player splits 1 piece from e3 onto d2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 194
+#line 202
  testRunner.Then("the board has red pieces matching: D12+E12k3F1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -558,7 +558,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("None of These Are Valid Block Locations", null, exampleTags);
-#line 204
+#line 213
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -589,13 +589,13 @@ this.FeatureBackground();
                             "R:D12E12k3F12"});
                 table24.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 205
+#line 214
  testRunner.Given("I load this board:", ((string)(null)), table24, "Given ");
 #line hidden
-#line 210
+#line 219
  testRunner.When(string.Format("the red player blockades {0}", blockHere), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 211
+#line 220
  testRunner.Then("the action fails", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

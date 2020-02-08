@@ -110,7 +110,7 @@ namespace Benediction.Actions
         /// <param name="requireWrapAround">If true, only returns null if the move is otherwise allowed AND
         /// if it can be done while passing through the opponent's wall.</param>
         /// <returns>Null if the move is allowed, or a brief text explanation of why it cannot be performed</returns>
-        public string CheckLocationTargetReachable(State state, bool requireWrapAround)
+        public string CheckLocationTargetReachable(State state, bool requireWrapAround, int maxLength)
         {
             // First decode the difference between the board coordinates of source and destination.
             // Least significant four bits are the column number, mapping directly to 0=A and 8=I.
@@ -126,8 +126,6 @@ namespace Benediction.Actions
 
             var blueWallWrapAround = Side == ActionSide.Red;
             var redWallWrapAround = Side == ActionSide.Blue;
-
-            var stackSize = (int) (state[Location] & Cell.SizeMask);
 
             // Set of board locations which can be reached (for reporting to the user in case of illegal move)
             var reachable = new HashSet<Location>();
@@ -160,7 +158,7 @@ namespace Benediction.Actions
                 var consideredCell = Location;
                 var wrapAroundSeen = false;
                 // Stack size controls how many spaces we can move, so progressively check straight line moves of each length.
-                for (var i = 0; i < stackSize; i++)
+                for (var i = 0; i < maxLength; i++)
                 {
                     // test the considered move and find its movement vector
                     var newCell = mover(consideredCell, blueWallWrapAround, redWallWrapAround);
@@ -185,7 +183,7 @@ namespace Benediction.Actions
 
             // target was other than one of the reachable cells, so return an error.
             var cells = string.Join(", ", reachable.ToArray());
-            return $"Stack Size {stackSize} Piece At {Location} Cannot Reach {Target} (but can reach: {cells})";
+            return $"Stack Size {maxLength} Piece At {Location} Cannot Reach {Target} (but can reach: {cells})";
         }
 
         /// <summary>
@@ -211,7 +209,8 @@ namespace Benediction.Actions
 
             var hasCurse = (state[Location] | state[Target]).IsCursed();
             var hasBless = (state[Location] | state[Target]).IsBlessed() ||
-                           !state[Location].IsCursed() && CheckLocationTargetReachable(state, true) == null;
+                           !state[Location].IsCursed() &&
+                           CheckLocationTargetReachable(state, true, state[Location].GetSize()) == null;
 
             if (hasCurse && !hasBless)
             {
@@ -234,10 +233,10 @@ namespace Benediction.Actions
         /// </summary>
         /// <param name="initialState">State before the move</param>
         /// <param name="finalState">State after the move</param>
-        public void ApplyMove(State initialState, State finalState)
+        public void ApplyMove(State initialState, State finalState, int maxLength)
         {
             //This function is not used for merges, so if the target piece is a king then this is a game-ending king capture!
-            if ((initialState[Target] & Cell.King) == Cell.King)
+            if (initialState[Target].IsKing())
             {
                 //Set the appropriate KingTaken flag
                 finalState.Flags |= (initialState[Target] & Cell.SideRed) == Cell.SideRed
@@ -246,13 +245,13 @@ namespace Benediction.Actions
             }
 
             //Copy the Location piece to the Target location, overwriting what may have been there.  Also lock that piece against moving again this turn.
-            finalState[Target] = finalState[Location] | Cell.Locked;
+            finalState[Target] = finalState[Location].Locked(true);
 
             //Clear the location where the moved piece came from.
             finalState[Location] = Cell.Empty;
 
             //If the moved piece went through the opponent's wall, apply a blessing.
-            ApplyWallWrapAroundBlessing(initialState, finalState);
+            ApplyWallWrapAroundBlessing(initialState, finalState, maxLength);
         }
 
         /// <summary>
@@ -260,7 +259,7 @@ namespace Benediction.Actions
         /// </summary>
         /// <param name="initialState">State before the merge</param>
         /// <param name="finalState">State after the merge</param>
-        public void ApplyMerge(State initialState, State finalState)
+        public void ApplyMerge(State initialState, State finalState, int maxLength)
         {
             //if either merged piece is a king then the resulting piece is also a king.
             //also, preserve the side of the original pieces
@@ -278,7 +277,7 @@ namespace Benediction.Actions
             if (initialState[Location].IsKing())
             {
                 //if the merge target was through an enemy wall, bless the new merged piece
-                ApplyWallWrapAroundBlessing(initialState, finalState);
+                ApplyWallWrapAroundBlessing(initialState, finalState, maxLength);
             }
         }
 
@@ -288,11 +287,11 @@ namespace Benediction.Actions
         /// </summary>
         /// <param name="initialState">State before the move</param>
         /// <param name="finalState">State after the move</param>
-        public void ApplyWallWrapAroundBlessing(State initialState, State finalState)
+        public void ApplyWallWrapAroundBlessing(State initialState, State finalState, int maxLength)
         {
             if (finalState[Target].IsCursed()) return;
 
-            if (CheckLocationTargetReachable(initialState, true) == null)
+            if (CheckLocationTargetReachable(initialState, true, maxLength) == null)
             {
                 finalState[Target] = finalState[Target].Blessed(true);
             }

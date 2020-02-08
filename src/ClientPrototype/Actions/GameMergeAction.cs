@@ -19,7 +19,8 @@ namespace Benediction.Actions
         {
             return CheckErrorBase(initialState) ?? CheckErrorTarget(initialState) ??
                    CheckLocationIsYours(initialState, "Merged") ?? CheckTargetIsYours(initialState, "Merged") ??
-                   CheckLocationTargetReachable(initialState, false) ?? CheckMergeRules(initialState);
+                   CheckLocationTargetReachable(initialState, false, initialState[Location].GetSize()) ??
+                   CheckMergeRules(initialState);
         }
 
         public override State Apply(State initialState)
@@ -30,7 +31,7 @@ namespace Benediction.Actions
             {
                 var retval = initialState.DeepCopy();
 
-                ApplyMerge(initialState, retval);
+                ApplyMerge(initialState, retval, initialState[Location].GetSize());
 
                 return retval;
             }

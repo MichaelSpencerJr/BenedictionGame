@@ -94,6 +94,7 @@ Scenario: Cannot Move Onto Block
 	|X:E5G3			   |
 	When the red player moves the piece at f4 to e5 
 	Then the action fails
+	Given the current turn is BlueAction1
 	When the blue player moves the piece at d5 to e5
 	Then the action fails
 

@@ -22,7 +22,7 @@ namespace Testing.SpecFlow.Common
             _context = injectedContext;
         }
 
-        [Given(@"I have an empty (.*) (.*) board")]
+        [Given(@"I have an empty (\S*) (\S*) board")]
         public void GivenIHaveAnEmptyBoard(Location redHome, Location blueHome)
         {
             _context.BoardState = new State {RedHome = redHome, BlueHome = blueHome};
@@ -55,8 +55,8 @@ namespace Testing.SpecFlow.Common
             Console.WriteLine(_context.BoardState.ImageMarkdown());
         }
 
-        [Given(@"I add this (.*) piece: (.*)")]
-        [Given(@"I add these (.*) pieces: (.*)")]
+        [Given(@"I add this (\S*) piece: (.*)")]
+        [Given(@"I add these (\S*) pieces: (.*)")]
         public void GivenIAddPieces(ActionSide side, string definition)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");

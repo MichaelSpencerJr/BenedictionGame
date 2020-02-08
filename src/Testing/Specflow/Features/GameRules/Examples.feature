@@ -47,6 +47,7 @@ Background:
 	# Mainly we'll write tests using just single scenarios.  Every scenario starts with Scenario: and a unique name.
 	# (Yes the name has to be unique -- if you copy / paste a test to do a different variation, make the names unique with A and B or something)
 
+
 Scenario: Load a Previously Created Board
 	# Then to start the test we'll load the board we created above.
 	Given I have board WeirdSituation1
@@ -54,6 +55,7 @@ Scenario: Load a Previously Created Board
 
 
 	# You can also describe a board by starting from an empty board and adding pieces.
+
 
 Scenario: Start From an Empty Board
 	Given I have an empty E2 E8 board
@@ -68,6 +70,7 @@ Scenario: Start From an Empty Board
 
 
 	# You can also just load a board using saved board text from the game
+
 
 Scenario: Load a Saved Board
 	Given I load this board:
@@ -87,6 +90,7 @@ Scenario: Load a Saved Board
 
 	# There are individual When steps for each of the five move types:
 	
+
 Scenario: Perform Some Moves
 	Given I load this board:
 	| New Game Board            |
@@ -112,6 +116,7 @@ Scenario: Perform Some Moves
 
 
 	# You can also use the short notation from the forum:
+
 
 Scenario: Perform Some Moves - Short Notation
 	Given I load this board:
@@ -139,6 +144,7 @@ Scenario: Perform Some Moves - Short Notation
 
 	# You can even just put a ton of moves into a big table,
 	# though you'll need to use the exact table header given here:
+
 
 Scenario: Perform Some Moves - Table Notation
 	Given I load this board:
@@ -173,6 +179,7 @@ Scenario: Perform Some Moves - Table Notation
 
 	# For example, if we try to place a block on our king:
 
+
 Scenario: Cannot Block Own King
 	Given I have an empty E2 E8 board
 	When red does Be2
@@ -181,6 +188,7 @@ Scenario: Cannot Block Own King
 	# Since I had previously introduced bugs where splitting a piece produced incorrect
 	# piece sizes, you can also check that all of the red pieces or all of the blue pieces
 	# match a given load-game-style definition.  For example:
+
 
 Scenario: Merge Split Merge Doesn't Create Pieces
 	Given I load this board:
@@ -200,6 +208,7 @@ Scenario: Merge Split Merge Doesn't Create Pieces
 	# a BUNCH of different moves are all collectively legal or illegal, you can use Scenario Outline.
 	# This is a bit advanced and you don't have to do it, but you can create an Examples section
 	# and it'll substitute columns from the Examples table into <Named> <Parameters> you put in the test.
+
 
 Scenario Outline: None of These Are Valid Block Locations
 	Given I load this board:

@@ -121,28 +121,88 @@ Scenario: Cursed Piece Wrapping Around and Merging Requires Blessed Target
 	And the board has red pieces matching A4++D128k++E137cF12
 
 Scenario: Regular Piece Wrapping Around and Merging Can Form Any Stack Size
-	Given this test isn't written yet
-
+	Given I load this board:
+    | Board                      |
+    | Benediction v1: R-E2 B E8  |
+    | R:A2c++D12E12k3F12G1+7H6++ |
+    | B:D78E78k9F78              |
+	When the red player merges the piece at g7 onto g1
+	Then the action succeeds
+	And there should be a red three-stack on g1
+	When the red player merges the piece at h6 onto a2
+	Then the action succeeds
+	And there should be a red six-stack on a2
 
 Scenario: Blessed Piece Wrapping Around and Merging Can Form Any Stack Size
-	Given this test isn't written yet
+	Given I load this board:
+    | Board                        |
+    | Benediction v1: R-E2 B E8    |
+    | R:A2c++D12E12k3F12G1+7bH6b++ |
+    | B:D78E78k9F78                |
+	When the red player merges the piece at g7 onto g1
+	Then the action succeeds
+	And there should be a red three-stack on g1
+	When the red player merges the piece at h6 onto a2
+	Then the action succeeds
+	And there should be a red six-stack on a2
 
 
 Scenario: Cursed Piece Wrapping Around and Splitting Remains Cursed
-	Given this test isn't written yet
+	Given I load this board:
+    | Board                     |
+    | Benediction v1: R-E2 B E8 |
+    | R:D12E12k3F12G7c+++       |
+    | B:D78E78k9F78             |
+	When the red player splits 2 pieces from g7 onto g1
+	Then the action succeeds
+	And there should be a red cursed two-stack on g7
+	And there should be a red cursed two-stack on g1
 
 
 Scenario: Regular Piece Wrapping Around and Splitting Leaves Bless-Curse Pair
-	Given this test isn't written yet
+	Given I load this board:
+    | Board                     |
+    | Benediction v1: R-E2 B E8 |
+    | R:D12E12k3F12G7+++        |
+    | B:D78E78k9F78             |
+	When the red player splits 2 pieces from g7 onto g1
+	Then the action succeeds
+	And there should be a red cursed two-stack on g7
+	And there should be a red blessed two-stack on g1
 
 
 Scenario: Blessed Piece Wrapping Around and Splitting Leaves Bless-Curse Pair
-	Given this test isn't written yet
+	Given I load this board:
+    | Board                     |
+    | Benediction v1: R-E2 B E8 |
+    | R:D12E12k3F12G7b+++       |
+    | B:D78E78k9F78             |
+	When the red player splits 2 pieces from g7 onto g1
+	Then the action succeeds
+	And there should be a red cursed two-stack on g7
+	And there should be a red blessed two-stack on g1
+
+
+Scenario: Blessed Piece Wrapping Around and Splitting Completing Bridge Leaves Bless-Bless Pair
+	Given I load this board:
+    | Board                     |
+    | Benediction v1: R-E2 B E8 |
+    | R:D12E12k3F12G7b+++       |
+    | B:D78E78k9F78             |
+	When the red player splits 2 pieces from g7 onto g1
+	Then the action succeeds
+	And there should be a red cursed two-stack on g7
+	And there should be a red blessed two-stack on g1
 
 
 Scenario: Cursed Piece Wrapping Around and Split Merging Requires Blessed Target
-	Given this test isn't written yet
-
+	Given I load this board:
+    | Board                     |
+    | Benediction v1: R-E2 B E8 |
+    | R:D12E12k3F12G17c+++      |
+    | B:D78E78k9F78             |
+	When the red player splits 1 piece from g7 onto g1
+	Then the action fails
 
 Scenario: Regular Piece Wrapping Around and Split Merging Can Form Any Stack Size
 	Given this test isn't written yet

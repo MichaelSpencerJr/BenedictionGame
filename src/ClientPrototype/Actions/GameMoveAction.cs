@@ -20,7 +20,7 @@ namespace Benediction.Actions
             return CheckErrorBase(initialState) ?? CheckErrorTarget(initialState) ??
                    CheckLocationIsYours(initialState, "Moved") ?? CheckLocationNotLocked(initialState) ?? 
                    CheckTargetEmptyOrCapture(initialState, "Moved Onto") ??
-                   CheckLocationTargetReachable(initialState, false);
+                   CheckLocationTargetReachable(initialState, false, initialState[Location].GetSize());
 
         }
 
@@ -39,7 +39,7 @@ namespace Benediction.Actions
             {
                 var finalState = initialState.DeepCopy();
 
-                ApplyMove(initialState, finalState);
+                ApplyMove(initialState, finalState, initialState[Location].GetSize());
 
                 return finalState;
             }

@@ -157,6 +157,17 @@ Scenario: Red With No Legal Moves Causes Blue Win
 	Then the action succeeds
 	And the game is over and blue has won
 
+Scenario: Red Win With No Legal Moves Causes Red Win
+	Given I load this board
+	|Board			   |
+	| Benediction v1: R-E2 B E8 |
+	| R:A1k |
+	| B:A2kD2+E1k2k3c8k9F2c7 |
+	| X:B246D168E4F18G35H16I24 |
+	When the red player moves the piece from a1 to a2
+	Then the action succeeds
+	And the game is over and red has won
+
 
 Scenario: Blue With No Legal Moves Causes Red Win
 	Given I load this board
@@ -168,3 +179,15 @@ Scenario: Blue With No Legal Moves Causes Red Win
 	When the blue player moves the piece from b3 to a2
 	Then the action succeeds
 	And the game is over and red has won
+
+
+Scenario: Blue Win With No Legal Moves Causes Blue Win
+	Given I load this board
+	|Board			   |
+	|Benediction v1: R E2 B-E8 |
+	|R:A2kD7cE12k78k9cF17c	   |
+	|B:B3k			   |
+	|X:A135C16D358F358G16H2I35 |
+	When the blue player moves the piece from b3 to a2
+	Then the action succeeds
+	And the game is over and blue has won

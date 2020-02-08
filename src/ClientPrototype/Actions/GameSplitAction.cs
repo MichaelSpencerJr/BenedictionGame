@@ -15,7 +15,7 @@ namespace Benediction.Actions
         {
             return CheckErrorBase(initialState) ?? CheckErrorTarget(initialState) ?? CheckSize(initialState) ??
                    CheckLocationIsYours(initialState, "Split From") ??
-                   CheckLocationTargetReachable(initialState, false) ??
+                   CheckLocationTargetReachable(initialState, false, Size) ??
                    CheckMergeRulesIfMerge(initialState);
         }
 
@@ -34,8 +34,7 @@ namespace Benediction.Actions
             if (CheckTargetIsYours(initialState, string.Empty) == null)
             {
                 var blessingRemovedState = initialState.DeepCopy();
-                blessingRemovedState[Location] &= ~(Cell.Blessed | Cell.SizeMask);
-                blessingRemovedState[Location] |= (Cell)Size;
+                blessingRemovedState[Location] = blessingRemovedState[Location].Blessed(false).SetSize(Size);
                 return CheckMergeRules(blessingRemovedState);
             }
 
@@ -50,28 +49,25 @@ namespace Benediction.Actions
             {
                 var finalState = initialState.DeepCopy();
 
-                var remainingSize = (int) (initialState[Location] & Cell.SizeMask) - Size;
+                var remainingSize = initialState[Location].GetSize() - Size;
 
                 //Remove blessings and set size to just what's being moved/merged.  King or curse flags remain.
-                finalState[Location] &= ~(Cell.Blessed | Cell.SizeMask);
-                finalState[Location] |= (Cell)Size; 
+                finalState[Location] = finalState[Location].Blessed(false).SetSize(Size);
                 //eventually remainingSize will be put here, but first we need to use this space as if it's a smaller full-move piece
 
                 if (CheckTargetIsYours(initialState, string.Empty) == null)
                 {
                     //Location still has king, curse, and size info
-                    ApplyMerge(initialState, finalState);
+                    ApplyMerge(initialState, finalState, Size);
                     //Now that the split-away part has been used for a full move or merge, put the left-behind part where it should be.
-                    finalState[Location] =
-                        (initialState[Location] & ~(Cell.SizeMask | Cell.Locked)) | (Cell) remainingSize;
+                    finalState[Location] = initialState[Location].Locked(false).SetSize(remainingSize);
                 }
                 else
                 {
-                    ApplyMove(initialState, finalState);
-                    finalState[Target] |= Cell.CursePending;
+                    ApplyMove(initialState, finalState, Size);
+                    finalState[Target] = finalState[Target].CursePending(true);
                     //Now that the split-away part has been used for a full move or merge, put the left-behind part where it should be.
-                    finalState[Location] =
-                        (initialState[Location] & ~(Cell.SizeMask | Cell.Locked)) | (Cell) remainingSize | Cell.CursePending;
+                    finalState[Location] = initialState[Location].Blessed(false).Locked(false).CursePending(true).SetSize(remainingSize);
                 }
 
 

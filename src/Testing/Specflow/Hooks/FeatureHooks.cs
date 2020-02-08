@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using TechTalk.SpecFlow.Bindings;
@@ -23,6 +24,12 @@ namespace Testing.SpecFlow.Hooks
         public static void FeatureTeardown()
         {
 
+        }
+
+        [BeforeScenario("skip")]
+        public static void SkipScenario()
+        {
+            Assert.Inconclusive("@skip");
         }
     }
 }

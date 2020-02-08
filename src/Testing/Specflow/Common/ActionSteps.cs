@@ -38,7 +38,7 @@ namespace Testing.SpecFlow.Common
             }
         }
 
-        [When(@"the (.*) player moves (?:a|the) (?:piece|stack) (?:on|at|from) (.*) (?:to|into|onto) (.*)")]
+        [When(@"the (\S*) player moves (?:a|the) (?:piece|stack) (?:on|at|from) (\S*) (?:to|into|onto) (\S*)")]
         public void WhenIMove(ActionSide side, Location from, Location to)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
@@ -47,7 +47,7 @@ namespace Testing.SpecFlow.Common
         }
         //When the red player moves the piece at h2 two points to the northeast
 
-        [When(@"the (.*) player merges (?:a|the) (?:piece|stack) (?:on|at|from) (.*) (?:to|into|onto) (.*)")]
+        [When(@"the (\S*) player merges (?:a|the) (?:piece|stack) (?:on|at|from) (\S*) (?:to|into|onto) (\S*)")]
         public void WhenIMerge(ActionSide side, Location from, Location to)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
@@ -55,7 +55,7 @@ namespace Testing.SpecFlow.Common
             TryApplyAction(action, from, to);
         }
 
-        [When(@"the (.*) player splits (.*) (?:piece|stack|pieces|stacks) (?:on|at|from) (.*) (?:to|into|onto) (.*)")]
+        [When(@"the (\S*) player splits (\S*) (?:piece|stack|pieces|stacks) (?:on|at|from) (\S*) (?:to|into|onto) (\S*)")]
         public void WhenISplit(ActionSide side, string countWord, Location from, Location to)
         {
             var count = CommonSteps.ParseWordNumber(countWord);
@@ -65,8 +65,8 @@ namespace Testing.SpecFlow.Common
         }
 
 
-        [When(@"the (.*) player blocks (.*)")]
-        [When(@"the (.*) player blockades (.*)")]
+        [When(@"the (\S*) player blocks (\S*)")]
+        [When(@"the (\S*) player blockades (\S*)")]
         public void WhenIBlockade(ActionSide side, Location location)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
@@ -75,8 +75,8 @@ namespace Testing.SpecFlow.Common
         }
 
         
-        [When(@"the (.*) player drops a new piece at (.*)")]
-        [When(@"the (.*) player places a piece at (.*)")]
+        [When(@"the (\S*) player drops a new piece at (\S*)")]
+        [When(@"the (\S*) player places a piece at (\S*)")]
         public void WhenIDrop(ActionSide side, Location location)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
@@ -84,10 +84,10 @@ namespace Testing.SpecFlow.Common
             TryApplyAction(action, location);
         }
 
-        [When(@"(.*) does (.*)")]
-        [When(@"(.*) tries (.*)")]
-        [When(@"(.*) inputs (.*)")]
-        [When(@"(.*) inputs move (.*)")]
+        [When(@"(\S*) does (\S*)")]
+        [When(@"(\S*) tries (\S*)")]
+        [When(@"(\S*) inputs (\S*)")]
+        [When(@"(\S*) inputs move (\S*)")]
         public void WhenDoes(ActionSide side, string move)
         {
             Location location, target;
@@ -170,7 +170,7 @@ namespace Testing.SpecFlow.Common
             Assert.IsFalse(empty, "Missing table argument containing moves to perform.");
         }
 
-        [When(@"the (.*) player moves the (?:piece|stack) (?:at|from) (.*) (.*) points to the (.*)")]
+        [When(@"the (\S*) player moves the (?:piece|stack) (?:at|from) (\S*) (\S*) points to the (.*)")]
         public void WhenIMovePointsDirection(ActionSide side, Location from, string distance, string direction)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");

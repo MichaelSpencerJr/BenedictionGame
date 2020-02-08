@@ -1,4 +1,6 @@
-﻿using Benediction.Board;
+﻿using System.Linq;
+using Benediction.Board;
+using Benediction.Controller;
 
 namespace Benediction.Actions
 {
@@ -107,17 +109,26 @@ namespace Benediction.Actions
 
             finalState.Flags = finalState.Flags.NextTurn();
 
+            if (!finalState.Flags.GameEnded())
+            {
+                var side = finalState.Flags.IsRedTurn() ? ActionSide.Red : ActionSide.Blue;
+                if (!AvailableActionController.AllActions(finalState, side).Any())
+                {
+                    finalState.Flags = finalState.Flags.IsRedTurn() ? StateFlags.BlueWin : StateFlags.RedWin;
+                }
+            }
+
             return finalState;
         }
 
         private static void CheckKingCreation(State state)
         {
-            if (state[state.RedHome].IsPiece())
+            if (state[state.RedHome].IsPiece() && !state[state.RedHome].IsKing())
             {
                 state[state.RedHome] = state[state.RedHome].King(true).Blessed(false).CursePending(false).Cursed(false);
             }
 
-            if (state[state.BlueHome].IsPiece())
+            if (state[state.BlueHome].IsPiece() && !state[state.BlueHome].IsKing())
             {
                 state[state.BlueHome] = state[state.BlueHome].King(true).Blessed(false).CursePending(false).Cursed(false);
             }

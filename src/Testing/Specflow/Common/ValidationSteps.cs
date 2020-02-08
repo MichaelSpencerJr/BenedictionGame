@@ -25,7 +25,7 @@ namespace Testing.SpecFlow.Common
         }
 
 
-        [Then(@"the current turn is (.*)")]
+        [Then(@"the current turn is (\S*)")]
         public void ThenTheCurrentTurnIsRed(StateFlags flags)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
@@ -53,8 +53,8 @@ namespace Testing.SpecFlow.Common
             Console.WriteLine($"Failed with: {_context.LastMessage}");
         }
 
-        [Then(@"the board has (.*) pieces matching (.*)")]
-        [Then(@"the board has (.*) pieces matching: (.*)")]
+        [Then(@"the board has (\S*) pieces matching (\S*)")]
+        [Then(@"the board has (\S*) pieces matching: (\S*)")]
         public void ThenTheBoardHasPiecesMatching(ActionSide side, string definition)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
@@ -99,8 +99,8 @@ namespace Testing.SpecFlow.Common
             }
         }
 
-        [Then(@"the board has blocks matching: (.*)")]
-        [Then(@"the board has blockades matching: (.*)")]
+        [Then(@"the board has blocks matching: (\S*)")]
+        [Then(@"the board has blockades matching: (\S*)")]
         public void ThenTheBoardHasBlocksMatching(string definition)
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
@@ -138,7 +138,7 @@ namespace Testing.SpecFlow.Common
             }
         }
 
-        [Then(@"the game is over and (.*) has won")]
+        [Then(@"the game is over and (\S*) has won")]
         public void GameOver(ActionSide side)
         {
             Assert.True(_context.BoardState.Flags.GameWon(),
@@ -183,8 +183,8 @@ namespace Testing.SpecFlow.Common
                 $"Failure{(failure == 1 ? "" : "s")} out of {count} Total.");
         }
 
-        [Then(@"there should be a (.*) (.*)-stack on (.*)")]
-        [Then(@"there should be a (.*) (.*) stack on (.*)")]
+        [Then(@"there should be a (\S*) (\S*)-stack on (\S*)")]
+        [Then(@"there should be a (\S*) (\S*) stack on (\S*)")]
         public void ThenThereShouldBe(ActionSide side, string countWord, Location location)
         {
             var validation = ValidateLocationSideCountInternal(side, countWord, location);
@@ -192,12 +192,10 @@ namespace Testing.SpecFlow.Common
             var sb = new StringBuilder();
             Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
         }
-
-        //there should be a blue king on e(.*) without any blessing
-        [Then(@"there should be a (.*) (.*)-stack king on (.*)")]
-        [Then(@"there should be a (.*) (.*) stack king on (.*)")]
-        [Then(@"there should be a (.*) (.*)-stack king on (.*) without any blessing")]
-        [Then(@"there should be a (.*) (.*) stack king on (.*) without any blessing")]
+        [Then(@"there should be a (\S*) (\S*)-stack king on (\S*)")]
+        [Then(@"there should be a (\S*) (\S*) stack king on (\S*)")]
+        [Then(@"there should be a (\S*) (\S*)-stack king on (\S*) without any blessing")]
+        [Then(@"there should be a (\S*) (\S*) stack king on (\S*) without any blessing")]
         public void ThenThereShouldBeKing(ActionSide side, string countWord, Location location)
         {
             var validation = ValidateLocationSideCountInternal(side, countWord, location);
@@ -206,9 +204,8 @@ namespace Testing.SpecFlow.Common
             Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
         }
 
-        //there should be a blue king on e(.*) without any blessing
-        [Then(@"there should be a (.*) king on (.*)")]
-        [Then(@"there should be a (.*) king on (.*) without any blessing")]
+        [Then(@"there should be a (\S*) king on (\S*)")]
+        [Then(@"there should be a (\S*) king on (\S*) without any blessing")]
         public void ThenThereShouldBeKingNoSize(ActionSide side, Location location)
         {
             var validation = ValidateLocationSideCountInternal(side, "no", location);
@@ -218,10 +215,10 @@ namespace Testing.SpecFlow.Common
             Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
         }
 
-        [Then(@"there should be a (.*)-stack king on (.*)")]
-        [Then(@"there should be a (.*) stack king on (.*)")]
-        [Then(@"there should be a (.*)-stack king on (.*) without any blessing")]
-        [Then(@"there should be a (.*) stack king on (.*) without any blessing")]
+        [Then(@"there should be a (\S*)-stack king on (\S*)")]
+        [Then(@"there should be a (\S*) stack king on (\S*)")]
+        [Then(@"there should be a (\S*)-stack king on (\S*) without any blessing")]
+        [Then(@"there should be a (\S*) stack king on (\S*) without any blessing")]
         public void ThenThereShouldBeKingNoColor(string countWord, Location location)
         {
             var validation = ValidateLocationSideCountInternal(ActionSide.Red, countWord, location);
@@ -231,10 +228,10 @@ namespace Testing.SpecFlow.Common
             Assert.IsTrue(sb.ValidateRow(_context.BoardState, validation), sb.ToString().Trim());
         }
         
-        [Then(@"there should be a (.*) (.*)-stack blessed king on (.*)")]
-        [Then(@"there should be a (.*) (.*) stack blessed king on (.*)")]
-        [Then(@"there should be a (.*) (.*)-stack king with a blessing on (.*)")]
-        [Then(@"there should be a (.*) (.*) stack king with a blessing on (.*)")]
+        [Then(@"there should be a (\S*) (\S*)-stack blessed king on (\S*)")]
+        [Then(@"there should be a (\S*) (\S*) stack blessed king on (\S*)")]
+        [Then(@"there should be a (\S*) (\S*)-stack king with a blessing on (\S*)")]
+        [Then(@"there should be a (\S*) (\S*) stack king with a blessing on (\S*)")]
         public void ThenThereShouldBeBlessedKing(ActionSide side, string countWord, Location location)
         {
             var validation = ValidateLocationSideCountInternal(side, countWord, location);
@@ -244,12 +241,12 @@ namespace Testing.SpecFlow.Common
         }
 
         
-        [Then(@"there should be a blessed (.*) (.*)-stack on (.*)")]
-        [Then(@"there should be a blessed (.*) (.*) stack on (.*)")]
-        [Then(@"there should be a (.*) blessed (.*)-stack on (.*)")]
-        [Then(@"there should be a (.*) blessed (.*) stack on (.*)")]
-        [Then(@"there should be a (.*) (.*)-stack with a blessing on (.*)")]
-        [Then(@"there should be a (.*) (.*) stack with a blessing on (.*)")]
+        [Then(@"there should be a blessed (\S*) (\S*)-stack on (\S*)")]
+        [Then(@"there should be a blessed (\S*) (\S*) stack on (\S*)")]
+        [Then(@"there should be a (\S*) blessed (\S*)-stack on (\S*)")]
+        [Then(@"there should be a (\S*) blessed (\S*) stack on (\S*)")]
+        [Then(@"there should be a (\S*) (\S*)-stack with a blessing on (\S*)")]
+        [Then(@"there should be a (\S*) (\S*) stack with a blessing on (\S*)")]
         public void ThenThereShouldBeBlessed(ActionSide side, string countWord, Location location)
         {
             var validation = ValidateLocationSideCountInternal(side, countWord, location);
@@ -259,12 +256,12 @@ namespace Testing.SpecFlow.Common
         }
 
         
-        [Then(@"there should be a cursed (.*) (.*)-stack on (.*)")]
-        [Then(@"there should be a cursed (.*) (.*) stack on (.*)")]
-        [Then(@"there should be a (.*) cursed (.*)-stack on (.*)")]
-        [Then(@"there should be a (.*) cursed (.*) stack on (.*)")]
-        [Then(@"there should be a (.*) (.*)-stack with a curse on (.*)")]
-        [Then(@"there should be a (.*) (.*) stack with a curse on (.*)")]
+        [Then(@"there should be a cursed (\S*) (\S*)-stack on (\S*)")]
+        [Then(@"there should be a cursed (\S*) (\S*) stack on (\S*)")]
+        [Then(@"there should be a (\S*) cursed (\S*)-stack on (\S*)")]
+        [Then(@"there should be a (\S*) cursed (\S*) stack on (\S*)")]
+        [Then(@"there should be a (\S*) (\S*)-stack with a curse on (\S*)")]
+        [Then(@"there should be a (\S*) (\S*) stack with a curse on (\S*)")]
         public void ThenThereShouldBeCursed(ActionSide side, string countWord, Location location)
         {
             var validation = ValidateLocationSideCountInternal(side, countWord, location);
@@ -289,10 +286,10 @@ namespace Testing.SpecFlow.Common
             return validation;
         }
 
-        [Then(@"there should be a (.*) piece on (.*)")]
+        [Then(@"there should be a (\S*) piece on (\S*)")]
         public void ThenThereShouldBe(ActionSide side, Location location) => ThenThereShouldBe(side, "one", location);
 
-        [Then(@"there should not be any (.*) pieces on (.*)")]
+        [Then(@"there should not be any (\S*) pieces on (\S*)")]
         public void ThenThereShouldNotBeAny(ActionSide side, Location location)
         {
             var contents = _context.BoardState[location];
