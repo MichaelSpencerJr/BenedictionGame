@@ -15,7 +15,7 @@ namespace Benediction.View
         private void btnClearBoard_Click(object sender, EventArgs e)
         {
             if (!_model.EditMode) return;
-            _model.EditorState = new State();
+            _model.EditorState = StateManager.Create();
             RedrawBoard();
             BoardEditorUpdate();
         }
@@ -31,7 +31,7 @@ namespace Benediction.View
             {
                 NavigateEvent?.Invoke(sender,
                     new BoardNavigationEventArgs
-                        {EventType = NavigationEventType.LoadGame, Selected = new State(txtBoardData.Text.Trim())});
+                        {EventType = NavigationEventType.LoadGame, Selected = StateSerializer.FromString(txtBoardData.Text.Trim())});
             }
             catch (Exception ex)
             {
@@ -51,7 +51,9 @@ namespace Benediction.View
         {
             if (!_model.EditMode) return;
             if (!Movement.IsValidLocation(_model.SelectionObject)) return;
-            _model.EditorState[_model.SelectionObject] = Cell.Empty;
+            var updateState = _model.EditorState;
+            updateState[location: _model.SelectionObject] = Cell.Empty;
+            _model.EditorState = updateState;
             RedrawBoard();
             BoardEditorUpdate();
         }
@@ -60,13 +62,15 @@ namespace Benediction.View
         {
             if (!_model.EditMode) return;
             if (!Movement.IsValidLocation(_model.SelectionObject)) return;
-            _model.EditorState.RedHome = _model.SelectionObject;
+            var updateState = _model.EditorState;
+            updateState.RedHome = _model.SelectionObject;
 
-            if (_model.EditorState.BlueHome == _model.EditorState.RedHome)
+            if (updateState.BlueHome == updateState.RedHome)
             {
-                _model.EditorState.BlueHome = Board.Location.Undefined;
+                updateState.BlueHome = Board.Location.Undefined;
             }
 
+            _model.EditorState = updateState;
             RedrawBoard();
             BoardEditorUpdate();
         }
@@ -75,13 +79,15 @@ namespace Benediction.View
         {
             if (!_model.EditMode) return;
             if (!Movement.IsValidLocation(_model.SelectionObject)) return;
-            _model.EditorState.BlueHome = _model.SelectionObject;
+            var updateState = _model.EditorState;
+            updateState.BlueHome = _model.SelectionObject;
 
-            if (_model.EditorState.BlueHome == _model.EditorState.RedHome)
+            if (updateState.BlueHome == updateState.RedHome)
             {
-                _model.EditorState.RedHome = Board.Location.Undefined;
+                updateState.RedHome = Board.Location.Undefined;
             }
 
+            _model.EditorState = updateState;
             RedrawBoard();
             BoardEditorUpdate();
         }
@@ -90,7 +96,9 @@ namespace Benediction.View
         {
             if (!_model.EditMode) return;
             if (!Movement.IsValidLocation(_model.SelectionObject)) return;
-            _model.EditorState[_model.SelectionObject] = Cell.Block;
+            var updateState = _model.EditorState;
+            updateState[_model.SelectionObject] = Cell.Block;
+            _model.EditorState = updateState;
             RedrawBoard();
             BoardEditorUpdate();
         }
@@ -100,14 +108,16 @@ namespace Benediction.View
             if (!_model.EditMode) return;
             if (!Movement.IsValidLocation(_model.SelectionObject)) return;
 
-            if (!_model.EditorState[_model.SelectionObject].IsPiece())
+            var updateState = _model.EditorState;
+            if (!updateState[_model.SelectionObject].IsPiece())
             {
-                _model.EditorState[_model.SelectionObject] = Cell.SideRed | Cell.Size1;
+                updateState[_model.SelectionObject] = Cell.SideRed | Cell.Size1;
             }
             else
             {
-                _model.EditorState[_model.SelectionObject] = _model.EditorState[_model.SelectionObject].SetFlag(Cell.SideRed, true);
+                updateState[_model.SelectionObject] = updateState[_model.SelectionObject].SetFlag(Cell.SideRed, true);
             }
+            _model.EditorState = updateState;
 
             RedrawBoard();
             BoardEditorUpdate();
@@ -118,14 +128,16 @@ namespace Benediction.View
             if (!_model.EditMode) return;
             if (!Movement.IsValidLocation(_model.SelectionObject)) return;
 
-            if (!_model.EditorState[_model.SelectionObject].IsPiece())
+            var updateState = _model.EditorState;
+            if (!updateState[_model.SelectionObject].IsPiece())
             {
-                _model.EditorState[_model.SelectionObject] = Cell.Size1;
+                updateState[_model.SelectionObject] = Cell.Size1;
             }
             else
             {
-                _model.EditorState[_model.SelectionObject] = _model.EditorState[_model.SelectionObject].SetFlag(Cell.SideRed, false);
+                updateState[_model.SelectionObject] = updateState[_model.SelectionObject].SetFlag(Cell.SideRed, false);
             }
+            _model.EditorState = updateState;
 
             RedrawBoard();
             BoardEditorUpdate();
@@ -139,7 +151,9 @@ namespace Benediction.View
             if (!_model.EditorState[_model.SelectionObject].IsPiece()) return;
             var newSize = Convert.ToInt32(nudStackSize.Value);
             if (newSize < 1 || newSize > 15) return;
-            _model.EditorState[_model.SelectionObject] = _model.EditorState[_model.SelectionObject].SetSize(newSize);
+            var updateState = _model.EditorState;
+            updateState[_model.SelectionObject] = _model.EditorState[_model.SelectionObject].SetSize(newSize);
+            _model.EditorState = updateState;
 
             RedrawBoard();
             BoardEditorUpdate();
@@ -162,9 +176,11 @@ namespace Benediction.View
             else if (cb == chkLocked) targetFlag = Cell.Locked;
             else return;
 
-            _model.EditorState[_model.SelectionObject] =
-                _model.EditorState[_model.SelectionObject].SetFlag(targetFlag, cb.Checked);
-            
+            var updateState = _model.EditorState;
+            updateState[_model.SelectionObject] =
+                updateState[_model.SelectionObject].SetFlag(targetFlag, cb.Checked);
+            _model.EditorState = updateState;
+           
             RedrawBoard();
             BoardEditorUpdate();
         }
@@ -188,14 +204,16 @@ namespace Benediction.View
             else if (cb == chkBlueWin) targetFlag = StateFlags.BlueWin;
             else return;
 
-            _model.EditorState.Flags = _model.EditorState.Flags.SetFlag(targetFlag, cb.Checked);
+            var updateState = _model.EditorState;
+            updateState.Flags = _model.EditorState.Flags.SetFlag(targetFlag, cb.Checked);
+            _model.EditorState = updateState;
 
             RedrawBoard();
         }
 
         private void btnBoardImageToClipboard_Click(object sender, EventArgs e)
         {
-            Clipboard.SetImage(BoardPainter.DrawBoard(_model.EditorState ?? _model.CommittedState, Board.Location.Undefined,
+            Clipboard.SetImage(BoardPainter.DrawBoard(_model.EditorState.Flags == 0 ? _model.CommittedState : _model.EditorState, Board.Location.Undefined,
                 Board.Location.Undefined, null, false, Point.Empty));
         }
 

@@ -16,7 +16,7 @@ namespace Benediction.Actions
                 .Select(kvp => kvp.Key));
 
             var bridgeSpaces = new HashSet<Location>();
-            foreach (var startingLocation in State.RedWallAdjacentLocations)
+            foreach (var startingLocation in state.RedWallAdjacentLocations)
             {
                 var potentialBridgeSpaces = new HashSet<Location>();
 
@@ -41,7 +41,7 @@ namespace Benediction.Actions
                     }
                 }
 
-                foreach (var endingLocation in State.BlueWallAdjacentLocations)
+                foreach (var endingLocation in state.BlueWallAdjacentLocations)
                 {
                     if (potentialBridgeSpaces.Contains(endingLocation))
                     {

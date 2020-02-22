@@ -124,10 +124,10 @@ Scenario: Split-Merge Leaves Correctly Sized Stacks
 	When the red player splits 6 pieces from f2 onto e3
 	Then the action succeeds
 	And there should be a red fourteen-stack on e3
-	And there should be a red blessed two-stack on f2
+	And there should be a red two-stack on f2
 	When the red player splits 1 piece from d2 onto d1
 	Then the action succeeds
-	And there should be a red blessed fourteen-stack on d2
+	And there should be a red fourteen-stack on d2
 	And there should be a red fifteen-stack on d1
 
 
@@ -183,7 +183,7 @@ Scenario: Blessed Stack Loses Blessing Upon Split-Merge
 	When the red player splits 1 piece from e3 onto e4
 	Then the action succeeds
 	And there should be a red two-stack on e4
-	And there should be a red blessed one-stack on e3
+	And there should be a red one-stack on e3
 
 
 Scenario: Cannot Split-Merge Blessed Stack Onto Regular Piece Over Stack Size Two
@@ -216,3 +216,96 @@ Scenario: Split-Merge Blessed Stack Onto Blessed Piece Over Stack Size Two
 	Then the action succeeds
 	And there should be a red three-stack on e5
 	And there should be a red one-stack on e3
+
+Scenario Outline: Split-Merge Rule Test - Over Wall
+	Given I load this board:
+	| Board                     |
+	| Benediction v1: R-E2 B C6 |
+	| R:A5bD8bE1c2k8cF8I5       |
+	| B:C6k                     |
+	And I add these red pieces: E9<Source>A5<Target>
+	When the red player splits 1 piece from e9 onto a5
+	Then the action <Outcome>
+	And there should be a red <TargetResult> on a5
+	And there should be a red <SourceResult> on e9
+	Examples:
+	| Source | Target | Outcome  | SourceResult     | TargetResult                     |
+	| +      |        | succeeds | one-stack        | two-stack                        |
+	| +      | b      | succeeds | one-stack        | two-stack                        |
+	| +      | c      | succeeds | one-stack        | two-stack                        |
+	| +      | k      | succeeds | one-stack        | two-stack king                   |
+	| +      | +      | succeeds | one-stack        | three-stack                      |
+	| +      | b+     | succeeds | one-stack        | three-stack                      |
+	| +      | c+     | succeeds | one-stack        | three-stack                      |
+	| +      | k+     | succeeds | one-stack        | three-stack king                 |
+	| b+     |        | succeeds | one-stack        | two-stack                        |
+	| b+     | b      | succeeds | one-stack        | two-stack                        |
+	| b+     | c      | succeeds | one-stack        | two-stack                        |
+	| b+     | k      | succeeds | one-stack        | two-stack king                   |
+	| b+     | +      | succeeds | one-stack        | three-stack                      |
+	| b+     | b+     | succeeds | one-stack        | three-stack                      |
+	| b+     | c+     | succeeds | one-stack        | three-stack                      |
+	| b+     | k+     | succeeds | one-stack        | three-stack king                 |
+	| c+     |        | fails    | cursed two-stack | one-stack                        |
+	| c+     | b      | succeeds | one-stack        | two-stack                        |
+	| c+     | c      | fails    | cursed two-stack | cursed one-stack                 |
+	| c+     | k      | fails    | cursed two-stack | one-stack king                   |
+	| c+     | +      | fails    | cursed two-stack | two-stack                        |
+	| c+     | b+     | succeeds | one-stack        | three-stack                      |
+	| c+     | c+     | fails    | cursed two-stack | cursed two-stack                 |
+	| c+     | k+     | fails    | cursed two-stack | two-stack king                   |
+	| k+     |        | succeeds | one-stack king   | two-stack king with a blessing   |
+	| k+     | b      | succeeds | one-stack king   | two-stack king with a blessing   |
+	| k+     | c      | succeeds | one-stack king   | two-stack king with a blessing   |
+	| k+     | k      | fails    | two-stack king   | one-stack king                   |
+	| k+     | +      | succeeds | one-stack king   | three-stack king with a blessing |
+	| k+     | b+     | succeeds | one-stack king   | three-stack king with a blessing |
+	| k+     | c+     | succeeds | one-stack king   | three-stack king with a blessing |
+	| k+     | k+     | fails    | two-stack king   | two-stack king                   |
+
+
+Scenario Outline: Split-Merge Rule Test - Adjacent
+	Given I load this board:
+	| Board                     |
+	| Benediction v1: R-E2 B C6 |
+	| R:A5bD8bE1c2k8cF8I5       |
+	| B:C6k                     |
+	And I add these red pieces: A1<Source>A2<Target>
+	When the red player splits 1 piece from a1 onto a2
+	Then the action <Outcome>
+	And there should be a red <TargetResult> on a2
+	And there should be a red <SourceResult> on a1
+	Examples:
+	| Source | Target | Outcome  | SourceResult     | TargetResult     |
+	| +      |        | succeeds | one-stack        | two-stack        |
+	| +      | b      | succeeds | one-stack        | two-stack        |
+	| +      | c      | fails    | two-stack        | cursed one-stack |
+	| +      | k      | succeeds | one-stack        | two-stack king   |
+	| +      | +      | fails    | two-stack        | two-stack        |
+	| +      | b+     | succeeds | one-stack        | three-stack      |
+	| +      | c+     | fails    | two-stack        | cursed two-stack |
+	| +      | k+     | fails    | two-stack        | two-stack king   |
+	| b+     |        | succeeds | one-stack        | two-stack        |
+	| b+     | b      | succeeds | one-stack        | two-stack        |
+	| b+     | c      | succeeds | one-stack        | two-stack        |
+	| b+     | k      | succeeds | one-stack        | two-stack king   |
+	| b+     | +      | succeeds | one-stack        | three-stack      |
+	| b+     | b+     | succeeds | one-stack        | three-stack      |
+	| b+     | c+     | succeeds | one-stack        | three-stack      |
+	| b+     | k+     | succeeds | one-stack        | three-stack king |
+	| c+     |        | fails    | cursed two-stack | one-stack        |
+	| c+     | b      | succeeds | one-stack        | two-stack        |
+	| c+     | c      | fails    | cursed two-stack | cursed one-stack |
+	| c+     | k      | fails    | cursed two-stack | one-stack king   |
+	| c+     | +      | fails    | cursed two-stack | two-stack        |
+	| c+     | b+     | succeeds | one-stack        | three-stack      |
+	| c+     | c+     | fails    | cursed two-stack | cursed two-stack |
+	| c+     | k+     | fails    | cursed two-stack | two-stack king   |
+	| k+     |        | succeeds | one-stack king   | two-stack king   |
+	| k+     | b      | succeeds | one-stack king   | two-stack king   |
+	| k+     | c      | fails    | two-stack king   | cursed one-stack |
+	| k+     | k      | fails    | two-stack king   | one-stack king   |
+	| k+     | +      | fails    | two-stack king   | two-stack        |
+	| k+     | b+     | succeeds | one-stack king   | three-stack king |
+	| k+     | c+     | fails    | two-stack king   | cursed two-stack |
+	| k+     | k+     | fails    | two-stack king   | two-stack king   |

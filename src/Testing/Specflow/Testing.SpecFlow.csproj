@@ -167,6 +167,16 @@
     <Compile Include="Context\BoardStateContext.cs" />
     <Compile Include="Context\FeatureContextExtensions.cs" />
     <Compile Include="Context\GameStateContext.cs" />
+    <Compile Include="Features\ExampleGames\AlekSamples.feature.cs" />
+    <Compile Include="Features\GameRules\BlockRules.feature.cs" />
+    <Compile Include="Features\GameRules\BridgeRules.feature.cs" />
+    <Compile Include="Features\GameRules\DropRules.feature.cs" />
+    <Compile Include="Features\GameRules\Examples.feature.cs" />
+    <Compile Include="Features\GameRules\MergeRules.feature.cs" />
+    <Compile Include="Features\GameRules\MovementRules.feature.cs" />
+    <Compile Include="Features\GameRules\SplitRules.feature.cs" />
+    <Compile Include="Features\GameRules\WinLoseRules.feature.cs" />
+    <Compile Include="Features\GameRules\WrapAroundRules.feature.cs" />
     <Compile Include="Hooks\FeatureHooks.cs" />
     <Compile Include="Hooks\ScenarioHooks.cs" />
     <Compile Include="Mock\MockController.cs" />

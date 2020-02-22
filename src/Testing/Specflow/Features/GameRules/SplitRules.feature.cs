@@ -645,7 +645,7 @@ this.FeatureBackground();
  testRunner.And("there should be a red fourteen-stack on e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 127
- testRunner.And("there should be a red blessed two-stack on f2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("there should be a red two-stack on f2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 128
  testRunner.When("the red player splits 1 piece from d2 onto d1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -654,7 +654,7 @@ this.FeatureBackground();
  testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 130
- testRunner.And("there should be a red blessed fourteen-stack on d2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("there should be a red fourteen-stack on d2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 131
  testRunner.And("there should be a red fifteen-stack on d1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -921,7 +921,7 @@ this.FeatureBackground();
  testRunner.And("there should be a red two-stack on e4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 186
- testRunner.And("there should be a red blessed one-stack on e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("there should be a red one-stack on e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -1078,6 +1078,188 @@ this.FeatureBackground();
 #line hidden
 #line 218
  testRunner.And("there should be a red one-stack on e3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Split-Merge Rule Test - Over Wall")]
+        [NUnit.Framework.TestCaseAttribute("+", "", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "b", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "c", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "k", "succeeds", "one-stack", "two-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "b+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "c+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "k+", "succeeds", "one-stack", "three-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "b", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "c", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "k", "succeeds", "one-stack", "two-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "b+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "c+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "k+", "succeeds", "one-stack", "three-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "", "fails", "cursed two-stack", "one-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "b", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "c", "fails", "cursed two-stack", "cursed one-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "k", "fails", "cursed two-stack", "one-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "+", "fails", "cursed two-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "b+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "c+", "fails", "cursed two-stack", "cursed two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "k+", "fails", "cursed two-stack", "two-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "", "succeeds", "one-stack king", "two-stack king with a blessing", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "b", "succeeds", "one-stack king", "two-stack king with a blessing", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "c", "succeeds", "one-stack king", "two-stack king with a blessing", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "k", "fails", "two-stack king", "one-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "+", "succeeds", "one-stack king", "three-stack king with a blessing", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "b+", "succeeds", "one-stack king", "three-stack king with a blessing", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "c+", "succeeds", "one-stack king", "three-stack king with a blessing", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "k+", "fails", "two-stack king", "two-stack king", null)]
+        public virtual void Split_MergeRuleTest_OverWall(string source, string target, string outcome, string sourceResult, string targetResult, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Split-Merge Rule Test - Over Wall", null, exampleTags);
+#line 220
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Board"});
+                table61.AddRow(new string[] {
+                            "Benediction v1: R-E2 B C6"});
+                table61.AddRow(new string[] {
+                            "R:A5bD8bE1c2k8cF8I5"});
+                table61.AddRow(new string[] {
+                            "B:C6k"});
+#line 221
+ testRunner.Given("I load this board:", ((string)(null)), table61, "Given ");
+#line hidden
+#line 226
+ testRunner.And(string.Format("I add these red pieces: E9{0}A5{1}", source, target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 227
+ testRunner.When("the red player splits 1 piece from e9 onto a5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 228
+ testRunner.Then(string.Format("the action {0}", outcome), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 229
+ testRunner.And(string.Format("there should be a red {0} on a5", targetResult), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 230
+ testRunner.And(string.Format("there should be a red {0} on e9", sourceResult), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Split-Merge Rule Test - Adjacent")]
+        [NUnit.Framework.TestCaseAttribute("+", "", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "b", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "c", "fails", "two-stack", "cursed one-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "k", "succeeds", "one-stack", "two-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "+", "fails", "two-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "b+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "c+", "fails", "two-stack", "cursed two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("+", "k+", "fails", "two-stack", "two-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "b", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "c", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "k", "succeeds", "one-stack", "two-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "b+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "c+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("b+", "k+", "succeeds", "one-stack", "three-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "", "fails", "cursed two-stack", "one-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "b", "succeeds", "one-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "c", "fails", "cursed two-stack", "cursed one-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "k", "fails", "cursed two-stack", "one-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "+", "fails", "cursed two-stack", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "b+", "succeeds", "one-stack", "three-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "c+", "fails", "cursed two-stack", "cursed two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("c+", "k+", "fails", "cursed two-stack", "two-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "", "succeeds", "one-stack king", "two-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "b", "succeeds", "one-stack king", "two-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "c", "fails", "two-stack king", "cursed one-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "k", "fails", "two-stack king", "one-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "+", "fails", "two-stack king", "two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "b+", "succeeds", "one-stack king", "three-stack king", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "c+", "fails", "two-stack king", "cursed two-stack", null)]
+        [NUnit.Framework.TestCaseAttribute("k+", "k+", "fails", "two-stack king", "two-stack king", null)]
+        public virtual void Split_MergeRuleTest_Adjacent(string source, string target, string outcome, string sourceResult, string targetResult, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Split-Merge Rule Test - Adjacent", null, exampleTags);
+#line 267
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Board"});
+                table62.AddRow(new string[] {
+                            "Benediction v1: R-E2 B C6"});
+                table62.AddRow(new string[] {
+                            "R:A5bD8bE1c2k8cF8I5"});
+                table62.AddRow(new string[] {
+                            "B:C6k"});
+#line 268
+ testRunner.Given("I load this board:", ((string)(null)), table62, "Given ");
+#line hidden
+#line 273
+ testRunner.And(string.Format("I add these red pieces: A1{0}A2{1}", source, target), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 274
+ testRunner.When("the red player splits 1 piece from a1 onto a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 275
+ testRunner.Then(string.Format("the action {0}", outcome), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 276
+ testRunner.And(string.Format("there should be a red {0} on a2", targetResult), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 277
+ testRunner.And(string.Format("there should be a red {0} on a1", sourceResult), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

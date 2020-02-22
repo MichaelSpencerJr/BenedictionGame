@@ -20,9 +20,11 @@ internal class CommonSteps
     public void GivenTheCurrentTurnIsRed(StateFlags flags)
     {
         Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
-        _context.BoardState.Flags &= (StateFlags.BlueKingTaken | StateFlags.BlueWin | StateFlags.RedKingTaken |
+        var newState = _context.BoardState;
+        newState.Flags &= (StateFlags.BlueKingTaken | StateFlags.BlueWin | StateFlags.RedKingTaken |
                                       StateFlags.RedWin);
-        _context.BoardState.Flags |= flags;
+        newState.Flags |= flags;
+        _context.BoardState = newState;
         Console.WriteLine($"Board flags set to: {_context.BoardState.Flags}");
     }
 

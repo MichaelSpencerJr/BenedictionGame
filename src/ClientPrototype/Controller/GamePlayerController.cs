@@ -27,7 +27,7 @@ namespace Benediction.Controller
             Model.SelectionObject = Location.Undefined;
             Model.SelectionTarget = Location.Undefined;
             Model.SelectedVariation = null;
-            Model.EditorState = Model.CommittedState.DeepCopy();
+            Model.EditorState = Model.CommittedState;
             Model.InHand = Cell.Empty;
             Model.SelectionState = SelectionState.Unselected;
             var seenList = new HashSet<Guid>();
@@ -77,7 +77,7 @@ namespace Benediction.Controller
             Model.SelectionObject = Location.Undefined;
             Model.SelectionTarget = Location.Undefined;
             Model.SelectedVariation = null;
-            Model.EditorState = Model.CommittedState.DeepCopy();
+            Model.EditorState = Model.CommittedState;
             Model.InHand = Cell.Empty;
             Model.SelectionState = SelectionState.Unselected;
         }
@@ -105,7 +105,7 @@ namespace Benediction.Controller
         
         private void ShowHistory(State state)
         {
-            Model.EditorState = state.DeepCopy();
+            Model.EditorState = state;
             Model.SelectionState = SelectionState.HistoryView;
         }
 
@@ -126,7 +126,7 @@ namespace Benediction.Controller
             Model.Game = new GameState {new LoadState(state)};
             Model.CommittedState = state;
             Model.EditMode = false;
-            Model.EditorState = state.DeepCopy();
+            Model.EditorState = state;
             ClearMove();
             Model.AvailableActions =
                 AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
@@ -137,7 +137,7 @@ namespace Benediction.Controller
         private void ToggleEditMode()
         {
             Model.EditMode = !Model.EditMode;
-            Model.EditorState = Model.CommittedState.DeepCopy();
+            Model.EditorState = Model.CommittedState;
             ClearMove();
             Model.AvailableActions = Model.EditMode ? null :
                 AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
@@ -150,7 +150,7 @@ namespace Benediction.Controller
             Model.Game.Add(new BoardEditor {InitialState = Model.CommittedState, NewState = state});
             Model.CommittedState = state;
             Model.EditMode = false;
-            Model.EditorState = state.DeepCopy();
+            Model.EditorState = state;
             ClearMove();
             Model.AvailableActions =
                 AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
@@ -206,10 +206,11 @@ namespace Benediction.Controller
 
         private void VisualizeSelectedMove()
         {
+            var editorState = Model.EditorState;
             switch (Model.SelectionState)
             {
                 case SelectionState.Unselected:
-                    Model.EditorState = Model.CommittedState.DeepCopy();
+                    Model.EditorState = Model.CommittedState;
                     Model.InHand = Cell.Empty;
                     break;
                 case SelectionState.EmptySelected:
@@ -220,22 +221,24 @@ namespace Benediction.Controller
                     }
                     else
                     {
-                        Model.EditorState = Model.CommittedState.DeepCopy();
+                        Model.EditorState = Model.CommittedState;
                     }
                     Model.InHand = Cell.Empty;
                     break;
                 case SelectionState.PieceInHand:
-                    Model.EditorState = Model.CommittedState.DeepCopy();
+                    Model.EditorState = Model.CommittedState;
                     Model.InHand = Model.EditorState[Model.SelectionObject];
-                    Model.EditorState[Model.SelectionObject] = Cell.Empty;
+                    editorState[Model.SelectionObject] = Cell.Empty;
+                    Model.EditorState = editorState;
                     break;
                 case SelectionState.SplitInHand:
-                    Model.EditorState = Model.CommittedState.DeepCopy();
+                    Model.EditorState = Model.CommittedState;
                     var min = Model.MinVariation ?? 1;
                     var max = Model.MaxVariation ?? Model.EditorState[Model.SelectionObject].GetSize();
                     var takeWith = Math.Max(1, max - min);
                     Model.InHand = Model.EditorState[Model.SelectionObject].SetSize(takeWith);
-                    Model.EditorState[Model.SelectionObject] = Model.EditorState[Model.SelectionObject].SetSize(Math.Max(1, min));
+                    editorState[Model.SelectionObject] = Model.EditorState[Model.SelectionObject].SetSize(Math.Max(1, min));
+                    Model.EditorState = editorState;
                     break;
             }
             //Console.WriteLine($"{Model.SelectionState}: {Model.SelectionObject} -> {Model.SelectionTarget} {Model.MinVariation}--{Model.SelectedVariation}--{Model.MaxVariation}");

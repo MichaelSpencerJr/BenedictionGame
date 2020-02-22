@@ -231,70 +231,73 @@ namespace Benediction.Actions
         /// <summary>
         /// Applies a known-legal movement, moving a piece onto an empty (or opponent-owned) cell
         /// </summary>
-        /// <param name="initialState">State before the move</param>
-        /// <param name="finalState">State after the move</param>
-        public void ApplyMove(State initialState, State finalState, int maxLength)
+        /// <param name="state">State before the move</param>
+        public State ApplyMove(State state, int maxLength)
         {
             //This function is not used for merges, so if the target piece is a king then this is a game-ending king capture!
-            if (initialState[Target].IsKing())
+            if (state[Target].IsKing())
             {
                 //Set the appropriate KingTaken flag
-                finalState.Flags |= (initialState[Target] & Cell.SideRed) == Cell.SideRed
+                state.Flags |= (state[Target] & Cell.SideRed) == Cell.SideRed
                     ? StateFlags.RedKingTaken
                     : StateFlags.BlueKingTaken;
             }
 
             //Copy the Location piece to the Target location, overwriting what may have been there.  Also lock that piece against moving again this turn.
-            finalState[Target] = finalState[Location].Locked(true);
+            state[Target] = state[Location].Locked(true);
 
             //Clear the location where the moved piece came from.
-            finalState[Location] = Cell.Empty;
+            state[Location] = Cell.Empty;
 
             //If the moved piece went through the opponent's wall, apply a blessing.
-            ApplyWallWrapAroundBlessing(initialState, finalState, maxLength);
+            return ApplyWallWrapAroundBlessing(state, maxLength);
         }
 
         /// <summary>
         /// Applies a known-legal merge, adding pieces onto an existing piece or stack owned by the same player.
         /// </summary>
-        /// <param name="initialState">State before the merge</param>
-        /// <param name="finalState">State after the merge</param>
-        public void ApplyMerge(State initialState, State finalState, int maxLength)
+        /// <param name="state">State before the merge</param>
+        public State ApplyMerge(State state, int maxLength)
         {
             //if either merged piece is a king then the resulting piece is also a king.
             //also, preserve the side of the original pieces
-            var kingAndSideFlags = (initialState[Location] | initialState[Target]) & (Cell.King | Cell.SideRed);
+            var kingAndSideFlags = (state[Location] | state[Target]) & (Cell.King | Cell.SideRed);
 
             //sum the sizes of the two merging pieces
-            var newSize = (int) (finalState[Location] & Cell.SizeMask) + (int) (finalState[Target] & Cell.SizeMask);
-            
-            //remove the pieces from the source location
-            finalState[Location] = Cell.Empty;
+            var newSize = (int) (state[Location] & Cell.SizeMask) + (int) (state[Target] & Cell.SizeMask);
 
             //create a new merged piece from the new size and any king or side flags from the original pieces.
-            finalState[Target] = (Cell) newSize | kingAndSideFlags;
+            state[Target] = (Cell) newSize | kingAndSideFlags;
 
-            if (initialState[Location].IsKing())
+            var locationWasKing = state[Location].IsKing();
+            
+            //remove the pieces from the source location
+            state[Location] = Cell.Empty;
+
+            if (locationWasKing)
             {
                 //if the merge target was through an enemy wall, bless the new merged piece
-                ApplyWallWrapAroundBlessing(initialState, finalState, maxLength);
+                return ApplyWallWrapAroundBlessing(state, maxLength);
             }
+
+            return state;
         }
 
         /// <summary>
         /// If the moved piece isn't cursed, check if the proposed move could be done by passing through the enemy wall.
         /// If it isn't cursed and it could be done that way (even if it could also be done without passing through) then bless the piece.
         /// </summary>
-        /// <param name="initialState">State before the move</param>
-        /// <param name="finalState">State after the move</param>
-        public void ApplyWallWrapAroundBlessing(State initialState, State finalState, int maxLength)
+        /// <param name="state">State before the move</param>
+        public State ApplyWallWrapAroundBlessing(State state, int maxLength)
         {
-            if (finalState[Target].IsCursed()) return;
+            if (state[Target].IsCursed()) return state;
 
-            if (CheckLocationTargetReachable(initialState, true, maxLength) == null)
+            if (CheckLocationTargetReachable(state, true, maxLength) == null)
             {
-                finalState[Target] = finalState[Target].Blessed(true);
+                state[Target] = state[Target].Blessed(true);
             }
+
+            return state;
         }
     }
 }

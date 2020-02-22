@@ -47,11 +47,11 @@ namespace Benediction.Game
         /// OR a null game state and a populated string message explaining why the move cannot be performed.</returns>
         public (State, string) CommitPlayerMove(GameAction playerMove)
         {
-            var lastState = this.Any() ? this[Count - 1].NewState : new State();
+            var lastState = this.Any() ? this[Count - 1].NewState : StateManager.Create();
             var moveIdx = (lastState.Flags.IsBlueTurn() ? 2 : 0) + (lastState.Flags.IsSecondTurn() ? 1 : 0);
 
             var error = playerMove.CheckError(lastState);
-            if (error != null) return (null, error);
+            if (error != null) return (new State(), error);
 
             var postActionState = playerMove.Apply(lastState);
             var newState = GameAction.PrepareNextTurn(postActionState);

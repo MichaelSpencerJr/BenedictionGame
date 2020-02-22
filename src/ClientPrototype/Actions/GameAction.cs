@@ -89,39 +89,37 @@ namespace Benediction.Actions
         /// <summary>
         /// Processes game rules which apply after and between player turns.
         /// </summary>
-        /// <param name="initialState">Game state immediately after a player turn has ended.</param>
+        /// <param name="state">Game state immediately after a player turn has ended.</param>
         /// <returns>Game over state, if a win was detected, or game state ready for next player turn</returns>
-        public static State PrepareNextTurn(State initialState)
+        public static State PrepareNextTurn(State state)
         {
-            var finalState = initialState.DeepCopy();
+            state.Flags = state.Flags.HandleKingCaptureFlag();
 
-            finalState.Flags = finalState.Flags.HandleKingCaptureFlag();
+            CheckKingCreation(ref state);
+            BlessAnyBridges(ref state);
+            CheckBlessedKings(ref state);
+            ApplyCurses(ref state);
 
-            CheckKingCreation(finalState);
-            BlessAnyBridges(finalState);
-            CheckBlessedKings(finalState);
-            ApplyCurses(finalState);
-
-            if (finalState.Flags.IsSecondTurn())
+            if (state.Flags.IsSecondTurn())
             {
-                UnlockAllLockedPieces(finalState);
+                UnlockAllLockedPieces(ref state);
             }
 
-            finalState.Flags = finalState.Flags.NextTurn();
+            state.Flags = state.Flags.NextTurn();
 
-            if (!finalState.Flags.GameEnded())
+            if (!state.Flags.GameEnded())
             {
-                var side = finalState.Flags.IsRedTurn() ? ActionSide.Red : ActionSide.Blue;
-                if (!AvailableActionController.AllActions(finalState, side).Any())
+                var side = state.Flags.IsRedTurn() ? ActionSide.Red : ActionSide.Blue;
+                if (!AvailableActionController.AllActions(state, side).Any())
                 {
-                    finalState.Flags = finalState.Flags.IsRedTurn() ? StateFlags.BlueWin : StateFlags.RedWin;
+                    state.Flags = state.Flags.IsRedTurn() ? StateFlags.BlueWin : StateFlags.RedWin;
                 }
             }
 
-            return finalState;
+            return state;
         }
 
-        private static void CheckKingCreation(State state)
+        private static void CheckKingCreation(ref State state)
         {
             if (state[state.RedHome].IsPiece() && !state[state.RedHome].IsKing())
             {
@@ -138,7 +136,7 @@ namespace Benediction.Actions
         /// Uses <seealso cref="BridgeDetector"/> to find any pieces which are part of a bridge, and blesses those pieces.
         /// </summary>
         /// <param name="state">Game state</param>
-        private static void BlessAnyBridges(State state)
+        private static void BlessAnyBridges(ref State state)
         {
             foreach (var bridgeLocation in BridgeDetector.GetBridgeSpaces(state, ActionSide.Red))
             {
@@ -155,9 +153,9 @@ namespace Benediction.Actions
         /// Checks if either side has a blessed king, and sets the win flag for that side if so.
         /// </summary>
         /// <param name="state">Game state</param>
-        private static void CheckBlessedKings(State state)
+        private static void CheckBlessedKings(ref State state)
         {
-            foreach (var location in State.AllBoardLocations)
+            foreach (var location in state.AllBoardLocations)
             {
                 if (state[location].IsBlessed() && state[location].IsKing())
                 {
@@ -171,9 +169,9 @@ namespace Benediction.Actions
         /// If no blessing or king flag is found, applies the curse.  Otherwise removes the pending curse.
         /// </summary>
         /// <param name="state">Game state</param>
-        private static void ApplyCurses(State state)
+        private static void ApplyCurses(ref State state)
         {
-            foreach (var location in State.AllBoardLocations)
+            foreach (var location in state.AllBoardLocations)
             {
                 state[location] = state[location].HandleCursePending();
             }
@@ -183,9 +181,9 @@ namespace Benediction.Actions
         /// Removes all lock flags from all pieces, since locks only persist between a player's first and second moves.
         /// </summary>
         /// <param name="state">Game state</param>
-        private static void UnlockAllLockedPieces(State state)
+        private static void UnlockAllLockedPieces(ref State state)
         {
-            foreach (var location in State.AllBoardLocations)
+            foreach (var location in state.AllBoardLocations)
             {
                 state[location] = state[location].Locked(false);
             }

@@ -10,7 +10,7 @@ namespace Benediction.Game
     public class NewGame : StateInfo
     {
         public override string ToString() => $"N({RedHome.ToString().ToLower()},{BlueHome.ToString().ToLower()})";
-        public override State NewState { get; set; }
+        public sealed override State NewState { get; set; }
         public override int EmptyColumn => -1;
 
         /// <summary>
@@ -53,22 +53,19 @@ namespace Benediction.Game
 
             RedHome = redHome;
             BlueHome = blueHome;
-            NewState = new State
-            {
-                RedHome = redHome,
-                BlueHome = blueHome,
-                [redHome] = Cell.King | Cell.SideRed | Cell.Size1,
-                [blueHome] = Cell.King | Cell.Size1
-            };
+            var newState = StateManager.Create(redHome, blueHome);
+            newState[redHome] = Cell.King | Cell.SideRed | Cell.Size1;
+            newState[blueHome] = Cell.King | Cell.Size1;
             foreach (var direction in Movement.AllMoves)
             {
                 var redMan = direction(redHome, false, false);
-                if (redMan != Location.Undefined) NewState[redMan] = Cell.SideRed | Cell.Size1;
+                if (redMan != Location.Undefined) newState[redMan] = Cell.SideRed | Cell.Size1;
                 var blueMan = direction(blueHome, false, false);
-                if (blueMan != Location.Undefined) NewState[blueMan] = Cell.Size1;
+                if (blueMan != Location.Undefined) newState[blueMan] = Cell.Size1;
             }
 
-            NewState.Flags = StateFlags.RedAction1;
+            newState.Flags = StateFlags.RedAction1;
+            NewState = newState;
         }
     }
 }

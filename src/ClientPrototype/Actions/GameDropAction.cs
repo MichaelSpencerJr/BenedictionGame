@@ -40,17 +40,15 @@ namespace Benediction.Actions
             return $"Drop Must Be Adjacent Your Home At {targetHome}";
         }
 
-        public override State Apply(State initialState)
+        public override State Apply(State state)
         {
-            var error = CheckError(initialState);
+            var error = CheckError(state);
 
             if (string.IsNullOrEmpty(error))
             {
-                var finalState = initialState.DeepCopy();
-
-                finalState[Location] = Cell.Size1.Locked(true).SetFlag(Cell.SideRed, Side == ActionSide.Red);
+                state[Location] = Cell.Size1.Locked(true).SetFlag(Cell.SideRed, Side == ActionSide.Red);
                 
-                return finalState;
+                return state;
             }
 
             throw new InvalidOperationException($"Did not check invalid move before applying: {error}");

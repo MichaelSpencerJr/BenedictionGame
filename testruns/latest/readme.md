@@ -139,11 +139,11 @@ NUnit Version: 3.10.0.0
     I5 OK
 
  -&gt; done: ValidationSteps.ThenTheFollowingLocationsMatch(&lt;table&gt;) (0.0s)
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/fa0292c9-9df4-c4b7-986e-45d432ea12e9.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/cbfbe4fe-269a-d5b9-20fa-1a0f44a4c1c8.png?raw=true)
 
 
 
-### 2) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockHappyPath
+### 2) Passed : Testing.Specflow.Features.ExampleGames.AlekSamplesFeature.AlekSampleGame2
 
 
 
@@ -156,7 +156,143 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+    Loaded board NewGame.
+
+ -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
+#### When the following moves are performed:
+  | RedAction1 | RedAction2 | BlueAction1 | BlueAction2 |
+  | - | - | - | - |
+  | f1+f2      | @f1        | f8+f7       | @f8         |
+  | d2+e3      | @d2        | d7+e7       | @d7         |
+  | d1+d2      | @d1        | d8+d7       | @d8         |
+  | e1+d1      | @e1        | e9+d8       | @e9         |
+  | e1+f1      | @e1        | f8+e9       | @f8         |
+  | e1+e2      | @e1        | f8+e8       | @f8         |
+  | d1d3       | @d1        | d7b5        | @d7         |
+  | f2h2       | @f2        | f7f5        | @f7         |
+  | h2f4       | f4-1-f5    | e7e6        | e6-1-f5     |
+  | Be7        | f4f5       | e6f5        | b5d5        |
+  | d3d5       | d2d4       | d8-1-d7     | d7d5        |
+  | d4d5       | f1f3       | f8+f7       | e8f8        |
+  | d5f6       | f6-1-f7    | f5f6        | f8f7        |
+  | f3f4       | e3e5       | f7e8        | @f7         |
+  | e5d5       | f4f6       | f7f6        | e8f8        |
+  | d5f6       | e2e4       | f8f6        | Be5         |
+  | e4d3       | @e3        | f6h4        | Bh2         |
+  | f2+e3      | e3g3       |             |             |
+    Accepted: f1+f2
+    Accepted: @f1
+    Accepted: f8+f7
+    Accepted: @f8
+    Accepted: d2+e3
+    Accepted: @d2
+    Accepted: d7+e7
+    Accepted: @d7
+    Accepted: d1+d2
+    Accepted: @d1
+    Accepted: d8+d7
+    Accepted: @d8
+    Accepted: e1+d1
+    Accepted: @e1
+    Accepted: e9+d8
+    Accepted: @e9
+    Accepted: e1+f1
+    Accepted: @e1
+    Accepted: f8+e9
+    Accepted: @f8
+    Accepted: e1+e2
+    Accepted: @e1
+    Accepted: f8+e8
+    Accepted: @f8
+    Accepted: d1d3
+    Accepted: @d1
+    Accepted: d7b5
+    Accepted: @d7
+    Accepted: f2h2
+    Accepted: @f2
+    Accepted: f7f5
+    Accepted: @f7
+    Accepted: h2f4
+    Accepted: f4-1-f5
+    Accepted: e7e6
+    Accepted: e6-1-f5
+    Accepted: Be7
+    Accepted: f4f5
+    Accepted: e6f5
+    Accepted: b5d5
+    Accepted: d3d5
+    Accepted: d2d4
+    Accepted: d8-1-d7
+    Accepted: d7d5
+    Accepted: d4d5
+    Accepted: f1f3
+    Accepted: f8+f7
+    Accepted: e8f8
+    Accepted: d5f6
+    Accepted: f6-1-f7
+    Accepted: f5f6
+    Accepted: f8f7
+    Accepted: f3f4
+    Accepted: e3e5
+    Accepted: f7e8
+    Accepted: @f7
+    Accepted: e5d5
+    Accepted: f4f6
+    Accepted: f7f6
+    Accepted: e8f8
+    Accepted: d5f6
+    Accepted: e2e4
+    Accepted: f8f6
+    Accepted: Be5
+    Accepted: e4d3
+    Accepted: @e3
+    Accepted: f6h4
+    Accepted: Bh2
+    Accepted: f2+e3
+    Accepted: e3g3
+
+ -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.0s)
+#### Then the following locations match:
+  | Location | Contents | Size | Type   |
+  | - | - | - | - |
+  | E5       | Block    |      |        |
+  | E7       | Block    |      |        |
+  | H2       | Block    |      |        |
+  | D1       | Red      | 1    | Normal |
+  | D3       | Red      | 2    | King   |
+  | E1       | Red      | 1    | Normal |
+  | G3       | Red      | 2    | Normal |
+  | D8       | Blue     | 1    | Normal |
+  | H4       | Blue     | 2    | King   |
+    E5 OK
+    E7 OK
+    H2 OK
+    D1 OK
+    D3 OK
+    E1 OK
+    G3 OK
+    D8 OK
+    H4 OK
+
+ -&gt; done: ValidationSteps.ThenTheFollowingLocationsMatch(&lt;table&gt;) (0.0s)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/18d1edce-a867-a82c-a5b7-fc11081a6f77.png?raw=true)
+
+
+
+### 3) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockHappyPath
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have board NewGame
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -174,7 +310,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasBlocksMatching("A1") (0.0s)
 
 
-### 3) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockMaximum
+### 4) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.BlockMaximum
 
 
 
@@ -226,11 +362,11 @@ NUnit Version: 3.10.0.0
     Successfully validated 21 blocks.
 
  -&gt; done: ValidationSteps.ThenTheBoardHasBlocksMatching("A14B36C25D147E369...") (0.0s)
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/20875bc2-1002-a4e0-45d9-f2eb9dcc1296.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/bc5dab43-1e58-4c80-a904-8567f18be91f.png?raw=true)
 
 
 
-### 4) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockAdjacentAnotherBlock
+### 5) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockAdjacentAnotherBlock
 
 
 
@@ -267,7 +403,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasBlocksMatching("E3") (0.0s)
 
 
-### 5) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockHomeSpace
+### 6) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockHomeSpace
 
 
 
@@ -301,7 +437,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 6) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockOccupiedSpace
+### 7) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.CannotBlockOccupiedSpace
 
 
 
@@ -314,7 +450,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -329,7 +465,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 7) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeCannotBlessCursedPieces
+### 8) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeCannotBlessCursedPieces
 
 
 
@@ -347,7 +483,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8     |
   | R:D12E12k3F6++G1c+2cH2c3c5c6c |
   | B:E8k                         |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/814cb5e2-fc1a-36e5-5d1a-8c14a9e50781.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/158a65d4-0647-72cd-9742-bd0974db56c7.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -364,7 +500,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F6cG1c+2c...") (0.0s)
 
 
-### 8) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath
+### 9) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath
 
 
 
@@ -382,7 +518,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:C2D13E12k4F124G4H4I45   |
   | B:A12B3C4D578E68k9F68G6   |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/78ef14af-3123-d5a7-50c7-8f649cc50dcb.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c9492abe-3358-0d32-63b9-0aa9dc29c560.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -396,7 +532,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "C1b2bD3bE12k4bF12...") (0.0s)
 
 
-### 9) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeMaximum
+### 10) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeMaximum
 
 
 
@@ -414,7 +550,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8               |
   | R:A14B245C246D468E2k468kF2467G246H24I23 |
   | B:E7k                                   |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d95525f1-17d2-eac0-1f5d-6cdb34d27096.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/13d4a81a-dba4-1eed-9ef3-7b2bfec8217c.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -434,7 +570,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1b4bB2b4b5bC2b4b...") (0.0s)
 
 
-### 10) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeWithWrongColorCriticalPiece
+### 11) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeWithWrongColorCriticalPiece
 
 
 
@@ -452,7 +588,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R E2 B-E8 |
   | R:D12E12k3F12G2H2356      |
   | B:E8kG4                   |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b3562125-3cee-c7e2-67c3-b4b411cfe6ec.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/158a65d4-0647-72cd-d273-340ac98e5453.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -473,7 +609,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F12G2H2356") (0.0s)
 
 
-### 11) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.HomeDropCompletingBridgeWinsGame
+### 12) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.HomeDropCompletingBridgeWinsGame
 
 
 
@@ -491,7 +627,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:A1kE1345F5G5H5I5        |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5dbd8ef0-9411-39f4-eb9b-ddc996f39edf.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/24b180f6-670c-6fab-3977-843ea82dc40d.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -511,7 +647,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 12) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent
+### 13) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent
 
 
 
@@ -529,7 +665,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12G25+H2356    |
   | B:E8k                     |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ff3696be-88c4-9dc3-f7b8-aed219f754b5.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/158a65d4-0647-72cd-5aeb-3fdc78ac6537.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -546,7 +682,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
 
 
-### 13) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent
+### 14) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent
 
 
 
@@ -564,7 +700,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F126++G2H2356   |
   | B:E8k                     |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/739759a2-cf38-4707-eaad-df778518d406.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/158a65d4-0647-72cd-81dc-9bfa73b5405c.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -581,7 +717,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
 
 
-### 14) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoBlock
+### 15) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoBlock
 
 
 
@@ -600,7 +736,7 @@ NUnit Version: 3.10.0.0
   | R:D12E12kF12              |
   | B:D78E78k9F78             |
   | X:E3                      |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/05727d7d-a822-e663-e593-85887fdd5e22.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b69b9a3b-1ea6-087e-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -614,7 +750,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 15) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoOccupiedSpace
+### 16) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoOccupiedSpace
 
 
 
@@ -627,7 +763,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -642,7 +778,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 16) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone
+### 17) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone
 
 
 
@@ -655,7 +791,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -670,7 +806,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 17) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath
+### 18) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath
 
 
 
@@ -683,7 +819,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -704,7 +840,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 
 
-### 18) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.HomeDropBecomesKing
+### 19) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.HomeDropBecomesKing
 
 
 
@@ -722,7 +858,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E13kF12              |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e0431d0b-1adc-1d00-8381-6904a3edfbbc.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e318acc5-7959-e317-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -739,7 +875,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3kF12") (0.0s)
 
 
-### 19) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.CannotBlockOwnKing
+### 20) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.CannotBlockOwnKing
 
 
 
@@ -766,7 +902,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 20) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadAPreviouslyCreatedBoard
+### 21) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadAPreviouslyCreatedBoard
 
 
 
@@ -785,7 +921,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: SetupSteps.GivenIHaveNamedBoard("WeirdSituation1") (0.0s)
 
 
-### 21) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadASavedBoard
+### 22) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadASavedBoard
 
 
 
@@ -809,7 +945,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
 
 
-### 22) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.MergeSplitMergeDoesntCreatePieces
+### 23) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.MergeSplitMergeDoesntCreatePieces
 
 
 
@@ -844,7 +980,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12+E12k3F1") (0.0s)
 
 
-### 23) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d1",null)
+### 24) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d1",null)
 
 
 
@@ -875,7 +1011,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 24) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d2",null)
+### 25) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d2",null)
 
 
 
@@ -906,7 +1042,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 25) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e1",null)
+### 26) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e1",null)
 
 
 
@@ -937,7 +1073,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 26) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e2",null)
+### 27) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e2",null)
 
 
 
@@ -968,7 +1104,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 27) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e3",null)
+### 28) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e3",null)
 
 
 
@@ -999,7 +1135,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 28) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f1",null)
+### 29) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f1",null)
 
 
 
@@ -1030,7 +1166,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 29) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f2",null)
+### 30) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f2",null)
 
 
 
@@ -1061,7 +1197,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 30) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d7",null)
+### 31) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d7",null)
 
 
 
@@ -1092,7 +1228,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 31) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d8",null)
+### 32) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d8",null)
 
 
 
@@ -1123,7 +1259,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 32) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e7",null)
+### 33) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e7",null)
 
 
 
@@ -1154,7 +1290,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 33) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e8",null)
+### 34) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e8",null)
 
 
 
@@ -1185,7 +1321,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 34) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e9",null)
+### 35) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e9",null)
 
 
 
@@ -1216,7 +1352,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 35) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f7",null)
+### 36) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f7",null)
 
 
 
@@ -1247,7 +1383,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 36) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f8",null)
+### 37) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f8",null)
 
 
 
@@ -1278,7 +1414,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 37) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves
+### 38) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves
 
 
 
@@ -1325,7 +1461,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenISplit(Red, "1", E3, D2) (0.0s)
 
 
-### 38) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_ShortNotation
+### 39) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_ShortNotation
 
 
 
@@ -1372,7 +1508,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenDoes(Red, "e3-1-d2") (0.0s)
 
 
-### 39) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_TableNotation
+### 40) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_TableNotation
 
 
 
@@ -1450,7 +1586,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.0s)
 
 
-### 40) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard
+### 41) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard
 
 
 
@@ -1475,7 +1611,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: SetupSteps.GivenIAddPieces(Blue, "D45+E56k7F5++++6+...") (0.0s)
 
 
-### 41) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeAboveStackSizeFifteen
+### 42) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeAboveStackSizeFifteen
 
 
 
@@ -1493,7 +1629,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8                                   |
   | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
   | B:D78E78k9F78                                               |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b27181cc-4da3-da5d-d8d1-f617dc82b43a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f63607a3-2d9b-16ec-f2e3-88e1c92baf0d.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1539,7 +1675,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 42) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndCursed
+### 43) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndCursed
 
 
 
@@ -1557,7 +1693,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F1c2c           |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b53c4abd-3ff0-0046-c86c-c16cf82ad695.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c1f4-5b3f6f2c3f6f.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1571,7 +1707,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 43) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndKing
+### 44) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndKing
 
 
 
@@ -1589,7 +1725,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12c            |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/7702661f-3c93-feed-fda8-45ce88ada492.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c1e3-8e3bfa808e36.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1603,7 +1739,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 44) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndNormal
+### 45) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndNormal
 
 
 
@@ -1621,7 +1757,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F1c2            |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9f8ddd85-d582-f495-2d03-eb7ea80e8865.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c12d-6b26e7edd63a.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1635,7 +1771,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 45) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeKingAndKing
+### 46) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeKingAndKing
 
 
 
@@ -1653,7 +1789,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12k            |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3c4d56ad-3a5b-a725-df1c-8a3b2b8fc8d3.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c1aa-7f5482bff66a.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1667,7 +1803,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 46) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeAboveSizeTwoRequiresBlessing
+### 47) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeAboveSizeTwoRequiresBlessing
 
 
 
@@ -1680,7 +1816,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -1701,7 +1837,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 #### Given I add these red pieces: F2+b
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/53797757-f294-7693-6a53-d191f19b39cf.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ed861c2b-6429-c948-afea-9d5bfd641f95.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenIAddPieces(Red, "F2+b") (0.0s)
@@ -1718,7 +1854,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF1++") (0.0s)
 
 
-### 47) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeBlessedAndKing
+### 48) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeBlessedAndKing
 
 
 
@@ -1736,7 +1872,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12b+           |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/806c4628-6872-0f9b-9ff1-5461ac27050a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-483f-f3b052ba746a.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1752,7 +1888,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "three", E2) (0.0s)
 
 
-### 48) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeCursedAndBlessed
+### 49) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeCursedAndBlessed
 
 
 
@@ -1770,7 +1906,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F1c2b           |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4a9df996-ea1d-7e72-f373-673118de7300.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-815f-a72c89fdf007.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1787,7 +1923,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F1+") (0.0s)
 
 
-### 49) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath
+### 50) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath
 
 
 
@@ -1800,7 +1936,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -1814,7 +1950,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 
 
-### 50) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeMaximum
+### 51) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeMaximum
 
 
 
@@ -1832,7 +1968,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8   |
   | R:D12E12k3++++++F12b+++++++ |
   | B:D78E78k9F78               |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c0f25e85-cb2b-1fee-037a-4cfeaa26f6ca.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/17aa7f72-5aba-a35b-f2e3-88e1c92baf0d.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1849,7 +1985,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3+++++++++...") (0.0s)
 
 
-### 51) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndBlessed
+### 52) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndBlessed
 
 
 
@@ -1867,7 +2003,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12b            |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d4f4fc68-d7e7-8034-7a3b-74193eb59e42.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-814e-da28145240cf.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1884,7 +2020,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F1+") (0.0s)
 
 
-### 52) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKing
+### 53) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKing
 
 
 
@@ -1902,7 +2038,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12             |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1918,7 +2054,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", E2) (0.0s)
 
 
-### 53) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKingAboveStackSizeTwoRequiresBlessing
+### 54) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKingAboveStackSizeTwoRequiresBlessing
 
 
 
@@ -1936,7 +2072,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12+            |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/958e301d-86b0-3c1f-6675-e2644b1c99c2.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-880d-b7aab0aa5a9d.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -1949,7 +2085,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 #### Given I add this red piece: F2b+
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/806c4628-6872-0f9b-9ff1-5461ac27050a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-483f-f3b052ba746a.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenIAddPieces(Red, "F2b+") (0.0s)
@@ -1965,7 +2101,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "three", E2) (0.0s)
 
 
-### 54) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndNormal
+### 55) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndNormal
 
 
 
@@ -1978,7 +2114,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -1992,7 +2128,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 
 
-### 55) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.BlueCannotMoveThroughBlueWall
+### 56) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.BlueCannotMoveThroughBlueWall
 
 
 
@@ -2005,7 +2141,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -2072,7 +2208,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 56) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CanCaptureEnemyPiece
+### 57) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CanCaptureEnemyPiece
 
 
 
@@ -2090,7 +2226,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F24+            |
   | B:D5+7E78k9F78            |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d41338c3-5a07-b52e-0a73-bb854689c0ad.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/93c1cff7-b53a-a730-defb-a4059a976ea0.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2106,7 +2242,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldNotBeAny(Blue, D5) (0.0s)
 
 
-### 57) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotCaptureOwnPiece
+### 58) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotCaptureOwnPiece
 
 
 
@@ -2124,7 +2260,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F24+            |
   | B:D5+7E78k9F78            |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d41338c3-5a07-b52e-0a73-bb854689c0ad.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/93c1cff7-b53a-a730-defb-a4059a976ea0.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2138,7 +2274,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 58) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotDepartEdgeOfBoard
+### 59) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotDepartEdgeOfBoard
 
 
 
@@ -2156,7 +2292,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3H2+             |
   | B:B5+E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/8fbbd754-a763-04be-d790-14795642a78a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/47ea0c02-2fcc-0170-6b6f-2c6a4206026e.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2170,7 +2306,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 59) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOntoBlock
+### 60) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOntoBlock
 
 
 
@@ -2189,7 +2325,7 @@ NUnit Version: 3.10.0.0
   | R:D12E12k3F24+            |
   | B:D5+7E78k9F78            |
   | X:E5G3                    |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b1dbf9f7-46b7-4600-43f7-89f3ead81c5e.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ccae0707-98c8-3569-4e9b-b7a5c7c68c32.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2215,7 +2351,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 60) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOverBlock
+### 61) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOverBlock
 
 
 
@@ -2234,7 +2370,7 @@ NUnit Version: 3.10.0.0
   | R:D12E12k3F24+            |
   | B:D5+7E78k9F78            |
   | X:E5G3                    |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b1dbf9f7-46b7-4600-43f7-89f3ead81c5e.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ccae0707-98c8-3569-4e9b-b7a5c7c68c32.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2248,7 +2384,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 61) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.MoveThroughWallIsAssumedIfPossible
+### 62) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.MoveThroughWallIsAssumedIfPossible
 
 
 
@@ -2267,7 +2403,7 @@ NUnit Version: 3.10.0.0
   | R:D12E12k3H4+++           |
   | B:B3+++D8E8k9F78          |
   | X:E5F6G3                  |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ede23154-af5e-5f21-ec9e-aef50f0f5630.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/60c4bc17-557e-e154-37bc-2d97af9170c6.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2280,7 +2416,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Blue, "four", B5) (0.0s)
 
 
-### 62) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RedCannotMoveThroughRedWall
+### 63) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RedCannotMoveThroughRedWall
 
 
 
@@ -2293,7 +2429,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -2356,7 +2492,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 63) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed
+### 64) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed
 
 
 
@@ -2369,7 +2505,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -2391,7 +2527,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 64) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.BlessedStackLosesBlessingUponSplit_Merge
+### 65) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.BlessedStackLosesBlessingUponSplit_Merge
 
 
 
@@ -2417,7 +2553,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3b+4F12          |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/90f1bf85-451b-8170-2c3d-7e90f7a0b854.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/bc148ca4-4182-68e3-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2431,12 +2567,12 @@ NUnit Version: 3.10.0.0
 #### And there should be a red two-stack on e4
 
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", E4) (0.0s)
-#### And there should be a red blessed one-stack on e3
+#### And there should be a red one-stack on e3
 
- -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", E3) (0.0s)
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E3) (0.0s)
 
 
-### 65) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo
+### 66) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo
 
 
 
@@ -2462,7 +2598,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3++5kF12         |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e7694483-1fbe-7f94-5cc0-ffa5a5a36390.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5853337f-b337-afff-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2476,7 +2612,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 66) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo
+### 67) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo
 
 
 
@@ -2502,7 +2638,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3++5F12          |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/97f9baab-af54-0698-1fbb-9749bf638fb2.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3acc517f-4170-e8e3-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2516,7 +2652,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 67) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoCursedPiece
+### 68) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoCursedPiece
 
 
 
@@ -2542,7 +2678,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3cF12            |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/da04bbbe-3ff9-839a-1207-25b2625b9b93.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/dd9a512c-dc97-ff02-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2563,7 +2699,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 68) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoKingOverStackSizeTwo
+### 69) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoKingOverStackSizeTwo
 
 
 
@@ -2589,7 +2725,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3++5kF12         |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e7694483-1fbe-7f94-5cc0-ffa5a5a36390.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5853337f-b337-afff-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2603,7 +2739,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 69) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoRegularPieceOverStackSizeTwo
+### 70) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoRegularPieceOverStackSizeTwo
 
 
 
@@ -2629,7 +2765,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3++5F12          |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/97f9baab-af54-0698-1fbb-9749bf638fb2.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3acc517f-4170-e8e3-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2643,7 +2779,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 70) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOverBlock
+### 71) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOverBlock
 
 
 
@@ -2670,7 +2806,7 @@ NUnit Version: 3.10.0.0
   | R:D12E12k3++5bF12         |
   | B:D78E78k9F78             |
   | X:E4                      |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/958ad4d6-8e2f-9ad0-14c7-fbbb8fa53814.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/feef052f-37f4-c2f6-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2684,7 +2820,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 71) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureCannotMoveOverBlock
+### 72) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureCannotMoveOverBlock
 
 
 
@@ -2711,7 +2847,7 @@ NUnit Version: 3.10.0.0
   | R:D12E12k3F12+++          |
   | B:D78E78k9F478            |
   | X:F3                      |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/0fdeee82-abf5-deb7-0300-f0e22b1e77e1.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-dd94-8d3740e965ef.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2725,7 +2861,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 72) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath
+### 73) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath
 
 
 
@@ -2751,7 +2887,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R=E2 B E8 |
   | R:D12E12k6+F1             |
   | B:D78E78k9F5+             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/083b4731-de09-b68b-edca-be011f3f1734.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ed861c2b-6429-c948-4d6f-164b928b9889.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2768,7 +2904,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k6c7cF1") (0.0s)
 
 
-### 73) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo
+### 74) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo
 
 
 
@@ -2794,7 +2930,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3++5bF12         |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/cdf35cd1-194b-6b99-2212-15a192c33114.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/1e7d2dbf-cfa9-21c6-c11c-9e2272422602.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2813,7 +2949,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E3) (0.0s)
 
 
-### 74) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath
+### 75) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath
 
 
 
@@ -2834,7 +2970,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -2856,7 +2992,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF1+2") (0.0s)
 
 
-### 75) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeLeavesCorrectlySizedStacks
+### 76) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeLeavesCorrectlySizedStacks
 
 
 
@@ -2877,7 +3013,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
 #### Given I have board LargeStacks
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b27181cc-4da3-da5d-d8d1-f617dc82b43a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f63607a3-2d9b-16ec-f2e3-88e1c92baf0d.png?raw=true)
 
     Loaded board LargeStacks.
 
@@ -2892,9 +3028,9 @@ NUnit Version: 3.10.0.0
 #### And there should be a red fourteen-stack on e3
 
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "fourteen", E3) (0.0s)
-#### And there should be a red blessed two-stack on f2
+#### And there should be a red two-stack on f2
 
- -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "two", F2) (0.0s)
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", F2) (0.0s)
 #### When the red player splits 1 piece from d2 onto d1
     Accepted: d2-1-d1
 
@@ -2902,15 +3038,3238 @@ NUnit Version: 3.10.0.0
 #### Then the action succeeds
 
  -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
-#### And there should be a red blessed fourteen-stack on d2
+#### And there should be a red fourteen-stack on d2
 
- -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "fourteen", D2) (0.0s)
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "fourteen", D2) (0.0s)
 #### And there should be a red fifteen-stack on d1
 
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "fifteen", D1) (0.0s)
 
 
-### 76) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOntoBlock
+### 77) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1+A2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f0c83c8d-93e4-c8ea-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1+A2") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 78) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","b","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1+A2b
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/df96924d-a55a-e6c5-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1+A2b") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 79) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","c","fails","two-stack","cursed one-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1+A2c
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ac01938d-d9bc-4056-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1+A2c") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red cursed one-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "one", A2) (0.0s)
+#### And there should be a red two-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A1) (0.0s)
+
+
+### 80) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","k","succeeds","one-stack","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1+A2k
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/673aea8d-1f94-b7c3-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1+A2k") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 81) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","+","fails","two-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1+A2+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c88375e4-002a-e562-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1+A2+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Blessed Piece (From Passing Opponent Wall) Required On Either Piece to Merge Above Stack Size Two
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Blessed Piece (From Passing Opponent Wall) Required On Either Piece to Merge Above Stack Size Two
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A2) (0.0s)
+#### And there should be a red two-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A1) (0.0s)
+
+
+### 82) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","b+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1+A2b+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b751cba4-11a0-033d-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1+A2b+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 83) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","c+","fails","two-stack","cursed two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1+A2c+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/83bccce4-4602-5cce-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1+A2c+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red cursed two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A2) (0.0s)
+#### And there should be a red two-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A1) (0.0s)
+
+
+### 84) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","k+","fails","two-stack","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1+A2k+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3ef623e4-8bda-d43a-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1+A2k+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Blessed Piece (From Passing Opponent Wall) Required On Either Piece to Merge Above Stack Size Two
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Blessed Piece (From Passing Opponent Wall) Required On Either Piece to Merge Above Stack Size Two
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red two-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A2) (0.0s)
+#### And there should be a red two-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A1) (0.0s)
+
+
+### 85) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1b+A2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4a93fccd-6c52-1514-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1b+A2") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 86) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","b","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1b+A2b
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3962528d-7dc8-32ef-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1b+A2b") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 87) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","c","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1b+A2c
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/05cd53cd-b22a-8c80-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1b+A2c") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 88) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","k","succeeds","one-stack","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1b+A2k
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c106aacd-f801-03ec-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1b+A2k") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 89) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1b+A2+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/224f3624-d898-318b-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1b+A2+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 90) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","b+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1b+A2b+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/111d8be4-ea0e-4f66-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1b+A2b+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 91) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","c+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1b+A2c+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/dd888d24-1e6f-a8f8-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1b+A2c+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 92) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","k+","succeeds","one-stack","three-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1b+A2k+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/98c1e424-6447-2064-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1b+A2k+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "three", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 93) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","","fails","cursed two-stack","one-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1c+A2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/57f73d8d-f59a-f991-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1c+A2") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red one-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A2) (0.0s)
+#### And there should be a red cursed two-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
+
+
+### 94) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","b","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1c+A2b
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/46c5934d-0710-176d-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1c+A2b") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 95) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","c","fails","cursed two-stack","cursed one-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1c+A2c
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/1330948d-3b72-70fe-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1c+A2c") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red cursed one-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "one", A2) (0.0s)
+#### And there should be a red cursed two-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
+
+
+### 96) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","k","fails","cursed two-stack","one-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1c+A2k
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ce69eb8d-8149-e86a-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1c+A2k") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red one-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", A2) (0.0s)
+#### And there should be a red cursed two-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
+
+
+### 97) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","+","fails","cursed two-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1c+A2+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2fb276e4-61e0-1609-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1c+A2+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A2) (0.0s)
+#### And there should be a red cursed two-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
+
+
+### 98) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","b+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1c+A2b+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/1e80cca4-7356-33e4-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1c+A2b+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A2) (0.0s)
+#### And there should be a red one-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
+
+
+### 99) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","c+","fails","cursed two-stack","cursed two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1c+A2c+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/eaebcde4-a7b7-8d75-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1c+A2c+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red cursed two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A2) (0.0s)
+#### And there should be a red cursed two-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
+
+
+### 100) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","k+","fails","cursed two-stack","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1c+A2k+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a62524e4-ed8f-04e1-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1c+A2k+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red two-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A2) (0.0s)
+#### And there should be a red cursed two-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
+
+
+### 101) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","","succeeds","one-stack king","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1k+A2
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/bf263e8d-574f-2a39-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1k+A2") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A2) (0.0s)
+#### And there should be a red one-stack king on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", A1) (0.0s)
+
+
+### 102) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","b","succeeds","one-stack king","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1k+A2b
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/adf4944d-68c5-4814-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1k+A2b") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A2) (0.0s)
+#### And there should be a red one-stack king on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", A1) (0.0s)
+
+
+### 103) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","c","fails","two-stack king","cursed one-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1k+A2c
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/7a5f958d-9d27-a1a5-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1k+A2c") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red cursed one-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "one", A2) (0.0s)
+#### And there should be a red two-stack king on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A1) (0.0s)
+
+
+### 104) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","k","fails","two-stack king","one-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1k+A2k
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3598ec8d-e2ff-1911-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1k+A2k") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Kings Cannot Merge With Kings
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Kings Cannot Merge With Kings
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red one-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", A2) (0.0s)
+#### And there should be a red two-stack king on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A1) (0.0s)
+
+
+### 105) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","+","fails","two-stack king","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1k+A2+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/96e177e4-c395-46b0-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1k+A2+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Blessed Piece (From Passing Opponent Wall) Required On Either Piece to Merge Above Stack Size Two
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Blessed Piece (From Passing Opponent Wall) Required On Either Piece to Merge Above Stack Size Two
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A2) (0.0s)
+#### And there should be a red two-stack king on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A1) (0.0s)
+
+
+### 106) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","b+","succeeds","one-stack king","three-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1k+A2b+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/85afcda4-d50b-648b-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1k+A2b+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Accepted: a1-1-a2
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "three", A2) (0.0s)
+#### And there should be a red one-stack king on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", A1) (0.0s)
+
+
+### 107) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","c+","fails","two-stack king","cursed two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1k+A2c+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/521acee4-096d-be1d-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1k+A2c+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red cursed two-stack on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A2) (0.0s)
+#### And there should be a red two-stack king on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A1) (0.0s)
+
+
+### 108) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","k+","fails","two-stack king","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: A1k+A2k+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/0d5425e4-4f45-3589-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "A1k+A2k+") (0.0s)
+#### When the red player splits 1 piece from a1 onto a2
+    Rejected: a1-1-a2: Kings Cannot Merge With Kings
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A1, A2) (0.0s)
+#### Then the action fails
+    Failed with: Kings Cannot Merge With Kings
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red two-stack king on a2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A2) (0.0s)
+#### And there should be a red two-stack king on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A1) (0.0s)
+
+
+### 109) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9+A5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/df62d1f4-d66a-971b-778a-1a47fd7ffbea.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9+A5") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 110) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","b","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9+A5b
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-778a-1a47fd7ffbea.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9+A5b") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 111) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","c","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9+A5c
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/899df2f4-0c67-8eea-778a-1a47fd7ffbea.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9+A5c") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 112) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","k","succeeds","one-stack","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9+A5k
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/33d913f4-4264-86b8-778a-1a47fd7ffbea.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9+A5k") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack king on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 113) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9+A5+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/dc0d0d15-a4a0-2d13-778a-1a47fd7ffbea.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9+A5+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 114) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","b+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9+A5b+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/069bd555-3220-ab07-778a-1a47fd7ffbea.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9+A5b+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 115) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","c+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9+A5c+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/86482e15-da9d-24e1-778a-1a47fd7ffbea.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9+A5c+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 116) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","k+","succeeds","one-stack","three-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9+A5k+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/30834f15-109a-1cb0-778a-1a47fd7ffbea.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9+A5k+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack king on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 117) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9b+A5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/df62d1f4-d66a-971b-37e8-e1c82c21b96f.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9b+A5") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 118) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","b","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9b+A5b
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-37e8-e1c82c21b96f.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9b+A5b") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 119) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","c","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9b+A5c
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/899df2f4-0c67-8eea-37e8-e1c82c21b96f.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9b+A5c") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 120) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","k","succeeds","one-stack","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9b+A5k
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/33d913f4-4264-86b8-37e8-e1c82c21b96f.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9b+A5k") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack king on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 121) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9b+A5+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/dc0d0d15-a4a0-2d13-37e8-e1c82c21b96f.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9b+A5+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 122) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","b+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9b+A5b+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/069bd555-3220-ab07-37e8-e1c82c21b96f.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9b+A5b+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 123) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","c+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9b+A5c+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/86482e15-da9d-24e1-37e8-e1c82c21b96f.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9b+A5c+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 124) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","k+","succeeds","one-stack","three-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9b+A5k+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/30834f15-109a-1cb0-37e8-e1c82c21b96f.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9b+A5k+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack king on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 125) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","","fails","cursed two-stack","one-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9c+A5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/df62d1f4-d66a-971b-7701-384ebb04f2fd.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9c+A5") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Rejected: e9-1-a5: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red one-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A5) (0.0s)
+#### And there should be a red cursed two-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
+
+
+### 126) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","b","succeeds","one-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9c+A5b
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-7701-384ebb04f2fd.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9c+A5b") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 127) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","c","fails","cursed two-stack","cursed one-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9c+A5c
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/899df2f4-0c67-8eea-7701-384ebb04f2fd.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9c+A5c") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Rejected: e9-1-a5: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red cursed one-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "one", A5) (0.0s)
+#### And there should be a red cursed two-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
+
+
+### 128) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","k","fails","cursed two-stack","one-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9c+A5k
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/33d913f4-4264-86b8-7701-384ebb04f2fd.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9c+A5k") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Rejected: e9-1-a5: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red one-stack king on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", A5) (0.0s)
+#### And there should be a red cursed two-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
+
+
+### 129) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","+","fails","cursed two-stack","two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9c+A5+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/dc0d0d15-a4a0-2d13-7701-384ebb04f2fd.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9c+A5+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Rejected: e9-1-a5: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red two-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A5) (0.0s)
+#### And there should be a red cursed two-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
+
+
+### 130) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","b+","succeeds","one-stack","three-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9c+A5b+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/069bd555-3220-ab07-7701-384ebb04f2fd.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9c+A5b+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
+
+
+### 131) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","c+","fails","cursed two-stack","cursed two-stack",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9c+A5c+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/86482e15-da9d-24e1-7701-384ebb04f2fd.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9c+A5c+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Rejected: e9-1-a5: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red cursed two-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A5) (0.0s)
+#### And there should be a red cursed two-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
+
+
+### 132) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","k+","fails","cursed two-stack","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9c+A5k+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/30834f15-109a-1cb0-7701-384ebb04f2fd.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9c+A5k+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Rejected: e9-1-a5: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action fails
+    Failed with: Cursed Pieces Can Only Merge With Blessed Pieces
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red two-stack king on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A5) (0.0s)
+#### And there should be a red cursed two-stack on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
+
+
+### 133) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","","succeeds","one-stack king","two-stack king with a blessing",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9k+A5
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/df62d1f4-d66a-971b-7778-55557989e810.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9k+A5") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack king with a blessing on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessedKing(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack king on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
+
+
+### 134) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","b","succeeds","one-stack king","two-stack king with a blessing",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9k+A5b
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-7778-55557989e810.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9k+A5b") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack king with a blessing on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessedKing(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack king on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
+
+
+### 135) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","c","succeeds","one-stack king","two-stack king with a blessing",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9k+A5c
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/899df2f4-0c67-8eea-7778-55557989e810.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9k+A5c") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red two-stack king with a blessing on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessedKing(Red, "two", A5) (0.0s)
+#### And there should be a red one-stack king on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
+
+
+### 136) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","k","fails","two-stack king","one-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9k+A5k
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/33d913f4-4264-86b8-7778-55557989e810.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9k+A5k") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Rejected: e9-1-a5: Kings Cannot Merge With Kings
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action fails
+    Failed with: Kings Cannot Merge With Kings
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red one-stack king on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", A5) (0.0s)
+#### And there should be a red two-stack king on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", E9) (0.0s)
+
+
+### 137) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","+","succeeds","one-stack king","three-stack king with a blessing",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9k+A5+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/dc0d0d15-a4a0-2d13-7778-55557989e810.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9k+A5+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack king with a blessing on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessedKing(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack king on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
+
+
+### 138) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","b+","succeeds","one-stack king","three-stack king with a blessing",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9k+A5b+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/069bd555-3220-ab07-7778-55557989e810.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9k+A5b+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack king with a blessing on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessedKing(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack king on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
+
+
+### 139) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","c+","succeeds","one-stack king","three-stack king with a blessing",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9k+A5c+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/86482e15-da9d-24e1-7778-55557989e810.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9k+A5c+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Accepted: e9-1-a5
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red three-stack king with a blessing on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessedKing(Red, "three", A5) (0.0s)
+#### And there should be a red one-stack king on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
+
+
+### 140) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","k+","fails","two-stack king","two-stack king",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I define board LargeStacks as:
+  | New Game Board                                              |
+  | - |
+  | Benediction v1: R-E2 B E8                                   |
+  | R:D1b+++++++++++++2b++++++++++++++E1+2k3b+++++++F12b+++++++ |
+  | B:D78E78k9F78                                               |
+
+ -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B C6 |
+  | R:A5bD8bE1c2k8cF8I5       |
+  | B:C6k                     |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/09f19a34-63ea-150f-a9a0-280a5cc276f4.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### And I add these red pieces: E9k+A5k+
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/30834f15-109a-1cb0-7778-55557989e810.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenIAddPieces(Red, "E9k+A5k+") (0.0s)
+#### When the red player splits 1 piece from e9 onto a5
+    Rejected: e9-1-a5: Kings Cannot Merge With Kings
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", E9, A5) (0.0s)
+#### Then the action fails
+    Failed with: Kings Cannot Merge With Kings
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And there should be a red two-stack king on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A5) (0.0s)
+#### And there should be a red two-stack king on e9
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", E9) (0.0s)
+
+
+### 141) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOntoBlock
 
 
 
@@ -2937,7 +6296,7 @@ NUnit Version: 3.10.0.0
   | R:D12E12k3F12+            |
   | B:D78E78k9F78             |
   | X:F3                      |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/711fb733-d785-fbc3-1893-0cc2a94a70b7.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-9847-d0636e10e2b0.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2951,7 +6310,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 77) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOverBlock
+### 142) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOverBlock
 
 
 
@@ -2978,7 +6337,7 @@ NUnit Version: 3.10.0.0
   | R:D12E12k3F12+++          |
   | B:D78E78k9F78             |
   | X:F3                      |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9214908a-331a-3963-c909-f228add6e256.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-2629-0274ebe04ae7.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -2992,7 +6351,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 78) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCursesBothPieces
+### 143) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCursesBothPieces
 
 
 
@@ -3013,7 +6372,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -3038,7 +6397,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F2c3c") (0.0s)
 
 
-### 79) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath
+### 144) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath
 
 
 
@@ -3059,7 +6418,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
@@ -3081,7 +6440,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF12c3c") (0.0s)
 
 
-### 80) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitDistanceCannotExceedSize
+### 145) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitDistanceCannotExceedSize
 
 
 
@@ -3107,7 +6466,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D1b+2b+++E1+2k3b+F12b++ |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/243dfa3c-2851-2afd-5fc7-2439d05ea9b3.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d58e0304-44f3-a94f-0f30-0c399122a905.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3153,7 +6512,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 81) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitMustRejectInvalidSizes
+### 146) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitMustRejectInvalidSizes
 
 
 
@@ -3174,7 +6533,7 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("LargeStacks", &lt;table&gt;) (0.0s)
 #### Given I have board LargeStacks
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b27181cc-4da3-da5d-d8d1-f617dc82b43a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f63607a3-2d9b-16ec-f2e3-88e1c92baf0d.png?raw=true)
 
     Loaded board LargeStacks.
 
@@ -3221,7 +6580,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 82) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueCapturingAnyRedKingCausesBlueWin
+### 147) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueCapturingAnyRedKingCausesBlueWin
 
 
 
@@ -3240,7 +6599,7 @@ NUnit Version: 3.10.0.0
   | R:D123k+F3+H2+            |
   | B:B3kC3kD5+E9F78          |
   | X:B2D4F4                  |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c8116771-c3f4-75f5-bf58-7b447e3a9a69.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5c64c75d-8973-90e1-0a08-60b30e80d4db.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3256,7 +6615,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 83) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin
+### 148) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin
 
 
 
@@ -3275,7 +6634,7 @@ NUnit Version: 3.10.0.0
   | R:D123k+E4c5cF5cG2c5cH2c  |
   | B:A1c2cB3k4k5C6D8+E9F8+   |
   | X:B2C7D4F246H3I4          |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9ea9e8d6-a1d0-4495-c5dc-8d8b3c1e69d9.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/aa5131bb-7b59-b9e2-c253-8f62ee24de31.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3291,7 +6650,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 84) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueJoiningKingToExistingChainCausesRedWin
+### 149) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueJoiningKingToExistingChainCausesRedWin
 
 
 
@@ -3310,7 +6669,7 @@ NUnit Version: 3.10.0.0
   | R:E3k+I1b2b3b+4c5c        |
   | B:A1c2c3b4b5b+D7k+        |
   | X:E46G36H4                |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/8b800dd1-ec24-16ac-735a-dc4f0f7ef122.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9119f1a9-7740-babf-c99c-5f676bf1e5cd.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3326,7 +6685,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 85) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin
+### 150) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin
 
 
 
@@ -3345,7 +6704,7 @@ NUnit Version: 3.10.0.0
   | R:D12F2k+3+H2+            |
   | B:A2k+D5+E9F78            |
   | X:B2D4F4                  |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/3f5ddc1e-8e47-da49-a23e-f3ef026b2d9b.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/806ef28b-ddbc-7ae0-7890-91f86cd59ae1.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3361,7 +6720,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 86) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
+### 151) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
 
 
 
@@ -3380,7 +6739,7 @@ NUnit Version: 3.10.0.0
   | R:E3k+G1b+2bI2b4c5c       |
   | B:A1c2c3b4bD7b+F8k+       |
   | X:A5E46G36H4              |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/63866e13-9e9f-89f1-3959-07b948680269.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e19fd377-f67f-2d55-8395-2e2db365f5bc.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3396,7 +6755,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoSize(Blue, E8) (0.0s)
 
 
-### 87) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin
+### 152) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin
 
 
 
@@ -3415,7 +6774,7 @@ NUnit Version: 3.10.0.0
   | R:F2b7b+G2k+H3bI4c5c      |
   | B:A2c3bB3c5+D2b+F8k+      |
   | X:A5E46G36H4              |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/fa13918f-6e08-68ff-ab7d-e8544d4dc0ca.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2152496e-58d6-0f73-0fb8-8cbcc6ef0c05.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3431,7 +6790,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoSize(Blue, E2) (0.0s)
 
 
-### 88) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWinWithNoLegalMovesCausesBlueWin
+### 153) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWinWithNoLegalMovesCausesBlueWin
 
 
 
@@ -3450,7 +6809,7 @@ NUnit Version: 3.10.0.0
   | R:A2kD7cE12k78k9cF17c     |
   | B:B3k                     |
   | X:A135C16D358F358G16H2I35 |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/f3a2c92e-812c-52dd-ff18-18565b86461e.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/68d3827a-ccd4-bbfe-f88f-d047f6a5200f.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3466,7 +6825,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 89) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin
+### 154) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin
 
 
 
@@ -3485,7 +6844,7 @@ NUnit Version: 3.10.0.0
   | R:D7cE12k78k9cF17c        |
   | B:B3k                     |
   | X:A135C16D358F358G16H2I35 |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/1e6f0f06-4f4e-8fcd-3feb-04836898d9b3.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/233e7043-4c24-21c1-f88f-d047f6a5200f.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3501,7 +6860,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 90) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedCapturingAnyBlueKingCausesRedWin
+### 155) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedCapturingAnyBlueKingCausesRedWin
 
 
 
@@ -3520,7 +6879,7 @@ NUnit Version: 3.10.0.0
   | R:D123k+F3+H2+            |
   | B:B3kC3kD5+E9F78          |
   | X:B2D4F4                  |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a3d29f2e-1f9d-678c-d278-479789a56236.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5c64c75d-8973-90e1-3cb1-0a5eb92a7f86.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3536,7 +6895,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 91) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedFormingChainWithKingCausesRedWin
+### 156) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedFormingChainWithKingCausesRedWin
 
 
 
@@ -3555,7 +6914,7 @@ NUnit Version: 3.10.0.0
   | R:D123k+E4c5cF5cG5cH5+    |
   | B:B3k4k5+D78+E79F8+       |
   | X:B2C7D4F46               |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/54f2d19a-b7dc-8c06-51c9-e1918c2d789c.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/78b380ba-c28e-6413-4b8d-a0dbc6191418.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3571,7 +6930,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 92) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedJoiningKingToExistingChainCausesRedWin
+### 157) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedJoiningKingToExistingChainCausesRedWin
 
 
 
@@ -3589,7 +6948,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:F2k+I1b2b3b+4c5c        |
   | B:A1c2c4+5+E8k            |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/73e536a4-58dd-be12-6ab9-ca9fb255fb87.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/8a411d4b-e3f1-2467-439c-20608293af28.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3605,7 +6964,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 93) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
+### 158) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
 
 
 
@@ -3623,7 +6982,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12I5k          |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a35f5ddf-3147-68bb-07d0-8fb31d7ae121.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-02fe-05096143b446.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3639,7 +6998,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 94) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
+### 159) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
 
 
 
@@ -3658,7 +7017,7 @@ NUnit Version: 3.10.0.0
   | R:F2b7b+G2k+H3bI4c5c      |
   | B:A2c3bB3c5+D2b+F8k+      |
   | X:A5E46G36H4              |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a01356fd-0b57-499b-9115-447d239b9b15.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2152496e-58d6-0f73-4161-3767719ab7af.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3674,7 +7033,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoSize(Red, E8) (0.0s)
 
 
-### 95) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin
+### 160) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin
 
 
 
@@ -3693,7 +7052,7 @@ NUnit Version: 3.10.0.0
   | R:C2b+D123E13F12k         |
   | B:C5+D7E7+8kF8+           |
   | X:B6D6F5H3                |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/92ef29dd-3c2d-f1ce-9784-f077e3e82580.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/6ef9465f-58c1-ad99-27ac-8fc45b030ce9.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3709,7 +7068,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoColor("two", E2) (0.0s)
 
 
-### 96) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWinWithNoLegalMovesCausesRedWin
+### 161) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWinWithNoLegalMovesCausesRedWin
 
 
 
@@ -3728,7 +7087,7 @@ NUnit Version: 3.10.0.0
   | R:A1k                     |
   | B:A2kD2+E1k2k3c8k9F2c7    |
   | X:B246D168E4F18G35H16I24  |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/91ba6995-571f-b17a-cd80-5195f4410037.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/65fdeb72-42a9-fa6f-5271-c7afd0c8b92a.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3744,7 +7103,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 97) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin
+### 162) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin
 
 
 
@@ -3763,7 +7122,7 @@ NUnit Version: 3.10.0.0
   | R:A1k                     |
   | B:D2+E1k2k3c8k9F2c7       |
   | X:B246D168E4F18G35H16I24  |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/46ba263a-50e8-1cad-30a6-9d5e65d65db0.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/17d0041b-4ab4-ef1f-5271-c7afd0c8b92a.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3779,7 +7138,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 98) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize
+### 163) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize
 
 
 
@@ -3797,7 +7156,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8    |
   | R:A2c++D12E12k3F12G1+7bH6b++ |
   | B:D78E78k9F78                |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/84c371e4-c3dd-4528-e515-1caa429f5727.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/86149e11-482f-6767-f9c5-3f3c8a80fb3e.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3823,7 +7182,102 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "six", A2) (0.0s)
 
 
-### 99) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingCompletingBridgeLeavesBless_BlessPair
+### 164) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplitMergingCanFormAnyStackSize
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:A1+D12E12k3F12I5b+      |
+  | B:D78E78k9F78             |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/63f6ae4e-6fc5-141d-63bf-c8db1c33036b.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player splits 1 piece from i5 onto a1
+    Accepted: i5-1-a1
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", I5, A1) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red one-stack on i5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", I5) (0.0s)
+#### And there should be a red three-stack on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A1) (0.0s)
+
+
+### 165) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingCompletingBridgeLeavesBless_BlessPair
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                       |
+  | - |
+  | Benediction v1: R-E2 B E8   |
+  | R:A5+B5C5D125E12k35F124G3H2 |
+  | B:D78E78k9F78               |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/5aeeb02e-79b6-79a2-0079-3ae201be036b.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player splits 1 piece from a5 onto i1
+    Accepted: a5-1-i1
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", A5, I1) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red blessed one-stack on a5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", A5) (0.0s)
+#### And there should be a red blessed one-stack on b5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", B5) (0.0s)
+#### And there should be a red blessed one-stack on c5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", C5) (0.0s)
+#### And there should be a red blessed one-stack on d5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", D5) (0.0s)
+#### And there should be a red blessed one-stack on e5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", E5) (0.0s)
+#### And there should be a red blessed one-stack on f4
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", F4) (0.0s)
+#### And there should be a red blessed one-stack on g3
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", G3) (0.0s)
+#### And there should be a red blessed one-stack on h2
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", H2) (0.0s)
+#### And there should be a red blessed one-stack on i1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", I1) (0.0s)
+
+
+### 166) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair
 
 
 
@@ -3841,7 +7295,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12G7b+++       |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d626313b-869a-8237-edf8-f3609360a087.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-bd60-40a626c860bf.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3860,44 +7314,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "two", G1) (0.0s)
 
 
-### 100) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair
-
-
-
-#### Given I define board NewGame as:
-  | New Game Board            |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:D12E12k3F12             |
-  | B:D78E78k9F78             |
-
- -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
-#### Given I load this board:
-  | Board                     |
-  | - |
-  | Benediction v1: R-E2 B E8 |
-  | R:D12E12k3F12G7b+++       |
-  | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d626313b-869a-8237-edf8-f3609360a087.png?raw=true)
-
-
- -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
-#### When the red player splits 2 pieces from g7 onto g1
-    Accepted: g7-2-g1
-
- -&gt; done: ActionSteps.WhenISplit(Red, "2", G7, G1) (0.0s)
-#### Then the action succeeds
-
- -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
-#### And there should be a red cursed two-stack on g7
-
- -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", G7) (0.0s)
-#### And there should be a red blessed two-stack on g1
-
- -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "two", G1) (0.0s)
-
-
-### 101) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundMergingOntoHomeBecomesKing
+### 167) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundMergingOntoHomeBecomesKing
 
 
 
@@ -3916,7 +7333,7 @@ NUnit Version: 3.10.0.0
   | R:C1+E2k5+9b+             |
   | B:B6+C3+4k+               |
   | X:A35B2D4                 |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/52f1d9c2-59cc-8f43-5f64-989b684fd5f3.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b9df848c-0d32-0c2e-4003-0b335d820d16.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3933,7 +7350,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "C1+E2k++5+") (0.0s)
 
 
-### 102) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing
+### 168) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing
 
 
 
@@ -3952,7 +7369,7 @@ NUnit Version: 3.10.0.0
   | R:C1+D2kE5+9b+            |
   | B:B6+C3+4k+               |
   | X:A35B2D4                 |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/bee7a4ab-739a-25dd-cce0-af0f6bc8aa5c.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/eb1e96cc-ef47-6778-4003-0b335d820d16.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -3969,7 +7386,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "C1+D2kE2k+5+") (0.0s)
 
 
-### 103) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed
+### 169) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed
 
 
 
@@ -3982,13 +7399,13 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
  -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
 #### And I add this red piece: I5b
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4b58034c-f49e-02d9-afaa-c7b264068cc2.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-4284-1edfe6640bd5.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenIAddPieces(Red, "I5b") (0.0s)
@@ -4005,7 +7422,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1bD12E12k3F12") (0.0s)
 
 
-### 104) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndMergingRequiresBlessedTarget
+### 170) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndMergingRequiresBlessedTarget
 
 
 
@@ -4024,7 +7441,7 @@ NUnit Version: 3.10.0.0
   | R:A4b+D128k++E137cF128c   |
   | B:A1k2cB1k3cC2c3cD7F7     |
   | X:A35B2D46F4H246          |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/baa7ac0a-3f11-78ac-f80a-a2dd502e2eb4.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/e954bc1f-3efc-38a0-303a-7c39eba953b0.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -4049,7 +7466,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A4++D128k++E137cF12") (0.0s)
 
 
-### 105) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget
+### 171) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget
 
 
 
@@ -4067,7 +7484,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12G17c+++      |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/0c66e7eb-b20e-e7ae-4355-9c8c70d7940a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-e40d-38982875ea68.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -4081,7 +7498,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 106) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplittingRemainsCursed
+### 172) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplittingRemainsCursed
 
 
 
@@ -4099,7 +7516,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12G7c+++       |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/14834f1a-0949-c832-9dfe-9169816ff274.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-fd01-26ff7662db86.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -4118,7 +7535,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", G1) (0.0s)
 
 
-### 107) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundOntoHomeBecomesKing
+### 173) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundOntoHomeBecomesKing
 
 
 
@@ -4136,7 +7553,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D1+3E3k+7c9c+           |
   | B:B4C3+6c7cD68G5k         |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/d973474a-a16c-9a07-4e99-2bb1e850a26d.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/2cd0cdcd-34b2-c073-ce28-8aa5ebaed919.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -4153,7 +7570,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1+3E2k+3k+7c") (0.0s)
 
 
-### 108) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
+### 174) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
 
 
 
@@ -4166,13 +7583,13 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
  -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
 #### And I add this red piece: I5c
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b58cce8c-0fb0-0879-1fcd-45fcc2b5395d.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-02dd-ca5e640de64e.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenIAddPieces(Red, "I5c") (0.0s)
@@ -4189,7 +7606,84 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1cD12E12k3F12") (0.0s)
 
 
-### 109) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame
+### 175) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingStackWrappingAroundAndSplitMergingOntoPieceRemainsBlessedAndWinsGame
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:A1+D12E12k3F12I5k+      |
+  | B:D78E78k9F78             |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/63f6ae4e-6fc5-141d-2339-b0059711acdc.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player splits 1 piece from i5 onto a1
+    Accepted: i5-1-a1
+
+ -&gt; done: ActionSteps.WhenISplit(Red, "1", I5, A1) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red one-stack king on i5
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", I5) (0.0s)
+#### And there should be a red three-stack king with a blessing on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessedKing(Red, "three", A1) (0.0s)
+#### And the game is over and red has won
+
+ -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
+
+
+### 176) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundAndMergingOntoPieceRemainsBlessedAndWinsGame
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I load this board:
+  | Board                     |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:A1+D12E12k3F12I5k+      |
+  | B:D78E78k9F78             |
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/63f6ae4e-6fc5-141d-2339-b0059711acdc.png?raw=true)
+
+
+ -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
+#### When the red player merges the piece from i5 onto a1
+    Accepted: i5+a1
+
+ -&gt; done: ActionSteps.WhenIMerge(Red, I5, A1) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### And there should be a red four-stack king with a blessing on a1
+
+ -&gt; done: ValidationSteps.ThenThereShouldBeBlessedKing(Red, "four", A1) (0.0s)
+#### And the game is over and red has won
+
+ -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
+
+
+### 177) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame
 
 
 
@@ -4208,7 +7702,7 @@ NUnit Version: 3.10.0.0
   | R:E7+8k++                 |
   | B:B3+6+C1k2k              |
   | X:A35B2D46                |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/539e5cea-5e4f-6fae-2925-ff3447268740.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/0613b08b-4a83-ccbd-ca4a-afbfeae43b72.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -4224,7 +7718,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 110) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoRegularSpaceWinsGame
+### 178) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoRegularSpaceWinsGame
 
 
 
@@ -4243,7 +7737,7 @@ NUnit Version: 3.10.0.0
   | R:E7+H5k++                |
   | B:B6+C1k2k3+              |
   | X:A35B2D4                 |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/29ed879d-c90c-0446-8e3a-c0dc90933b77.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/c540c5bb-b595-2245-fae5-a54b833ee5f9.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -4259,7 +7753,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 111) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed
+### 179) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed
 
 
 
@@ -4272,13 +7766,13 @@ NUnit Version: 3.10.0.0
 
  -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
 #### Given I have board NewGame
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/b50cb248-3720-e98d-f5a2-c04c3545857a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-c11c-9e2272422602.png?raw=true)
 
     Loaded board NewGame.
 
  -&gt; done: SetupSteps.GivenIHaveNamedBoard("NewGame") (0.0s)
 #### And I add this red piece: I5
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a1573ad0-761c-3260-c032-2f426d00808a.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-02bc-8fb467d71757.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenIAddPieces(Red, "I5") (0.0s)
@@ -4295,7 +7789,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1bD12E12k3F12") (0.0s)
 
 
-### 112) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundOntoHomeBecomesKing
+### 180) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundOntoHomeBecomesKing
 
 
 
@@ -4314,7 +7808,7 @@ NUnit Version: 3.10.0.0
   | R:E2k+3k+47cG4+           |
   | B:B4C6c7cD678E1+H4k       |
   | X:G3                      |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/a1f2b0ad-7167-6a41-119f-db58b3102384.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/9fbe3c84-8238-9d08-018d-247974130c96.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -4331,7 +7825,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Blue, "B4C6c7cD678E8k+H4k") (0.0s)
 
 
-### 113) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndMergingCanFormAnyStackSize
+### 181) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndMergingCanFormAnyStackSize
 
 
 
@@ -4349,7 +7843,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8  |
   | R:A2c++D12E12k3F12G1+7H6++ |
   | B:D78E78k9F78              |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/efee6de3-9e9c-985e-0628-cdc038d37d8b.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/86149e11-482f-6767-f95b-29c60870b39a.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -4375,7 +7869,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "six", A2) (0.0s)
 
 
-### 114) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize
+### 182) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize
 
 
 
@@ -4393,7 +7887,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:A1+D12E12k3F12I5+       |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/8de9cecb-7517-e470-faee-b8ed424e74e4.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/63f6ae4e-6fc5-141d-23f7-39b19da50fed.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -4412,7 +7906,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A1) (0.0s)
 
 
-### 115) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair
+### 183) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair
 
 
 
@@ -4430,7 +7924,7 @@ NUnit Version: 3.10.0.0
   | Benediction v1: R-E2 B E8 |
   | R:D12E12k3F12G7+++        |
   | B:D78E78k9F78             |
-![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/ae297736-9a54-9011-f334-4c1856a8fd9e.png?raw=true)
+![Board Snapshot](https://raw.githubusercontent.com/MichaelSpencerJr/BenedictionGame/master/testruns/images/4c42702c-34cb-0ba7-fd2a-4933613f8d27.png?raw=true)
 
 
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
@@ -4469,11 +7963,11 @@ NUnit Version: 3.10.0.0
 
  Overall result: Passed
 
- Test Count: 118, Passed: 115, Failed: 0, Inconclusive: 3, Skipped: 0
+ Test Count: 183, Passed: 183, Failed: 0, Inconclusive: 0, Skipped: 0
 
- Start time: 2020-02-08 19:21:41Z
+ Start time: 2020-02-22 17:57:43Z
 
-   End time: 2020-02-08 19:21:45Z
+   End time: 2020-02-22 17:57:49Z
 
-   Duration: 3.298 seconds
+   Duration: 5.842 seconds
 

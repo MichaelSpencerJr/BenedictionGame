@@ -62,14 +62,12 @@ namespace Testing.SpecFlow.Common
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
 
             var sideRed = side == ActionSide.Red;
-            var testBoard = new State();
-
-            testBoard.ParseSideV1($"{(sideRed ? "R" : "B")}:{definition}");
+            var testBoard = StateSerializer.ParseSideV1(StateManager.Create(),$"{(sideRed ? "R" : "B")}:{definition}");
 
             var sb = new StringBuilder();
 
             var successful = 0;
-            foreach (var location in State.AllBoardLocations)
+            foreach (var location in testBoard.AllBoardLocations)
             {
                 if (sideRed)
                 {
@@ -107,15 +105,13 @@ namespace Testing.SpecFlow.Common
         {
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
 
-            var testBoard = new State();
-
-            testBoard.ParseSideV1($"X:{definition}");
+            var testBoard = StateSerializer.ParseSideV1(StateManager.Create(), $"X:{definition}");
 
             var sb = new StringBuilder();
 
             var successful = 0;
 
-            foreach (var location in State.AllBoardLocations)
+            foreach (var location in testBoard.AllBoardLocations)
             {
                 if (!_context.BoardState[location].IsBlock() && !testBoard[location].IsBlock()) continue;
 
@@ -404,7 +400,7 @@ namespace Testing.SpecFlow.Common
                 }
             }
 
-            Assert.IsTrue(actual.ContainsKey(validation.Location),
+            Assert.IsTrue(Movement.IsValidLocation(validation.Location),
                 $"{validation.Location} (0x{((int) (validation.Location)):X2}) is not a board location.");
             return errorLog.CheckPiece(expected, actual[validation.Location], mask);
         }

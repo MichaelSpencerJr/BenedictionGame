@@ -50,7 +50,7 @@ namespace Benediction.Controller
 
         private static IEnumerable<GameAction> AllBlocks(State currentState, ActionSide side)
         {
-            foreach (var location in State.AllBoardLocations)
+            foreach (var location in currentState.AllBoardLocations)
             {
                 if (currentState[location].IsEmpty()) yield return new GameBlockAction {Location = location, Side = side};
             }
@@ -74,7 +74,7 @@ namespace Benediction.Controller
             var sideIsRed = side == ActionSide.Red;
             var blueWrap = side == ActionSide.Red;
             var redWrap = side == ActionSide.Blue;
-            foreach (var myPieceLocation in State.AllBoardLocations.Where(loc => currentState[loc].RedPiece() == sideIsRed))
+            foreach (var myPieceLocation in currentState.AllBoardLocations.Where(loc => currentState[loc].RedPiece() == sideIsRed))
             {
                 var stackSize = currentState[myPieceLocation].GetSize();
                 foreach (var direction in Movement.AllMoves)

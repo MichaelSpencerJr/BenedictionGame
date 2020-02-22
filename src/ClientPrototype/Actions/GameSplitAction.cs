@@ -33,9 +33,8 @@ namespace Benediction.Actions
         {
             if (CheckTargetIsYours(initialState, string.Empty) == null)
             {
-                var blessingRemovedState = initialState.DeepCopy();
-                blessingRemovedState[Location] = blessingRemovedState[Location].Blessed(false).SetSize(Size);
-                return CheckMergeRules(blessingRemovedState);
+                initialState[Location] = initialState[Location].SetSize(Size);
+                return CheckMergeRules(initialState);
             }
 
             return null;
@@ -47,31 +46,27 @@ namespace Benediction.Actions
 
             if (string.IsNullOrEmpty(error))
             {
-                var finalState = initialState.DeepCopy();
-
                 var remainingSize = initialState[Location].GetSize() - Size;
 
                 //Remove blessings and set size to just what's being moved/merged.  King or curse flags remain.
-                finalState[Location] = finalState[Location].Blessed(false).SetSize(Size);
+                initialState[Location] = initialState[Location].Blessed(false).SetSize(Size);
                 //eventually remainingSize will be put here, but first we need to use this space as if it's a smaller full-move piece
 
                 if (CheckTargetIsYours(initialState, string.Empty) == null)
                 {
                     //Location still has king, curse, and size info
-                    ApplyMerge(initialState, finalState, Size);
+                    var mergeState = ApplyMerge(initialState, Size);
                     //Now that the split-away part has been used for a full move or merge, put the left-behind part where it should be.
-                    finalState[Location] = initialState[Location].Locked(false).SetSize(remainingSize);
-                }
-                else
-                {
-                    ApplyMove(initialState, finalState, Size);
-                    finalState[Target] = finalState[Target].CursePending(true);
-                    //Now that the split-away part has been used for a full move or merge, put the left-behind part where it should be.
-                    finalState[Location] = initialState[Location].Blessed(false).Locked(false).CursePending(true).SetSize(remainingSize);
+                    mergeState[Location] = initialState[Location].Blessed(false).Cursed(false).CursePending(false).Locked(false).SetSize(remainingSize);
+
+                    return mergeState;
                 }
 
-
-                return finalState;
+                var moveState = ApplyMove(initialState, Size);
+                moveState[Target] = moveState[Target].CursePending(true);
+                //Now that the split-away part has been used for a full move or merge, put the left-behind part where it should be.
+                moveState[Location] = initialState[Location].Blessed(false).Locked(false).CursePending(true).SetSize(remainingSize);
+                return moveState;
             }
 
             throw new InvalidOperationException($"Did not check invalid move before applying: {error}");

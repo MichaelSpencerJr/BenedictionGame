@@ -158,7 +158,7 @@ namespace Benediction.View
             }
 
             NavigateEvent?.Invoke(sender,
-                new BoardNavigationEventArgs {EventType = NavigationEventType.NewGame, Selected = new State()});
+                new BoardNavigationEventArgs {EventType = NavigationEventType.NewGame, Selected = StateManager.Create()});
             btnCommitMove.Select();
         }
         private void dgvGameState_CellClick(object sender, DataGridViewCellEventArgs e)

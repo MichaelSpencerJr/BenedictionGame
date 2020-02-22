@@ -83,16 +83,16 @@ namespace Testing.Specflow.Features.GameRules
         {
 #line 11
 #line hidden
-            TechTalk.SpecFlow.Table table78 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table80 = new TechTalk.SpecFlow.Table(new string[] {
                         "New Game Board"});
-            table78.AddRow(new string[] {
+            table80.AddRow(new string[] {
                         "Benediction v1: R-E2 B E8"});
-            table78.AddRow(new string[] {
+            table80.AddRow(new string[] {
                         "R:D12E12k3F12"});
-            table78.AddRow(new string[] {
+            table80.AddRow(new string[] {
                         "B:D78E78k9F78"});
 #line 12
- testRunner.Given("I define board NewGame as:", ((string)(null)), table78, "Given ");
+ testRunner.Given("I define board NewGame as:", ((string)(null)), table80, "Given ");
 #line hidden
         }
         
@@ -269,16 +269,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table79 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table81 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table79.AddRow(new string[] {
+                table81.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
-                table79.AddRow(new string[] {
+                table81.AddRow(new string[] {
                             "R:D1+3E3k+7c9c+"});
-                table79.AddRow(new string[] {
+                table81.AddRow(new string[] {
                             "B:B4C3+6c7cD68G5k"});
 #line 43
- testRunner.Given("I load this board", ((string)(null)), table79, "Given ");
+ testRunner.Given("I load this board", ((string)(null)), table81, "Given ");
 #line hidden
 #line 48
  testRunner.When("the red player moves the piece at e9 to e2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -322,18 +322,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table80 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table82 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table80.AddRow(new string[] {
+                table82.AddRow(new string[] {
                             "Benediction v1: R E2 B-E8"});
-                table80.AddRow(new string[] {
+                table82.AddRow(new string[] {
                             "R:E2k+3k+47cG4+"});
-                table80.AddRow(new string[] {
+                table82.AddRow(new string[] {
                             "B:B4C6c7cD678E1+H4k"});
-                table80.AddRow(new string[] {
+                table82.AddRow(new string[] {
                             "X:G3"});
 #line 54
- testRunner.Given("I load this board", ((string)(null)), table80, "Given ");
+ testRunner.Given("I load this board", ((string)(null)), table82, "Given ");
 #line hidden
 #line 60
  testRunner.When("the blue player moves the piece at e1 to e8", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -377,18 +377,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table81 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table83 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table81.AddRow(new string[] {
+                table83.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
-                table81.AddRow(new string[] {
+                table83.AddRow(new string[] {
                             "R:C1+D2kE5+9b+"});
-                table81.AddRow(new string[] {
+                table83.AddRow(new string[] {
                             "B:B6+C3+4k+"});
-                table81.AddRow(new string[] {
+                table83.AddRow(new string[] {
                             "X:A35B2D4"});
 #line 65
- testRunner.Given("I load this board", ((string)(null)), table81, "Given ");
+ testRunner.Given("I load this board", ((string)(null)), table83, "Given ");
 #line hidden
 #line 71
  testRunner.When("the red player moves the piece at e9 to e2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -432,18 +432,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table82 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table84 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table82.AddRow(new string[] {
+                table84.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
-                table82.AddRow(new string[] {
+                table84.AddRow(new string[] {
                             "R:C1+E2k5+9b+"});
-                table82.AddRow(new string[] {
+                table84.AddRow(new string[] {
                             "B:B6+C3+4k+"});
-                table82.AddRow(new string[] {
+                table84.AddRow(new string[] {
                             "X:A35B2D4"});
 #line 76
- testRunner.Given("I load this board", ((string)(null)), table82, "Given ");
+ testRunner.Given("I load this board", ((string)(null)), table84, "Given ");
 #line hidden
 #line 82
  testRunner.When("the red player merges the piece at e9 onto e2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -487,18 +487,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table83 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table85 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table83.AddRow(new string[] {
+                table85.AddRow(new string[] {
                             "Benediction v1: R E2 B-E8"});
-                table83.AddRow(new string[] {
+                table85.AddRow(new string[] {
                             "R:E7+H5k++"});
-                table83.AddRow(new string[] {
+                table85.AddRow(new string[] {
                             "B:B6+C1k2k3+"});
-                table83.AddRow(new string[] {
+                table85.AddRow(new string[] {
                             "X:A35B2D4"});
 #line 87
- testRunner.Given("I load this board", ((string)(null)), table83, "Given ");
+ testRunner.Given("I load this board", ((string)(null)), table85, "Given ");
 #line hidden
 #line 93
  testRunner.When("the blue player moves the piece on c1 to c7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -542,18 +542,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table84 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table86 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table84.AddRow(new string[] {
+                table86.AddRow(new string[] {
                             "Benediction v1: R=E2 B E8"});
-                table84.AddRow(new string[] {
+                table86.AddRow(new string[] {
                             "R:E7+8k++"});
-                table84.AddRow(new string[] {
+                table86.AddRow(new string[] {
                             "B:B3+6+C1k2k"});
-                table84.AddRow(new string[] {
+                table86.AddRow(new string[] {
                             "X:A35B2D46"});
 #line 100
- testRunner.Given("I load this board", ((string)(null)), table84, "Given ");
+ testRunner.Given("I load this board", ((string)(null)), table86, "Given ");
 #line hidden
 #line 106
  testRunner.When("the red player moves the piece on e8 to e2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -597,18 +597,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table85 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table87 = new TechTalk.SpecFlow.Table(new string[] {
                             "Board"});
-                table85.AddRow(new string[] {
+                table87.AddRow(new string[] {
                             "Benediction v1: R=E2 B E8"});
-                table85.AddRow(new string[] {
+                table87.AddRow(new string[] {
                             "R:A4b+D128k++E137cF128c"});
-                table85.AddRow(new string[] {
+                table87.AddRow(new string[] {
                             "B:A1k2cB1k3cC2c3cD7F7"});
-                table85.AddRow(new string[] {
+                table87.AddRow(new string[] {
                             "X:A35B2D46F4H246"});
 #line 112
- testRunner.Given("I load this board", ((string)(null)), table85, "Given ");
+ testRunner.Given("I load this board", ((string)(null)), table87, "Given ");
 #line hidden
 #line 118
  testRunner.When("the red player merges the piece on f8 to f1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -635,131 +635,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Regular Piece Wrapping Around and Merging Can Form Any Stack Size", null, ((string[])(null)));
-#line 124
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 11
-this.FeatureBackground();
-#line hidden
-                TechTalk.SpecFlow.Table table86 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Board"});
-                table86.AddRow(new string[] {
-                            "Benediction v1: R-E2 B E8"});
-                table86.AddRow(new string[] {
-                            "R:A2c++D12E12k3F12G1+7H6++"});
-                table86.AddRow(new string[] {
-                            "B:D78E78k9F78"});
 #line 125
- testRunner.Given("I load this board:", ((string)(null)), table86, "Given ");
-#line hidden
-#line 130
- testRunner.When("the red player merges the piece at g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 131
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 132
- testRunner.And("there should be a red three-stack on g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 133
- testRunner.When("the red player merges the piece at h6 onto a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 134
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 135
- testRunner.And("there should be a red six-stack on a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Blessed Piece Wrapping Around and Merging Can Form Any Stack Size")]
-        public virtual void BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blessed Piece Wrapping Around and Merging Can Form Any Stack Size", null, ((string[])(null)));
-#line 137
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 11
-this.FeatureBackground();
-#line hidden
-                TechTalk.SpecFlow.Table table87 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Board"});
-                table87.AddRow(new string[] {
-                            "Benediction v1: R-E2 B E8"});
-                table87.AddRow(new string[] {
-                            "R:A2c++D12E12k3F12G1+7bH6b++"});
-                table87.AddRow(new string[] {
-                            "B:D78E78k9F78"});
-#line 138
- testRunner.Given("I load this board:", ((string)(null)), table87, "Given ");
-#line hidden
-#line 143
- testRunner.When("the red player merges the piece at g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 144
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 145
- testRunner.And("there should be a red three-stack on g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 146
- testRunner.When("the red player merges the piece at h6 onto a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 147
- testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 148
- testRunner.And("there should be a red six-stack on a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cursed Piece Wrapping Around and Splitting Remains Cursed")]
-        public virtual void CursedPieceWrappingAroundAndSplittingRemainsCursed()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cursed Piece Wrapping Around and Splitting Remains Cursed", null, ((string[])(null)));
-#line 151
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -787,35 +663,41 @@ this.FeatureBackground();
                 table88.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
                 table88.AddRow(new string[] {
-                            "R:D12E12k3F12G7c+++"});
+                            "R:A2c++D12E12k3F12G1+7H6++"});
                 table88.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 152
+#line 126
  testRunner.Given("I load this board:", ((string)(null)), table88, "Given ");
 #line hidden
-#line 157
- testRunner.When("the red player splits 2 pieces from g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 131
+ testRunner.When("the red player merges the piece at g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 158
+#line 132
  testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 159
- testRunner.And("there should be a red cursed two-stack on g7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 133
+ testRunner.And("there should be a red three-stack on g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 160
- testRunner.And("there should be a red cursed two-stack on g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 134
+ testRunner.When("the red player merges the piece at h6 onto a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 135
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 136
+ testRunner.And("there should be a red six-stack on a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Regular Piece Wrapping Around and Splitting Leaves Bless-Curse Pair")]
-        public virtual void RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair()
+        [NUnit.Framework.DescriptionAttribute("Blessed Piece Wrapping Around and Merging Can Form Any Stack Size")]
+        public virtual void BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Regular Piece Wrapping Around and Splitting Leaves Bless-Curse Pair", null, ((string[])(null)));
-#line 163
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blessed Piece Wrapping Around and Merging Can Form Any Stack Size", null, ((string[])(null)));
+#line 139
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -843,35 +725,41 @@ this.FeatureBackground();
                 table89.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
                 table89.AddRow(new string[] {
-                            "R:D12E12k3F12G7+++"});
+                            "R:A2c++D12E12k3F12G1+7bH6b++"});
                 table89.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 164
+#line 140
  testRunner.Given("I load this board:", ((string)(null)), table89, "Given ");
 #line hidden
-#line 169
- testRunner.When("the red player splits 2 pieces from g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 145
+ testRunner.When("the red player merges the piece at g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 170
+#line 146
  testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 171
- testRunner.And("there should be a red cursed two-stack on g7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 147
+ testRunner.And("there should be a red three-stack on g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 172
- testRunner.And("there should be a red blessed two-stack on g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 148
+ testRunner.When("the red player merges the piece at h6 onto a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 149
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 150
+ testRunner.And("there should be a red six-stack on a2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Blessed Piece Wrapping Around and Splitting Leaves Bless-Curse Pair")]
-        public virtual void BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair()
+        [NUnit.Framework.DescriptionAttribute("Cursed Piece Wrapping Around and Splitting Remains Cursed")]
+        public virtual void CursedPieceWrappingAroundAndSplittingRemainsCursed()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blessed Piece Wrapping Around and Splitting Leaves Bless-Curse Pair", null, ((string[])(null)));
-#line 175
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cursed Piece Wrapping Around and Splitting Remains Cursed", null, ((string[])(null)));
+#line 153
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -899,37 +787,35 @@ this.FeatureBackground();
                 table90.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
                 table90.AddRow(new string[] {
-                            "R:D12E12k3F12G7b+++"});
+                            "R:D12E12k3F12G7c+++"});
                 table90.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 176
+#line 154
  testRunner.Given("I load this board:", ((string)(null)), table90, "Given ");
 #line hidden
-#line 181
+#line 159
  testRunner.When("the red player splits 2 pieces from g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 182
+#line 160
  testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 183
+#line 161
  testRunner.And("there should be a red cursed two-stack on g7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 184
- testRunner.And("there should be a red blessed two-stack on g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 162
+ testRunner.And("there should be a red cursed two-stack on g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Blessed Piece Wrapping Around and Splitting Completing Bridge Leaves Bless-Bless " +
-            "Pair")]
-        public virtual void BlessedPieceWrappingAroundAndSplittingCompletingBridgeLeavesBless_BlessPair()
+        [NUnit.Framework.DescriptionAttribute("Regular Piece Wrapping Around and Splitting Leaves Bless-Curse Pair")]
+        public virtual void RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blessed Piece Wrapping Around and Splitting Completing Bridge Leaves Bless-Bless " +
-                    "Pair", null, ((string[])(null)));
-#line 187
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Regular Piece Wrapping Around and Splitting Leaves Bless-Curse Pair", null, ((string[])(null)));
+#line 165
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -957,22 +843,22 @@ this.FeatureBackground();
                 table91.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
                 table91.AddRow(new string[] {
-                            "R:D12E12k3F12G7b+++"});
+                            "R:D12E12k3F12G7+++"});
                 table91.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 188
+#line 166
  testRunner.Given("I load this board:", ((string)(null)), table91, "Given ");
 #line hidden
-#line 193
+#line 171
  testRunner.When("the red player splits 2 pieces from g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 194
+#line 172
  testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 195
+#line 173
  testRunner.And("there should be a red cursed two-stack on g7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 196
+#line 174
  testRunner.And("there should be a red blessed two-stack on g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -980,12 +866,12 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cursed Piece Wrapping Around and Split Merging Requires Blessed Target")]
-        public virtual void CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget()
+        [NUnit.Framework.DescriptionAttribute("Blessed Piece Wrapping Around and Splitting Leaves Bless-Curse Pair")]
+        public virtual void BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cursed Piece Wrapping Around and Split Merging Requires Blessed Target", null, ((string[])(null)));
-#line 199
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blessed Piece Wrapping Around and Splitting Leaves Bless-Curse Pair", null, ((string[])(null)));
+#line 177
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -1013,29 +899,37 @@ this.FeatureBackground();
                 table92.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
                 table92.AddRow(new string[] {
-                            "R:D12E12k3F12G17c+++"});
+                            "R:D12E12k3F12G7b+++"});
                 table92.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 200
+#line 178
  testRunner.Given("I load this board:", ((string)(null)), table92, "Given ");
 #line hidden
-#line 205
- testRunner.When("the red player splits 1 piece from g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 183
+ testRunner.When("the red player splits 2 pieces from g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 206
- testRunner.Then("the action fails", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 184
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 185
+ testRunner.And("there should be a red cursed two-stack on g7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 186
+ testRunner.And("there should be a red blessed two-stack on g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Regular Piece Wrapping Around and Split Merging Can Form Any Stack Size")]
-        public virtual void RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize()
+        [NUnit.Framework.DescriptionAttribute("Blessed Piece Wrapping Around and Splitting Completing Bridge Leaves Bless-Bless " +
+            "Pair")]
+        public virtual void BlessedPieceWrappingAroundAndSplittingCompletingBridgeLeavesBless_BlessPair()
         {
             string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Regular Piece Wrapping Around and Split Merging Can Form Any Stack Size", null, ((string[])(null)));
-#line 208
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blessed Piece Wrapping Around and Splitting Completing Bridge Leaves Bless-Bless " +
+                    "Pair", null, ((string[])(null)));
+#line 189
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -1063,22 +957,149 @@ this.FeatureBackground();
                 table93.AddRow(new string[] {
                             "Benediction v1: R-E2 B E8"});
                 table93.AddRow(new string[] {
-                            "R:A1+D12E12k3F12I5+"});
+                            "R:A5+B5C5D125E12k35F124G3H2"});
                 table93.AddRow(new string[] {
                             "B:D78E78k9F78"});
-#line 209
+#line 190
  testRunner.Given("I load this board:", ((string)(null)), table93, "Given ");
 #line hidden
-#line 214
- testRunner.When("the red player splits 1 piece from i5 onto a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 195
+ testRunner.When("the red player splits 1 piece from a5 onto i1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 215
+#line 196
  testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 216
+#line 197
+ testRunner.And("there should be a red blessed one-stack on a5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 198
+ testRunner.And("there should be a red blessed one-stack on b5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 199
+ testRunner.And("there should be a red blessed one-stack on c5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 200
+ testRunner.And("there should be a red blessed one-stack on d5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 201
+ testRunner.And("there should be a red blessed one-stack on e5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 202
+ testRunner.And("there should be a red blessed one-stack on f4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 203
+ testRunner.And("there should be a red blessed one-stack on g3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 204
+ testRunner.And("there should be a red blessed one-stack on h2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 205
+ testRunner.And("there should be a red blessed one-stack on i1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Cursed Piece Wrapping Around and Split Merging Requires Blessed Target")]
+        public virtual void CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cursed Piece Wrapping Around and Split Merging Requires Blessed Target", null, ((string[])(null)));
+#line 208
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 11
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table94 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Board"});
+                table94.AddRow(new string[] {
+                            "Benediction v1: R-E2 B E8"});
+                table94.AddRow(new string[] {
+                            "R:D12E12k3F12G17c+++"});
+                table94.AddRow(new string[] {
+                            "B:D78E78k9F78"});
+#line 209
+ testRunner.Given("I load this board:", ((string)(null)), table94, "Given ");
+#line hidden
+#line 214
+ testRunner.When("the red player splits 1 piece from g7 onto g1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 215
+ testRunner.Then("the action fails", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Regular Piece Wrapping Around and Split Merging Can Form Any Stack Size")]
+        public virtual void RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Regular Piece Wrapping Around and Split Merging Can Form Any Stack Size", null, ((string[])(null)));
+#line 218
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 11
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table95 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Board"});
+                table95.AddRow(new string[] {
+                            "Benediction v1: R-E2 B E8"});
+                table95.AddRow(new string[] {
+                            "R:A1+D12E12k3F12I5+"});
+                table95.AddRow(new string[] {
+                            "B:D78E78k9F78"});
+#line 219
+ testRunner.Given("I load this board:", ((string)(null)), table95, "Given ");
+#line hidden
+#line 224
+ testRunner.When("the red player splits 1 piece from i5 onto a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 225
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 226
  testRunner.And("there should be a red one-stack on i5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 217
+#line 227
  testRunner.And("there should be a red three-stack on a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -1091,7 +1112,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blessed Piece Wrapping Around and Split Merging Can Form Any Stack Size", null, ((string[])(null)));
-#line 220
+#line 230
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -1114,8 +1135,28 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 this.FeatureBackground();
 #line hidden
-#line 221
- testRunner.Given("this test isn\'t written yet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                TechTalk.SpecFlow.Table table96 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Board"});
+                table96.AddRow(new string[] {
+                            "Benediction v1: R-E2 B E8"});
+                table96.AddRow(new string[] {
+                            "R:A1+D12E12k3F12I5b+"});
+                table96.AddRow(new string[] {
+                            "B:D78E78k9F78"});
+#line 231
+ testRunner.Given("I load this board:", ((string)(null)), table96, "Given ");
+#line hidden
+#line 236
+ testRunner.When("the red player splits 1 piece from i5 onto a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 237
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 238
+ testRunner.And("there should be a red one-stack on i5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 239
+ testRunner.And("there should be a red three-stack on a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -1127,7 +1168,7 @@ this.FeatureBackground();
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("King Wrapping Around And Merging Onto Piece Remains Blessed and Wins Game", null, ((string[])(null)));
-#line 224
+#line 242
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -1150,8 +1191,28 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 this.FeatureBackground();
 #line hidden
-#line 225
- testRunner.Given("this test isn\'t written yet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                TechTalk.SpecFlow.Table table97 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Board"});
+                table97.AddRow(new string[] {
+                            "Benediction v1: R-E2 B E8"});
+                table97.AddRow(new string[] {
+                            "R:A1+D12E12k3F12I5k+"});
+                table97.AddRow(new string[] {
+                            "B:D78E78k9F78"});
+#line 243
+ testRunner.Given("I load this board:", ((string)(null)), table97, "Given ");
+#line hidden
+#line 248
+ testRunner.When("the red player merges the piece from i5 onto a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 249
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 250
+ testRunner.And("there should be a red four-stack king with a blessing on a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 251
+ testRunner.And("the game is over and red has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -1165,7 +1226,7 @@ this.FeatureBackground();
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("King Stack Wrapping Around and Split Merging Onto Piece Remains Blessed and Wins " +
                     "Game", null, ((string[])(null)));
-#line 228
+#line 254
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -1188,8 +1249,31 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 this.FeatureBackground();
 #line hidden
-#line 229
- testRunner.Given("this test isn\'t written yet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                TechTalk.SpecFlow.Table table98 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Board"});
+                table98.AddRow(new string[] {
+                            "Benediction v1: R-E2 B E8"});
+                table98.AddRow(new string[] {
+                            "R:A1+D12E12k3F12I5k+"});
+                table98.AddRow(new string[] {
+                            "B:D78E78k9F78"});
+#line 255
+ testRunner.Given("I load this board:", ((string)(null)), table98, "Given ");
+#line hidden
+#line 260
+ testRunner.When("the red player splits 1 piece from i5 onto a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 261
+ testRunner.Then("the action succeeds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 262
+ testRunner.And("there should be a red one-stack king on i5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 263
+ testRunner.And("there should be a red three-stack king with a blessing on a1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 264
+ testRunner.And("the game is over and red has won", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

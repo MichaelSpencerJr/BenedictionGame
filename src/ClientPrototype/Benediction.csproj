@@ -53,7 +53,14 @@
     <Compile Include="Actions\ActionSide.cs" />
     <Compile Include="Actions\BridgeDetector.cs" />
     <Compile Include="Board\CellExtensionMethods.cs" />
+    <Compile Include="Board\State.cs" />
+    <Compile Include="Board\StateEnumerator.cs" />
+    <Compile Include="Board\Measurement\BitMeasurement.cs" />
+    <Compile Include="Board\Measurement\IByteMeasurement.cs" />
+    <Compile Include="Board\Measurement\IMeasurement.cs" />
     <Compile Include="Board\StateFlagsExtensionMethods.cs" />
+    <Compile Include="Board\StateManager.cs" />
+    <Compile Include="Board\StateSerializer.cs" />
     <Compile Include="Controller\AvailableActionController.cs" />
     <Compile Include="Actions\GameBlockAction.cs" />
     <Compile Include="Actions\GameDropAction.cs" />
@@ -68,7 +75,6 @@
     <Compile Include="Heuristic\PieceCount.cs" />
     <Compile Include="Model\RestrictionState.cs" />
     <Compile Include="View\BoardPainter.cs" />
-    <Compile Include="Board\State.cs" />
     <Compile Include="Board\StateFlags.cs" />
     <Compile Include="Actions\GameAction.cs" />
     <Compile Include="Actions\Movement.cs" />

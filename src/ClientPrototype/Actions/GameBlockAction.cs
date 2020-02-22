@@ -54,17 +54,14 @@ namespace Benediction.Actions
             return null;
         }
 
-        public override State Apply(State initialState)
+        public override State Apply(State state)
         {
-            var error = CheckError(initialState);
+            var error = CheckError(state);
 
             if (string.IsNullOrEmpty(error))
             {
-                var finalState = initialState.DeepCopy();
-                
-                finalState[Location] = Cell.Block;
-                
-                return finalState;
+                state[Location] = Cell.Block;
+                return state;
             }
 
             throw new InvalidOperationException($"Did not check invalid move before applying: {error}");

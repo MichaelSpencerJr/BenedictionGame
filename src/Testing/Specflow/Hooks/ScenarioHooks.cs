@@ -65,7 +65,7 @@ namespace Testing.SpecFlow.Hooks
         public void ImageAfterStep()
         {
             if (_context.ImageBehavior == BoardImageBehavior.EveryStep &&
-                _context.BoardState?.BoardId != _context.LastPrintedBoard)
+                _context.BoardState.BoardId != _context.LastPrintedBoard)
             {
                 Console.WriteLine(_context.BoardState.ImageMarkdown());
             }

@@ -1,539 +1,647 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
+using System.Runtime.InteropServices;
+using Benediction.Actions;
 
 namespace Benediction.Board
 {
-    /// <summary>
-    /// Represents a snapshot of a game board, with all of its pieces.
-    /// </summary>
-    public class State : Dictionary<Location, Cell>, IEquatable<State>
+    [StructLayout(LayoutKind.Explicit, Size=117)]
+    public struct State : IEnumerable<KeyValuePair<Location, Cell>>
     {
-        public static readonly Guid InvalidBoard = new Guid(new byte[]
-            {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF});
+        [FieldOffset(0)] private Cell a1;
+        [FieldOffset(2)] private Cell a2;
+        [FieldOffset(4)] private Cell a3;
+        [FieldOffset(6)] private Cell a4;
+        [FieldOffset(8)] private Cell a5;
+        [FieldOffset(10)] private Cell b1;
+        [FieldOffset(12)] private Cell b2;
+        [FieldOffset(14)] private Cell b3;
+        [FieldOffset(16)] private Cell b4;
+        [FieldOffset(18)] private Cell b5;
+        [FieldOffset(20)] private Cell b6;
+        [FieldOffset(22)] private Cell c1;
+        [FieldOffset(24)] private Cell c2;
+        [FieldOffset(26)] private Cell c3;
+        [FieldOffset(28)] private Cell c4;
+        [FieldOffset(30)] private Cell c5;
+        [FieldOffset(32)] private Cell c6;
+        [FieldOffset(34)] private Cell c7;
+        [FieldOffset(36)] private Cell d1;
+        [FieldOffset(38)] private Cell d2;
+        [FieldOffset(40)] private Cell d3;
+        [FieldOffset(42)] private Cell d4;
+        [FieldOffset(44)] private Cell d5;
+        [FieldOffset(46)] private Cell d6;
+        [FieldOffset(48)] private Cell d7;
+        [FieldOffset(50)] private Cell d8;
+        [FieldOffset(52)] private Cell e1;
+        [FieldOffset(54)] private Cell e2;
+        [FieldOffset(56)] private Cell e3;
+        [FieldOffset(58)] private Cell e4;
+        [FieldOffset(60)] private Cell e5;
+        [FieldOffset(62)] private Cell e6;
+        [FieldOffset(64)] private Cell e7;
+        [FieldOffset(66)] private Cell e8;
+        [FieldOffset(68)] private Cell e9;
+        [FieldOffset(70)] private Cell f1;
+        [FieldOffset(72)] private Cell f2;
+        [FieldOffset(74)] private Cell f3;
+        [FieldOffset(76)] private Cell f4;
+        [FieldOffset(78)] private Cell f5;
+        [FieldOffset(80)] private Cell f6;
+        [FieldOffset(82)] private Cell f7;
+        [FieldOffset(84)] private Cell f8;
+        [FieldOffset(86)] private Cell g1;
+        [FieldOffset(88)] private Cell g2;
+        [FieldOffset(90)] private Cell g3;
+        [FieldOffset(92)] private Cell g4;
+        [FieldOffset(94)] private Cell g5;
+        [FieldOffset(96)] private Cell g6;
+        [FieldOffset(98)] private Cell g7;
+        [FieldOffset(100)] private Cell h1;
+        [FieldOffset(102)] private Cell h2;
+        [FieldOffset(104)] private Cell h3;
+        [FieldOffset(106)] private Cell h4;
+        [FieldOffset(108)] private Cell h5;
+        [FieldOffset(110)] private Cell h6;
+        [FieldOffset(112)] private Cell i1;
+        [FieldOffset(114)] private Cell i2;
+        [FieldOffset(116)] private Cell i3;
+        [FieldOffset(118)] private Cell i4;
+        [FieldOffset(120)] private Cell i5;
+        [FieldOffset(122)] private Location redHome;
+        [FieldOffset(124)] private Location blueHome;
+        [FieldOffset(126)] private StateFlags flags;
 
-        public static readonly Location[] AllBoardLocations =
+        public bool Equals(State other)
         {
-            Location.A1, Location.A2, Location.A3, Location.A4, Location.A5, Location.B1,
-            Location.B2, Location.B3, Location.B4, Location.B5, Location.B6, Location.C1,
-            Location.C2, Location.C3, Location.C4, Location.C5, Location.C6, Location.C7,
-            Location.D1, Location.D2, Location.D3, Location.D4, Location.D5, Location.D6,
-            Location.D7, Location.D8, Location.E1, Location.E2, Location.E3, Location.E4,
-            Location.E5, Location.E6, Location.E7, Location.E8, Location.E9, Location.F1,
-            Location.F2, Location.F3, Location.F4, Location.F5, Location.F6, Location.F7,
-            Location.F8, Location.G1, Location.G2, Location.G3, Location.G4, Location.G5,
-            Location.G6, Location.G7, Location.H1, Location.H2, Location.H3, Location.H4,
-            Location.H5, Location.H6, Location.I1, Location.I2, Location.I3, Location.I4,
-            Location.I5,
-        };
+            return BoardId == other.BoardId;
+        }
 
-        public static readonly Location[] RedWallAdjacentLocations =
+        public IEnumerator<KeyValuePair<Location, Cell>> GetEnumerator()
         {
-            Location.A1, Location.B1, Location.C1, Location.D1, Location.E1, Location.F1, Location.G1, Location.H1,
-            Location.I1
-        };
+            return new StateEnumerator(this);
+        }
 
-        public static readonly Location[] BlueWallAdjacentLocations =
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            Location.A5, Location.B6, Location.C7, Location.D8, Location.E9, Location.F8, Location.G7, Location.H6,
-            Location.I5
-        };
+            return GetEnumerator();
+        }
 
-        /// <summary>
-        /// Board state checksum, for indexing specific boards and for computing a checksum on decoded boards to confirm validity.
-        /// </summary>
+        public Location RedHome
+        {
+            get => redHome;
+            set
+            {
+                if (!Movement.IsValidLocation(value)) throw new InvalidOperationException();
+                redHome = value;
+            }
+        }
+
+        public Location BlueHome
+        {
+            get => blueHome;
+            set
+            {
+                if (!Movement.IsValidLocation(value)) throw new InvalidOperationException();
+                blueHome = value;
+            }
+        }
+
+        public StateFlags Flags
+        {
+            get => flags;
+            set => flags = value;
+        }
+
+        public bool Unset
+        {
+            get { return flags == 0; }
+        }
+
+        public Cell this[Location location]
+        {
+            get {
+                switch (location)
+                {
+                    case Location.A1:
+                        return a1;
+                    case Location.A2:
+                        return a2;
+                    case Location.A3:
+                        return a3;
+                    case Location.A4:
+                        return a4;
+                    case Location.A5:
+                        return a5;
+                    case Location.B1:
+                        return b1;
+                    case Location.B2:
+                        return b2;
+                    case Location.B3:
+                        return b3;
+                    case Location.B4:
+                        return b4;
+                    case Location.B5:
+                        return b5;
+                    case Location.B6:
+                        return b6;
+                    case Location.C1:
+                        return c1;
+                    case Location.C2:
+                        return c2;
+                    case Location.C3:
+                        return c3;
+                    case Location.C4:
+                        return c4;
+                    case Location.C5:
+                        return c5;
+                    case Location.C6:
+                        return c6;
+                    case Location.C7:
+                        return c7;
+                    case Location.D1:
+                        return d1;
+                    case Location.D2:
+                        return d2;
+                    case Location.D3:
+                        return d3;
+                    case Location.D4:
+                        return d4;
+                    case Location.D5:
+                        return d5;
+                    case Location.D6:
+                        return d6;
+                    case Location.D7:
+                        return d7;
+                    case Location.D8:
+                        return d8;
+                    case Location.E1:
+                        return e1;
+                    case Location.E2:
+                        return e2;
+                    case Location.E3:
+                        return e3;
+                    case Location.E4:
+                        return e4;
+                    case Location.E5:
+                        return e5;
+                    case Location.E6:
+                        return e6;
+                    case Location.E7:
+                        return e7;
+                    case Location.E8:
+                        return e8;
+                    case Location.E9:
+                        return e9;
+                    case Location.F1:
+                        return f1;
+                    case Location.F2:
+                        return f2;
+                    case Location.F3:
+                        return f3;
+                    case Location.F4:
+                        return f4;
+                    case Location.F5:
+                        return f5;
+                    case Location.F6:
+                        return f6;
+                    case Location.F7:
+                        return f7;
+                    case Location.F8:
+                        return f8;
+                    case Location.G1:
+                        return g1;
+                    case Location.G2:
+                        return g2;
+                    case Location.G3:
+                        return g3;
+                    case Location.G4:
+                        return g4;
+                    case Location.G5:
+                        return g5;
+                    case Location.G6:
+                        return g6;
+                    case Location.G7:
+                        return g7;
+                    case Location.H1:
+                        return h1;
+                    case Location.H2:
+                        return h2;
+                    case Location.H3:
+                        return h3;
+                    case Location.H4:
+                        return h4;
+                    case Location.H5:
+                        return h5;
+                    case Location.H6:
+                        return h6;
+                    case Location.I1:
+                        return i1;
+                    case Location.I2:
+                        return i2;
+                    case Location.I3:
+                        return i3;
+                    case Location.I4:
+                        return i4;
+                    case Location.I5:
+                        return i5;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(location), location, null);
+                } }
+            set
+            {
+                switch (location)
+                {
+                    case Location.A1:
+                        a1 = value;
+                        break;
+                    case Location.A2:
+                        a2 = value;
+                        break;
+                    case Location.A3:
+                        a3 = value;
+                        break;
+                    case Location.A4:
+                        a4 = value;
+                        break;
+                    case Location.A5:
+                        a5 = value;
+                        break;
+                    case Location.B1:
+                        b1 = value;
+                        break;
+                    case Location.B2:
+                        b2 = value;
+                        break;
+                    case Location.B3:
+                        b3 = value;
+                        break;
+                    case Location.B4:
+                        b4 = value;
+                        break;
+                    case Location.B5:
+                        b5 = value;
+                        break;
+                    case Location.B6:
+                        b6 = value;
+                        break;
+                    case Location.C1:
+                        c1 = value;
+                        break;
+                    case Location.C2:
+                        c2 = value;
+                        break;
+                    case Location.C3:
+                        c3 = value;
+                        break;
+                    case Location.C4:
+                        c4 = value;
+                        break;
+                    case Location.C5:
+                        c5 = value;
+                        break;
+                    case Location.C6:
+                        c6 = value;
+                        break;
+                    case Location.C7:
+                        c7 = value;
+                        break;
+                    case Location.D1:
+                        d1 = value;
+                        break;
+                    case Location.D2:
+                        d2 = value;
+                        break;
+                    case Location.D3:
+                        d3 = value;
+                        break;
+                    case Location.D4:
+                        d4 = value;
+                        break;
+                    case Location.D5:
+                        d5 = value;
+                        break;
+                    case Location.D6:
+                        d6 = value;
+                        break;
+                    case Location.D7:
+                        d7 = value;
+                        break;
+                    case Location.D8:
+                        d8 = value;
+                        break;
+                    case Location.E1:
+                        e1 = value;
+                        break;
+                    case Location.E2:
+                        e2 = value;
+                        break;
+                    case Location.E3:
+                        e3 = value;
+                        break;
+                    case Location.E4:
+                        e4 = value;
+                        break;
+                    case Location.E5:
+                        e5 = value;
+                        break;
+                    case Location.E6:
+                        e6 = value;
+                        break;
+                    case Location.E7:
+                        e7 = value;
+                        break;
+                    case Location.E8:
+                        e8 = value;
+                        break;
+                    case Location.E9:
+                        e9 = value;
+                        break;
+                    case Location.F1:
+                        f1 = value;
+                        break;
+                    case Location.F2:
+                        f2 = value;
+                        break;
+                    case Location.F3:
+                        f3 = value;
+                        break;
+                    case Location.F4:
+                        f4 = value;
+                        break;
+                    case Location.F5:
+                        f5 = value;
+                        break;
+                    case Location.F6:
+                        f6 = value;
+                        break;
+                    case Location.F7:
+                        f7 = value;
+                        break;
+                    case Location.F8:
+                        f8 = value;
+                        break;
+                    case Location.G1:
+                        g1 = value;
+                        break;
+                    case Location.G2:
+                        g2 = value;
+                        break;
+                    case Location.G3:
+                        g3 = value;
+                        break;
+                    case Location.G4:
+                        g4 = value;
+                        break;
+                    case Location.G5:
+                        g5 = value;
+                        break;
+                    case Location.G6:
+                        g6 = value;
+                        break;
+                    case Location.G7:
+                        g7 = value;
+                        break;
+                    case Location.H1:
+                        h1 = value;
+                        break;
+                    case Location.H2:
+                        h2 = value;
+                        break;
+                    case Location.H3:
+                        h3 = value;
+                        break;
+                    case Location.H4:
+                        h4 = value;
+                        break;
+                    case Location.H5:
+                        h5 = value;
+                        break;
+                    case Location.H6:
+                        h6 = value;
+                        break;
+                    case Location.I1:
+                        i1 = value;
+                        break;
+                    case Location.I2:
+                        i2 = value;
+                        break;
+                    case Location.I3:
+                        i3 = value;
+                        break;
+                    case Location.I4:
+                        i4 = value;
+                        break;
+                    case Location.I5:
+                        i5 = value;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(location), location, null);
+                }
+            }
+        }
+
         public Guid BoardId
         {
             get
             {
-                var hash = _hasher.ComputeHash(GetBuffer());
+                var lowPart = ((((((((((((((((((((((((((((((((3074457345618258791ul
+                                                              + (ushort) a1) * 3074457345618258791ul
+                                                             + (ushort) a2) * 3074457345618258791ul
+                                                            + (ushort) a3) * 3074457345618258791ul
+                                                           + (ushort) a4) * 3074457345618258791ul
+                                                          + (ushort) a5) * 3074457345618258791ul
+                                                         + (ushort) b1) * 3074457345618258791ul
+                                                        + (ushort) b2) * 3074457345618258791ul
+                                                       + (ushort) b3) * 3074457345618258791ul
+                                                      + (ushort) b4) * 3074457345618258791ul
+                                                     + (ushort) b5) * 3074457345618258791ul
+                                                    + (ushort) b6) * 3074457345618258791ul
+                                                   + (ushort) c1) * 3074457345618258791ul
+                                                  + (ushort) c2) * 3074457345618258791ul
+                                                 + (ushort) c3) * 3074457345618258791ul
+                                                + (ushort) c4) * 3074457345618258791ul
+                                               + (ushort) c5) * 3074457345618258791ul
+                                              + (ushort) c6) * 3074457345618258791ul
+                                             + (ushort) c7) * 3074457345618258791ul
+                                            + (ushort) d1) * 3074457345618258791ul
+                                           + (ushort) d2) * 3074457345618258791ul
+                                          + (ushort) d3) * 3074457345618258791ul
+                                         + (ushort) d4) * 3074457345618258791ul
+                                        + (ushort) d5) * 3074457345618258791ul
+                                       + (ushort) d6) * 3074457345618258791ul
+                                      + (ushort) d7) * 3074457345618258791ul
+                                     + (ushort) d8) * 3074457345618258791ul
+                                    + (ushort) e1) * 3074457345618258791ul
+                                   + (ushort) e2) * 3074457345618258791ul
+                                  + (ushort) e3) * 3074457345618258791ul
+                                 + (ushort) e4) * 3074457345618258791ul
+                                + (ushort) e5) * 3074457345618258791ul
+                               + (ushort) redHome) * 3074457345618258791ul;
+                var highPart = ((((((((((((((((((((((((((((((((3074457345618258791ul
+                                                               + (ushort) i1) * 3074457345618258791ul
+                                                              + (ushort) i2) * 3074457345618258791ul
+                                                             + (ushort) i3) * 3074457345618258791ul
+                                                            + (ushort) i4) * 3074457345618258791ul
+                                                           + (ushort) i5) * 3074457345618258791ul
+                                                          + (ushort) h1) * 3074457345618258791ul
+                                                         + (ushort) h2) * 3074457345618258791ul
+                                                        + (ushort) h3) * 3074457345618258791ul
+                                                       + (ushort) h4) * 3074457345618258791ul
+                                                      + (ushort) h5) * 3074457345618258791ul
+                                                     + (ushort) h6) * 3074457345618258791ul
+                                                    + (ushort) g1) * 3074457345618258791ul
+                                                   + (ushort) g2) * 3074457345618258791ul
+                                                  + (ushort) g3) * 3074457345618258791ul
+                                                 + (ushort) g4) * 3074457345618258791ul
+                                                + (ushort) g5) * 3074457345618258791ul
+                                               + (ushort) g6) * 3074457345618258791ul
+                                              + (ushort) g7) * 3074457345618258791ul
+                                             + (ushort) f1) * 3074457345618258791ul
+                                            + (ushort) f2) * 3074457345618258791ul
+                                           + (ushort) f3) * 3074457345618258791ul
+                                          + (ushort) f4) * 3074457345618258791ul
+                                         + (ushort) f5) * 3074457345618258791ul
+                                        + (ushort) f6) * 3074457345618258791ul
+                                       + (ushort) f7) * 3074457345618258791ul
+                                      + (ushort) f8) * 3074457345618258791ul
+                                     + (ushort) e6) * 3074457345618258791ul
+                                    + (ushort) e7) * 3074457345618258791ul
+                                   + (ushort) e8) * 3074457345618258791ul
+                                  + (ushort) e9) * 3074457345618258791ul
+                                 + (ushort) blueHome) * 3074457345618258791ul
+                                + (byte) flags) * 3074457345618258791ul;
+                var lowBytes = BitConverter.GetBytes(lowPart);
+                var highBytes = BitConverter.GetBytes(highPart);
                 return new Guid(new[]
                 {
-                    (byte) (hash[0] ^ hash[16]),
-                    (byte) (hash[1] ^ hash[17]),
-                    (byte) (hash[2] ^ hash[18]),
-                    (byte) (hash[3] ^ hash[19]),
-                    (byte) (hash[4] ^ hash[20]),
-                    (byte) (hash[5] ^ hash[21]),
-                    (byte) (hash[6] ^ hash[22]),
-                    (byte) (hash[7] ^ hash[23]),
-                    (byte) (hash[8] ^ hash[24]),
-                    (byte) (hash[9] ^ hash[25]),
-                    (byte) (hash[10] ^ hash[26]),
-                    (byte) (hash[11] ^ hash[27]),
-                    (byte) (hash[12] ^ hash[28]),
-                    (byte) (hash[13] ^ hash[29]),
-                    (byte) (hash[14] ^ hash[30]),
-                    (byte) (hash[15] ^ hash[31]),
+                    lowBytes[0], lowBytes[1], lowBytes[2], lowBytes[3], lowBytes[4], lowBytes[5], lowBytes[6],
+                    lowBytes[7], highBytes[0], highBytes[1], highBytes[2], highBytes[3], highBytes[4], highBytes[5],
+                    highBytes[6], highBytes[7]
                 });
             }
         }
 
-        /// <summary>
-        /// Location of red home space, if set
-        /// </summary>
-        public Location RedHome { get; set; }
-
-        /// <summary>
-        /// Location of blue home space, if set
-        /// </summary>
-        public Location BlueHome { get; set; }
-
-        /// <summary>
-        /// Game state flags indicating win/lose conditions and what move happens next
-        /// </summary>
-        public StateFlags Flags { get; set; }
-
-        private static SHA256 _hasher = SHA256.Create();
-
-        /// <summary>
-        /// Creates an empty <see cref="State"/> with no homes or pieces
-        /// </summary>
-        public State() : base(AllBoardLocations.Length)
+        public IEnumerable<Location> RedWallAdjacentLocations
         {
-            foreach (var key in AllBoardLocations)
+            get
             {
-                this[key] = Cell.Empty;
+                yield return Location.A1;
+                yield return Location.B1;
+                yield return Location.C1;
+                yield return Location.D1;
+                yield return Location.E1;
+                yield return Location.F1;
+                yield return Location.G1;
+                yield return Location.H1;
+                yield return Location.I1;
             }
         }
 
-        /// <summary>
-        /// Decodes a <see cref="State"/> from provided input string
-        /// </summary>
-        /// <param name="description">Text description of input board</param>
-        public State(string description) : this()
+        public IEnumerable<Location> BlueWallAdjacentLocations
         {
-            var lines = description.Split(new[] {"\r\n", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
-            ParseHeaderV1(LineFilter(lines[0]));
-            for (var i = 1; i < lines.Length; i++)
+            get
             {
-                ParseSideV1(LineFilter(lines[i]));
+                yield return Location.A5;
+                yield return Location.B6;
+                yield return Location.C7;
+                yield return Location.D8;
+                yield return Location.E9;
+                yield return Location.F8;
+                yield return Location.G7;
+                yield return Location.H6;
+                yield return Location.I5;
             }
         }
 
-        public static string LineFilter(string input)
+        public IEnumerable<Location> AllBoardLocations
         {
-            return input.Trim(' ', '|', '\t');
-        }
-
-        /// <summary>
-        /// Decodes a BoardState from provided input bytes
-        /// </summary>
-        /// <param name="boardBuffer">127-byte buffer containing board data</param>
-        public State(byte[] boardBuffer) : base(AllBoardLocations.Length)
-        {
-            if (boardBuffer == null)
+            get
             {
-                throw new ArgumentNullException(nameof(boardBuffer), "Board state byte array must not be null.");
-            }
-
-            if (boardBuffer.Length != AllBoardLocations.Length * 2 + 5)
-            {
-                throw new ArgumentOutOfRangeException(nameof(boardBuffer), boardBuffer.Length,
-                    $"Expected {AllBoardLocations.Length * 2 + 5} byte array for board info, got {boardBuffer.Length} bytes.");
-            }
-
-            for (var i = 0; i < AllBoardLocations.Length * 2; i += 2)
-            {
-                this[AllBoardLocations[i / 2]] = (Cell) BitConverter.ToUInt16(boardBuffer, i);
-            }
-
-            RedHome = (Location) BitConverter.ToUInt16(boardBuffer, AllBoardLocations.Length * 2);
-            BlueHome = (Location) BitConverter.ToUInt16(boardBuffer, AllBoardLocations.Length * 2 + 2);
-            Flags = (StateFlags) boardBuffer[AllBoardLocations.Length * 2 + 4];
-        }
-
-        /// <summary>
-        /// Encodes the current board information as bytes
-        /// </summary>
-        /// <returns>127-byte buffer describing the game board</returns>
-        public byte[] GetBuffer()
-        {
-            var retval = new byte[AllBoardLocations.Length * 2 + 5];
-
-            for (var i = 0; i < AllBoardLocations.Length * 2; i += 2)
-            {
-                var bytes = BitConverter.GetBytes(Convert.ToUInt16(this[AllBoardLocations[i / 2]]));
-                Array.ConstrainedCopy(bytes, 0, retval, i, 2);
-            }
-
-            Array.ConstrainedCopy(BitConverter.GetBytes((ushort) RedHome), 0, retval, AllBoardLocations.Length * 2, 2);
-            Array.ConstrainedCopy(BitConverter.GetBytes((ushort) BlueHome), 0, retval, AllBoardLocations.Length * 2 + 2,
-                2);
-            retval[AllBoardLocations.Length * 2 + 4] = (byte) Flags;
-
-            return retval;
-        }
-
-        public const string BenedictionV1Header = "Benediction v1";
-        public const string RedV1Header = ": R";
-        public const string BlueV1Header = " B";
-        public const char SideV1Move1 = '-';
-        public const char SideV1Move2 = '=';
-        public const char SideV1KingTaken = 'x';
-        public const char SideV1Win = 'W';
-
-        public bool Equals(State other)
-        {
-            return other != null && BoardId == other.BoardId;
-        }
-
-        /// <summary>
-        /// Current game board represented as a human-readable string
-        /// </summary>
-        /// <returns>Game board description</returns>
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-
-            char redFlag, blueFlag;
-            if ((Flags & StateFlags.RedAction1) == StateFlags.RedAction1) redFlag = SideV1Move1;
-            else if ((Flags & StateFlags.RedAction2) == StateFlags.RedAction2) redFlag = SideV1Move2;
-            else if ((Flags & StateFlags.RedKingTaken) == StateFlags.RedKingTaken) redFlag = SideV1KingTaken;
-            else if ((Flags & StateFlags.RedWin) == StateFlags.RedWin) redFlag = SideV1Win;
-            else redFlag = ' ';
-            if ((Flags & StateFlags.BlueAction1) == StateFlags.BlueAction1) blueFlag = SideV1Move1;
-            else if ((Flags & StateFlags.BlueAction2) == StateFlags.BlueAction2) blueFlag = SideV1Move2;
-            else if ((Flags & StateFlags.BlueKingTaken) == StateFlags.BlueKingTaken) blueFlag = SideV1KingTaken;
-            else if ((Flags & StateFlags.BlueWin) == StateFlags.BlueWin) blueFlag = SideV1Win;
-            else blueFlag = ' ';
-
-            sb.Append("| ").Append(BenedictionV1Header).Append(RedV1Header).Append(redFlag).Append(RedHome).Append(BlueV1Header)
-                .Append(blueFlag).Append(BlueHome).Append(" |").AppendLine();
-
-            sb.Append("| R:");
-            foreach (var column in "ABCDEFGHI")
-            {
-                AddRow(Cell.SideRed, column, sb);
-            }
-
-            sb.Append(" |").AppendLine();
-            sb.Append("| B:");
-            foreach (var column in "ABCDEFGHI")
-            {
-                AddRow(Cell.Empty, column, sb);
-            }
-
-            sb.Append(" |");
-            if (Values.Contains(Cell.Block))
-            {
-
-                sb.AppendLine();
-                sb.Append("| X:");
-                foreach (var column in "ABCDEFGHI")
-                {
-                    AddRow(Cell.Block, column, sb);
-                }
-                sb.Append(" |");
-            }
-
-            return sb.ToString();
-        }
-
-        public void AddRow(Cell side, char column, StringBuilder output)
-        {
-            var rowPresent = false;
-            foreach (var columnPiece in GetColumn(column))
-            {
-                if (this[columnPiece] != Cell.Empty && (this[columnPiece] & (Cell.SideRed | Cell.Block)) == side)
-                {
-                    if (!rowPresent)
-                    {
-                        output.Append(column);
-                        rowPresent = true;
-                    }
-
-                    output.Append(columnPiece.ToString().Substring(1));
-                    if ((this[columnPiece] & Cell.King) == Cell.King) output.Append('k');
-                    if ((this[columnPiece] & Cell.Blessed) == Cell.Blessed) output.Append('b');
-                    if ((this[columnPiece] & Cell.Cursed) == Cell.Cursed) output.Append('c');
-                    for (var i = Cell.Size2; i <= Cell.SizeMask; i += 1)
-                    {
-                        if ((this[columnPiece] & Cell.SizeMask) >= i)
-                        {
-                            output.Append('+');
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                }
+                yield return Location.A1;
+                yield return Location.A2;
+                yield return Location.A3;
+                yield return Location.A4;
+                yield return Location.A5;
+                yield return Location.B1;
+                yield return Location.B2;
+                yield return Location.B3;
+                yield return Location.B4;
+                yield return Location.B5;
+                yield return Location.B6;
+                yield return Location.C1;
+                yield return Location.C2;
+                yield return Location.C3;
+                yield return Location.C4;
+                yield return Location.C5;
+                yield return Location.C6;
+                yield return Location.C7;
+                yield return Location.D1;
+                yield return Location.D2;
+                yield return Location.D3;
+                yield return Location.D4;
+                yield return Location.D5;
+                yield return Location.D6;
+                yield return Location.D7;
+                yield return Location.D8;
+                yield return Location.E1;
+                yield return Location.E2;
+                yield return Location.E3;
+                yield return Location.E4;
+                yield return Location.E5;
+                yield return Location.E6;
+                yield return Location.E7;
+                yield return Location.E8;
+                yield return Location.E9;
+                yield return Location.F1;
+                yield return Location.F2;
+                yield return Location.F3;
+                yield return Location.F4;
+                yield return Location.F5;
+                yield return Location.F6;
+                yield return Location.F7;
+                yield return Location.F8;
+                yield return Location.G1;
+                yield return Location.G2;
+                yield return Location.G3;
+                yield return Location.G4;
+                yield return Location.G5;
+                yield return Location.G6;
+                yield return Location.G7;
+                yield return Location.H1;
+                yield return Location.H2;
+                yield return Location.H3;
+                yield return Location.H4;
+                yield return Location.H5;
+                yield return Location.H6;
+                yield return Location.I1;
+                yield return Location.I2;
+                yield return Location.I3;
+                yield return Location.I4;
+                yield return Location.I5;
             }
         }
 
-        public void ParseHeaderV1(string line)
+        public override bool Equals(object obj)
         {
-            var offset = 0;
-            if (!TryConsume(line, ref offset, BenedictionV1Header)) return;
-            if (!TryConsume(line, ref offset, RedV1Header)) return;
-
-            switch (line[offset++])
-            {
-                case SideV1Move1:
-                    Flags |= StateFlags.RedAction1;
-                    break;
-                case SideV1Move2: 
-                    Flags |= StateFlags.RedAction2;
-                    break;
-                case SideV1KingTaken: 
-                    Flags |= StateFlags.RedKingTaken;
-                    break;
-                case SideV1Win:
-                    Flags |= StateFlags.RedWin;
-                    break;
-            }
-
-            RedHome = (Location) Enum.Parse(typeof(Location), line.Substring(offset, 2));
-            offset += 2;
-
-            if (!TryConsume(line, ref offset, BlueV1Header)) return;
-
-            switch (line[offset++])
-            {
-                case SideV1Move1:
-                    Flags |= StateFlags.BlueAction1;
-                    break;
-                case SideV1Move2: 
-                    Flags |= StateFlags.BlueAction2;
-                    break;
-                case SideV1KingTaken: 
-                    Flags |= StateFlags.BlueKingTaken;
-                    break;
-                case SideV1Win:
-                    Flags |= StateFlags.BlueWin;
-                    break;
-            }
-
-
-            BlueHome = (Location) Enum.Parse(typeof(Location), line.Substring(offset, 2));
+            throw new NotImplementedException();
         }
 
-        public static bool TryConsume(string input, ref int offset, string expected)
+        public override int GetHashCode()
         {
-            if (input == null || expected == null || input.Length < offset) return false;
-            if (input.Substring(offset).StartsWith(expected))
-            {
-                offset += expected.Length;
-                return true;
-            }
-
-            return false;
+            throw new NotImplementedException();
         }
 
-        public void ParseSideV1(string line)
+        public static bool operator ==(State left, State right)
         {
-            Cell side;
-            var location = Location.Undefined;
-            var column = Location.Undefined;
-            if (line.StartsWith("R:"))
-            {
-                side = Cell.SideRed | Cell.Size1;
-            }
-            else if (line.StartsWith("B:"))
-            {
-                side = Cell.Size1;
-            }
-            else if (line.StartsWith("X:"))
-            {
-                side = Cell.Block;
-            }
-            else return;
-
-            foreach (var c in line.Substring(2))
-            {
-                switch (c)
-                {
-                    case 'A':
-                        column = Location.A1;
-                        break;
-                    case 'B':
-                        column = Location.B1;
-                        break;
-                    case 'C':
-                        column = Location.C1;
-                        break;
-                    case 'D':
-                        column = Location.D1;
-                        break;
-                    case 'E':
-                        column = Location.E1;
-                        break;
-                    case 'F':
-                        column = Location.F1;
-                        break;
-                    case 'G':
-                        column = Location.G1;
-                        break;
-                    case 'H':
-                        column = Location.H1;
-                        break;
-                    case 'I':
-                        column = Location.I1;
-                        break;
-                    case '1':
-                        location = column;
-                        this[location] = side;
-                        break;
-                    case '2':
-                        location = column - 0x20;
-                        this[location] = side;
-                        break;
-
-                    case '3':
-                        location = column - 0x40;
-                        this[location] = side;
-                        break;
-
-                    case '4':
-                        location = column - 0x60;
-                        this[location] = side;
-                        break;
-
-                    case '5':
-                        location = column - 0x80;
-                        this[location] = side;
-                        break;
-
-                    case '6':
-                        location = column - 0xA0;
-                        this[location] = side;
-                        break;
-
-                    case '7':
-                        location = column - 0xC0;
-                        this[location] = side;
-                        break;
-
-                    case '8':
-                        location = column - 0xE0;
-                        this[location] = side;
-                        break;
-
-                    case '9':
-                        location = column - 0x100;
-                        this[location] = side;
-                        break;
-                    case 'k':
-                        this[location] |= Cell.King;
-                        break;
-                    case 'b':
-                        this[location] |= Cell.Blessed;
-                        break;
-                    case 'c':
-                        this[location] |= Cell.Cursed;
-                        break;
-                    case '+':
-                        this[location]++;
-                        break;
-
-                }
-            }
+            return left.Equals(right);
         }
 
-        private static IEnumerable<Location> GetColumn(char column)
+        public static bool operator !=(State left, State right)
         {
-            switch (column)
-            {
-                case 'A':
-                    yield return Location.A1;
-                    yield return Location.A2;
-                    yield return Location.A3;
-                    yield return Location.A4;
-                    yield return Location.A5;
-                    yield break;
-                case 'B':
-                    yield return Location.B1;
-                    yield return Location.B2;
-                    yield return Location.B3;
-                    yield return Location.B4;
-                    yield return Location.B5;
-                    yield return Location.B6;
-                    yield break;
-                case 'C':
-                    yield return Location.C1;
-                    yield return Location.C2;
-                    yield return Location.C3;
-                    yield return Location.C4;
-                    yield return Location.C5;
-                    yield return Location.C6;
-                    yield return Location.C7;
-                    yield break;
-
-                case 'D':
-                    yield return Location.D1;
-                    yield return Location.D2;
-                    yield return Location.D3;
-                    yield return Location.D4;
-                    yield return Location.D5;
-                    yield return Location.D6;
-                    yield return Location.D7;
-                    yield return Location.D8;
-                    yield break;
-
-                case 'E':
-                    yield return Location.E1;
-                    yield return Location.E2;
-                    yield return Location.E3;
-                    yield return Location.E4;
-                    yield return Location.E5;
-                    yield return Location.E6;
-                    yield return Location.E7;
-                    yield return Location.E8;
-                    yield return Location.E9;
-                    yield break;
-
-                case 'F':
-                    yield return Location.F1;
-                    yield return Location.F2;
-                    yield return Location.F3;
-                    yield return Location.F4;
-                    yield return Location.F5;
-                    yield return Location.F6;
-                    yield return Location.F7;
-                    yield return Location.F8;
-                    yield break;
-
-                case 'G':
-                    yield return Location.G1;
-                    yield return Location.G2;
-                    yield return Location.G3;
-                    yield return Location.G4;
-                    yield return Location.G5;
-                    yield return Location.G6;
-                    yield return Location.G7;
-                    yield break;
-
-                case 'H':
-                    yield return Location.H1;
-                    yield return Location.H2;
-                    yield return Location.H3;
-                    yield return Location.H4;
-                    yield return Location.H5;
-                    yield return Location.H6;
-                    yield break;
-                case 'I':
-                    yield return Location.I1;
-                    yield return Location.I2;
-                    yield return Location.I3;
-                    yield return Location.I4;
-                    yield return Location.I5;
-                    yield break;
-            }
-        }
-
-        /// <summary>
-        /// Returns a deep copy (duplicated object with different address, which can be edited without accidentally modifying the original)
-        /// of the current game board.
-        /// </summary>
-        /// <returns>Deep copy of current game board</returns>
-        public State DeepCopy()
-        {
-            return new State(GetBuffer());
+            return !(left == right);
         }
     }
 }

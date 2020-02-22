@@ -37,11 +37,7 @@ namespace Benediction.Actions
 
             if (string.IsNullOrEmpty(error))
             {
-                var finalState = initialState.DeepCopy();
-
-                ApplyMove(initialState, finalState, initialState[Location].GetSize());
-
-                return finalState;
+                return ApplyMove(initialState, initialState[Location].GetSize());
             }
 
             throw new InvalidOperationException($"Did not check invalid move before applying: {error}");

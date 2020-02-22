@@ -121,6 +121,7 @@ Scenario: Cursed Piece Wrapping Around and Merging Requires Blessed Target
 	Then the action succeeds
 	And the board has red pieces matching A4++D128k++E137cF12
 
+
 Scenario: Regular Piece Wrapping Around and Merging Can Form Any Stack Size
 	Given I load this board:
 	| Board                      |
@@ -133,6 +134,7 @@ Scenario: Regular Piece Wrapping Around and Merging Can Form Any Stack Size
 	When the red player merges the piece at h6 onto a2
 	Then the action succeeds
 	And there should be a red six-stack on a2
+
 
 Scenario: Blessed Piece Wrapping Around and Merging Can Form Any Stack Size
 	Given I load this board:
@@ -186,14 +188,21 @@ Scenario: Blessed Piece Wrapping Around and Splitting Leaves Bless-Curse Pair
 
 Scenario: Blessed Piece Wrapping Around and Splitting Completing Bridge Leaves Bless-Bless Pair
 	Given I load this board:
-	| Board                     |
-	| Benediction v1: R-E2 B E8 |
-	| R:D12E12k3F12G7b+++       |
-	| B:D78E78k9F78             |
-	When the red player splits 2 pieces from g7 onto g1
+	| Board                       |
+	| Benediction v1: R-E2 B E8   |
+	| R:A5+B5C5D125E12k35F124G3H2 |
+	| B:D78E78k9F78               |
+	When the red player splits 1 piece from a5 onto i1
 	Then the action succeeds
-	And there should be a red cursed two-stack on g7
-	And there should be a red blessed two-stack on g1
+	And there should be a red blessed one-stack on a5
+	And there should be a red blessed one-stack on b5
+	And there should be a red blessed one-stack on c5
+	And there should be a red blessed one-stack on d5
+	And there should be a red blessed one-stack on e5
+	And there should be a red blessed one-stack on f4
+	And there should be a red blessed one-stack on g3
+	And there should be a red blessed one-stack on h2
+	And there should be a red blessed one-stack on i1
 
 
 Scenario: Cursed Piece Wrapping Around and Split Merging Requires Blessed Target
@@ -204,6 +213,7 @@ Scenario: Cursed Piece Wrapping Around and Split Merging Requires Blessed Target
 	| B:D78E78k9F78             |
 	When the red player splits 1 piece from g7 onto g1
 	Then the action fails
+
 
 Scenario: Regular Piece Wrapping Around and Split Merging Can Form Any Stack Size
 	Given I load this board:
@@ -218,15 +228,40 @@ Scenario: Regular Piece Wrapping Around and Split Merging Can Form Any Stack Siz
 
 
 Scenario: Blessed Piece Wrapping Around and Split Merging Can Form Any Stack Size
-	Given this test isn't written yet
+	Given I load this board:
+	| Board                     |
+	| Benediction v1: R-E2 B E8 |
+	| R:A1+D12E12k3F12I5b+      |
+	| B:D78E78k9F78             |
+	When the red player splits 1 piece from i5 onto a1
+	Then the action succeeds
+	And there should be a red one-stack on i5
+	And there should be a red three-stack on a1
 
 
 Scenario: King Wrapping Around And Merging Onto Piece Remains Blessed and Wins Game
-	Given this test isn't written yet
+	Given I load this board:
+	| Board                     |
+	| Benediction v1: R-E2 B E8 |
+	| R:A1+D12E12k3F12I5k+      |
+	| B:D78E78k9F78             |
+	When the red player merges the piece from i5 onto a1
+	Then the action succeeds
+	And there should be a red four-stack king with a blessing on a1
+	And the game is over and red has won
 
 
 Scenario: King Stack Wrapping Around and Split Merging Onto Piece Remains Blessed and Wins Game
-	Given this test isn't written yet
+	Given I load this board:
+	| Board                     |
+	| Benediction v1: R-E2 B E8 |
+	| R:A1+D12E12k3F12I5k+      |
+	| B:D78E78k9F78             |
+	When the red player splits 1 piece from i5 onto a1
+	Then the action succeeds
+	And there should be a red one-stack king on i5
+	And there should be a red three-stack king with a blessing on a1
+	And the game is over and red has won
 
 
 

@@ -10,7 +10,21 @@ namespace Testing.SpecFlow.Context
 {
     public class BoardStateContext
     {
-        public State BoardState { get; set; }
+        private State _boardState;
+
+        public State BoardState
+        {
+            get => _boardState;
+            set
+            {
+                if (value.BoardId == new Guid("c9939467-78e1-7020-6794-93c9e1782070"))
+                {
+                    throw new InvalidOperationException("Blank board");
+                }
+                _boardState = value;
+            }
+        }
+
         public string LastMessage { get; set; }
         public Exception LastError { get; set; }
         public IEnumerable<ProposedState> AvailableActions { get; set; }

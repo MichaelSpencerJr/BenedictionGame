@@ -14,7 +14,7 @@ namespace Benediction.Heuristic
         {
             var red = polarity == HeuristicPolarity.RedPositive ? 1d : -1d;
             var blue = polarity == HeuristicPolarity.BluePositive ? 1d : -1d;
-            return state.Values.Aggregate(0d, (i, c) => i + (c.IsPiece() ? c.GetSide(red, blue, 0d) * c.GetSize() : 0d));
+            return state.Aggregate(0d, (i, c) => i + (c.Value.IsPiece() ? c.Value.GetSide(red, blue, 0d) * c.Value.GetSize() : 0d));
         }
     }
 
@@ -25,7 +25,7 @@ namespace Benediction.Heuristic
         {
             var red = polarity == HeuristicPolarity.RedPositive ? 1d : -1d;
             var blue = polarity == HeuristicPolarity.BluePositive ? 1d : -1d;
-            return state.Values.Aggregate(0d, (i, c) => i + (c.IsStack() ? c.GetSide(red, blue, 0d) * c.GetSize() : 0d));
+            return state.Aggregate(0d, (i, c) => i + (c.Value.IsStack() ? c.Value.GetSide(red, blue, 0d) * c.Value.GetSize() : 0d));
         }
     }
 
@@ -36,7 +36,7 @@ namespace Benediction.Heuristic
         {
             var red = polarity == HeuristicPolarity.RedPositive ? 1d : -1d;
             var blue = polarity == HeuristicPolarity.BluePositive ? 1d : -1d;
-            return state.Values.Aggregate(0d, (i, c) => i + (c.IsBlessed() ? c.GetSide(red, blue, 0d) * c.GetSize() : 0d));
+            return state.Aggregate(0d, (i, c) => i + (c.Value.IsBlessed() ? c.Value.GetSide(red, blue, 0d) * c.Value.GetSize() : 0d));
         }
     }
 
@@ -47,7 +47,7 @@ namespace Benediction.Heuristic
         {
             var red = polarity == HeuristicPolarity.RedPositive ? 1d : -1d;
             var blue = polarity == HeuristicPolarity.BluePositive ? 1d : -1d;
-            return state.Values.Aggregate(0d, (i, c) => i + (c.IsCursed() ? c.GetSide(red, blue, 0d) * c.GetSize() : 0d));
+            return state.Aggregate(0d, (i, c) => i + (c.Value.IsCursed() ? c.Value.GetSide(red, blue, 0d) * c.Value.GetSize() : 0d));
         }
     }
 
@@ -58,7 +58,7 @@ namespace Benediction.Heuristic
         {
             var red = polarity == HeuristicPolarity.RedPositive ? 1d : -1d;
             var blue = polarity == HeuristicPolarity.BluePositive ? 1d : -1d;
-            return state.Values.Aggregate(0d, (i, c) => i + (c.IsCursed() ? c.GetSide(red, blue, 0d) * c.GetSize() : 0d));
+            return state.Aggregate(0d, (i, c) => i + (c.Value.IsCursed() ? c.Value.GetSide(red, blue, 0d) * c.Value.GetSize() : 0d));
         }
     }
 

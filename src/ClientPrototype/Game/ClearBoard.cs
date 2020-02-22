@@ -11,7 +11,7 @@ namespace Benediction.Game
         public override int EmptyColumn => -1;
         public override State NewState
         {
-            get => new State();
+            get => StateManager.Create();
             set { }
         }
     }

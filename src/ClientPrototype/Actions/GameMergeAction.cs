@@ -23,17 +23,16 @@ namespace Benediction.Actions
                    CheckMergeRules(initialState);
         }
 
-        public override State Apply(State initialState)
+        public override State Apply(State state)
         {
-            var error = CheckError(initialState);
+            var error = CheckError(state);
 
             if (string.IsNullOrEmpty(error))
             {
-                var retval = initialState.DeepCopy();
+                var retval = state;
 
-                ApplyMerge(initialState, retval, initialState[Location].GetSize());
+                return ApplyMerge(state, state[Location].GetSize());
 
-                return retval;
             }
 
             throw new InvalidOperationException($"Did not check invalid move before applying: {error}");

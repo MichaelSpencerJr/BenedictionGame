@@ -27,12 +27,59 @@ namespace Benediction.Game
             }
         }
 
-        public new State InitialState => Red1.InitialState ?? Red1.NewState ?? Red2.NewState ?? Blue1.NewState ?? Blue2.NewState;
+        public new State InitialState
+        {
+            get
+            {
+                if (Red1.InitialState.Unset)
+                {
+                    if (Red1.NewState.Unset)
+                    {
+                        if (Red2.NewState.Unset)
+                        {
+                            if (Blue1.NewState.Unset)
+                            {
+                                return Blue2.NewState;
+                            }
+
+                            return Blue1.NewState;
+                        }
+
+                        return Red2.NewState;
+                    }
+
+                    return Red1.NewState;
+                }
+
+                return Red1.InitialState;
+            }
+        }
+
         public override State NewState
         {
             get
             {
-                return Blue2.NewState ?? Blue1.NewState ?? Red2.NewState ?? Red1.NewState ?? Red1.InitialState;
+                if (Blue2.NewState.Unset)
+                {
+                    if (Blue1.NewState.Unset)
+                    {
+                        if (Red2.NewState.Unset)
+                        {
+                            if (Red1.NewState.Unset)
+                            {
+                                return Red1.InitialState;
+                            }
+
+                            return Red1.NewState;
+                        }
+
+                        return Red2.NewState;
+                    }
+
+                    return Blue1.NewState;
+                }
+
+                return Blue2.NewState;
             }
             set
             {
