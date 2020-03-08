@@ -56,7 +56,7 @@ namespace Benediction.Game
             var postActionState = playerMove.Apply(lastState);
             var newState = GameAction.PrepareNextTurn(postActionState);
             GameTurn nextTurn;
-            if (Count != 0 && this[Count - 1] is GameTurn lastTurn && lastTurn.EmptyColumn != -1)
+            if (Count != 0 && this[Count - 1] is GameTurn lastTurn && lastTurn.Blue2 is NullAction)
             {
                 nextTurn = lastTurn;
             }
