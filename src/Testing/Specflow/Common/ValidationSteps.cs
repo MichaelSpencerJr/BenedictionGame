@@ -67,7 +67,7 @@ namespace Testing.SpecFlow.Common
             var sb = new StringBuilder();
 
             var successful = 0;
-            foreach (var location in testBoard.AllBoardLocations)
+            foreach (var location in State.AllBoardLocations)
             {
                 if (sideRed)
                 {
@@ -111,7 +111,7 @@ namespace Testing.SpecFlow.Common
 
             var successful = 0;
 
-            foreach (var location in testBoard.AllBoardLocations)
+            foreach (var location in State.AllBoardLocations)
             {
                 if (!_context.BoardState[location].IsBlock() && !testBoard[location].IsBlock()) continue;
 

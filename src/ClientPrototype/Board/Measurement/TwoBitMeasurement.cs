@@ -6,22 +6,38 @@ using System.Threading.Tasks;
 
 namespace Benediction.Board.Measurement
 {
-    public struct BitMeasurement : IMeasurement<bool>
+    public struct TwoBitMeasurement : IMeasurement<byte>
     {
-        private long _storage;
+        private long _storageLsb;
+        private long _storageMsb;
 
-        public bool this[Location location]
+        public byte this[Location location]
         {
-            get => (_storage & GetMask(location)) != 0;
+            get
+            {
+                var mask = GetMask(location);
+                return (byte) (((_storageLsb & mask) != 0 ? 0x01 : 0x00) |
+                               ((_storageMsb & mask) != 0 ? 0x02 : 0x00));
+            }
             set
             {
-                if (value)
+                var mask = GetMask(location);
+                var invMask = ~mask;
+                if ((value & 0x02) == 0x02)
                 {
-                    _storage |= GetMask(location);
+                    _storageMsb |= mask;
                 }
                 else
                 {
-                    _storage &= ~GetMask(location);
+                    _storageMsb &= invMask;
+                }
+                if ((value & 0x01) == 0x01)
+                {
+                    _storageLsb |= mask;
+                }
+                else
+                {
+                    _storageLsb &= invMask;
                 }
             }
         }

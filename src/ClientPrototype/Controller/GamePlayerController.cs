@@ -32,10 +32,7 @@ namespace Benediction.Controller
             Model.SelectionState = SelectionState.Unselected;
             var seenList = new HashSet<Guid>();
             Model.AvailableActions =
-                AvailableActionController.GetAvailableActions(Model.CommittedState, seenList,
-                    Model.CommittedState.Flags.IsRedTurn()
-                        ? HeuristicPolarity.RedPositive
-                        : HeuristicPolarity.BluePositive);
+                AvailableActionController.GetAvailableActions(Model.CommittedState, seenList);
             Model.EditMode = false;
             Model.Restrictions = RestrictionState.None;
         }
@@ -95,10 +92,7 @@ namespace Benediction.Controller
                     ClearMove();
                     var seenList = new HashSet<Guid>();
                     Model.AvailableActions =
-                        AvailableActionController.GetAvailableActions(Model.CommittedState, seenList,
-                            Model.CommittedState.Flags.IsRedTurn()
-                                ? HeuristicPolarity.RedPositive
-                                : HeuristicPolarity.BluePositive);
+                        AvailableActionController.GetAvailableActions(Model.CommittedState, seenList);
                 }
             }
         }
@@ -116,9 +110,7 @@ namespace Benediction.Controller
             Model.EditMode = false;
             ClearMove();
             Model.AvailableActions =
-                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
-                    ? HeuristicPolarity.RedPositive
-                    : HeuristicPolarity.BluePositive);
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
         }
 
         private void LoadGame(State state)
@@ -129,9 +121,7 @@ namespace Benediction.Controller
             Model.EditorState = state;
             ClearMove();
             Model.AvailableActions =
-                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
-                    ? HeuristicPolarity.RedPositive
-                    : HeuristicPolarity.BluePositive);
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
         }
 
         private void ToggleEditMode()
@@ -140,9 +130,7 @@ namespace Benediction.Controller
             Model.EditorState = Model.CommittedState;
             ClearMove();
             Model.AvailableActions = Model.EditMode ? null :
-                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
-                    ? HeuristicPolarity.RedPositive
-                    : HeuristicPolarity.BluePositive);
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
         }
 
         private void CommitEditedBoard(State state)
@@ -153,9 +141,7 @@ namespace Benediction.Controller
             Model.EditorState = state;
             ClearMove();
             Model.AvailableActions =
-                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>(), Model.CommittedState.Flags.IsRedTurn()
-                    ? HeuristicPolarity.RedPositive
-                    : HeuristicPolarity.BluePositive);
+                AvailableActionController.GetAvailableActions(Model.CommittedState, new HashSet<Guid>());
         }
 
         private static int GetEditorSlot(StateFlags flags)

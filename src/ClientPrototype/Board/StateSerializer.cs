@@ -392,7 +392,7 @@ namespace Benediction.Board
             var retval = new byte[AllBoardLocationsLength * 2 + 5];
 
             var i = 0;
-            foreach (var location in state.AllBoardLocations)
+            foreach (var location in State.AllBoardLocations)
             {
                 var bytes = BitConverter.GetBytes(Convert.ToUInt16(state[location]));
                 Array.ConstrainedCopy(bytes, 0, retval, i, 2);
@@ -422,7 +422,7 @@ namespace Benediction.Board
 
             var retval = StateManager.Create();
             var i = 0;
-            foreach (var location in retval.AllBoardLocations)
+            foreach (var location in State.AllBoardLocations)
             {
                 retval[location] = (Cell) BitConverter.ToUInt16(boardBuffer, i);
                 i += 2;

@@ -175,10 +175,7 @@ namespace Benediction.View
         {
             foreach (var action in _model.AvailableActions)
             {
-                action.Value.Heuristic = AvailableActionController.Heuristic.AlphaBeta(action.Value.Result,
-                    _model.CommittedState.Flags.IsRedTurn()
-                        ? HeuristicPolarity.RedPositive
-                        : HeuristicPolarity.BluePositive, 3);
+                action.Value.Heuristic = AvailableActionController.Heuristic.AlphaBeta(action.Value.Result, 3);
             }
             CpuGridUpdate();
         }

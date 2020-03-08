@@ -556,7 +556,7 @@ namespace Benediction.Board
             }
         }
 
-        public IEnumerable<Location> AllBoardLocations
+        public static IEnumerable<Location> AllBoardLocations
         {
             get
             {

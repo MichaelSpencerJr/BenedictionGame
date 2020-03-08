@@ -9,7 +9,7 @@ namespace Benediction.Controller
 {
     public static class AvailableActionController
     {
-        public static Dictionary<Guid, ProposedState> GetAvailableActions(State currentState, HashSet<Guid> history, HeuristicPolarity polarity)
+        public static Dictionary<Guid, ProposedState> GetAvailableActions(State currentState, HashSet<Guid> history)
         {
             var retval = new Dictionary<Guid, ProposedState>();
 
@@ -19,9 +19,9 @@ namespace Benediction.Controller
 
             var workingHistory = history == null ? new HashSet<Guid>() : new HashSet<Guid>(history);
 
-            GetActionsInternal(retval, workingHistory, AllBlocks, currentState, side, polarity);
-            GetActionsInternal(retval, workingHistory, AllDrops, currentState, side, polarity);
-            GetActionsInternal(retval, workingHistory, AllMergeMoveSplit, currentState, side, polarity);
+            GetActionsInternal(retval, workingHistory, AllBlocks, currentState, side);
+            GetActionsInternal(retval, workingHistory, AllDrops, currentState, side);
+            GetActionsInternal(retval, workingHistory, AllMergeMoveSplit, currentState, side);
             
             return retval;
         }
@@ -29,7 +29,7 @@ namespace Benediction.Controller
         public static HeuristicController Heuristic = new HeuristicController();
 
         private static void GetActionsInternal(Dictionary<Guid, ProposedState> availableActions, HashSet<Guid> history,
-            Func<State, ActionSide, IEnumerable<GameAction>> iteratorFunc, State currentState, ActionSide side, HeuristicPolarity polarity)
+            Func<State, ActionSide, IEnumerable<GameAction>> iteratorFunc, State currentState, ActionSide side)
         {
             foreach (var action in iteratorFunc(currentState, side))
             {
@@ -40,9 +40,8 @@ namespace Benediction.Controller
                     availableActions[newState.BoardId] = new ProposedState
                     {
                         Key = newState.BoardId, Action = action,
-                        Heuristic = Heuristic.GetScore(newState, polarity),
-                        Result = newState,
-                        Polarity = polarity
+                        Heuristic = Heuristic.GetScore(newState),
+                        Result = newState
                     };
                 }
             }
@@ -50,7 +49,7 @@ namespace Benediction.Controller
 
         private static IEnumerable<GameAction> AllBlocks(State currentState, ActionSide side)
         {
-            foreach (var location in currentState.AllBoardLocations)
+            foreach (var location in State.AllBoardLocations)
             {
                 if (currentState[location].IsEmpty()) yield return new GameBlockAction {Location = location, Side = side};
             }
@@ -74,7 +73,7 @@ namespace Benediction.Controller
             var sideIsRed = side == ActionSide.Red;
             var blueWrap = side == ActionSide.Red;
             var redWrap = side == ActionSide.Blue;
-            foreach (var myPieceLocation in currentState.AllBoardLocations.Where(loc => currentState[loc].RedPiece() == sideIsRed))
+            foreach (var myPieceLocation in State.AllBoardLocations.Where(loc => currentState[loc].RedPiece() == sideIsRed))
             {
                 var stackSize = currentState[myPieceLocation].GetSize();
                 foreach (var direction in Movement.AllMoves)

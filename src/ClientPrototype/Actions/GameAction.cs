@@ -155,7 +155,7 @@ namespace Benediction.Actions
         /// <param name="state">Game state</param>
         private static void CheckBlessedKings(ref State state)
         {
-            foreach (var location in state.AllBoardLocations)
+            foreach (var location in State.AllBoardLocations)
             {
                 if (state[location].IsBlessed() && state[location].IsKing())
                 {
@@ -171,7 +171,7 @@ namespace Benediction.Actions
         /// <param name="state">Game state</param>
         private static void ApplyCurses(ref State state)
         {
-            foreach (var location in state.AllBoardLocations)
+            foreach (var location in State.AllBoardLocations)
             {
                 state[location] = state[location].HandleCursePending();
             }
@@ -183,7 +183,7 @@ namespace Benediction.Actions
         /// <param name="state">Game state</param>
         private static void UnlockAllLockedPieces(ref State state)
         {
-            foreach (var location in state.AllBoardLocations)
+            foreach (var location in State.AllBoardLocations)
             {
                 state[location] = state[location].Locked(false);
             }

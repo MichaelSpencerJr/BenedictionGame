@@ -22,8 +22,7 @@ namespace Benediction.Heuristic
         /// Classifies the provided board state.
         /// </summary>
         /// <param name="state">Board state to classify</param>
-        /// <param name="polarity">Polarity -- which side advantage yields a positive score?</param>
         /// <returns>Board classification</returns>
-        public abstract double Score(State state, HeuristicPolarity polarity);
+        public abstract double Score(State state);
     }
 }

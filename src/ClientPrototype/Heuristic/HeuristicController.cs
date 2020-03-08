@@ -30,13 +30,13 @@ namespace Benediction.Heuristic
             Classifiers[nameof(WinLose)] = new WinLose();
         }
 
-        public double GetScore(State state, HeuristicPolarity polarity)
+        public double GetScore(State state)
         {
             double retval = 0;
             foreach (var weight in Weights)
             {
                 if (!Classifiers.ContainsKey(weight.Key)) continue;
-                retval += weight.Value * Classifiers[weight.Key].Score(state, polarity);
+                retval += weight.Value * Classifiers[weight.Key].Score(state);
             }
 
             return retval;
@@ -61,28 +61,26 @@ namespace Benediction.Heuristic
                 break (* α cut-off *)
         return value*/
 
-        public double AlphaBeta(State state, HeuristicPolarity polarity, int depth)
+        public double AlphaBeta(State state, int depth)
         {
-            var maximizingPlayer = polarity == HeuristicPolarity.RedPositive
-                ? state.Flags.IsRedTurn()
-                : state.Flags.IsBlueTurn();
+            var maximizingPlayer = state.Flags.IsRedTurn();
             var seenStates = new HashSet<Guid>();
             return AlphaBetaInternal(state, depth, double.NegativeInfinity, double.PositiveInfinity, maximizingPlayer,
-                state.Flags.IsSecondTurn(), polarity, seenStates);
+                state.Flags.IsSecondTurn(), seenStates);
         }
 
         private double AlphaBetaInternal(State state, int depth, double alpha, double beta, bool maximizingPlayer,
-            bool secondTurn, HeuristicPolarity polarity, HashSet<Guid> seenStates)
+            bool secondTurn, HashSet<Guid> seenStates)
         {
-            if (depth == 0 || state.Flags.GameEnded()) return GetScore(state, polarity);
+            if (depth == 0 || state.Flags.GameEnded()) return GetScore(state);
 
             if (maximizingPlayer)
             {
                 var v = double.NegativeInfinity;
-                foreach (var proposed in AvailableActionController.GetAvailableActions(state, seenStates, polarity).OrderByDescending(kvp => kvp.Value.Heuristic))
+                foreach (var proposed in AvailableActionController.GetAvailableActions(state, seenStates).OrderByDescending(kvp => kvp.Value.Heuristic))
                 {
                     v = Math.Max(v, AlphaBetaInternal(proposed.Value.Result, depth - 1, alpha, beta,
-                        secondTurn ^ maximizingPlayer, !secondTurn, polarity, seenStates));
+                        secondTurn ^ maximizingPlayer, !secondTurn, seenStates));
                     alpha = Math.Max(alpha, v);
                     if (alpha >= beta) break;
                 }
@@ -92,11 +90,11 @@ namespace Benediction.Heuristic
             else
             {
                 var v = double.PositiveInfinity;
-                foreach (var proposed in AvailableActionController.GetAvailableActions(state, seenStates, polarity)
+                foreach (var proposed in AvailableActionController.GetAvailableActions(state, seenStates)
                     .OrderByDescending(kvp => kvp.Value.Heuristic))
                 {
                     v = Math.Min(v, AlphaBetaInternal(proposed.Value.Result, depth - 1, alpha, beta,
-                        secondTurn ^ maximizingPlayer, !secondTurn, polarity, seenStates));
+                        secondTurn ^ maximizingPlayer, !secondTurn, seenStates));
                     beta = Math.Min(beta, v);
                     if (alpha >= beta) break;
                 }
@@ -121,7 +119,7 @@ namespace Benediction.Heuristic
 //So maybe the penalty is just for the count of cursed pieces.
 
 //undo penalty if captures critical opponent defenders:
-//A board score is going to be your side's heuristic score minus your opponent's heuristic score, so I think the opponent score would be naturally dimished by such a loss anyway.
+//A board score is going to be your side's heuristic score minus your opponent's heuristic score, so I think the opponent score would be naturally diminished by such a loss anyway.
 
 //opponent zone blockades:
 //Seems straightforward: blockades adjacent opponent home. Could be deployed as two opposite blockades or as three 120-degree-apart blockades I think, so maybe there are separate tunable bonuses for each.

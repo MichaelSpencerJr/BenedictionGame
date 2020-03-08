@@ -6,22 +6,55 @@ using System.Threading.Tasks;
 
 namespace Benediction.Board.Measurement
 {
-    public struct BitMeasurement : IMeasurement<bool>
+    public struct NibbleMeasurement : IMeasurement<byte>
     {
-        private long _storage;
+        private long _storage0, _storage1, _storage2, _storage3;
 
-        public bool this[Location location]
+        public byte this[Location location]
         {
-            get => (_storage & GetMask(location)) != 0;
+            get
+            {
+                var mask = GetMask(location);
+                return (byte) (((_storage0 & mask) != 0 ? 0x01 : 0x00) |
+                               ((_storage1 & mask) != 0 ? 0x02 : 0x00) |
+                               ((_storage2 & mask) != 0 ? 0x04 : 0x00) |
+                               ((_storage3 & mask) != 0 ? 0x08 : 0x00));
+            }
             set
             {
-                if (value)
+                var mask = GetMask(location);
+                var invMask = ~mask;
+                if ((value & 0x01) == 0x01)
                 {
-                    _storage |= GetMask(location);
+                    _storage0 |= mask;
                 }
                 else
                 {
-                    _storage &= ~GetMask(location);
+                    _storage0 &= invMask;
+                }
+                if ((value & 0x02) == 0x02)
+                {
+                    _storage1 |= mask;
+                }
+                else
+                {
+                    _storage1 &= invMask;
+                }
+                if ((value & 0x04) == 0x04)
+                {
+                    _storage2 |= mask;
+                }
+                else
+                {
+                    _storage2 &= invMask;
+                }
+                if ((value & 0x08) == 0x08)
+                {
+                    _storage3 |= mask;
+                }
+                else
+                {
+                    _storage3 &= invMask;
                 }
             }
         }

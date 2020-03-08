@@ -62,7 +62,7 @@ namespace Benediction.View
                     var layerEmpty = true;
 
                     //Draw any pieces on the board
-                    foreach (var boardLocation in state.AllBoardLocations)
+                    foreach (var boardLocation in State.AllBoardLocations)
                     {
                         if (state[boardLocation].IsEmpty()) continue; //nothing to draw
 
