@@ -29,7 +29,7 @@ Cursed men: A man with a curse (marked by a black stone) cannot merge with any m
 
 Kings: Men on starting points, or that merge with a king, are kings. Kings cannot merge with kings. Kings cannot be cursed.
 
-Enemy walls are portals to the other side of board, via forward or diagonal moves (see example). 
+Enemy walls are portals to the other side of board, via forward or diagonal moves. 
 Walls have the power to bless men. 
 If a man moves past enemy walls, bless him. If you connect your wall to the enemy wall with a bridge of men, bless all men in the bridge.
 Curses: Cursed men cannot be blessed and can only merge with blessed men. Mark with black stones.
