@@ -20,9 +20,13 @@ Starting Point defines the zone. Mark empty starting points with a white stone. 
 Zone includes starting point and all adjacent points. Fill your zone with men.
 
 Men: A checker or stack of checkers. Default men have stack size of 1. Men move in any direction in a straight line, distance up to stack size. Jump occupied points. Capture by replacement. Captured men return to owner for future drops.
+
 How to stack: New men are created by merging and splitting stacks. Default men can create stacks up to 2. To create stacks greater than 2, at least one of them must be blessed. 
+
 Blessed men: A man with a blessing (marked by a white stone) can merge one time with any friendly man.
+
 Cursed men: A man with a curse (marked by a black stone) cannot merge with any man (except a blessed man), and can not be blessed. Curses are made by splitting. 
+
 Kings: Men on starting points, or that merge with a king, are kings. Kings cannot merge with kings. Kings cannot be cursed.
 
 Enemy walls are portals to the other side of board, via forward or diagonal moves (see example). 
