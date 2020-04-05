@@ -30,7 +30,7 @@ Enemy walls are portals to the other side of board, via forward or diagonal move
 Walls have the power to bless men. 
 If a man moves past enemy walls, bless him. If you connect your wall to the enemy wall with a bridge of men, bless all men in the bridge.
 
-Turn protocol: Players alternate turns. Each turn consisting of 2 actions. 
+Turn protocol: Players alternate turns. Each turn consisting of 2 actions (use 12* turn protocol). 
 There are five types of actions: Move, Drop, Block, Merge, Split.
 1. Move = Move man to an empty point (or capture). He cannot move again this turn, but he can merge or split.
 2. Merge = Move man or sub-stack onto a reachable friendly man. Remove blessing/curse.
