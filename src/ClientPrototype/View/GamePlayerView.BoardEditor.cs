@@ -22,7 +22,7 @@ namespace Benediction.View
 
         private void btnExportBoard_Click(object sender, EventArgs e)
         {
-            txtBoardData.Text = _model.CommittedState.ToString();
+            txtBoardData.Text = StateSerializer.ToString(_model.CommittedState);
         }
 
         private void btnImportBoard_Click(object sender, EventArgs e)
