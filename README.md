@@ -1,7 +1,7 @@
 # BenedictionGame
 Windows client for the board game Benediction by Alek Erickson
 
-Current version is Build 14. 
+Current version is [Build 15](artifacts/Benediction-Game-DebugBuild-15.zip). Latest automated test results are [here](testruns/latest/readme.md).
 
 To play a game, download the current version and extract the contents. The starting position is the default screen.
 To make a move, click on a piece and then click on the destination point. To confirm, press enter.
