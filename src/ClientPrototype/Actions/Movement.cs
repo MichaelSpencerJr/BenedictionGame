@@ -5,132 +5,238 @@ namespace Benediction.Actions
 {
     public static class Movement
     {
-        public static readonly Func<Location, bool, bool, Location>[] AllMoves =
+
+
+        public static readonly Mover[] AllMoves =
             {North, NorthEast, SouthEast, South, SouthWest, NorthWest};
 
-        public static Location North(Location from, bool blueWallWrapAround, bool _)
+        public static Location North(Location from, Blue blue, Red red, UnmarkedEdges unmarked)
         {
             if (!IsValidLocation(from)) return Location.Undefined;
             switch (from)
             {
-                case Location.A5: if (blueWallWrapAround) return Location.A1; break;
-                case Location.B6: if (blueWallWrapAround) return Location.B1; break;
-                case Location.C7: if (blueWallWrapAround) return Location.C1; break;
-                case Location.D8: if (blueWallWrapAround) return Location.D1; break;
-                case Location.E9: if (blueWallWrapAround) return Location.E1; break;
-                case Location.F8: if (blueWallWrapAround) return Location.F1; break;
-                case Location.G7: if (blueWallWrapAround) return Location.G1; break;
-                case Location.H6: if (blueWallWrapAround) return Location.H1; break;
-                case Location.I5: if (blueWallWrapAround) return Location.I1; break;
-                default: 
+                case Location.A5:
+                    if (blue == Blue.CanWrap) return Location.A1;
+                    break;
+                case Location.B6:
+                    if (blue == Blue.CanWrap) return Location.B1;
+                    break;
+                case Location.C7:
+                    if (blue == Blue.CanWrap) return Location.C1;
+                    break;
+                case Location.D8:
+                    if (blue == Blue.CanWrap) return Location.D1;
+                    break;
+                case Location.E9:
+                    if (blue == Blue.CanWrap) return Location.E1;
+                    break;
+                case Location.F8:
+                    if (blue == Blue.CanWrap) return Location.F1;
+                    break;
+                case Location.G7:
+                    if (blue == Blue.CanWrap) return Location.G1;
+                    break;
+                case Location.H6:
+                    if (blue == Blue.CanWrap) return Location.H1;
+                    break;
+                case Location.I5:
+                    if (blue == Blue.CanWrap) return Location.I1;
+                    break;
+                default:
                     return from - 0x20;
             }
 
             return Location.Undefined;
         }
 
-        public static Location South(Location from, bool _, bool redWallWrapAround)
+        public static Location South(Location from, Blue blue, Red red, UnmarkedEdges unmarked)
         {
             if (!IsValidLocation(from)) return Location.Undefined;
             switch (from)
             {
-                case Location.A1: if (redWallWrapAround) return Location.A5; break;
-                case Location.B1: if (redWallWrapAround) return Location.B6; break;
-                case Location.C1: if (redWallWrapAround) return Location.C7; break;
-                case Location.D1: if (redWallWrapAround) return Location.D8; break;
-                case Location.E1: if (redWallWrapAround) return Location.E9; break;
-                case Location.F1: if (redWallWrapAround) return Location.F8; break;
-                case Location.G1: if (redWallWrapAround) return Location.G7; break;
-                case Location.H1: if (redWallWrapAround) return Location.H6; break;
-                case Location.I1: if (redWallWrapAround) return Location.I5; break;
+                case Location.A1:
+                    if (red == Red.CanWrap) return Location.A5;
+                    break;
+                case Location.B1:
+                    if (red == Red.CanWrap) return Location.B6;
+                    break;
+                case Location.C1:
+                    if (red == Red.CanWrap) return Location.C7;
+                    break;
+                case Location.D1:
+                    if (red == Red.CanWrap) return Location.D8;
+                    break;
+                case Location.E1:
+                    if (red == Red.CanWrap) return Location.E9;
+                    break;
+                case Location.F1:
+                    if (red == Red.CanWrap) return Location.F8;
+                    break;
+                case Location.G1:
+                    if (red == Red.CanWrap) return Location.G7;
+                    break;
+                case Location.H1:
+                    if (red == Red.CanWrap) return Location.H6;
+                    break;
+                case Location.I1:
+                    if (red == Red.CanWrap) return Location.I5;
+                    break;
                 default: return from + 0x20;
             }
-  
+
             return Location.Undefined;
         }
 
-        public static Location NorthEast(Location from, bool blueWallWrapAround, bool _) 
+        public static Location NorthEast(Location from, Blue blue, Red red, UnmarkedEdges unmarked)
         {
             if (!IsValidLocation(from)) return Location.Undefined;
             switch (from)
             {
-                case Location.E9: if (blueWallWrapAround) return Location.A5; break;
-                case Location.F8: if (blueWallWrapAround) return Location.A4; break;
-                case Location.G7: if (blueWallWrapAround) return Location.A3; break;
-                case Location.H6: if (blueWallWrapAround) return Location.A2; break;
-                case Location.I5: if (blueWallWrapAround) return Location.A1; break;
+                case Location.E9:
+                    if (blue == Blue.CanWrap) return Location.A5;
+                    break;
+                case Location.F8:
+                    if (blue == Blue.CanWrap) return Location.A4;
+                    break;
+                case Location.G7:
+                    if (blue == Blue.CanWrap) return Location.A3;
+                    break;
+                case Location.H6:
+                    if (blue == Blue.CanWrap) return Location.A2;
+                    break;
+                case Location.I5:
+                    if (blue == Blue.CanWrap) return Location.A1;
+                    break;
                 case Location.I4:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.B1;
+                    break;
                 case Location.I3:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.C1;
+                    break;
                 case Location.I2:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.D1;
+                    break;
                 case Location.I1:
-                    return Location.Undefined;
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.E1;
+                    break;
                 default: return from - 0xF;
             }
- 
+
             return Location.Undefined;
         }
 
-        public static Location SouthEast(Location from, bool blueWallWrapAround, bool redWallWrapAround)
+        public static Location SouthEast(Location from, Blue blue, Red red, UnmarkedEdges unmarked)
         {
             if (!IsValidLocation(from))
                 return Location.Undefined;
             switch (from)
             {
-                case Location.E1: if (redWallWrapAround) return Location.A1; break;
-                case Location.F1: if (redWallWrapAround) return Location.A2; break;
-                case Location.G1: if (redWallWrapAround) return Location.A3; break;
-                case Location.H1: if (redWallWrapAround) return Location.A4; break;
-                case Location.I1: if (redWallWrapAround) return Location.A5; break;
+                case Location.E1:
+                    if (red == Red.CanWrap) return Location.A1;
+                    break;
+                case Location.F1:
+                    if (red == Red.CanWrap) return Location.A2;
+                    break;
+                case Location.G1:
+                    if (red == Red.CanWrap) return Location.A3;
+                    break;
+                case Location.H1:
+                    if (red == Red.CanWrap) return Location.A4;
+                    break;
+                case Location.I1:
+                    if (red == Red.CanWrap) return Location.A5;
+                    break;
                 case Location.I2:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.B6;
+                    break;
                 case Location.I3:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.C7;
+                    break;
                 case Location.I4:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.D8;
+                    break;
                 case Location.I5:
-                    return Location.Undefined;
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.E9;
+                    break;
                 default: return from + 0x11;
             }
-   
+
             return Location.Undefined;
         }
 
-        public static Location NorthWest(Location from, bool blueWallWrapAround, bool redWallWrapAround)
+        public static Location NorthWest(Location from, Blue blue, Red red, UnmarkedEdges unmarked)
         {
-            if (!IsValidLocation(from))return Location.Undefined;
+            if (!IsValidLocation(from)) return Location.Undefined;
             switch (from)
             {
-                case Location.A5: if (blueWallWrapAround) return Location.I1; break;
-                case Location.B6: if (blueWallWrapAround) return Location.I2; break;
-                case Location.C7: if (blueWallWrapAround) return Location.I3; break;
-                case Location.D8: if (blueWallWrapAround) return Location.I4; break;
-                case Location.E9: if (blueWallWrapAround) return Location.I5; break;
+                case Location.A5:
+                    if (blue == Blue.CanWrap) return Location.I1;
+                    break;
+                case Location.B6:
+                    if (blue == Blue.CanWrap) return Location.I2;
+                    break;
+                case Location.C7:
+                    if (blue == Blue.CanWrap) return Location.I3;
+                    break;
+                case Location.D8:
+                    if (blue == Blue.CanWrap) return Location.I4;
+                    break;
+                case Location.E9:
+                    if (blue == Blue.CanWrap) return Location.I5;
+                    break;
                 case Location.A1:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.E1;
+                    break;
                 case Location.A2:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.F1;
+                    break;
                 case Location.A3:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.G1;
+                    break;
                 case Location.A4:
-                    return Location.Undefined;
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.H1;
+                    break;
                 default: return from - 0x11;
             }
- 
+
             return Location.Undefined;
         }
 
-        public static Location SouthWest(Location from, bool blueWallWrapAround, bool redWallWrapAround)
+        public static Location SouthWest(Location from, Blue blue, Red red, UnmarkedEdges unmarked)
         {
-            if (!IsValidLocation(from))return Location.Undefined;
+            if (!IsValidLocation(from)) return Location.Undefined;
             switch (from)
             {
-                case Location.A1: if (redWallWrapAround) return Location.I5; break;
-                case Location.B1: if (redWallWrapAround) return Location.I4; break;
-                case Location.C1: if (redWallWrapAround) return Location.I3; break;
-                case Location.D1: if (redWallWrapAround) return Location.I2; break;
-                case Location.E1: if (redWallWrapAround) return Location.I1; break;
+                case Location.A1:
+                    if (red == Red.CanWrap) return Location.I5;
+                    break;
+                case Location.B1:
+                    if (red == Red.CanWrap) return Location.I4;
+                    break;
+                case Location.C1:
+                    if (red == Red.CanWrap) return Location.I3;
+                    break;
+                case Location.D1:
+                    if (red == Red.CanWrap) return Location.I2;
+                    break;
+                case Location.E1:
+                    if (red == Red.CanWrap) return Location.I1;
+                    break;
                 case Location.A2:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.H6;
+                    break;
                 case Location.A3:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.G7;
+                    break;
                 case Location.A4:
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.F8;
+                    break;
                 case Location.A5:
-                    return Location.Undefined;
+                    if (unmarked == UnmarkedEdges.CanWrap) return Location.E9;
+                    break;
                 default: return from + 0x0F;
             }
-  
+
             return Location.Undefined;
         }
 
@@ -204,5 +310,25 @@ namespace Benediction.Actions
                     return false;
             }
         }
+
+        public enum Blue
+        {
+            CanWrap,
+            CannotWrap
+        }
+
+        public enum Red
+        {
+            CanWrap,
+            CannotWrap
+        }
+
+        public enum UnmarkedEdges
+        {
+            CanWrap,
+            CannotWrap
+        }
+
+        public delegate Location Mover(Location source, Blue blue, Red red, UnmarkedEdges unmarked);
     }
 }

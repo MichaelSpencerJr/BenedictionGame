@@ -180,7 +180,7 @@ namespace Testing.SpecFlow.Common
             Assert.NotNull(_context.BoardState, "Board State has not been initialized.");
 
             var distanceInt = CommonSteps.ParseWordNumber(distance);
-            Func<Location, bool, bool, Location> directionFunc;
+            Movement.Mover directionFunc;
             switch (direction.ToLower().Trim())
             {
                 case "north":
@@ -214,14 +214,14 @@ namespace Testing.SpecFlow.Common
                         "Was not a recognizable movement direction.");
             }
 
-            var canPassRedWall = side == ActionSide.Blue;
-            var canPassBlueWall = side == ActionSide.Red;
+            var canPassRedWall = side == ActionSide.Blue ? Movement.Red.CanWrap : Movement.Red.CannotWrap;
+            var canPassBlueWall = side == ActionSide.Red ? Movement.Blue.CanWrap : Movement.Blue.CannotWrap;
 
             var to = from;
 
             for (var i = 0; i < distanceInt; i++)
             {
-                var next = directionFunc(to, canPassBlueWall, canPassRedWall);
+                var next = directionFunc(to, canPassBlueWall, canPassRedWall, Movement.UnmarkedEdges.CannotWrap);
                 if (!Movement.IsValidLocation(next))
                 {
                     _context.LastMessage = $"Unable to reach point {i + 1} {direction} from {to} (starting from {from})";

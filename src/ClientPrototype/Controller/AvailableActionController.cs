@@ -62,7 +62,7 @@ namespace Benediction.Controller
 
             foreach (var direction in Movement.AllMoves)
             {
-                var zone = direction(home, false, false);
+                var zone = direction(home, Movement.Blue.CannotWrap, Movement.Red.CannotWrap, Movement.UnmarkedEdges.CannotWrap);
                 if (zone != Location.Undefined && currentState[zone].IsEmpty())
                     yield return new GameDropAction {Location = zone, Side = side};
             }
@@ -71,8 +71,8 @@ namespace Benediction.Controller
         private static IEnumerable<GameAction> AllMergeMoveSplit(State currentState, ActionSide side)
         {
             var sideIsRed = side == ActionSide.Red;
-            var blueWrap = side == ActionSide.Red;
-            var redWrap = side == ActionSide.Blue;
+            var blueWrap = side == ActionSide.Red ? Movement.Blue.CanWrap : Movement.Blue.CannotWrap;
+            var redWrap = side == ActionSide.Blue ? Movement.Red.CanWrap : Movement.Red.CannotWrap;
             foreach (var myPieceLocation in State.AllBoardLocations.Where(loc => currentState[loc].RedPiece() == sideIsRed))
             {
                 var stackSize = currentState[myPieceLocation].GetSize();
@@ -81,7 +81,7 @@ namespace Benediction.Controller
                     var location = myPieceLocation;
                     for (var i = 1; i <= stackSize; i++)
                     {
-                        location = direction(location, blueWrap, redWrap);
+                        location = direction(location, blueWrap, redWrap, Movement.UnmarkedEdges.CannotWrap);
                         if (location == Location.Undefined || currentState[location].IsBlock())
                         {
                             break;

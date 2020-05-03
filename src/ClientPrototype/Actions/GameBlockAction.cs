@@ -43,7 +43,7 @@ namespace Benediction.Actions
         {
             foreach (var direction in Movement.AllMoves)
             {
-                var adjacentCell = direction(Location, true, true);
+                var adjacentCell = direction(Location, Movement.Blue.CanWrap, Movement.Red.CanWrap, Movement.UnmarkedEdges.CanWrap);
                 if (!Movement.IsValidLocation(adjacentCell)) continue;
                 if (initialState[adjacentCell].IsBlock())
                 {

@@ -32,9 +32,9 @@ namespace Testing.Unit
         }
 
         private void MovementTestInternal(Location from, Location to,
-            Func<Location, bool, bool, Location> moverFunc, bool isLegal, string moveName)
+            Movement.Mover moverFunc, bool isLegal, string moveName)
         {
-            var actualTo = moverFunc(from, true, true);
+            var actualTo = moverFunc(from, Movement.Blue.CanWrap, Movement.Red.CanWrap, Movement.UnmarkedEdges.CannotWrap);
             if (actualTo == Location.Undefined)
             {
                 Assert.IsFalse(isLegal, "{0} move from {1} was illegal but was expected to be allowed.", moveName,

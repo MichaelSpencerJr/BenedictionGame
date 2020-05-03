@@ -31,7 +31,7 @@ namespace Benediction.Actions
 
             foreach (var move in Movement.AllMoves)
             {
-                if (move(Location, false, false) == targetHome)
+                if (move(Location, Movement.Blue.CannotWrap, Movement.Red.CannotWrap, Movement.UnmarkedEdges.CannotWrap) == targetHome)
                 {
                     return null;
                 }

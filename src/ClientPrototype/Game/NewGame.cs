@@ -58,9 +58,9 @@ namespace Benediction.Game
             newState[blueHome] = Cell.King | Cell.Size1;
             foreach (var direction in Movement.AllMoves)
             {
-                var redMan = direction(redHome, false, false);
+                var redMan = direction(redHome, Movement.Blue.CannotWrap, Movement.Red.CannotWrap, Movement.UnmarkedEdges.CannotWrap);
                 if (redMan != Location.Undefined) newState[redMan] = Cell.SideRed | Cell.Size1;
-                var blueMan = direction(blueHome, false, false);
+                var blueMan = direction(blueHome, Movement.Blue.CannotWrap, Movement.Red.CannotWrap, Movement.UnmarkedEdges.CannotWrap);
                 if (blueMan != Location.Undefined) newState[blueMan] = Cell.Size1;
             }
 

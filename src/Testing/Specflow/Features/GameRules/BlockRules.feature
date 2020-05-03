@@ -49,3 +49,16 @@ Scenario: Cannot Block Occupied Space
 	Given I have board NewGame
 	When the red player blockades e3
 	Then the action fails
+
+Scenario Outline: Wrap-Around Block
+	Given I have an empty E2 E8 board
+	When the red player blocks <First>
+	Then the action succeeds
+	When the red player blocks <Second>
+	Then the action fails
+	And the board has blocks matching: <First>
+
+	Examples:
+	| First | Second |
+	| H6    | A2     |
+	| A2    | H6     |

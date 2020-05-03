@@ -31,7 +31,7 @@ namespace Benediction.Actions
                     var nextExpand = unexpanded.Pop();
                     foreach (var mover in Movement.AllMoves)
                     {
-                        var adjacent = mover(nextExpand, false, false);
+                        var adjacent = mover(nextExpand, Movement.Blue.CannotWrap, Movement.Red.CannotWrap, Movement.UnmarkedEdges.CannotWrap);
                         if (unconnectedSpaces.Contains(adjacent))
                         {
                             potentialBridgeSpaces.Add(adjacent);

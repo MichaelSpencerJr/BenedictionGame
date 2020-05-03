@@ -106,7 +106,7 @@ namespace Benediction.Board.Measurement
 
             foreach (var move in Movement.AllMoves)
             {
-                var dropTarget = move(home, false, false);
+                var dropTarget = move(home, Movement.Blue.CannotWrap, Movement.Red.CannotWrap, Movement.UnmarkedEdges.CannotWrap);
                 if (!Movement.IsValidLocation(dropTarget)) continue;
                 if (normalSingles[dropTarget] || blocks[dropTarget]) continue;
                 if (initialState[dropTarget].IsPiece() && initialState[dropTarget].RedPiece() != isRed) continue;
@@ -175,15 +175,19 @@ namespace Benediction.Board.Measurement
         }
 
         private static IEnumerable<ProjectedMove> MoveGenerator(Location loc, int size,
-            Func<Location, bool, bool, Location> mover, BitMeasurement blocks, bool isRed)
+            Movement.Mover mover, BitMeasurement blocks, bool isRed)
         {
             var tPrev = loc;
             for (var i = 1; i <= size; i++)
             {
-                var tCur = mover(tPrev, isRed, !isRed);
+                var tCur = mover(tPrev, isRed ? Movement.Blue.CanWrap : Movement.Blue.CannotWrap, isRed ? Movement.Red.CannotWrap : Movement.Red.CanWrap, Movement.UnmarkedEdges.CannotWrap);
                 if (!Movement.IsValidLocation(tCur) || blocks[tCur]) yield break;
                 yield return new ProjectedMove
-                    {From = loc, Size = size, To = tCur, Wrap = !Movement.IsValidLocation(mover(tPrev, false, false))};
+                {
+                    From = loc, Size = size, To = tCur,
+                    Wrap = !Movement.IsValidLocation(mover(tPrev, Movement.Blue.CannotWrap, Movement.Red.CannotWrap,
+                        Movement.UnmarkedEdges.CannotWrap))
+                };
                 tPrev = tCur;
             }
         }

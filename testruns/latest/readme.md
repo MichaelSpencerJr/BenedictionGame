@@ -465,7 +465,81 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 8) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeCannotBlessCursedPieces
+### 8) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.Wrap_AroundBlock("H6","A2",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have an empty E2 E8 board
+    Loaded empty game board with Red Home at E2 and Blue Home at E8
+
+ -&gt; done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
+#### When the red player blocks H6
+    Accepted: Bh6
+
+ -&gt; done: ActionSteps.WhenIBlockade(Red, H6) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### When the red player blocks A2
+    Rejected: Ba2: Cannot Block Adjacent Existing Block H6
+
+ -&gt; done: ActionSteps.WhenIBlockade(Red, A2) (0.0s)
+#### Then the action fails
+    Failed with: Cannot Block Adjacent Existing Block H6
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And the board has blocks matching: H6
+    Successfully validated 1 block.
+
+ -&gt; done: ValidationSteps.ThenTheBoardHasBlocksMatching("H6") (0.0s)
+
+
+### 9) Passed : Testing.Specflow.Features.GameRules.BlockRulesFeature.Wrap_AroundBlock("A2","H6",null)
+
+
+
+#### Given I define board NewGame as:
+  | New Game Board            |
+  | - |
+  | Benediction v1: R-E2 B E8 |
+  | R:D12E12k3F12             |
+  | B:D78E78k9F78             |
+
+ -&gt; done: SetupSteps.GivenIDefine("NewGame", &lt;table&gt;) (0.0s)
+#### Given I have an empty E2 E8 board
+    Loaded empty game board with Red Home at E2 and Blue Home at E8
+
+ -&gt; done: SetupSteps.GivenIHaveAnEmptyBoard(E2, E8) (0.0s)
+#### When the red player blocks A2
+    Accepted: Ba2
+
+ -&gt; done: ActionSteps.WhenIBlockade(Red, A2) (0.0s)
+#### Then the action succeeds
+
+ -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
+#### When the red player blocks H6
+    Rejected: Bh6: Cannot Block Adjacent Existing Block A2
+
+ -&gt; done: ActionSteps.WhenIBlockade(Red, H6) (0.0s)
+#### Then the action fails
+    Failed with: Cannot Block Adjacent Existing Block A2
+
+ -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
+#### And the board has blocks matching: A2
+    Successfully validated 1 block.
+
+ -&gt; done: ValidationSteps.ThenTheBoardHasBlocksMatching("A2") (0.0s)
+
+
+### 10) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeCannotBlessCursedPieces
 
 
 
@@ -500,7 +574,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F6cG1c+2c...") (0.0s)
 
 
-### 9) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath
+### 11) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeHappyPath
 
 
 
@@ -532,7 +606,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "C1b2bD3bE12k4bF12...") (0.0s)
 
 
-### 10) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeMaximum
+### 12) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeMaximum
 
 
 
@@ -570,7 +644,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1b4bB2b4b5bC2b4b...") (0.0s)
 
 
-### 11) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeWithWrongColorCriticalPiece
+### 13) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.BridgeWithWrongColorCriticalPiece
 
 
 
@@ -609,7 +683,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F12G2H2356") (0.0s)
 
 
-### 12) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.HomeDropCompletingBridgeWinsGame
+### 14) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.HomeDropCompletingBridgeWinsGame
 
 
 
@@ -647,7 +721,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 13) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent
+### 15) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsAllCursesIfSplitPiecesAdjacent
 
 
 
@@ -682,7 +756,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
 
 
-### 14) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent
+### 16) Passed : Testing.Specflow.Features.GameRules.BridgeRulesFeature.SplitIntoBridgeAvoidsTargetCurseIfTargetPieceAdjacent
 
 
 
@@ -717,7 +791,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1b2bE1b2kb3bF1b2...") (0.0s)
 
 
-### 15) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoBlock
+### 17) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoBlock
 
 
 
@@ -750,7 +824,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 16) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoOccupiedSpace
+### 18) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOntoOccupiedSpace
 
 
 
@@ -778,7 +852,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 17) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone
+### 19) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.CannotDropOutsideZone
 
 
 
@@ -806,7 +880,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 18) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath
+### 20) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.DropHappyPath
 
 
 
@@ -840,7 +914,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 
 
-### 19) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.HomeDropBecomesKing
+### 21) Passed : Testing.Specflow.Features.GameRules.DropRulesFeature.HomeDropBecomesKing
 
 
 
@@ -875,7 +949,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3kF12") (0.0s)
 
 
-### 20) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.CannotBlockOwnKing
+### 22) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.CannotBlockOwnKing
 
 
 
@@ -902,7 +976,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 21) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadAPreviouslyCreatedBoard
+### 23) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadAPreviouslyCreatedBoard
 
 
 
@@ -921,7 +995,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: SetupSteps.GivenIHaveNamedBoard("WeirdSituation1") (0.0s)
 
 
-### 22) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadASavedBoard
+### 24) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.LoadASavedBoard
 
 
 
@@ -945,7 +1019,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: SetupSteps.GivenILoad(&lt;table&gt;) (0.0s)
 
 
-### 23) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.MergeSplitMergeDoesntCreatePieces
+### 25) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.MergeSplitMergeDoesntCreatePieces
 
 
 
@@ -980,7 +1054,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12+E12k3F1") (0.0s)
 
 
-### 24) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d1",null)
+### 26) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d1",null)
 
 
 
@@ -1011,7 +1085,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 25) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d2",null)
+### 27) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d2",null)
 
 
 
@@ -1042,7 +1116,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 26) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e1",null)
+### 28) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e1",null)
 
 
 
@@ -1073,7 +1147,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 27) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e2",null)
+### 29) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e2",null)
 
 
 
@@ -1104,7 +1178,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 28) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e3",null)
+### 30) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e3",null)
 
 
 
@@ -1135,7 +1209,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 29) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f1",null)
+### 31) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f1",null)
 
 
 
@@ -1166,7 +1240,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 30) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f2",null)
+### 32) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f2",null)
 
 
 
@@ -1197,7 +1271,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 31) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d7",null)
+### 33) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d7",null)
 
 
 
@@ -1228,7 +1302,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 32) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d8",null)
+### 34) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("d8",null)
 
 
 
@@ -1259,7 +1333,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 33) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e7",null)
+### 35) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e7",null)
 
 
 
@@ -1290,7 +1364,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 34) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e8",null)
+### 36) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e8",null)
 
 
 
@@ -1321,7 +1395,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 35) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e9",null)
+### 37) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("e9",null)
 
 
 
@@ -1352,7 +1426,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 36) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f7",null)
+### 38) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f7",null)
 
 
 
@@ -1383,7 +1457,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 37) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f8",null)
+### 39) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.NoneOfTheseAreValidBlockLocations("f8",null)
 
 
 
@@ -1414,7 +1488,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 38) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves
+### 40) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves
 
 
 
@@ -1461,7 +1535,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenISplit(Red, "1", E3, D2) (0.0s)
 
 
-### 39) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_ShortNotation
+### 41) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_ShortNotation
 
 
 
@@ -1508,7 +1582,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenDoes(Red, "e3-1-d2") (0.0s)
 
 
-### 40) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_TableNotation
+### 42) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.PerformSomeMoves_TableNotation
 
 
 
@@ -1586,7 +1660,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ActionSteps.WhenTheFollowingMoves(&lt;table&gt;) (0.0s)
 
 
-### 41) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard
+### 43) Passed : Testing.Specflow.Features.GameRules.ExamplesFeature.StartFromAnEmptyBoard
 
 
 
@@ -1611,7 +1685,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: SetupSteps.GivenIAddPieces(Blue, "D45+E56k7F5++++6+...") (0.0s)
 
 
-### 42) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeAboveStackSizeFifteen
+### 44) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeAboveStackSizeFifteen
 
 
 
@@ -1675,7 +1749,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 43) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndCursed
+### 45) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndCursed
 
 
 
@@ -1707,7 +1781,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 44) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndKing
+### 46) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndKing
 
 
 
@@ -1739,7 +1813,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 45) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndNormal
+### 47) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeCursedAndNormal
 
 
 
@@ -1771,7 +1845,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 46) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeKingAndKing
+### 48) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.CannotMergeKingAndKing
 
 
 
@@ -1803,7 +1877,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 47) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeAboveSizeTwoRequiresBlessing
+### 49) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeAboveSizeTwoRequiresBlessing
 
 
 
@@ -1854,7 +1928,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF1++") (0.0s)
 
 
-### 48) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeBlessedAndKing
+### 50) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeBlessedAndKing
 
 
 
@@ -1888,7 +1962,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "three", E2) (0.0s)
 
 
-### 49) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeCursedAndBlessed
+### 51) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeCursedAndBlessed
 
 
 
@@ -1923,7 +1997,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F1+") (0.0s)
 
 
-### 50) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath
+### 52) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeHappyPath
 
 
 
@@ -1950,7 +2024,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 
 
-### 51) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeMaximum
+### 53) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeMaximum
 
 
 
@@ -1985,7 +2059,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3+++++++++...") (0.0s)
 
 
-### 52) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndBlessed
+### 54) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndBlessed
 
 
 
@@ -2020,7 +2094,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F1+") (0.0s)
 
 
-### 53) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKing
+### 55) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKing
 
 
 
@@ -2054,7 +2128,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", E2) (0.0s)
 
 
-### 54) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKingAboveStackSizeTwoRequiresBlessing
+### 56) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndKingAboveStackSizeTwoRequiresBlessing
 
 
 
@@ -2101,7 +2175,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "three", E2) (0.0s)
 
 
-### 55) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndNormal
+### 57) Passed : Testing.Specflow.Features.GameRules.MergeRulesFeature.MergeNormalAndNormal
 
 
 
@@ -2128,7 +2202,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionSucceeds() (0.0s)
 
 
-### 56) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.BlueCannotMoveThroughBlueWall
+### 58) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.BlueCannotMoveThroughBlueWall
 
 
 
@@ -2208,7 +2282,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 57) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CanCaptureEnemyPiece
+### 59) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CanCaptureEnemyPiece
 
 
 
@@ -2242,7 +2316,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldNotBeAny(Blue, D5) (0.0s)
 
 
-### 58) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotCaptureOwnPiece
+### 60) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotCaptureOwnPiece
 
 
 
@@ -2274,7 +2348,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 59) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotDepartEdgeOfBoard
+### 61) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotDepartEdgeOfBoard
 
 
 
@@ -2306,7 +2380,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 60) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOntoBlock
+### 62) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOntoBlock
 
 
 
@@ -2351,7 +2425,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 61) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOverBlock
+### 63) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.CannotMoveOverBlock
 
 
 
@@ -2384,7 +2458,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 62) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.MoveThroughWallIsAssumedIfPossible
+### 64) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.MoveThroughWallIsAssumedIfPossible
 
 
 
@@ -2416,7 +2490,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Blue, "four", B5) (0.0s)
 
 
-### 63) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RedCannotMoveThroughRedWall
+### 65) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RedCannotMoveThroughRedWall
 
 
 
@@ -2492,7 +2566,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 64) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed
+### 66) Passed : Testing.Specflow.Features.GameRules.MovementRulesFeature.RepeatMovesNotAllowed
 
 
 
@@ -2527,7 +2601,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 65) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.BlessedStackLosesBlessingUponSplit_Merge
+### 67) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.BlessedStackLosesBlessingUponSplit_Merge
 
 
 
@@ -2572,7 +2646,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E3) (0.0s)
 
 
-### 66) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo
+### 68) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoKingOverStackSizeTwo
 
 
 
@@ -2612,7 +2686,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 67) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo
+### 69) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeBlessedStackOntoRegularPieceOverStackSizeTwo
 
 
 
@@ -2652,7 +2726,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 68) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoCursedPiece
+### 70) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoCursedPiece
 
 
 
@@ -2699,7 +2773,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 69) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoKingOverStackSizeTwo
+### 71) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoKingOverStackSizeTwo
 
 
 
@@ -2739,7 +2813,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 70) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoRegularPieceOverStackSizeTwo
+### 72) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOntoRegularPieceOverStackSizeTwo
 
 
 
@@ -2779,7 +2853,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 71) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOverBlock
+### 73) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.CannotSplit_MergeOverBlock
 
 
 
@@ -2820,7 +2894,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 72) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureCannotMoveOverBlock
+### 74) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureCannotMoveOverBlock
 
 
 
@@ -2861,7 +2935,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 73) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath
+### 75) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_CaptureHappyPath
 
 
 
@@ -2904,7 +2978,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k6c7cF1") (0.0s)
 
 
-### 74) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo
+### 76) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeBlessedStackOntoBlessedPieceOverStackSizeTwo
 
 
 
@@ -2949,7 +3023,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E3) (0.0s)
 
 
-### 75) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath
+### 77) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeHappyPath
 
 
 
@@ -2992,7 +3066,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF1+2") (0.0s)
 
 
-### 76) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeLeavesCorrectlySizedStacks
+### 78) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeLeavesCorrectlySizedStacks
 
 
 
@@ -3046,7 +3120,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "fifteen", D1) (0.0s)
 
 
-### 77) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","","succeeds","one-stack","two-stack",null)
+### 79) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","","succeeds","one-stack","two-stack",null)
 
 
 
@@ -3096,7 +3170,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 78) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","b","succeeds","one-stack","two-stack",null)
+### 80) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","b","succeeds","one-stack","two-stack",null)
 
 
 
@@ -3146,7 +3220,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 79) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","c","fails","two-stack","cursed one-stack",null)
+### 81) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","c","fails","two-stack","cursed one-stack",null)
 
 
 
@@ -3197,7 +3271,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A1) (0.0s)
 
 
-### 80) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","k","succeeds","one-stack","two-stack king",null)
+### 82) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","k","succeeds","one-stack","two-stack king",null)
 
 
 
@@ -3247,7 +3321,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 81) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","+","fails","two-stack","two-stack",null)
+### 83) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","+","fails","two-stack","two-stack",null)
 
 
 
@@ -3298,7 +3372,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A1) (0.0s)
 
 
-### 82) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","b+","succeeds","one-stack","three-stack",null)
+### 84) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","b+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -3348,7 +3422,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 83) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","c+","fails","two-stack","cursed two-stack",null)
+### 85) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","c+","fails","two-stack","cursed two-stack",null)
 
 
 
@@ -3399,7 +3473,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A1) (0.0s)
 
 
-### 84) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","k+","fails","two-stack","two-stack king",null)
+### 86) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("+","k+","fails","two-stack","two-stack king",null)
 
 
 
@@ -3450,7 +3524,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "two", A1) (0.0s)
 
 
-### 85) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","","succeeds","one-stack","two-stack",null)
+### 87) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","","succeeds","one-stack","two-stack",null)
 
 
 
@@ -3500,7 +3574,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 86) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","b","succeeds","one-stack","two-stack",null)
+### 88) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","b","succeeds","one-stack","two-stack",null)
 
 
 
@@ -3550,7 +3624,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 87) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","c","succeeds","one-stack","two-stack",null)
+### 89) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","c","succeeds","one-stack","two-stack",null)
 
 
 
@@ -3600,7 +3674,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 88) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","k","succeeds","one-stack","two-stack king",null)
+### 90) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","k","succeeds","one-stack","two-stack king",null)
 
 
 
@@ -3650,7 +3724,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 89) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","+","succeeds","one-stack","three-stack",null)
+### 91) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -3700,7 +3774,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 90) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","b+","succeeds","one-stack","three-stack",null)
+### 92) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","b+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -3750,7 +3824,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 91) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","c+","succeeds","one-stack","three-stack",null)
+### 93) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","c+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -3800,7 +3874,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 92) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","k+","succeeds","one-stack","three-stack king",null)
+### 94) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("b+","k+","succeeds","one-stack","three-stack king",null)
 
 
 
@@ -3850,7 +3924,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 93) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","","fails","cursed two-stack","one-stack",null)
+### 95) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","","fails","cursed two-stack","one-stack",null)
 
 
 
@@ -3901,7 +3975,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
 
 
-### 94) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","b","succeeds","one-stack","two-stack",null)
+### 96) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","b","succeeds","one-stack","two-stack",null)
 
 
 
@@ -3951,7 +4025,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 95) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","c","fails","cursed two-stack","cursed one-stack",null)
+### 97) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","c","fails","cursed two-stack","cursed one-stack",null)
 
 
 
@@ -4002,7 +4076,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
 
 
-### 96) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","k","fails","cursed two-stack","one-stack king",null)
+### 98) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","k","fails","cursed two-stack","one-stack king",null)
 
 
 
@@ -4053,7 +4127,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
 
 
-### 97) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","+","fails","cursed two-stack","two-stack",null)
+### 99) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","+","fails","cursed two-stack","two-stack",null)
 
 
 
@@ -4104,7 +4178,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
 
 
-### 98) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","b+","succeeds","one-stack","three-stack",null)
+### 100) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","b+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -4154,7 +4228,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", A1) (0.0s)
 
 
-### 99) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","c+","fails","cursed two-stack","cursed two-stack",null)
+### 101) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","c+","fails","cursed two-stack","cursed two-stack",null)
 
 
 
@@ -4205,7 +4279,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
 
 
-### 100) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","k+","fails","cursed two-stack","two-stack king",null)
+### 102) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("c+","k+","fails","cursed two-stack","two-stack king",null)
 
 
 
@@ -4256,7 +4330,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", A1) (0.0s)
 
 
-### 101) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","","succeeds","one-stack king","two-stack king",null)
+### 103) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","","succeeds","one-stack king","two-stack king",null)
 
 
 
@@ -4306,7 +4380,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", A1) (0.0s)
 
 
-### 102) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","b","succeeds","one-stack king","two-stack king",null)
+### 104) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","b","succeeds","one-stack king","two-stack king",null)
 
 
 
@@ -4356,7 +4430,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", A1) (0.0s)
 
 
-### 103) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","c","fails","two-stack king","cursed one-stack",null)
+### 105) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","c","fails","two-stack king","cursed one-stack",null)
 
 
 
@@ -4407,7 +4481,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A1) (0.0s)
 
 
-### 104) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","k","fails","two-stack king","one-stack king",null)
+### 106) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","k","fails","two-stack king","one-stack king",null)
 
 
 
@@ -4458,7 +4532,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A1) (0.0s)
 
 
-### 105) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","+","fails","two-stack king","two-stack",null)
+### 107) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","+","fails","two-stack king","two-stack",null)
 
 
 
@@ -4509,7 +4583,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A1) (0.0s)
 
 
-### 106) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","b+","succeeds","one-stack king","three-stack king",null)
+### 108) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","b+","succeeds","one-stack king","three-stack king",null)
 
 
 
@@ -4559,7 +4633,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", A1) (0.0s)
 
 
-### 107) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","c+","fails","two-stack king","cursed two-stack",null)
+### 109) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","c+","fails","two-stack king","cursed two-stack",null)
 
 
 
@@ -4610,7 +4684,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A1) (0.0s)
 
 
-### 108) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","k+","fails","two-stack king","two-stack king",null)
+### 110) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_Adjacent("k+","k+","fails","two-stack king","two-stack king",null)
 
 
 
@@ -4661,7 +4735,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", A1) (0.0s)
 
 
-### 109) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","","succeeds","one-stack","two-stack",null)
+### 111) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","","succeeds","one-stack","two-stack",null)
 
 
 
@@ -4711,7 +4785,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 110) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","b","succeeds","one-stack","two-stack",null)
+### 112) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","b","succeeds","one-stack","two-stack",null)
 
 
 
@@ -4761,7 +4835,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 111) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","c","succeeds","one-stack","two-stack",null)
+### 113) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","c","succeeds","one-stack","two-stack",null)
 
 
 
@@ -4811,7 +4885,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 112) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","k","succeeds","one-stack","two-stack king",null)
+### 114) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","k","succeeds","one-stack","two-stack king",null)
 
 
 
@@ -4861,7 +4935,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 113) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","+","succeeds","one-stack","three-stack",null)
+### 115) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -4911,7 +4985,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 114) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","b+","succeeds","one-stack","three-stack",null)
+### 116) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","b+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -4961,7 +5035,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 115) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","c+","succeeds","one-stack","three-stack",null)
+### 117) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","c+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -5011,7 +5085,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 116) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","k+","succeeds","one-stack","three-stack king",null)
+### 118) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("+","k+","succeeds","one-stack","three-stack king",null)
 
 
 
@@ -5061,7 +5135,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 117) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","","succeeds","one-stack","two-stack",null)
+### 119) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","","succeeds","one-stack","two-stack",null)
 
 
 
@@ -5111,7 +5185,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 118) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","b","succeeds","one-stack","two-stack",null)
+### 120) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","b","succeeds","one-stack","two-stack",null)
 
 
 
@@ -5161,7 +5235,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 119) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","c","succeeds","one-stack","two-stack",null)
+### 121) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","c","succeeds","one-stack","two-stack",null)
 
 
 
@@ -5211,7 +5285,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 120) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","k","succeeds","one-stack","two-stack king",null)
+### 122) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","k","succeeds","one-stack","two-stack king",null)
 
 
 
@@ -5261,7 +5335,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 121) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","+","succeeds","one-stack","three-stack",null)
+### 123) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -5311,7 +5385,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 122) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","b+","succeeds","one-stack","three-stack",null)
+### 124) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","b+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -5361,7 +5435,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 123) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","c+","succeeds","one-stack","three-stack",null)
+### 125) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","c+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -5411,7 +5485,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 124) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","k+","succeeds","one-stack","three-stack king",null)
+### 126) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("b+","k+","succeeds","one-stack","three-stack king",null)
 
 
 
@@ -5461,7 +5535,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 125) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","","fails","cursed two-stack","one-stack",null)
+### 127) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","","fails","cursed two-stack","one-stack",null)
 
 
 
@@ -5512,7 +5586,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
 
 
-### 126) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","b","succeeds","one-stack","two-stack",null)
+### 128) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","b","succeeds","one-stack","two-stack",null)
 
 
 
@@ -5562,7 +5636,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 127) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","c","fails","cursed two-stack","cursed one-stack",null)
+### 129) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","c","fails","cursed two-stack","cursed one-stack",null)
 
 
 
@@ -5613,7 +5687,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
 
 
-### 128) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","k","fails","cursed two-stack","one-stack king",null)
+### 130) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","k","fails","cursed two-stack","one-stack king",null)
 
 
 
@@ -5664,7 +5738,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
 
 
-### 129) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","+","fails","cursed two-stack","two-stack",null)
+### 131) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","+","fails","cursed two-stack","two-stack",null)
 
 
 
@@ -5715,7 +5789,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
 
 
-### 130) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","b+","succeeds","one-stack","three-stack",null)
+### 132) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","b+","succeeds","one-stack","three-stack",null)
 
 
 
@@ -5765,7 +5839,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "one", E9) (0.0s)
 
 
-### 131) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","c+","fails","cursed two-stack","cursed two-stack",null)
+### 133) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","c+","fails","cursed two-stack","cursed two-stack",null)
 
 
 
@@ -5816,7 +5890,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
 
 
-### 132) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","k+","fails","cursed two-stack","two-stack king",null)
+### 134) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("c+","k+","fails","cursed two-stack","two-stack king",null)
 
 
 
@@ -5867,7 +5941,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", E9) (0.0s)
 
 
-### 133) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","","succeeds","one-stack king","two-stack king with a blessing",null)
+### 135) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","","succeeds","one-stack king","two-stack king with a blessing",null)
 
 
 
@@ -5917,7 +5991,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
 
 
-### 134) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","b","succeeds","one-stack king","two-stack king with a blessing",null)
+### 136) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","b","succeeds","one-stack king","two-stack king with a blessing",null)
 
 
 
@@ -5967,7 +6041,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
 
 
-### 135) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","c","succeeds","one-stack king","two-stack king with a blessing",null)
+### 137) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","c","succeeds","one-stack king","two-stack king with a blessing",null)
 
 
 
@@ -6017,7 +6091,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
 
 
-### 136) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","k","fails","two-stack king","one-stack king",null)
+### 138) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","k","fails","two-stack king","one-stack king",null)
 
 
 
@@ -6068,7 +6142,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", E9) (0.0s)
 
 
-### 137) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","+","succeeds","one-stack king","three-stack king with a blessing",null)
+### 139) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","+","succeeds","one-stack king","three-stack king with a blessing",null)
 
 
 
@@ -6118,7 +6192,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
 
 
-### 138) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","b+","succeeds","one-stack king","three-stack king with a blessing",null)
+### 140) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","b+","succeeds","one-stack king","three-stack king with a blessing",null)
 
 
 
@@ -6168,7 +6242,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
 
 
-### 139) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","c+","succeeds","one-stack king","three-stack king with a blessing",null)
+### 141) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","c+","succeeds","one-stack king","three-stack king with a blessing",null)
 
 
 
@@ -6218,7 +6292,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "one", E9) (0.0s)
 
 
-### 140) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","k+","fails","two-stack king","two-stack king",null)
+### 142) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MergeRuleTest_OverWall("k+","k+","fails","two-stack king","two-stack king",null)
 
 
 
@@ -6269,7 +6343,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKing(Red, "two", E9) (0.0s)
 
 
-### 141) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOntoBlock
+### 143) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOntoBlock
 
 
 
@@ -6310,7 +6384,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 142) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOverBlock
+### 144) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCannotMoveOverBlock
 
 
 
@@ -6351,7 +6425,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 143) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCursesBothPieces
+### 145) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveCursesBothPieces
 
 
 
@@ -6397,7 +6471,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12k3F2c3c") (0.0s)
 
 
-### 144) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath
+### 146) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.Split_MoveHappyPath
 
 
 
@@ -6440,7 +6514,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D12E12kF12c3c") (0.0s)
 
 
-### 145) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitDistanceCannotExceedSize
+### 147) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitDistanceCannotExceedSize
 
 
 
@@ -6512,7 +6586,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 146) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitMustRejectInvalidSizes
+### 148) Passed : Testing.Specflow.Features.GameRules.SplitRulesFeature.SplitMustRejectInvalidSizes
 
 
 
@@ -6580,7 +6654,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 147) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueCapturingAnyRedKingCausesBlueWin
+### 149) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueCapturingAnyRedKingCausesBlueWin
 
 
 
@@ -6615,7 +6689,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 148) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin
+### 150) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueFormingChainWithKingCausesBlueWin
 
 
 
@@ -6650,7 +6724,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 149) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueJoiningKingToExistingChainCausesRedWin
+### 151) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueJoiningKingToExistingChainCausesRedWin
 
 
 
@@ -6685,7 +6759,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 150) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin
+### 152) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueKingPassingRedWallCausesBlueWin
 
 
 
@@ -6720,7 +6794,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 151) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
+### 153) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
 
 
 
@@ -6755,7 +6829,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoSize(Blue, E8) (0.0s)
 
 
-### 152) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin
+### 154) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueMovingBlessedPieceOntoRedHomeDoesNotCauseWin
 
 
 
@@ -6790,7 +6864,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoSize(Blue, E2) (0.0s)
 
 
-### 153) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWinWithNoLegalMovesCausesBlueWin
+### 155) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWinWithNoLegalMovesCausesBlueWin
 
 
 
@@ -6825,7 +6899,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 154) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin
+### 156) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.BlueWithNoLegalMovesCausesRedWin
 
 
 
@@ -6860,7 +6934,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 155) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedCapturingAnyBlueKingCausesRedWin
+### 157) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedCapturingAnyBlueKingCausesRedWin
 
 
 
@@ -6895,7 +6969,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 156) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedFormingChainWithKingCausesRedWin
+### 158) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedFormingChainWithKingCausesRedWin
 
 
 
@@ -6930,7 +7004,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 157) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedJoiningKingToExistingChainCausesRedWin
+### 159) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedJoiningKingToExistingChainCausesRedWin
 
 
 
@@ -6964,7 +7038,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 158) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
+### 160) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedKingPassingBlueWallCausesRedWin
 
 
 
@@ -6998,7 +7072,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 159) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
+### 161) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoBlueHomeDoesNotCauseWin
 
 
 
@@ -7033,7 +7107,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoSize(Red, E8) (0.0s)
 
 
-### 160) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin
+### 162) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedMovingBlessedPieceOntoRedHomeDoesNotCauseWin
 
 
 
@@ -7068,7 +7142,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeKingNoColor("two", E2) (0.0s)
 
 
-### 161) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWinWithNoLegalMovesCausesRedWin
+### 163) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWinWithNoLegalMovesCausesRedWin
 
 
 
@@ -7103,7 +7177,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 162) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin
+### 164) Passed : Testing.Specflow.Features.GameRules.WinLoseRulesFeature.RedWithNoLegalMovesCausesBlueWin
 
 
 
@@ -7138,7 +7212,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 163) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize
+### 165) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndMergingCanFormAnyStackSize
 
 
 
@@ -7182,7 +7256,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "six", A2) (0.0s)
 
 
-### 164) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplitMergingCanFormAnyStackSize
+### 166) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplitMergingCanFormAnyStackSize
 
 
 
@@ -7219,7 +7293,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A1) (0.0s)
 
 
-### 165) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingCompletingBridgeLeavesBless_BlessPair
+### 167) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingCompletingBridgeLeavesBless_BlessPair
 
 
 
@@ -7277,7 +7351,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "one", I1) (0.0s)
 
 
-### 166) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair
+### 168) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundAndSplittingLeavesBless_CursePair
 
 
 
@@ -7314,7 +7388,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeBlessed(Red, "two", G1) (0.0s)
 
 
-### 167) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundMergingOntoHomeBecomesKing
+### 169) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundMergingOntoHomeBecomesKing
 
 
 
@@ -7350,7 +7424,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "C1+E2k++5+") (0.0s)
 
 
-### 168) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing
+### 170) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundOntoHomeBecomesKing
 
 
 
@@ -7386,7 +7460,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "C1+D2kE2k+5+") (0.0s)
 
 
-### 169) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed
+### 171) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.BlessedPieceWrappingAroundRemainsBlessed
 
 
 
@@ -7422,7 +7496,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1bD12E12k3F12") (0.0s)
 
 
-### 170) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndMergingRequiresBlessedTarget
+### 172) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndMergingRequiresBlessedTarget
 
 
 
@@ -7466,7 +7540,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A4++D128k++E137cF12") (0.0s)
 
 
-### 171) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget
+### 173) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplitMergingRequiresBlessedTarget
 
 
 
@@ -7498,7 +7572,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheActionFails() (0.0s)
 
 
-### 172) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplittingRemainsCursed
+### 174) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundAndSplittingRemainsCursed
 
 
 
@@ -7535,7 +7609,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBeCursed(Red, "two", G1) (0.0s)
 
 
-### 173) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundOntoHomeBecomesKing
+### 175) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundOntoHomeBecomesKing
 
 
 
@@ -7570,7 +7644,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "D1+3E2k+3k+7c") (0.0s)
 
 
-### 174) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
+### 176) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.CursedPieceWrappingAroundRemainsCursed
 
 
 
@@ -7606,7 +7680,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1cD12E12k3F12") (0.0s)
 
 
-### 175) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingStackWrappingAroundAndSplitMergingOntoPieceRemainsBlessedAndWinsGame
+### 177) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingStackWrappingAroundAndSplitMergingOntoPieceRemainsBlessedAndWinsGame
 
 
 
@@ -7646,7 +7720,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 176) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundAndMergingOntoPieceRemainsBlessedAndWinsGame
+### 178) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundAndMergingOntoPieceRemainsBlessedAndWinsGame
 
 
 
@@ -7683,7 +7757,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 177) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame
+### 179) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoHomeWinsGame
 
 
 
@@ -7718,7 +7792,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Red) (0.0s)
 
 
-### 178) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoRegularSpaceWinsGame
+### 180) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.KingWrappingAroundOntoRegularSpaceWinsGame
 
 
 
@@ -7753,7 +7827,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.GameOver(Blue) (0.0s)
 
 
-### 179) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed
+### 181) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundBecomesBlessed
 
 
 
@@ -7789,7 +7863,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Red, "A1bD12E12k3F12") (0.0s)
 
 
-### 180) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundOntoHomeBecomesKing
+### 182) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.NormalPieceWrappingAroundOntoHomeBecomesKing
 
 
 
@@ -7825,7 +7899,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenTheBoardHasPiecesMatching(Blue, "B4C6c7cD678E8k+H4k") (0.0s)
 
 
-### 181) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndMergingCanFormAnyStackSize
+### 183) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndMergingCanFormAnyStackSize
 
 
 
@@ -7869,7 +7943,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "six", A2) (0.0s)
 
 
-### 182) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize
+### 184) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplitMergingCanFormAnyStackSize
 
 
 
@@ -7906,7 +7980,7 @@ NUnit Version: 3.10.0.0
  -&gt; done: ValidationSteps.ThenThereShouldBe(Red, "three", A1) (0.0s)
 
 
-### 183) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair
+### 185) Passed : Testing.Specflow.Features.GameRules.WrapAroundRulesFeature.RegularPieceWrappingAroundAndSplittingLeavesBless_CursePair
 
 
 
@@ -7963,11 +8037,11 @@ NUnit Version: 3.10.0.0
 
  Overall result: Passed
 
- Test Count: 183, Passed: 183, Failed: 0, Inconclusive: 0, Skipped: 0
+ Test Count: 185, Passed: 185, Failed: 0, Inconclusive: 0, Skipped: 0
 
- Start time: 2020-05-02 18:33:00Z
+ Start time: 2020-05-03 00:09:23Z
 
-   End time: 2020-05-02 18:33:02Z
+   End time: 2020-05-03 00:09:25Z
 
-   Duration: 2.852 seconds
+   Duration: 2.674 seconds
 

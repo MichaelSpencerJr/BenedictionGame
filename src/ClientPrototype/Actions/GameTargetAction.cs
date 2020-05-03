@@ -124,29 +124,29 @@ namespace Benediction.Actions
                 Math.Abs(horizontalDiff) != Math.Abs(verticalDiff))
                 return $"Movement Follows Board Lines, and No Line Connects {Location} With {Target}";
 
-            var blueWallWrapAround = Side == ActionSide.Red;
-            var redWallWrapAround = Side == ActionSide.Blue;
+            var blueWallWrapAround = Side == ActionSide.Red ? Movement.Blue.CanWrap : Movement.Blue.CannotWrap;
+            var redWallWrapAround = Side == ActionSide.Blue ? Movement.Red.CanWrap : Movement.Red.CannotWrap;
 
             // Set of board locations which can be reached (for reporting to the user in case of illegal move)
             var reachable = new HashSet<Location>();
 
             // Holds the two possible directions the user might be moving -- to be filled in immediately below
-            Func<Location, bool, bool, Location>[] movers;
+            Movement.Mover[] movers;
 
             if (horizontalDiff == 0)
             {
                 //This must be a vertical move, so only consider spaces reachable going north or south.
-                movers = new Func<Location, bool, bool, Location>[] {Movement.North, Movement.South};
+                movers = new Movement.Mover[] {Movement.North, Movement.South};
             }
             else if (Math.Sign(horizontalDiff) == Math.Sign(verticalDiff))
             {
                 //This must be a northwest or southeast move, so only consider spaces reachable from those directions.
-                movers = new Func<Location, bool, bool, Location>[] {Movement.SouthEast, Movement.NorthWest};
+                movers = new Movement.Mover[] {Movement.SouthEast, Movement.NorthWest};
             }
             else
             {
                 //This must be a northeast or southwest move, so only consider spaces reachable from those directions.
-                movers = new Func<Location, bool, bool, Location>[] {Movement.NorthEast, Movement.SouthWest};
+                movers = new Movement.Mover[] {Movement.NorthEast, Movement.SouthWest};
             }
 
             //We take advantage of a property of direct vs wrap-around moves: direct moves always have a manhattan
@@ -161,7 +161,7 @@ namespace Benediction.Actions
                 for (var i = 0; i < maxLength; i++)
                 {
                     // test the considered move and find its movement vector
-                    var newCell = mover(consideredCell, blueWallWrapAround, redWallWrapAround);
+                    var newCell = mover(consideredCell, blueWallWrapAround, redWallWrapAround, Movement.UnmarkedEdges.CannotWrap);
                     if (newCell == Location.Undefined) break;
                     
                     var (horizontal, vertical) = MovementVector(consideredCell, newCell);
